@@ -1,8 +1,7 @@
 @echo off
 echo Deleting prevorious release...
-cd bin
-rm -r -f *
-cd ..
+rm -r -f bin
+mkdir bin
 echo Compiling...
 cd src
 javac -d ../bin/ fearlesscode/*.java
