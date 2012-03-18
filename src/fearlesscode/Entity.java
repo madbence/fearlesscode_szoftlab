@@ -1,5 +1,7 @@
 package fearlesscode;
 
+import fearlesscode.util;
+
 public abstract class Entity
 {
 	protected PlayField playField;

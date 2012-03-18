@@ -1,26 +1,23 @@
 package fearlesscode;
 
-public class EmptyBlock extends Block {
+import fearlesscode.util;
 
-	public EmptyBlock(){
-        super();
-        Logger.call(this,"EmptyBlock.init()");
-        Logger.ret(this,"EmptyBlock.init()");
-
-
+public class EmptyBlock extends Block
+{
+	public EmptyBlock()
+        {
+                super();
+                Logger.call(this,"EmptyBlock.init()");
+                Logger.ret(this,"EmptyBlock.init()");
 	}
-
-
-	public void checkBorders(){
-        Logger.call(this,"EmptyBlock.checkBorders()");
-        Logger.ret(this,"EmptyBlock.checkBorders()");
+	public void checkBorders()
+        {
+                Logger.call(this,"EmptyBlock.checkBorders()");
+                Logger.ret(this,"EmptyBlock.checkBorders()");
 	}
-
-	public void processCollisions(){
-        Logger.call(this,"EmptyBlock.processCollisions()");
-        Logger.ret(this,"EmptyBlock.processCollisions()");
-
-
+	public void processCollisions()
+        {
+                Logger.call(this,"EmptyBlock.processCollisions()");
+                Logger.ret(this,"EmptyBlock.processCollisions()");
 	}
-
 }

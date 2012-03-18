@@ -1,5 +1,7 @@
 package fearlesscode;
 
+import fearlesscode.util;
+
 public class Door extends Entity
 {
 	public Door(int requiredKeys, PlayField playField)

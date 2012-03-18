@@ -1,5 +1,7 @@
 package fearlesscode;
 
+import fearlesscode.util;
+
 public class Game {
 
 	private PlayField playField;
