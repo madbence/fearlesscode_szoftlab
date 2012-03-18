@@ -1,6 +1,7 @@
 package fearlesscode.util;
 
 import java.util.*;
+import java.io.*;
 
 public class Logger
 {
@@ -46,5 +47,23 @@ public class Logger
 	public static void reg(Object obj, String name)
 	{
 		list.put(obj, name);
+	}
+	public static boolean ask(String q)
+	{
+		System.out.print(getIndentation(level)+"\""+q+"\" (y/n) ");
+		BufferedReader in=new BufferedReader(new InputStreamReader(System.in));
+		try
+		{
+			String line=in.readLine();
+			if(line.equals("y"))
+			{
+				return true;
+			}
+			return false;
+		}
+		catch(Exception e)
+		{
+			return false;
+		}
 	}
 }
