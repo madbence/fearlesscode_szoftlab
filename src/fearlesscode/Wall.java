@@ -1,21 +1,17 @@
 package fearlesscode;
 
-public class Wall extends Entity {
+import fearlesscode.util;
 
-	private int points;
-
-	public Wall(PlayField playField){
-		Logger.call(this,"Wall.init()");
+public class Wall extends Entity
+{
+	public Wall(PlayField playField)
+	{
+		//Logger.call(this,"Wall.init()");
 		super(playField);		       
-		this.requiredKeys=requiredKeys;
-		Logger.ret(this,"Wall.init()");
-
+		//Logger.ret(this,"Wall.init()");
 	}
-
-
 	public void meetPlayer(Player player){
-    	Logger.call(this,"Wall.meetPlayer(player)");
-    	Logger.ret(this,"Wall.meetPlayer(player)");
+    	Logger.call(this,"meetPlayer(player)");
+    	Logger.ret(this,"meetPlayer(player)");
 	}
-
 }
