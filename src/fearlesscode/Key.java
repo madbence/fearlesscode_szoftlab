@@ -1,5 +1,7 @@
 package fearlesscode;
 
+import fearlesscode.util.*;
+
 public class Key extends Entity
 {
 
