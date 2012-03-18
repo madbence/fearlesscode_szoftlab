@@ -1,17 +1,16 @@
 package fearlesscode;
 
-public class SpawnPoint extends Entity {
-
-	public SpawnPoint(){
-
+public class SpawnPoint extends Entity
+{
+	public SpawnPoint(PlayField playField)
+	{
+		Logger.call(this,"SpawnPoint.init()");
+		super(playField);
+		Logger.ret(this,"SpawnPoint.init()");
 	}
-
-	/**
-	 * 
-	 * @param player
-	 */
-	public void meetPlayer(Player player){
-
+	public void meetPlayer(Player player)
+	{
+    	Logger.call(this,"SpawnPoint.meetPlayer(player)");
+    	Logger.ret(this,"SpawnPoint.meetPlayer(player)");
 	}
-
 }
