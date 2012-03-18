@@ -1,17 +1,19 @@
 package fearlesscode;
 
-public class FilledBlock extends Block {
+public class FilledBlock extends Block
+{
 
-	public FilledBlock(){
+	public FilledBlock()
+    {
         super();
-        Logger.call(this,"FilledBlock.init()");
-        Logger.call(this,"FilledBlock.init()");
-
+        //Logger.call(this,"FilledBlock.init()");
+        //Logger.call(this,"FilledBlock.init()");
 	}
 
 
-	public void checkBorders(){
-        Logger.call(this,"FilledBlock.checkBorders()");
+	public void checkBorders()
+    {
+        Logger.call(this,"checkBorders()");
         boolean isAtBlockSide=false;
         boolean isPossibleToGetTrough=false;
         boolean doesFallOut=false;
@@ -32,12 +34,12 @@ public class FilledBlock extends Block {
         else if(isOutOfTheBlock){
            player.player.leaveBlock(this);
         }
-        Logger.call(this,"FilledBlock.checkBorders()");
+        Logger.call(this,"checkBorders()");
 
 	}
 
 	public void processCollisions(){
-        Logger.call(this,"FilledBlock.processCollisions()");
+        Logger.call(this,"processCollisions()");
 
         for(EntityContainer e : entities){
             boolean collision=false;
@@ -46,7 +48,7 @@ public class FilledBlock extends Block {
                 e.entity.meetPlayer(player.player);
             }
         }
-        Logger.ret(this,"FilledBlock.processCollisions()");
+        Logger.ret(this,"processCollisions()");
 	}
 
 }
