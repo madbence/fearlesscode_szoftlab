@@ -1,7 +1,5 @@
 package fearlesscode;
 
-import fearlesscode.util.*;
-
 public class Player {
 
 	private int obtainedKeys;
@@ -16,6 +14,8 @@ public class Player {
 	public void addKey(){
             Logger.call(this, "addKey()");
             
+            obtainedKeys++;
+            
             Logger.ret(this, "addKey()");
 	}
 
@@ -25,6 +25,8 @@ public class Player {
 	 */
 	public void enterBlock(Block block){
             Logger.call(this, "enterBlock(Block)");
+            
+            activeBlocks = block;
             
             Logger.ret(this, "addKey(Block)");
 	
