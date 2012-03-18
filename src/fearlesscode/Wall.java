@@ -11,7 +11,13 @@ public class Wall extends Entity
 		//Logger.ret(this,"Wall.init()");
 	}
 	public void meetPlayer(Player player){
-    	Logger.call(this,"meetPlayer(player)");
-    	Logger.ret(this,"meetPlayer(player)");
+    	Logger.call(this,"Wall.meetPlayer(player)");
+		if(Logger.ask(this,"Oldalról ütközött falnak?"){
+		player.move(Direction dir);
+		}
+		else{
+		player.move(Direction dir);
+		}
+    	Logger.ret(this,"Wall.meetPlayer(player)");
 	}
 }
