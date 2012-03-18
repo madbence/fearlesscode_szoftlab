@@ -42,4 +42,9 @@ public class Game {
 		Logger.ret(this, "start()");
 	}
 
+	public PlayField getPlayField()
+	{
+		return playField;
+	}
+
 }
