@@ -24,7 +24,7 @@ public class Game {
 	public void loadNextLevel()
 	{
 		Logger.call(this, "loadNextLevel()");
-
+		playField=PlayFieldBuilder.createPlayField();
 		Logger.ret(this, "loadNextLevel()");
 	}
 
@@ -36,7 +36,7 @@ public class Game {
 	public void start()
 	{
 		Logger.call(this, "start()");
-
+		playField=PlayFieldBuilder.createPlayField();
 		Logger.ret(this, "start()");
 	}
 
