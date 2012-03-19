@@ -55,16 +55,16 @@ public class PlayFieldBuilder
         }
         
         Player player = new Player();
-        Wall wall = new Wall();
-        Door door = new Door();
-        Key  = new Key();
+        Wall wall = new Wall(playField);
+        Door door = new Door(0, playField);
+        Key  key = new Key(playField);
         
         blockToBuildUp.addEntity(null, wall);
         blockToBuildUp.addEntity(null, key);
         blockToBuildUp.addEntity(null, wall);
         blockToBuildUp.addEntity(null, door);
         
-        playerField.addPlayer(null, player);
+        playField.addPlayer(null, player);
         player.enterBlock(blockToBuildUp);
         
         Logger.ret("PlayFieldBuilder", "createPlayField()");
