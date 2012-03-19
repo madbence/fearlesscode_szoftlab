@@ -17,6 +17,7 @@ public class FilledBlock extends Block
 		{
 			if(Logger.ask("Lehetséges az átjutás?"))
 			{
+			FilledBlock neighbour = neighbours[0];
 			player.player.enterBlock(neighbour);
 			neighbour.setPlayer(player.player,pos);
 			}
