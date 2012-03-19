@@ -76,7 +76,7 @@ public abstract class Block {
 	 */
 	public void setNeighbours(Block[] neighbours){
         Logger.call(this,"setNeighbours(neighbours)");
-        this.neighbours=neighbours;
+        //this.neighbours=neighbours;
         Logger.ret(this,"setNeighbours(neighbours)");
 	}
 
