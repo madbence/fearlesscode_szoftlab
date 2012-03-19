@@ -2,6 +2,8 @@ package fearlesscode;
 
 import fearlesscode.util.*;
 
+import java.util.logging.Logger;
+
 public class FilledBlock extends Block
 {
 
@@ -16,24 +18,19 @@ public class FilledBlock extends Block
 	public void checkBorders()
     {
         Logger.call(this,"checkBorders()");
-        boolean isAtBlockSide=false;
-        boolean isPossibleToGetTrough=false;
-        boolean doesFallOut=false;
-        boolean isOutOfTheBlock=false;
-        Block neighbour;
-        EntityPosition pos;
 
-        if(isAtBlockSide){
-           if(isPossibleToGetTrough){
+
+        if(Logger.ask("Blokk széléhez ért?")){
+           if(Logger.ask("Lehetséges az átjutás?")){
                 player.player.enterBlock(neighbour);
                 neighbour.setPlayer(player.player,pos);
            }
-           else if(doesFallOut){
+           else if(Logger.ask("Kiesik?")){
                //????????vissza kéne hogy hivjon a PlayField-re de nincs rá ref??????
 
            }
         }
-        else if(isOutOfTheBlock){
+        else if(Logger.ask("Kilépett egy blokkból?")){
            player.player.leaveBlock(this);
         }
         Logger.call(this,"checkBorders()");
@@ -44,8 +41,8 @@ public class FilledBlock extends Block
         Logger.call(this,"processCollisions()");
 
         for(EntityContainer e : entities){
-            boolean collision=false;
-            if(collision)
+
+            if(Logger.ask("Volt ütközés?"))
             {
                 e.entity.meetPlayer(player.player);
             }
