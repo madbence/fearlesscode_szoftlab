@@ -12,7 +12,7 @@ public class PlayField
 
 	public PlayField()
 	{
-            Logger.reg(this, "playerField");
+		Logger.reg(this, "playerField");
 	}
 	/**
 	 * 
@@ -21,9 +21,9 @@ public class PlayField
 	 */
 	public void addBlock(Position position, Block block)
 	{
-            Logger.call(this, "addBlock(Position, Block)");
-            
-            Logger.ret(this, "addBlock(Position, Block)");
+		Logger.call(this, "addBlock(Position, Block)");
+
+		Logger.ret(this, "addBlock(Position, Block)");
 	}
 
 	/**
@@ -33,9 +33,9 @@ public class PlayField
 	 */
 	public void move(Block block, int direction)
 	{
-            Logger.call(this, "move(Block, int)");
-            
-            Logger.ret(this, "move(Block, int)");    
+		Logger.call(this, "move(Block, int)");
+
+		Logger.ret(this, "move(Block, int)");    
 	}
 
 	/**
@@ -44,9 +44,14 @@ public class PlayField
 	 */
 	public void setPlayer(Player player)
 	{
-            Logger.call(this, "setPlayer(Player)");
-            
-            Logger.ret(this, "setPlayer(Player)");
+		Logger.call(this, "setPlayer(Player)");
+		this.player=player;
+		Logger.ret(this, "setPlayer(Player)");
+	}
+
+	public Player getPlayer()
+	{
+		return 
 	}
 
 	/**
@@ -55,23 +60,23 @@ public class PlayField
 	 */
 	public void setSpawnPosition(Entity entity)
 	{
-            Logger.call(this, "setSpawnPosition(Entity)");
-            
-            Logger.ret(this, "setSpawnPosition(Entity)");
+		Logger.call(this, "setSpawnPosition(Entity)");
+
+		Logger.ret(this, "setSpawnPosition(Entity)");
 	}
 
 	public void tick()
 	{
-            Logger.call(this, "tick()");
-            
-            Logger.ret(this, "tick()");
+		Logger.call(this, "tick()");
+
+		Logger.ret(this, "tick()");
 	}
 
 	public void toggleMode()
 	{
-            Logger.call(this, "toggleMode()");
-            
-            Logger.ret(this, "toggleMode()");
+		Logger.call(this, "toggleMode()");
+
+		Logger.ret(this, "toggleMode()");
 	}
 
 }

@@ -64,7 +64,7 @@ public class PlayFieldBuilder
         blockToBuildUp.addEntity(null, wall);
         blockToBuildUp.addEntity(null, door);
         
-        playField.addPlayer(null, player);
+        playField.setPlayer(player);
         player.enterBlock(blockToBuildUp);
         
         Logger.ret("PlayFieldBuilder", "createPlayField()");
