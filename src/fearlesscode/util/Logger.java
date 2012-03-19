@@ -36,13 +36,27 @@ public class Logger
 	}
 	public static void call(Object obj, String message)
 	{
-		System.out.print(getIndentation(level)+"->"+getName(obj)+"."+message+"\n");
+		print(getName(obj), message, false);
 		level++;
 	}
 	public static void ret(Object obj, String message)
 	{
 		level--;
-		System.out.print(getIndentation(level)+"<-"+getName(obj)+"."+message+"\n");
+		print(getName(obj), message, true);
+	}
+	public static void call(String name, String message)
+	{
+		print(name, message, false);
+		level++;
+	}
+	public static void ret(String name, String message)
+	{
+		level--;
+		print(name, message, true);
+	}
+	public static void print(String name, String message, boolean dir)
+	{
+		System.out.print(getIndentation(level)+(dir?"<-":"->")+name+"."+message+"\n");
 	}
 	public static void reg(Object obj, String name)
 	{
