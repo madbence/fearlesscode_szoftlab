@@ -86,4 +86,11 @@ public class PlayField
 		game.loadNextLevel();
 		Logger.ret(this, "win()");
 	}
+
+	public void resetPlayer()
+	{
+		Logger.call(this, "resetPlayer()");
+		
+		Logger.ret(this, "resetPlayer()");
+	}
 }
