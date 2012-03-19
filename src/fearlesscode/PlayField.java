@@ -22,7 +22,7 @@ public class PlayField
 	 * @param position
 	 * @param block
 	 */
-	public void addBlock(Position position, Block block)
+	public void addBlock(Position position, Block block)   //blokk hozzáadása a listához
 	{
 		Logger.call(this, "addBlock(Position, Block)");
 		blocks.add(new BlockContainer(position, block));
@@ -34,15 +34,15 @@ public class PlayField
 	 * @param block
 	 * @param direction
 	 */
-	public void move(Block block, int direction)
+	public void move(Block block, int direction)     //blokk mozgatása: melyiket milyen irányba
 	{
-		block=blocks.get(0).block;
-		Logger.call(this, "move(Block, int)");
-		block.getNeighbour(direction);
-		player.getActiveBlocks();
+		block=blocks.get(0).block;                 //lekérjük a 0. blokkot
+		Logger.call(this, "move(Block, int)");          
+		block.getNeighbour(direction);              //lekérkük egy szomszédját(direction iránybeli)         
+		player.getActiveBlocks();                    //megnézzük a player melyik blokkban van jelen
 		if(Logger.ask("Letrejohet a csere?"))
 		{
-			block.getNeighbours();
+			block.getNeighbours();                
 			blocks.get(1).block.getNeighbours();
 			blocks.get(1).block.setNeighbours(null);
 			block.setNeighbours(null);
@@ -55,14 +55,14 @@ public class PlayField
 	 * 
 	 * @param player
 	 */
-	public void setPlayer(Player player)
+	public void setPlayer(Player player)  //beállítja a játékost
 	{
 		Logger.call(this, "setPlayer(Player)");
 		this.player=player;
 		Logger.ret(this, "setPlayer(Player)");
 	}
 
-	public Player getPlayer()
+	public Player getPlayer()   //visszaadja a játékost
 	{
 		return player;
 	}
@@ -71,37 +71,37 @@ public class PlayField
 	 * 
 	 * @param entity
 	 */
-	public void setSpawnPosition(Entity entity)
+	public void setSpawnPosition(Entity entity)       //beállítja hogy az újjáéledés melyik objektumon(kulcson) történjen
 	{
 		Logger.call(this, "setSpawnPosition(Entity)");
 
 		Logger.ret(this, "setSpawnPosition(Entity)");
 	}
 
-	public void tick()
+	public void tick()               //játék mozgatója
 	{
 		Logger.call(this, "tick()");
 		ArrayList<Block> l=player.getActiveBlocks();
-		l.get(0).processCollisions();
-		l.get(0).checkBorders();
+		l.get(0).processCollisions();   // ütközések ellenõrzése egy blokkban itt:0.blokkban
+		l.get(0).checkBorders();         //blokkok közötti mozgást kezeli
 		Logger.ret(this, "tick()");
 	}
 
-	public void toggleMode()
+	public void toggleMode()                  //váltás blokk mód és játék mód között
 	{
 		Logger.call(this, "toggleMode()");
 
 		Logger.ret(this, "toggleMode()");
 	}
 
-	public void win()
+	public void win()                        //gyõzelem esetén hívjuk meg
 	{
 		Logger.call(this, "win()");
-		game.loadNextLevel();
+		game.loadNextLevel();                //gyõzelem esetén következõ pálya betöltése
 		Logger.ret(this, "win()");
 	}
 
-	public void resetPlayer()
+	public void resetPlayer()                 //player visszaállítása ha kiesett
 	{
 		Logger.call(this, "resetPlayer()");
 
