@@ -10,9 +10,10 @@ public class PlayField
 	private Entity spawnPosition;
 	private Block blocks;
 
-	public PlayField()
+	public PlayField(Game game)
 	{
 		Logger.reg(this, "playerField");
+		this.game=game;
 	}
 	/**
 	 * 
@@ -79,4 +80,10 @@ public class PlayField
 		Logger.ret(this, "toggleMode()");
 	}
 
+	public void win()
+	{
+		Logger.call(this, "win()");
+		game.loadNextLevel();
+		Logger.ret(this, "win()");
+	}
 }

@@ -4,9 +4,9 @@ import fearlesscode.util.*;
 
 public class FilledBlock extends Block
 {
-	public FilledBlock()
+	public FilledBlock(PlayField pf)
 	{
-		super();
+		super(pf);
 		Logger.call("FilledBlock", "init()");
 		Logger.ret("FilledBlock", "init()");
 	}
