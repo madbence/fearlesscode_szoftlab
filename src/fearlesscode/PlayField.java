@@ -1,6 +1,7 @@
 package fearlesscode;
 
 import fearlesscode.util.*;
+import java.util.*;
 
 public class PlayField
 {
@@ -69,7 +70,9 @@ public class PlayField
 	public void tick()
 	{
 		Logger.call(this, "tick()");
-
+		ArrayList<Block> l=player.getActiveBlocks();
+		l.get(0).processCollisions();
+		l.get(0).checkBorders();
 		Logger.ret(this, "tick()");
 	}
 
@@ -90,7 +93,7 @@ public class PlayField
 	public void resetPlayer()
 	{
 		Logger.call(this, "resetPlayer()");
-		
+
 		Logger.ret(this, "resetPlayer()");
 	}
 }

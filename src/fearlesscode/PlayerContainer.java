@@ -3,14 +3,9 @@ package fearlesscode;
 public class PlayerContainer
 {
     Player player;
-    Position position;
+    EntityPosition position;
     
-    PlayerContainer()
-    {
-        this.player=new Player();
-        this.position = new Position();
-    }
-    PlayerContainer(Player player, Position pos)
+    PlayerContainer(Player player, EntityPosition pos)
     {
         this.player=player;
         this.position=pos;

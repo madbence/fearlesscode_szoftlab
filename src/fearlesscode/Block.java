@@ -11,13 +11,13 @@ public abstract class Block {
 	protected PlayerContainer player;
 	protected PlayField playField;
 
-	public void Block(PlayField pf)
+	public Block(PlayField pf)
 	{
-        Logger.call("Block","init()");
+        //Logger.call("Block","init()");
         entities = new ArrayList<EntityContainer>();
         neighbours = new Block[4];
         playField=pf;
-        Logger.ret("Block","init()");
+        //Logger.ret("Block","init()");
 	}
 
 	/**

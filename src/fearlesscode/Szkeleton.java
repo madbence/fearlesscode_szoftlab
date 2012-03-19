@@ -2,7 +2,7 @@ package fearlesscode;
 
 class Szkeleton
 {
-	public static void Main(String[] args)
+	public static void main(String[] args)
 	{
 		Game game=new Game();
 		//inicializalas
