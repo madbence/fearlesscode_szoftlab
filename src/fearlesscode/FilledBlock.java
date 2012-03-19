@@ -36,15 +36,15 @@ public class FilledBlock extends Block
 		Logger.call(this,"processCollisions()");
 		if(Logger.ask("Volt ütközés fallal?"))
 		{
-			entities.get(0).meetPlayer(player.player);
+			entities.get(0).entity.meetPlayer(player.player);
 		}
 		if(Logger.ask("Volt ütközés ajtóval?"))
 		{
-			entities.get(1).meetPlayer(player.player);
+			entities.get(1).entity.meetPlayer(player.player);
 		}
 		if(Logger.ask("Volt ütközés kulccsal?"))
 		{
-			entities.get(2).meetPlayer(player.player);
+			entities.get(2).entity.meetPlayer(player.player);
 		}
 		Logger.ret(this,"processCollisions()");
 	}
