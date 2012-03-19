@@ -13,12 +13,12 @@ public class PlayFieldBuilder
         int numberOfBlocks = 16;
         int numberOfEmptyBlock = 15;
         int numberOfBlockToBuildUp = 1;
-        int dimension = 4;                  //blokk mÈreteinek be·llÌt·sa
+        int dimension = 4;                  //blokk m√©reteinek be√°ll√≠t√°sa
         
         PlayField pf = new PlayField(game);
-        ArrayList<Block> blocks = new ArrayList<Block>();  //blokkokat arraylistben t·roljuk
+        ArrayList<Block> blocks = new ArrayList<Block>();  //blokkokat arraylistben t√°roljuk
         
-        for(int i = 0; i < numberOfBlocks; i++)// arraylistet feltˆltj¸k blokkokkal
+        for(int i = 0; i < numberOfBlocks; i++)// arraylistet felt√∂ltj√ºk blokkokkal
         {
             if(i == numberOfEmptyBlock)   //15 Filledblock ami nem tartalmaz Entity-t
             {
@@ -30,7 +30,7 @@ public class PlayFieldBuilder
             }
         }
         
-        for(int i=0; i<numberOfBlocks; i++){             //szomszÈdoss·g be·llÌt·sa
+        for(int i=0; i<numberOfBlocks; i++){             //szomsz√©doss√°g be√°ll√≠t√°sa
         	if(i%4!=0){
         		blocks.get(i).setNeighbour(blocks.get(i-1),3,true);
         	}
@@ -44,11 +44,11 @@ public class PlayFieldBuilder
         
         Wall wall = new Wall(pf);
         Door door = new Door(0, pf);
-        Key  key = new Key(pf);           //3 entit·s lÈtrehoz·sa
+        Key  key = new Key(pf);           //3 entit√°s l√©trehoz√°sa
         
         blocks.get(0).addEntity(null,wall);
         blocks.get(0).addEntity(null,door);
-        blocks.get(0).addEntity(null,key);   //entit·sok hozz·ad·sa egy blokkhoz
+        blocks.get(0).addEntity(null,key);   //entit√°sok hozz√°ad√°sa egy blokkhoz
         
         for(int i=0; i<numberOfBlocks; i++){
         	pf.addBlock(null,blocks.get(i));
@@ -56,8 +56,8 @@ public class PlayFieldBuilder
         
         Player player = new Player();
         
-        blocks.get(0).setPlayer(player, null);    //player be·llÌt·sa a blokkban
-        pf.setPlayer(player);                      //player be·llÌt·sa a playfieldben
+        blocks.get(0).setPlayer(player, null);    //player be√°ll√≠t√°sa a blokkban
+        pf.setPlayer(player);                      //player be√°ll√≠t√°sa a playfieldben
         player.enterBlock(blocks.get(0));
        
         Logger.ret("PlayFieldBuilder", "createPlayField()");

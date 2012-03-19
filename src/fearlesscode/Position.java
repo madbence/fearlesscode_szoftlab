@@ -2,4 +2,4 @@ package fearlesscode;
 
 public class Position {
 }
-//játékos pozíciója
+//jÃ¡tÃ©kos pozÃ­ciÃ³ja

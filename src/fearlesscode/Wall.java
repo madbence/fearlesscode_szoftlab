@@ -7,17 +7,17 @@ public class Wall extends Entity
 	public Wall(PlayField playField)
 	{
 		//Logger.call(this,"Wall.init()");
-		super(playField);   //õsosztály beállítja a playField referenciát
+		super(playField);   //Å‘sosztÃ¡ly beÃ¡llÃ­tja a playField referenciÃ¡t
 		Logger.reg(this, "w");
 		//Logger.ret(this,"Wall.init()");
 	}
 	public void meetPlayer(Player player){
     	Logger.call(this,"meetPlayer(player)");
 		if(Logger.ask("Falkent viselkedik?")){
-			player.move(null);        //játékos mozgatásának korrigálása
+			player.move(null);        //jÃ¡tÃ©kos mozgatÃ¡sÃ¡nak korrigÃ¡lÃ¡sa
 		}
 		else{
-			player.move(null);          //játékos mozgatásának korrigálása
+			player.move(null);          //jÃ¡tÃ©kos mozgatÃ¡sÃ¡nak korrigÃ¡lÃ¡sa
 		}
     	Logger.ret(this,"meetPlayer(player)");
 	}

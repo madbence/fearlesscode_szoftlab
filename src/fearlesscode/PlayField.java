@@ -22,7 +22,7 @@ public class PlayField
 	 * @param position
 	 * @param block
 	 */
-	public void addBlock(Position position, Block block)   //blokk hozz·ad·sa a list·hoz
+	public void addBlock(Position position, Block block)   //blokk hozz√°ad√°sa a list√°hoz
 	{
 		Logger.call(this, "addBlock(Position, Block)");
 		blocks.add(new BlockContainer(position, block));
@@ -34,12 +34,12 @@ public class PlayField
 	 * @param block
 	 * @param direction
 	 */
-	public void move(Block block, int direction)     //blokk mozgat·sa: melyiket milyen ir·nyba
+	public void move(Block block, int direction)     //blokk mozgat√°sa: melyiket milyen ir√°nyba
 	{
-		block=blocks.get(0).block;                 //lekÈrj¸k a 0. blokkot
+		block=blocks.get(0).block;                 //lek√©rj√ºk a 0. blokkot
 		Logger.call(this, "move(Block, int)");          
-		block.getNeighbour(direction);              //lekÈrk¸k egy szomszÈdj·t(direction ir·nybeli)         
-		player.getActiveBlocks();                    //megnÈzz¸k a player melyik blokkban van jelen
+		block.getNeighbour(direction);              //lek√©rk√ºk egy szomsz√©dj√°t(direction ir√°nybeli)         
+		player.getActiveBlocks();                    //megn√©zz√ºk a player melyik blokkban van jelen
 		if(Logger.ask("Letrejohet a csere?"))
 		{
 			block.getNeighbours();                
@@ -55,14 +55,14 @@ public class PlayField
 	 * 
 	 * @param player
 	 */
-	public void setPlayer(Player player)  //be·llÌtja a j·tÈkost
+	public void setPlayer(Player player)  //be√°ll√≠tja a j√°t√©kost
 	{
 		Logger.call(this, "setPlayer(Player)");
 		this.player=player;
 		Logger.ret(this, "setPlayer(Player)");
 	}
 
-	public Player getPlayer()   //visszaadja a j·tÈkost
+	public Player getPlayer()   //visszaadja a j√°t√©kost
 	{
 		return player;
 	}
@@ -71,37 +71,37 @@ public class PlayField
 	 * 
 	 * @param entity
 	 */
-	public void setSpawnPosition(Entity entity)       //be·llÌtja hogy az ˙jj·ÈledÈs melyik objektumon(kulcson) tˆrtÈnjen
+	public void setSpawnPosition(Entity entity)       //be√°ll√≠tja hogy az √∫jj√°√©led√©s melyik objektumon(kulcson) t√∂rt√©njen
 	{
 		Logger.call(this, "setSpawnPosition(Entity)");
 
 		Logger.ret(this, "setSpawnPosition(Entity)");
 	}
 
-	public void tick()               //j·tÈk mozgatÛja
+	public void tick()               //j√°t√©k mozgat√≥ja
 	{
 		Logger.call(this, "tick()");
 		ArrayList<Block> l=player.getActiveBlocks();
-		l.get(0).processCollisions();   // ¸tkˆzÈsek ellenırzÈse egy blokkban itt:0.blokkban
-		l.get(0).checkBorders();         //blokkok kˆzˆtti mozg·st kezeli
+		l.get(0).processCollisions();   // √ºtk√∂z√©sek ellen≈ërz√©se egy blokkban itt:0.blokkban
+		l.get(0).checkBorders();         //blokkok k√∂z√∂tti mozg√°st kezeli
 		Logger.ret(this, "tick()");
 	}
 
-	public void toggleMode()                  //v·lt·s blokk mÛd Ès j·tÈk mÛd kˆzˆtt
+	public void toggleMode()                  //v√°lt√°s blokk m√≥d √©s j√°t√©k m√≥d k√∂z√∂tt
 	{
 		Logger.call(this, "toggleMode()");
 
 		Logger.ret(this, "toggleMode()");
 	}
 
-	public void win()                        //gyızelem esetÈn hÌvjuk meg
+	public void win()                        //gy≈ëzelem eset√©n h√≠vjuk meg
 	{
 		Logger.call(this, "win()");
-		game.loadNextLevel();                //gyızelem esetÈn kˆvetkezı p·lya betˆltÈse
+		game.loadNextLevel();                //gy≈ëzelem eset√©n k√∂vetkez≈ë p√°lya bet√∂lt√©se
 		Logger.ret(this, "win()");
 	}
 
-	public void resetPlayer()                 //player vissza·llÌt·sa ha kiesett
+	public void resetPlayer()                 //player vissza√°ll√≠t√°sa ha kiesett
 	{
 		Logger.call(this, "resetPlayer()");
 
