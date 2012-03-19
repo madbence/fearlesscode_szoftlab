@@ -51,7 +51,7 @@ public class PlayField
 
 	public Player getPlayer()
 	{
-		return 
+		return player;
 	}
 
 	/**
