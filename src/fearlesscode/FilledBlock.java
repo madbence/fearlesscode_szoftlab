@@ -19,11 +19,11 @@ public class FilledBlock extends Block
 			{
 			FilledBlock neighbour = neighbours[0];
 			player.player.enterBlock(neighbour);
-			neighbour.setPlayer(player.player,pos);
+			neighbour.setPlayer(player.player,null);
 			}
 			else if(Logger.ask("Kiesik?"))
 			{
-				//????????vissza kéne hogy hivjon a PlayField-re de nincs rá ref??????
+				playField.resetPlayer();
 			}
 		}
 		else if(Logger.ask("Kilépett egy blokkból?"))
