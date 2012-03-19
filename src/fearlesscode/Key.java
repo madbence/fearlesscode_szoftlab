@@ -9,6 +9,7 @@ public class Key extends Entity
 	{
 		//Logger.call(this,"Key.init()");
 		super(playField);
+		Logger.reg(this, "key");
 		//Logger.ret(this,"Key.init()");
 	}
 
