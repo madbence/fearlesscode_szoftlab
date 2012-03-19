@@ -6,11 +6,13 @@ import java.io.*;
 public class Logger
 {
 	public static int level;
+	public static boolean en;
 	public static HashMap<Object, String> list;
 	static
 	{
 		list=new HashMap<Object, String>();
 		level=0;
+		en=true;
 	}
 	private static String getName(Object obj)
 	{
@@ -56,6 +58,10 @@ public class Logger
 	}
 	public static void print(String name, String message, boolean dir)
 	{
+		if(!en)
+		{
+			return;
+		}
 		System.out.print(getIndentation(level)+(dir?"<-":"->")+name+"."+message+"\n");
 	}
 	public static void reg(Object obj, String name)
@@ -79,5 +85,13 @@ public class Logger
 		{
 			return false;
 		}
+	}
+	public static void on()
+	{
+		en=true;
+	}
+	public static void off()
+	{
+		en=false;
 	}
 }
