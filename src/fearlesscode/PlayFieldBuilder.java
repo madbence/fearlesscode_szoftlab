@@ -3,15 +3,11 @@ package fearlesscode;
 import java.util.ArrayList;
 import fearlesscode.util.*;
 
-public class PlayFieldBuilder {
-
-	public PlayFieldBuilder(){
-	}
-
-
+public class PlayFieldBuilder
+{
 	public static PlayField createPlayField()
     {
-        //Logger.reg(this, "createPlayField()");
+        Logger.call("PlayFieldBuilder", "createPlayField()");
         
         int numberOfBlocks = 16;
         int numberOfEmptyBlock = 0;
@@ -71,7 +67,7 @@ public class PlayFieldBuilder {
         playerField.addPlayer(null, player);
         player.enterBlock(blockToBuildUp);
         
-        //Logger.reg(this, "createPlayField()");
+        Logger.ret("PlayFieldBuilder", "createPlayField()");
         return null;
 	}
 
