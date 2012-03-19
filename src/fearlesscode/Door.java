@@ -15,7 +15,7 @@ public class Door extends Entity
 	{
 		Logger.call(this,"meetPlayer(player)");
 		player.getObtainedKeys();
-		if(Logger.ask("Is the door open?"))
+		if(Logger.ask("Nyithato az ajto?"))
 		{
 			playField.win();
 		}

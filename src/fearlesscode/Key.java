@@ -16,7 +16,7 @@ public class Key extends Entity
     public void meetPlayer(Player player)
     {
     	Logger.call(this,"meetPlayer(player)");
-    	if(!Logger.ask("Has the key already been obtained?"))
+    	if(!Logger.ask("Meg lett mar szerezve a kulcs?"))
 		{
 			player.addKey();
 			playField.setSpawnPosition(this);

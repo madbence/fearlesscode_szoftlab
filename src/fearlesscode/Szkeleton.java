@@ -19,5 +19,6 @@ class Szkeleton
 
 		//toggleMode
 		game.getPlayField().toggleMode();
+		BufferedReader
 	}
 }

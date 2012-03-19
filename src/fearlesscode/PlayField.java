@@ -42,6 +42,7 @@ public class PlayField
 		player.getActiveBlocks();
 		if(Logger.ask("Letrejohet a csere?"))
 		{
+			block.getNeighbours();
 			blocks.get(1).block.getNeighbours();
 			blocks.get(1).block.setNeighbours(null);
 			block.setNeighbours(null);

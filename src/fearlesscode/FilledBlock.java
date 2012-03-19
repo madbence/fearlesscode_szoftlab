@@ -13,6 +13,7 @@ public class FilledBlock extends Block
 	public void checkBorders()
 	{
 		Logger.call(this,"checkBorders()");
+		player.player.getSpeed();
 		if(Logger.ask("Blokk szelehez ert?"))
 		{
 			if(Logger.ask("Lehetseges az atjutas?"))
@@ -35,6 +36,7 @@ public class FilledBlock extends Block
 	public void processCollisions()
 	{
 		Logger.call(this,"processCollisions()");
+		player.player.getSpeed();
 		if(Logger.ask("Volt utkozes fallal?"))
 		{
 			entities.get(0).entity.meetPlayer(player.player);

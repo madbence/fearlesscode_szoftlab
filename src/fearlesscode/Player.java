@@ -14,6 +14,13 @@ public class Player
 		activeBlocks=new ArrayList<Block>();
 	}
 
+	public Speed getSpeed()
+	{
+		Logger.call(this, "getSpeed()");
+		Logger.ret(this, "getSpeed()");
+		return speed;
+	}
+
 
 	public void addKey()
 	{
@@ -27,9 +34,9 @@ public class Player
 	 */
 	public void enterBlock(Block block)
 	{
-		Logger.call(this, "enterBlock(Block)");
+		Logger.call(this, "enterBlock(block)");
 		activeBlocks.add(block);
-		Logger.ret(this, "enterBlock(Block)");
+		Logger.ret(this, "enterBlock(block)");
 	}
 
 	public ArrayList<Block> getActiveBlocks()
@@ -52,9 +59,9 @@ public class Player
 	 */
 	public void leaveBlock(Block block)
 	{
-		Logger.call(this, "leaveBlock(Block)");
+		Logger.call(this, "leaveBlock(block)");
 		activeBlocks.remove(activeBlocks.indexOf(block));
-		Logger.ret(this, "leaveBlock(Block)");
+		Logger.ret(this, "leaveBlock(block)");
 	}
 
 	/**
@@ -63,9 +70,9 @@ public class Player
 	 */
 	public void move(Speed newSpeed)
 	{
-		Logger.call(this, "move(dir)");
+		Logger.call(this, "move(newSpeed)");
 
-		Logger.ret(this, "move(dir)");
+		Logger.ret(this, "move(newSpeed)");
 	}
 
 }

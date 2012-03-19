@@ -13,11 +13,11 @@ public class Wall extends Entity
 	}
 	public void meetPlayer(Player player){
     	Logger.call(this,"meetPlayer(player)");
-		if(Logger.ask("Oldalrol utkozott falnak?")){
-		player.move(null);
+		if(Logger.ask("Falkent viselkedik?")){
+			player.move(null);
 		}
 		else{
-		player.move(null);
+			player.move(null);
 		}
     	Logger.ret(this,"meetPlayer(player)");
 	}
