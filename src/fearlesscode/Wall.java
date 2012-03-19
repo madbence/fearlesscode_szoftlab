@@ -7,12 +7,13 @@ public class Wall extends Entity
 	public Wall(PlayField playField)
 	{
 		//Logger.call(this,"Wall.init()");
-		super(playField);		       
+		super(playField);
+		Logger.reg(this, "wall");
 		//Logger.ret(this,"Wall.init()");
 	}
 	public void meetPlayer(Player player){
     	Logger.call(this,"meetPlayer(player)");
-		if(Logger.ask("Oldalról ütközött falnak?")){
+		if(Logger.ask("Oldalrol utkozott falnak?")){
 		player.move(null);
 		}
 		else{

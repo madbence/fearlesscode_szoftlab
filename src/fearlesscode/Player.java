@@ -29,7 +29,7 @@ public class Player
 	{
 		Logger.call(this, "enterBlock(Block)");
 		activeBlocks.add(block);
-		Logger.ret(this, "addKey(Block)");
+		Logger.ret(this, "enterBlock(Block)");
 
 	}
 

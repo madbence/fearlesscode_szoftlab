@@ -13,9 +13,9 @@ public class FilledBlock extends Block
 	public void checkBorders()
 	{
 		Logger.call(this,"checkBorders()");
-		if(Logger.ask("Blokk széléhez ért?"))
+		if(Logger.ask("Blokk szelehez ert?"))
 		{
-			if(Logger.ask("Lehetséges az átjutás?"))
+			if(Logger.ask("Lehetseges az atjutas?"))
 			{
 				Block neighbour = neighbours[0];
 				player.player.enterBlock(neighbour);
@@ -26,7 +26,7 @@ public class FilledBlock extends Block
 				playField.resetPlayer();
 			}
 		}
-		else if(Logger.ask("Kilépett egy blokkból?"))
+		else if(Logger.ask("Kilepett egy blokkbol?"))
 		{
 		player.player.leaveBlock(this);
 		}
@@ -35,15 +35,15 @@ public class FilledBlock extends Block
 	public void processCollisions()
 	{
 		Logger.call(this,"processCollisions()");
-		if(Logger.ask("Volt ütközés fallal?"))
+		if(Logger.ask("Volt utkozes fallal?"))
 		{
 			entities.get(0).entity.meetPlayer(player.player);
 		}
-		if(Logger.ask("Volt ütközés ajtóval?"))
+		if(Logger.ask("Volt utkozes ajtoval?"))
 		{
 			entities.get(1).entity.meetPlayer(player.player);
 		}
-		if(Logger.ask("Volt ütközés kulccsal?"))
+		if(Logger.ask("Volt utkozes kulccsal?"))
 		{
 			entities.get(2).entity.meetPlayer(player.player);
 		}

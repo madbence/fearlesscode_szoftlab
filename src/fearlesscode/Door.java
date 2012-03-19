@@ -7,6 +7,7 @@ public class Door extends Entity
 	public Door(int requiredKeys, PlayField playField)
 	{
 		super(playField);
+		Logger.reg(this, "door");
 		//Logger.call(this,"Door.init()");
 		//Logger.ret(this,"Door.init()");
 	}

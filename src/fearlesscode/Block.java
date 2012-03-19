@@ -61,13 +61,11 @@ public abstract class Block {
 	 */
 	public void setNeighbour(Block neighbour, int dir, boolean bool){
         Logger.call(this,"setNeighbour(neighbour,dir,"+(bool?"true":"false")+")");
-        if(bool){
-              neighbours[dir]=neighbour;
+        if(bool)
+        {
+            setNeighbour(neighbour,(dir+2)%4,false);     
         }
-        else{
-            //??? beállitja a szomszédságot???
-            setNeighbour(neighbour,(dir+2)%4,false);
-        }
+        neighbours[dir]=neighbour;
         Logger.ret(this,"setNeighbour(neighbour,dir,"+(bool?"true":"false")+")");
 
 	}
