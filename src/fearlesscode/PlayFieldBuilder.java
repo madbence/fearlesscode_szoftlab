@@ -2,8 +2,6 @@ package fearlesscode;
 
 import java.util.ArrayList;
 
-import com.sun.tools.internal.ws.processor.model.Block;
-
 import fearlesscode.util.*;
 
 public class PlayFieldBuilder
@@ -24,11 +22,11 @@ public class PlayFieldBuilder
         {
             if(i == numberOfEmptyBlock)
             {
-                block.addBlock(new EmptyBlock(pf));
+                blocks.add(new EmptyBlock(pf));
             }
             else
             {
-            	blocks.addBlock(new FilledBlock(pf));
+            	blocks.add(new FilledBlock(pf));
             }
         }
         
@@ -41,9 +39,9 @@ public class PlayFieldBuilder
         	}		
         }
         
-        Wall wall = new Wall(playField);
-        Door door = new Door(0, playField);
-        Key  key = new Key(playField);
+        Wall wall = new Wall(pf);
+        Door door = new Door(0, pf);
+        Key  key = new Key(pf);
         
         blocks.get(0).addEntity(null,wall);
         blocks.get(0).addEntity(null,door);
@@ -55,7 +53,7 @@ public class PlayFieldBuilder
         
         Player player = new Player();
         
-        blocks.get(0).setPlayer(player);
+        blocks.get(0).setPlayer(player, null);
         pf.setPlayer(player);
         player.enterBlock(blocks.get(0));
        
