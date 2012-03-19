@@ -1,6 +1,7 @@
 package fearlesscode;
 
 import java.util.ArrayList;
+import fearlesscode.util.*;
 
 public class PlayFieldBuilder {
 
@@ -44,7 +45,8 @@ public class PlayFieldBuilder {
         
         for(i = 0; i < dimension; i++)
         {
-            try{
+            try
+            {
                 blocks.get(i).setNeighbour(blocks.get(i+1), 1, true);
                 blocks.get(i).setNeighbour(blocks.get(i-1), 3, true);
                 blocks.get(i).setNeighbour(blocks.get(i+4), 2, true);
