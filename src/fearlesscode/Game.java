@@ -13,7 +13,7 @@ public class Game {
 	 */
 	public Game()
 	{
-		Logger.reg(this, "game");
+		Logger.reg(this, "g");
 	}
 
 

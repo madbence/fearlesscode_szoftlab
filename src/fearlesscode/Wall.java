@@ -8,7 +8,7 @@ public class Wall extends Entity
 	{
 		//Logger.call(this,"Wall.init()");
 		super(playField);
-		Logger.reg(this, "wall");
+		Logger.reg(this, "w");
 		//Logger.ret(this,"Wall.init()");
 	}
 	public void meetPlayer(Player player){

@@ -13,7 +13,7 @@ public class PlayField
 
 	public PlayField(Game game)
 	{
-		Logger.reg(this, "playerField");
+		Logger.reg(this, "pf");
 		this.game=game;
 		blocks=new ArrayList<BlockContainer>();
 	}
