@@ -75,9 +75,9 @@ public abstract class Block {
 	 * @param neighbours
 	 */
 	public void setNeighbours(Block[] neighbours){
-        Logger.call(this,"Block.setNeighbours(neighbours)");
+        Logger.call(this,"setNeighbours(neighbours)");
         this.neighbours=neighbours;
-        Logger.ret(this,"Block.setNeighbours(neighbours)");
+        Logger.ret(this,"setNeighbours(neighbours)");
 	}
 
 	/**
@@ -86,8 +86,8 @@ public abstract class Block {
 	 * @param position
 	 */
 	public void setPlayer(Player player, EntityPosition position){
-        Logger.call(this,"Block.setPlayer(player,position)");
-        Logger.ret(this,"Block.setPlayer(player,position)");
+        Logger.call(this,"setPlayer(player,position)");
+        Logger.ret(this,"setPlayer(player,position)");
         this.player = new PlayerContainer(player,position);
 
 

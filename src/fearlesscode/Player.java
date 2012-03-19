@@ -30,7 +30,6 @@ public class Player
 		Logger.call(this, "enterBlock(Block)");
 		activeBlocks.add(block);
 		Logger.ret(this, "enterBlock(Block)");
-
 	}
 
 	public ArrayList<Block> getActiveBlocks()

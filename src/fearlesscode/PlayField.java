@@ -9,12 +9,13 @@ public class PlayField
 	private Game game;
 	private Player player;
 	private Entity spawnPosition;
-	private Block blocks;
+	private ArrayList<BlockContainer> blocks;
 
 	public PlayField(Game game)
 	{
 		Logger.reg(this, "playerField");
 		this.game=game;
+		blocks=new ArrayList<BlockContainer>();
 	}
 	/**
 	 * 
@@ -24,7 +25,7 @@ public class PlayField
 	public void addBlock(Position position, Block block)
 	{
 		Logger.call(this, "addBlock(Position, Block)");
-
+		blocks.add(new BlockContainer(position, block));
 		Logger.ret(this, "addBlock(Position, Block)");
 	}
 
@@ -95,5 +96,10 @@ public class PlayField
 		Logger.call(this, "resetPlayer()");
 
 		Logger.ret(this, "resetPlayer()");
+	}
+
+	public ArrayList<BlockContainer> getBlocks()
+	{
+		return blocks;
 	}
 }

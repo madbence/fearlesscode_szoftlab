@@ -11,7 +11,7 @@ public class PlayFieldBuilder
         Logger.call("PlayFieldBuilder", "createPlayField()");
         
         int numberOfBlocks = 16;
-        int numberOfEmptyBlock = 1;
+        int numberOfEmptyBlock = 15;
         int numberOfBlockToBuildUp = 1;
         int dimension = 4;
         
@@ -40,6 +40,7 @@ public class PlayFieldBuilder
         }
 
         Logger.reg(blocks.get(0), "block");
+        Logger.reg(blocks.get(1), "neighbour");
         
         Wall wall = new Wall(pf);
         Door door = new Door(0, pf);

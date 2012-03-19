@@ -17,7 +17,7 @@ public class FilledBlock extends Block
 		{
 			if(Logger.ask("Lehetseges az atjutas?"))
 			{
-				Block neighbour = neighbours[0];
+				Block neighbour = playField.getBlocks().get(1).block;
 				player.player.enterBlock(neighbour);
 				neighbour.setPlayer(player.player,null);
 			}
