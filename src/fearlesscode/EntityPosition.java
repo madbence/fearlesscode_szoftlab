@@ -1,6 +1,6 @@
 package fearlesscode;
 
-public class EntityPosition extends Position
+public class EntityPosition
 {
 	
 }

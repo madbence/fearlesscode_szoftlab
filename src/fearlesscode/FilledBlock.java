@@ -40,13 +40,12 @@ public class FilledBlock extends Block
 	public void processCollisions(){
         Logger.call(this,"processCollisions()");
 
-        for(EntityContainer e : entities){
 
             if(Logger.ask("Volt ütközés?"))
             {
                 e.entity.meetPlayer(player.player);
             }
-        }
+
         Logger.ret(this,"processCollisions()");
 	}
 

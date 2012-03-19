@@ -11,10 +11,10 @@ public abstract class Block {
 	protected PlayerContainer player;
 
 	public void Block(){
-        Logger.call(this,"Block.init()");
+        Logger.call("Block","init()");
         entities = new ArrayList<EntityContainer>();
         neighbours = new Block[4];
-        Logger.ret(this,"Block.init()");
+        Logger.ret("Block","init()");
 	}
 
 	/**
@@ -36,15 +36,15 @@ public abstract class Block {
      * @param dir
      */
 	public Block getNeighbour(int dir){
-        Logger.call(this,"Block.getNeighbour(dir)");
-        Logger.ret(this,"Block.getNeighbour(dir)");
+        Logger.call(this,"getNeighbour(dir)");
+        Logger.ret(this,"getNeighbour(dir)");
         return neighbours[dir];
 
 	}
     
     public Block[] getNeighbours(){
-        Logger.call(this,"Block.getNeighbours()");
-        Logger.ret(this, "Block.getNeighbours()");
+        Logger.call(this,"getNeighbours()");
+        Logger.ret(this, "getNeighbours()");
         return neighbours;
     }
 
@@ -57,7 +57,7 @@ public abstract class Block {
 	 * @param bool
 	 */
 	public void setNeighbour(Block neighbour, int dir, boolean bool){
-        Logger.call(this,"Block.setNeighbour(neighbour,dir,bool)");
+        Logger.call(this,"setNeighbour(neighbour,dir,"+(bool?"true":"false")+")");
         if(bool){
               neighbours[dir]=neighbour;
         }
@@ -65,7 +65,7 @@ public abstract class Block {
             //??? beállitja a szomszédságot???
             setNeighbour(neighbour,(dir+2)%4,false);
         }
-        Logger.ret(this,"Block.setNeighbour(neighbour,dir,bool)");
+        Logger.ret(this,"setNeighbour(neighbour,dir,"+(bool?"true":"false")+")");
 
 	}
 

@@ -7,17 +7,17 @@ public class EmptyBlock extends Block
 	public EmptyBlock()
         {
                 super();
-                Logger.call(this,"EmptyBlock.init()");
-                Logger.ret(this,"EmptyBlock.init()");
+                Logger.call(this,"init()");
+                Logger.ret(this,"Block.init()");
 	}
 	public void checkBorders()
         {
-                Logger.call(this,"EmptyBlock.checkBorders()");
-                Logger.ret(this,"EmptyBlock.checkBorders()");
+                Logger.call(this,"checkBorders()");
+                Logger.ret(this,"checkBorders()");
 	}
 	public void processCollisions()
         {
-                Logger.call(this,"EmptyBlock.processCollisions()");
-                Logger.ret(this,"EmptyBlock.processCollisions()");
+                Logger.call(this,"processCollisions()");
+                Logger.ret(this,"processCollisions()");
 	}
 }
