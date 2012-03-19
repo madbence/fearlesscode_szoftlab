@@ -2,8 +2,6 @@ package fearlesscode;
 
 import fearlesscode.util.*;
 
-import java.util.logging.Logger;
-
 public class FilledBlock extends Block
 {
 	public FilledBlock()
