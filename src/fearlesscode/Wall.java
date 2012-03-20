@@ -1,6 +1,7 @@
 package fearlesscode;
 
 import fearlesscode.util.*;
+import java.util.*;
 
 public class Wall extends Entity
 {
