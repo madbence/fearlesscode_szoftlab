@@ -6,6 +6,7 @@ public class Key extends Entity
 {
 	private static int count=0;
 	private boolean isObtained;
+
 	/**
 	 * Létrehoz egy kulcs objektumot, nem felvett állapottal
 	 * @param playField Az aktuális pálya referenciája
@@ -31,7 +32,7 @@ public class Key extends Entity
     	if(!isObtained)
 		{
 			player.addKey();
-			playField.setSpawnPosition(this);
+			playField.setSpawnPosition(player, this);
 			isObtained=true;
 		}
     	Logger.ret(this,"meetPlayer(player)");
