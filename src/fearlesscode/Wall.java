@@ -32,9 +32,10 @@ public class Wall extends Entity
 	 * szűnik meg a játékos részéről, ha vízszintes, akkor pedig a függőleges (Y)
 	 * @param player A játékos, akivel a fal interakcióba került
 	 */
-	public void meetPlayer(Player player){
-    	Logger.call(this,"meetPlayer(player)");
-    	Speed oldSpeed=player.getSpeed();
+	public void meetPlayer(Player player)
+	{
+		Logger.call(this,"meetPlayer(player)");
+		Speed oldSpeed=player.getSpeed();
 		if(Logger.ask("Falkent viselkedik?"))
 		{
 			player.move(new Speed(0, oldSpeed.getY()));
@@ -43,6 +44,6 @@ public class Wall extends Entity
 		{
 			player.move(new Speed(oldSpeed.getX(), 0));
 		}
-    	Logger.ret(this,"meetPlayer(player)");
+		Logger.ret(this,"meetPlayer(player)");
 	}
 }
