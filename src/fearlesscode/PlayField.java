@@ -7,22 +7,31 @@ public class PlayField
 {
 	private boolean blockMode;
 	private Game game;
-	private Player player;
+	private ArrayList<Player> players;
 	private Entity spawnPosition;
 	private ArrayList<BlockContainer> blocks;
 
+
+	/**
+	 * Példányosít egy PlayField objektumot
+	 *
+	 * Alapértelmezetten teljesen üres, nincsenek benne blokkok, mindent setterekkel állíthatunk be
+	 * @param game Egy Game objektum referencia, ha értesíteni kell a pálya megnyeréséről
+	 */
 	public PlayField(Game game)
 	{
 		Logger.reg(this, "pf");
 		this.game=game;
 		blocks=new ArrayList<BlockContainer>();
+		players=new ArrayList<Player>();
 	}
 	/**
-	 * 
-	 * @param position
-	 * @param block
+	 * Egy új blokkot ad hozzá a PlayField objektumhoz a megadott koordinátán
+	 *
+	 * @param position A blokk helye
+	 * @param block Az elhelyezendő blokk
 	 */
-	public void addBlock(Position position, Block block)   //blokk hozzáadása a listához
+	public void addBlock(Position position, Block block)
 	{
 		Logger.call(this, "addBlock(Position, Block)");
 		blocks.add(new BlockContainer(position, block));
@@ -30,16 +39,17 @@ public class PlayField
 	}
 
 	/**
-	 * 
-	 * @param block
-	 * @param direction
+	 * A megadott blokkot a megadott irányba elmozdítja (kicseréli a megadott irány beli szomszédjával)
+	 *
+	 * @param block Az elmozdítandó blokk
+	 * @param direction A mozgatás iránya
 	 */
-	public void move(Block block, int direction)     //blokk mozgatása: melyiket milyen irányba
+	public void move(Block block, int direction)
 	{
-		block=blocks.get(0).block;                 //lekérjük a 0. blokkot
+		block=blocks.get(0).block;
 		Logger.call(this, "move(Block, int)");          
-		block.getNeighbour(direction);              //lekérkük egy szomszédját(direction iránybeli)         
-		player.getActiveBlocks();                    //megnézzük a player melyik blokkban van jelen
+		block.getNeighbour(direction);      
+		//player.getActiveBlocks();
 		if(Logger.ask("Letrejohet a csere?"))
 		{
 			block.getNeighbours();                
@@ -52,62 +62,97 @@ public class PlayField
 	}
 
 	/**
+	 * Egy új játékos referenciát ad hozzá a játékosok listájához
 	 * 
-	 * @param player
+	 * @param player Az új játékos referenciája
 	 */
-	public void setPlayer(Player player)  //beállítja a játékost
+	public void addPlayer(Player player)
 	{
 		Logger.call(this, "setPlayer(Player)");
-		this.player=player;
+		//@TODO listához adni
+		players.add(player);
 		Logger.ret(this, "setPlayer(Player)");
 	}
 
-	public Player getPlayer()   //visszaadja a játékost
+	/**
+	 * Visszaadja a játékosok listáját
+	 * 
+	 * @return A PlayField objektumban eltárolt játékosok listája
+	 */
+	public ArrayList<Player> getPlayers()
 	{
-		return player;
+		return players;
 	}
 
 	/**
-	 * 
-	 * @param entity
+	 * Beállítja a megadott játékos újraéledési helyét a pályán belül (egy Entity objektumra)
+	 * @param player A módosítani kívánt játékos referenciája
+	 * @param entity Az új újraéledési pont
 	 */
-	public void setSpawnPosition(Entity entity)       //beállítja hogy az újjáéledés melyik objektumon(kulcson) történjen
+	public void setSpawnPosition(Player player, Entity entity)
 	{
 		Logger.call(this, "setSpawnPosition(Entity)");
-
+		//@TODO implementálni
 		Logger.ret(this, "setSpawnPosition(Entity)");
 	}
 
-	public void tick()               //játék mozgatója
+	/**
+	 * A játék-mód eseménykezelője
+	 *
+	 * Minden egyes frissítésre lefuttatja az ütközésdetektálásokat, és a mozgást
+	 * (blokkon belüli, és kívüli)
+	 */
+	public void tick()
 	{
 		Logger.call(this, "tick()");
-		ArrayList<Block> l=player.getActiveBlocks();
-		l.get(0).processCollisions();   // ütközések ellenőrzése egy blokkban itt:0.blokkban
-		l.get(0).checkBorders();         //blokkok közötti mozgást kezeli
+		//@TODO javítani multiplayerre
+		//ArrayList<Block> l=player.getActiveBlocks();
+		//l.get(0).processCollisions();   // ütközések ellenőrzése egy blokkban itt:0.blokkban
+		//l.get(0).checkBorders();         //blokkok közötti mozgást kezeli
 		Logger.ret(this, "tick()");
 	}
 
-	public void toggleMode()                  //váltás blokk mód és játék mód között
+	/**
+	 * Váltás játék-mód és blokk-mód között
+	 *
+	 * Játék módban a blokkok nem mozognak, blokk módban a tick nem fut
+	 */
+	public void toggleMode()
 	{
 		Logger.call(this, "toggleMode()");
 
 		Logger.ret(this, "toggleMode()");
 	}
 
-	public void win()                        //győzelem esetén hívjuk meg
+	/**
+	 * A metódus bejelenti a Game objektumnak, hogy a pálya végére ért a játékos
+	 *
+	 * Ha minden feltétel teljesül, a pálya véget ér, és betöltődik a következő pálya
+	 */
+	public void win()
 	{
 		Logger.call(this, "win()");
-		game.loadNextLevel();                //győzelem esetén következő pálya betöltése
+		game.loadNextLevel();
 		Logger.ret(this, "win()");
 	}
 
-	public void resetPlayer()                 //player visszaállítása ha kiesett
+	/**
+	 * A megadott játékost visszahelyezi az újraéledési helyére
+	 *
+	 * @param player Az áthelyezni kívánt játékos
+	 */
+	public void resetPlayer(Player player)
 	{
 		Logger.call(this, "resetPlayer()");
 
 		Logger.ret(this, "resetPlayer()");
 	}
 
+	/**
+	 * Visszaadja a PlayField blokkjait
+	 * 
+	 * @return A PlayFieldben lévő minden blokk
+	 */
 	public ArrayList<BlockContainer> getBlocks()
 	{
 		return blocks;
