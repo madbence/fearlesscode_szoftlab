@@ -35,7 +35,7 @@ public class FilledBlock extends Block
 			}
 			else if(Logger.ask("Kiesik?"))
 			{
-				playField.resetPlayer();
+				//playField.resetPlayer();
 			}
 		}
 		else if(Logger.ask("Kilepett egy blokkbol?"))

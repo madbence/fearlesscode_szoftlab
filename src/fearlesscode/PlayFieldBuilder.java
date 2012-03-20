@@ -57,7 +57,7 @@ public class PlayFieldBuilder
         Player player = new Player();
         
         blocks.get(0).setPlayer(player, null);    //player beállítása a blokkban
-        pf.setPlayer(player);                      //player beállítása a playfieldben
+        //pf.setPlayer(player);                      //player beállítása a playfieldben
         player.enterBlock(blocks.get(0));
        
         Logger.ret("PlayFieldBuilder", "createPlayField()");

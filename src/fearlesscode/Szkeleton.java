@@ -64,7 +64,7 @@ class Szkeleton
 		game.start();
 		Logger.on();
 
-		game.getPlayField().getPlayer().move(null);
+		//game.getPlayField().getPlayer().move(null);
 	}
 	public static void tick()
 	{
