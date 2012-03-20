@@ -42,7 +42,7 @@ public class PlayFieldBuilder
         Logger.reg(blocks.get(0), "block");
         Logger.reg(blocks.get(1), "neighbour");
         
-        Wall wall = new Wall(pf);
+        Wall wall = new Wall(pf, null);
         Door door = new Door(0, pf);
         Key  key = new Key(pf);           //3 entitás létrehozása
         
