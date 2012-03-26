@@ -2,10 +2,9 @@ package fearlesscode;
 
 import fearlesscode.util.*;
 
-
 /**
-* Az üres blokkot reprezentálja, gyakorlatilag a Block osztály default (üres)
-* implemetáció- ja.
+* Az üres blokkot reprezentálja, gyakorlatilag a Block osztály default (ü̈res)
+* implemetációja.
 */
 public class EmptyBlock extends Block
 {
@@ -16,25 +15,21 @@ public class EmptyBlock extends Block
 	public EmptyBlock(PlayField pf)
 	{
 		super(pf);
-		Logger.call(this,"init()");
-		Logger.ret(this,"Block.init()");
 	}
 	
 	/**
-	* Mivel üres blokk, semmi sincs benne, így ez a metódus nem csinál semmit.
+	* Mivel üres blokk, semmi sincs benne, így ez a metódus nem csinál semmit.
 	*/
 	public void checkBorders()
 	{
-		Logger.call(this,"checkBorders()");
-		Logger.ret(this,"checkBorders()");
+
 	}
 	
 	/**
-	* Mivel üres blokk, semmi sincs benne, így ez a metódus nem csinál semmit.
+	* Mivel ü̈res blokk, semmi sincs benne, így ez a metódus nem csinál semmit.
 	*/
 	public void processCollisions()
 	{
-		Logger.call(this,"processCollisions()");
-		Logger.ret(this,"processCollisions()");
+
 	}
 }
