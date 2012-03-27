@@ -5,12 +5,12 @@ import fearlesscode.util.*;
 
 /**
  * Az Entity egy blokkon található statikus (nem mozgó) objektumot reprezentál,
- * minden leszármazottnak kötelessége viselkedést definiálni a játékossal való találkozásra.
+ * minden leszármazottnak kötelessége viselkedést definiálni a játékossal való találkozásra.
  */
 public abstract class Entity
 {
 	/**
-	 * PlayField referencia, a leszármazottak a viselkedés leírásának megkönnyítése
+	 * PlayField referencia, a leszármazottak a viselkedés leírásának megkönnyítése
 	 * érdekében felhasználhatják.
 	 */
 	protected PlayField playField;
@@ -25,7 +25,7 @@ public abstract class Entity
 	}
 	
 	/**
-	 * Kötelezően implementálandó metódus, a játékossal
+	 * Kötelezően implementálandó metódus, a játékossal
 	 * való találkozás forgatókönyvét írja le.
 	 */
 	public abstract void meetPlayer(Player p);

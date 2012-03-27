@@ -40,7 +40,7 @@ public abstract class Block
 
 	/**
 	 * Visszaadja a megadott irányban található szomszédot. A dir egy szám,
-	 * 0 jelenti az északot, ss az óramutató járásával megegyező irányban 
+	 * 0 jelenti az északot, és az óramutató járásával megegyező irányban 
 	 * történik a számozás.
 	 * @param dir A szomszédos Block iránya.
 	 */
@@ -63,7 +63,7 @@ public abstract class Block
 	public abstract void processCollisions();
 
 	/**
-	 * A megadott szomszédot beállítja a megfelelő irányba
+	 * A megadott szomszédot beállítja a megfelelő irányban
 	 * a harmadik paraméter függvényében (igaz/hamis) fordított irányban is
 	 * beállítja a szomszédságot. Ez a harmadik paraméter a végtelen
 	 * ciklusok elkerülésére van bevezetve. 

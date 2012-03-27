@@ -4,22 +4,18 @@ import fearlesscode.util.*;
 
 
 /**
-*	A sima blokkot reprezentálja, kezeli a benne található objektumokat
-*   (objektumok inter- akciója a játékossal).
-*/
-
+ * A sima blokkot reprezentálja, kezeli a benne található objektumokat
+ * (objektumok interakciója a játékossal).
+ */
 public class FilledBlock extends Block
 {
 	public FilledBlock(PlayField pf)
 	{
 		super(pf);
-		Logger.call("FilledBlock", "init()");
-		Logger.ret("FilledBlock", "init()");
 	}
 	
 	/**
-	 * A blokkok közötti mozgást kezeli le.
-	 * 
+	 * A blokkok kközötti mozgást kezeli le.
 	 */
 	public void checkBorders()
 	{
@@ -46,9 +42,9 @@ public class FilledBlock extends Block
 	}
 	
 	/**
-	*	Végignézi az összes objektumot, hogy ütközik-e a játékossal,
-	*	ha pedig igen, meghívja a meetPlayer metódusukat.
-	*/
+	 * Végignézi az összes objektumot, hogy ütközik-e a jétékossal,
+	 * ha pedig igen, meghívja a meetPlayer metódusukat.
+	 */
 	public void processCollisions()
 	{
 		Logger.call(this,"processCollisions()");
