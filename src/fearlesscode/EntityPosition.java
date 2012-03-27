@@ -1,10 +1,8 @@
 package fearlesscode;
 
 /**
-* Az Entity pozicióját tároló segédosztály.
-*
-*/
-
+ * Az Entity pozicióját tároló segédosztály.
+ */
 public class EntityPosition
 {
 	
