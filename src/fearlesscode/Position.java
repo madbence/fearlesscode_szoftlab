@@ -1,5 +1,6 @@
 package fearlesscode;
 
-public class Position {
+public class Position
+{
+
 }
-//játékos pozíciója
