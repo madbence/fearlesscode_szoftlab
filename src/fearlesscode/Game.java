@@ -7,9 +7,9 @@ public class Game {
 	private PlayField playField;
 
 	/**
-	 * Letrehoz egy ugy Game peldanyt
+	 * Letrehoz egy új Game példányt.
 	 *
-	 * A Game objektum felelos a palyak betolteseert, valamint a fobb jatekmozzanatok kezeleseert
+	 * A Game objektum felelős a pályák betöltéséért, valamint a főbb jatekmozzanatok kezeléséért.
 	 */
 	public Game()
 	{
@@ -18,10 +18,10 @@ public class Game {
 
 
 	/**
-	 * Betolti a kovetkezo palyat
+	 * Betölti a következő pályát.
 	 *
-	 * Az aktualis palya ismeretében megkeresi a kovetkezo palya specifikaciojat,
-	 * es legyartatja a PlayFieldBuilder osztallyal.
+	 * Az aktuális pálya ismeretében megkeresi a következő pálya specifikációját,
+	 * es legyártatja a PlayFieldBuilder osztállyal.
 	 */
 	public void loadNextLevel()
 	{
@@ -31,9 +31,9 @@ public class Game {
 	}
 
 	/**
-	 * Elinditja a jatekot
+	 * Elindítja a játékot.
 	 * 
-	 * Betolti a megfelelo specifikacioval rendelkezo palyat, majd elinditja a jatekot vele.
+	 * Betölti a megfelelő specifikációval rendelkező pályát, majd elindítja a játékot vele.
 	 */
 	public void start()
 	{
