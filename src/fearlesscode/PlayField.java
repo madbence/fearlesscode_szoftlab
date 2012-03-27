@@ -25,6 +25,7 @@ public class PlayField
 		blocks=new ArrayList<BlockContainer>();
 		players=new ArrayList<Player>();
 	}
+	
 	/**
 	 * Egy új blokkot ad hozzá a PlayField objektumhoz a megadott koordinátán
 	 *
