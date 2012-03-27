@@ -8,10 +8,11 @@ public class Wall extends Entity
 	public static int count=0;
 
 	private ArrayList<EntityPosition> points;
+
 	/**
-	 * Létrehoz egy új fal objektumot, a megadott pontokkal határolva
+	 * Létrehoz egy új fal objektumot, a megadott pontokkal határolva.
 	 * 
-	 * A megadott pontok relatívak a fal origójához
+	 * A megadott pontok relatívak a fal origójához.
 	 *
 	 * @param playField PlayField referencia az Entity ősosztály konstruktorához
 	 * @param points A fal pontjainak listája
@@ -27,10 +28,10 @@ public class Wall extends Entity
 	}
 
 	/**
-	 * A fal játékossal való találkozás eseménykezelője
+	 * A fal játékossal való találkozás eseménykezelője.
 	 *
 	 * Ha a játékos és a fal találkozási felülete függőleges, úgy az X irányú mozgás
-	 * szűnik meg a játékos részéről, ha vízszintes, akkor pedig a függőleges (Y)
+	 * szűnik meg a játékos részéről, ha vízszintes, akkor pedig a függőleges (Y).
 	 * @param player A játékos, akivel a fal interakcióba került
 	 */
 	public void meetPlayer(Player player)
