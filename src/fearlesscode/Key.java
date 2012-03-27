@@ -8,8 +8,8 @@ public class Key extends Entity
 	private boolean isObtained;
 
 	/**
-	 * Létrehoz egy kulcs objektumot, nem felvett állapottal
-	 * @param playField Az aktuális pálya referenciája
+	 * Létrehoz egy kulcs objektumot, nem felvett állapottal.
+	 * @param playField Az aktuális pálya referenciája.
 	 */
 	public Key(PlayField playField)
 	{
@@ -23,8 +23,8 @@ public class Key extends Entity
 
 	/**
 	 * Ha a játékos ütközik egy kulcs objektummal, akkor a megszerzettsége állapotától
-	 * függően megnöveli a játékos kulcsainak a számát
-	 * @param player A játékos, akivel a kulcs interakcióban nem
+	 * függően megnöveli a játékos kulcsainak a számát.
+	 * @param player A játékos, akivel a kulcs interakcióban van.
 	 */
     public void meetPlayer(Player player)
     {
