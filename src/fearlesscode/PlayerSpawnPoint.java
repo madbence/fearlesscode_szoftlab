@@ -1,8 +1,18 @@
 package fearlesscode;
 
+/**
+ * A játékost, és újraéledési helyét tároló segédosztály. Számon tartja, hogy egy-egy játékos mely játékobjektumon köteles ujraéledni.
+ */
 public class PlayerSpawnPoint
 {
+	/**
+	 * Az objektumban tárolt játékos.
+	 */
 	private Player player;
+
+	/**
+	 * A játékos újraéledési helye.
+	 */
 	private Entity spawPoint;
 
 	/**
