@@ -5,6 +5,9 @@ import java.util.*;
 
 public class PlayField
 {
+	/**
+	 * A PlayField állapota. Blokk módban az értéke igaz, egyébként hamis.
+	 */
 	private boolean blockMode;
 	private Game game;
 	private ArrayList<Player> players;

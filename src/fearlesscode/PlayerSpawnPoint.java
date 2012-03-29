@@ -1,6 +1,6 @@
 package fearlesscode;
 
-class PlayerSpawnPoint
+public class PlayerSpawnPoint
 {
 	private Player player;
 	private Entity spawPoint;

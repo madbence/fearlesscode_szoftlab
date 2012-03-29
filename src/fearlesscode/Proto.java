@@ -1,6 +1,6 @@
 package fearlesscode;
 
-class Proto
+public class Proto
 {
 	public static void main(String[] args)
 	{

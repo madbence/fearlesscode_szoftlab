@@ -3,7 +3,7 @@ package fearlesscode;
 import fearlesscode.util.*;
 
 /**
- * Az üres blokkot reprezentálja, gyakorlatilag a Block osztály default (ü̈res)
+ * Az üres blokkot reprezentálja, gyakorlatilag a Block osztály default (üres)
  * implemetációja.
  */
 public class EmptyBlock extends Block
@@ -26,7 +26,7 @@ public class EmptyBlock extends Block
 	}
 	
 	/**
-	 * Mivel ü̈res blokk, semmi sincs benne, így ez a metódus nem csinál semmit.
+	 * Mivel üres blokk, semmi sincs benne, így ez a metódus nem csinál semmit.
 	 */
 	public void processCollisions()
 	{
