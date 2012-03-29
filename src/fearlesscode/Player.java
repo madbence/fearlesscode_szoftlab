@@ -30,8 +30,8 @@ public class Player
 	}
 
 	/**
-	*	Megnöveli a nála lévo ̋ kulcsok számát.
-	*/
+	 * Megnöveli a nála lévő kulcsok számát.
+	 */
 	public void addKey()
 	{
 		Logger.call(this, "addKey()");
@@ -39,7 +39,7 @@ public class Player
 	}
 
 	/**
-	 * A játékos belép a megadott blokkba.
+	 * A játékos belép a megadott blokkba.
 	 * @param block
 	 */
 	public void enterBlock(Block block)
@@ -50,17 +50,18 @@ public class Player
 	}
 
 	/**
-	*	A játékos által elfoglalt blokkokat adja vissza.
-	*/
+	 * A játékos által elfoglalt blokkokat adja vissza.
+	 */
 	public ArrayList<Block> getActiveBlocks()
 	{
 		Logger.call(this, "getActiveBlocks()");
 		Logger.ret(this, "getActiveBlocks()");
 		return activeBlocks;
 	}
+
 	/**
-	*	A játékos által birtokolt kulcsok számát adja vissza.
-	*/
+	 * A játékos által birtokolt kulcsok számát adja vissza.
+	 */
 	public int getObtainedKeys()
 	{
 		Logger.call(this, "getObtainedKeys()");
@@ -69,7 +70,7 @@ public class Player
 	}
 
 	/**
-	 * A játékos kilép a megadott blokkból.
+	 * A játékos kilép a megadott blokkból.
 	 * @param block
 	 */
 	public void leaveBlock(Block block)
@@ -80,8 +81,8 @@ public class Player
 	}
 
 	/**
-	 * A játékos sebességét a megadott irányban megnöveli. Ténylegesen nem
-	 * mozgatja a játékost, csak jelzi a mozgás irányát.
+	 * A játékos sebességét megváltoztatja a megadott mértékben. Ténylegesen nem
+	 * mozgatja a játékost, csak egy sebességvektort állít.
 	 * @param dir
 	 */
 	public void move(Speed newSpeed)

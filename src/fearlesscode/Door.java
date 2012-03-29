@@ -15,7 +15,7 @@ public class Door extends Entity
 	}
 	
 	/**
-	 * Ha a játékosnál lávő kulcsok száma megegyezik a szükséges
+	 * Ha a játékosnál lévő kulcsok száma megegyezik a szükséges
 	 * kulcsok számával, értesíti a PlayFieldet, hogy a pályának vége.
 	 */
 	public void meetPlayer(Player player)
