@@ -1,19 +1,49 @@
 package fearlesscode;
 
 /**
- * Egy Entity-t és annak EntityPosition-jét tároló segédosztály.
+ * Az Entity-t és az Entity pozicióját tároló segédosztály.
+ *
+ * A Block (és leszármazottai) tartalmazzák, így tárolódik el egy-egy Entity pozíciója a blokkon belül.
  */
 public class EntityContainer
 {
-	Entity entity;
-	EntityPosition position;
+	/**
+	* A tárolt Entity referenciája
+	*/
+	private Entity entity;
+	
+	/**
+	* A tárolt pozíció referenciája (az Entity pozíciója).
+	*/
+	private EntityPosition position;
 
 	/**
-	 * EntityContainer konstruktora.
+	 * Az EntityContainer konstruktora, beállítja az Entity referenciáját,
+	 * és pozicióját.
+	 * @param en Az eltárolandó Entity.
+	 * @param pos Az eltárolandó pozíció.
 	 */
-	EntityContainer(Entity en, EntityPosition pos)
+	public EntityContainer(Entity en, EntityPosition pos)
 	{
 		entity = en;
 		position=pos;
+	}
+	
+	/**
+	 * A tárolt Entity gettere.
+	 * @return A tárolt Entity.
+	 */
+	public Player getPlayer()
+	{
+		return player;
+	}
+
+	/**
+	 * A tárolt pozíció gettere.
+	 * @return A tárolt pozíció.
+	 */
+	public EntityPosition getPosition()
+	{
+		return position;
 	}
 }
