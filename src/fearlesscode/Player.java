@@ -5,23 +5,46 @@ import java.util.*;
 
 
 /**
-*	A Player számon tartja magáról, hogy mely blokkokban van jelen,
-*   valamint a nála lévo ̋ kulcsok számát.
-*	obtainedKeys A megszerzett kulcsok száma.
-*	activeBlocks A játékos jelenleg ezekben a blokkokban van jelen. Ha ez több egynél, akkor a mozgatás nem feltétlenül lehetséges.
-*	speed A játékos jelenlegi sebessége, ebbo ̋l számítható a következo ̋ pozíciója.
+* A játékos(okat) reprezentáló osztály. 
+*
+* A Player számon tartja magáról, hogy mely blokkokban van jelen, valamint a nála lévő kulcsok számát.
+*
 */
 public class Player
 {
+	/**
+	 * A játékos jelenlegi sebessége, ebből számítható a következő poziciója.
+	 */
 	private Speed speed;
+	
+	/**
+	 * A megszerzett kulcsok száma.
+	 */
+	private int obtainedKeys;
+	
+	/**
+	 * A játékos jelenleg ezekben a blokkokban van jelen. Ha ez több egynél, akkor a mozgatása nem feltétlenül lehetséges.
+	 */
 	private ArrayList<Block> activeBlocks;
 
+
+	/**
+	* A Player konstruktora.
+	* 
+	* Egy új üres listát hoz létre az activeBlockoknak.
+	*/
 	public Player()
 	{
 		Logger.reg(this, "player");
 		activeBlocks=new ArrayList<Block>();
 	}
 
+
+	/**
+	 * A sebesség gettere.
+	 *
+	 * @return A sebesség.
+	 */
 	public Speed getSpeed()
 	{
 		Logger.call(this, "getSpeed()");
@@ -30,7 +53,7 @@ public class Player
 	}
 
 	/**
-	 * Megnöveli a nála lévő kulcsok számát.
+	 * A felvett kulcsok számának növelésére szolgáló metódus.
 	 */
 	public void addKey()
 	{
@@ -39,8 +62,9 @@ public class Player
 	}
 
 	/**
-	 * A játékos belép a megadott blokkba.
-	 * @param block
+	 * A Block-ba történő beléptetést végző metódus.
+	 *
+	 * @param block Referencia, hogy melyik Block-ba történik a belépés.
 	 */
 	public void enterBlock(Block block)
 	{
@@ -50,7 +74,9 @@ public class Player
 	}
 
 	/**
-	 * A játékos által elfoglalt blokkokat adja vissza.
+	 * Az aktív blokkok gettere.
+	 * 
+	 * @return Az aktiív blokkok listája.
 	 */
 	public ArrayList<Block> getActiveBlocks()
 	{
@@ -60,7 +86,9 @@ public class Player
 	}
 
 	/**
-	 * A játékos által birtokolt kulcsok számát adja vissza.
+	 * A felvett kulcsok számának gettere.
+	 *
+	 * @return A felvett kulcsok száma.
 	 */
 	public int getObtainedKeys()
 	{
@@ -71,7 +99,8 @@ public class Player
 
 	/**
 	 * A játékos kilép a megadott blokkból.
-	 * @param block
+	 *
+	 * @param block Referecina, hogy melyik Blockból történik a kilépés.
 	 */
 	public void leaveBlock(Block block)
 	{
@@ -83,7 +112,8 @@ public class Player
 	/**
 	 * A játékos sebességét megváltoztatja a megadott mértékben. Ténylegesen nem
 	 * mozgatja a játékost, csak egy sebességvektort állít.
-	 * @param dir
+	 *
+	 * @param newSpeed Az új sebesség.
 	 */
 	public void move(Speed newSpeed)
 	{
