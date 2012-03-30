@@ -4,9 +4,23 @@ import java.util.ArrayList;
 
 import fearlesscode.util.*;
 
+/**
+ * A PlayField-et felépítő osztály.
+ *
+ * A PlayField összerakásáért felelős, elkészíti a blokkokat, elhelyezi rajtuk az objektumokat, a játékost, a blokkokat összerendezi a PlayField objektumban.
+ */
 public class PlayFieldBuilder
 {
-	public static PlayField createPlayField(Game game)
+	/**
+	 * A PlayField-et felépítő metódus.
+	 *
+	 * Felépítí a PlayField-et a megadott file alapján, felhasználva a MapFromJson segédosztályt. A szekvencia diagrammok között megadott 4.4.1-es diagram szerint.
+	 * A MapFromJson osztályból a pályára vonatkozó összes információ lekérhető get metódusok segítségével, igy ezekből az információkból az PlayField könnyen felépíthető. 
+	 *
+	 * @param game A Game objektum referenciája.
+	 * @param file A pályát tartalmazó file elérési útja.
+	 */
+	public static PlayField createPlayField(Game game. String file)
     {
         Logger.call("PlayFieldBuilder", "createPlayField()");
         
