@@ -1,23 +1,27 @@
 package fearlesscode;
 
 /**
- * A játékos sebességét reprezentáló osztály. 
+ * A jÃ¡tÃ©kos sebessÃ©Ã©t reprezentÃ¡lÃ³ osztÃ¡ly.
  */
 public class Speed
 {
 
-     /**
-       * Vízszintes(x) és függõleges(y) irányú sebesség.
-       */
+	/**
+	 * VÃ­zszintes irÃ¡nyÃº sebessÃ©g.
+	 */
 	private double x;
+	
+	/**
+	 * FÃ¼ggÅ‘leges irÃ¡nyÃº sebessÃ©g.
+	 */
 	private double y;
 	
 	/**
-      * Speed osztály konstruktora.
-      *
-      * @param x Vízszintes irányú sebesség.
-	  * @param y Függõleges irányú sebesség.
-      */
+	 * Speed osztÃ¡ly konstruktora.
+	 *
+	 * @ param x VÃ­zszintes irÃ¡nyÃº sebessÃ©g.
+	 * @ param y FÃ¼ggÅ‘leges irÃ¡nyÃº sebessÃ©g.
+	 */
 	public Speed(double x, double y)
 	{
 		this.x=x;
@@ -25,20 +29,20 @@ public class Speed
 	}
 
 	/**
-      * A vízsintes irányú sebességet adja vissza(getter metódus).
-      *
-	  * @return x Vízszintes irányú sebesség.
-      */
+	 * A vÃ­zszintes irÃ¡nyÃº sebessÃ©get adja vissza.
+	 *
+	 * @ return x VÃ­zszintes irÃ¡nyÃº sebessÃ©g.
+	 */
 	public double getX()
 	{
 		return x;
 	}
 
 	/**
-      * A függõleges irányú sebességet adja vissza(getter metódus).
-      *
-	  * @return y Függõleges irányú sebesség.
-      */
+	 * A fÃ¼ggÅ‘leges irÃ¡nyÃº sebessÃ©get adja vissza.
+	 *
+	 * @ return y FÃ¼ggÅ‘leges irÃ¡nyÃº sebessÃ©g.
+	 */
 	public double getY()
 	{
 		return y;

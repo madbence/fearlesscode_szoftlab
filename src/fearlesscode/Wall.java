@@ -3,28 +3,33 @@ package fearlesscode;
 import fearlesscode.util.*;
 import java.util.*;
 
+/**
+ * Falat reprezentáló osztály.
+ */
 public class Wall extends Entity
 {
-	public static int count=0;
-
-	private ArrayList<EntityPosition> points;
+	/**
+	 * A  fal szélessége.
+	 */
+	private int x;
+	
+	/**
+	 * A fal magassága.
+	 */
+	private int y;
 
 	/**
 	 * Létrehoz egy új fal objektumot, a megadott pontokkal határolva.
-	 * 
-	 * A megadott pontok relatívak a fal origójához.
 	 *
-	 * @param playField PlayField referencia az Entity ősosztály konstruktorához
-	 * @param points A fal pontjainak listája
+	 * @ param playfield referencia az Entity ősosztály konstruktorához
+	 * @ param x A fal szélessége.
+	 * @ param y A fal magassága.
 	 */
-	public Wall(PlayField playField, ArrayList<EntityPosition> points)
+	public Wall(PlayField playField, x, y)
 	{
 		super(playField);
-		String name="wall"+(count++);
-		Logger.reg(this, name);
-		Logger.call(this,"init()");
-		this.points=points;
-		Logger.ret(this,"init()");
+		this.x=x;
+		this.y=y;
 	}
 
 	/**
@@ -32,20 +37,11 @@ public class Wall extends Entity
 	 *
 	 * Ha a játékos és a fal találkozási felülete függőleges, úgy az X irányú mozgás
 	 * szűnik meg a játékos részéről, ha vízszintes, akkor pedig a függőleges (Y).
-	 * @param player A játékos, akivel a fal interakcióba került
+	 *
+	 * @ param player A játékos, akivel a fal interakcióba került
 	 */
 	public void meetPlayer(Player player)
 	{
-		Logger.call(this,"meetPlayer(player)");
-		Speed oldSpeed=player.getSpeed();
-		if(Logger.ask("Falkent viselkedik?"))
-		{
-			player.move(new Speed(0, oldSpeed.getY()));
-		}
-		else
-		{
-			player.move(new Speed(oldSpeed.getX(), 0));
-		}
-		Logger.ret(this,"meetPlayer(player)");
+
 	}
 }
