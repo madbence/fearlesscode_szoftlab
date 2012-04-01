@@ -4,7 +4,6 @@ import fearlesscode.util.*;
 
 /**
  * Egy kulcsot reprezentál, amit a játékosnak föl kell szednie.
- *
  * Amennyiben játékossal találkozik, és még nem szerezte meg a kulcsot (ez a saját belsőállapota), akkor értesíti a játékost a fölvételről.
  */
 public class Key extends Entity

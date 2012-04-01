@@ -5,7 +5,7 @@ import fearlesscode.util.*;
 
 /**
  * A PlayField-et felépítő osztály.
- *
+ * 
  * A PlayField összerakásáért felelős, elkészíti a blokkokat, elhelyezi rajtuk az objektumokat, a játékost, a blokkokat összerendezi a PlayField objektumban.
  */
 public class PlayFieldBuilder

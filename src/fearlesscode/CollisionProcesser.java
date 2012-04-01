@@ -3,20 +3,19 @@ import java.util.*;
 
 /**
  * Ütközések detektálására szolgáló objektum.
- *
+ * 
  * Az objektum segítségével különböző Shape objektumok ütközését tudjuk meghatározni. A játék során lényegében csak
  * Rectangle objektumokat fogunk ütköztetni, de a modularitásnak köszönhetően ez könnyen bővíthető.
  */
-
 public class CollisionProcesser
 {
 	/**
-	* Két Rectangle objektum ütközéséről dönt.
-	*
-	* @param main A egyik ütköztetendő Rectangle.
-	* @param other A másik ütköztetendő Rectangle.
-	* @return A visszatérési érték true, ha a két téglalap ütközött, false ha nem.
-	*/
+	 * Két Rectangle objektum ütközéséről dönt.
+	 *
+	 * @param main A egyik ütköztetendő Rectangle.
+	 * @param other A másik ütköztetendő Rectangle.
+	 * @return A visszatérési érték true, ha a két téglalap ütközött, false ha nem.
+	 */
 	public boolean isCollied(Rectangle main, Rectangle other)
 	{
 		boolean isCollied = false;

@@ -4,7 +4,6 @@ import fearlesscode.util.*;
 
 /**
  * A játék fő mozzanatait kezelő osztály.
- *
  * A játék fő mozzanatait (pálya betöltés, játék megnyerése) kezeli. Kezdetben inicializál minden objektumot.
  * Felelőssége a pálya betöltése (és inicializálása).
  */
@@ -12,8 +11,8 @@ public class Game
 {
 
 	/**
-	* A tárolt PlayField referenciája.
-	*/
+	 * A tárolt PlayField referenciája.
+	 */
 	private PlayField playField;
 
 	/**
@@ -52,10 +51,10 @@ public class Game
 	}
 	
 	/**
-	* A tárolt PlayField gettere.
-	*
-	* @return A tárolt PlayFiled.
-	*/
+	 * A tárolt PlayField gettere.
+	 *
+	 * @return A tárolt PlayFiled.
+	 */
 	public PlayField getPlayField()
 	{
 		return playField;

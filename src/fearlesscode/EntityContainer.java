@@ -2,19 +2,19 @@ package fearlesscode;
 
 /**
  * Az Entity-t és az Entity pozicióját tároló segédosztály.
- *
+ * 
  * A Block (és leszármazottai) tartalmazzák, így tárolódik el egy-egy Entity pozíciója a blokkon belül.
  */
 public class EntityContainer
 {
 	/**
-	* A tárolt Entity referenciája
-	*/
+	 * A tárolt Entity referenciája
+	 */
 	private Entity entity;
 	
 	/**
-	* A tárolt pozíció referenciája (az Entity pozíciója).
-	*/
+	 * A tárolt pozíció referenciája (az Entity pozíciója).
+	 */
 	private EntityPosition position;
 
 	/**

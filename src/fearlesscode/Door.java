@@ -7,7 +7,6 @@ import fearlesscode.util.*;
  * metódust. Abban az esteben, ha a játékos rendelkezik az összes megszerzett kulccsal,
  * akkor a játék végetér.  
  */
-
 public class Door extends Entity
 {
 	/**

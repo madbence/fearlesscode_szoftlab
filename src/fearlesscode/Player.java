@@ -5,11 +5,10 @@ import java.util.*;
 
 
 /**
-* A játékos(okat) reprezentáló osztály. 
-*
-* A Player számon tartja magáról, hogy mely blokkokban van jelen, valamint a nála lévő kulcsok számát.
-*
-*/
+ * A játékos(okat) reprezentáló osztály. 
+ * 
+ * A Player számon tartja magáról, hogy mely blokkokban van jelen, valamint a nála lévő kulcsok számát.
+ */
 public class Player
 {
 	/**

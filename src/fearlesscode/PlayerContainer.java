@@ -3,7 +3,7 @@ package fearlesscode;
 
 /**
  * A Playert és a Player pozicióját tároló segédosztály.
- *
+ * 
  * A Block (és leszármazottai) tartalmazzák, így tárolódik el egy-egy játékos pozíciója a blokkon belül.
  */
 public class PlayerContainer

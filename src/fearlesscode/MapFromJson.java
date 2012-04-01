@@ -8,7 +8,7 @@ import org.json.*;
 
 /**
  * A pálya információkat JSON file-ból betöltő osztály.
- *
+ * 
  * A pályára vonatkozó összes információt lekérdező osztály.
  */
 public class MapFromJson
@@ -45,7 +45,7 @@ public class MapFromJson
 	 *
 	 * @return A Map x irányú mérete.
 	 */
-	int getMapSizeX()
+	public int getMapSizeX()
 	{
 		try
 		{
@@ -63,7 +63,7 @@ public class MapFromJson
 	 *
 	 * @return A Map y irányú mérete.
 	 */
-	int getMapSizeY()
+	public int getMapSizeY()
 	{
 		try 
 		{
@@ -81,7 +81,7 @@ public class MapFromJson
 	 *
 	 * @return A Map-ben található Block-ok száma.
 	 */
-	int getNumberOfBlocks()
+	public int getNumberOfBlocks()
 	{
 		return this.getMapSizeX()*this.getMapSizeY();
 		
@@ -93,7 +93,7 @@ public class MapFromJson
 	 * @param numberOfBlock Annak a Block-nak a sorszáma, amiről információt szeretnénk.
 	 * @return Az adott Block típusa boolean-ként. Ha FilledBlock akkor true, ha EmptyBlock akkor false.
 	 */
-	boolean isFilledBlock(int numberOfBlock)
+	public boolean isFilledBlock(int numberOfBlock)
 	{
 		String type = new String();
 		try
@@ -121,7 +121,7 @@ public class MapFromJson
 	 * @param numberOfBlock Annak a Block-nak a sorszáma, amiről információt szeretnénk.
 	 * @return Az adott Block x poziciója.
 	 */
-	int getXPositionOfBlock(int numberOfBlock)
+	public int getXPositionOfBlock(int numberOfBlock)
 	{
 		try
 		{
@@ -141,7 +141,7 @@ public class MapFromJson
 	 * @param numberOfBlock Annak a Block-nak a sorszáma, amiről információt szeretnénk.
 	 * @return Az adott Block y poziciója.
 	 */
-	int getYPositionOfBlock(int numberOfBlock)
+	public int getYPositionOfBlock(int numberOfBlock)
 	{
 		try
 		{
@@ -161,7 +161,7 @@ public class MapFromJson
 	 * @param numberOfBlock Annak a Block-nak a sorszáma, amiről információt szeretnénk.
 	 * @return Az adott Block-ban található Entity-k száma.
 	 */
-	int getNumberOfEntitiesInBlock(int numberOfBlock)
+	public int getNumberOfEntitiesInBlock(int numberOfBlock)
 	{
 		try 
 		{
@@ -189,7 +189,7 @@ public class MapFromJson
 	 * @param numberOfEntity Annak az Entity-nek a sorszáma, amiről információt szeretnénk.
 	 * @return Az adott Entity típusa Stringként. (Wall, Key, Door, SpawnPoint)
 	 */
-	String getTypeOfEntityInBlock(int numberOfBlock,int numberOfEntity)
+	public String getTypeOfEntityInBlock(int numberOfBlock,int numberOfEntity)
 	{
 		try
 		{
@@ -211,7 +211,7 @@ public class MapFromJson
 	 * @param numberOfEntity Annak az Entity-nek a sorszáma, amiről információt szeretnénk.
 	 * @return Az adott Entity x poziciója double-ként.
 	 */
-	double getXPositionOfEntityInBlock(int numberOfBlock, int numberOfEntity)
+	public double getXPositionOfEntityInBlock(int numberOfBlock, int numberOfEntity)
 	{
 		if( this.getTypeOfEntityInBlock(numberOfBlock, numberOfEntity).equals("wall") )
 		{
@@ -237,7 +237,7 @@ public class MapFromJson
 	 * @param numberOfEntity Annak az Entity-nek a sorszáma, amiről információt szeretnénk.
 	 * @return Az adott Entity y poziciója double-ként.
 	 */
-	double getYPositionOfEntityInBlock(int numberOfBlock, int numberOfEntity)
+	public double getYPositionOfEntityInBlock(int numberOfBlock, int numberOfEntity)
 	{
 		if( this.getTypeOfEntityInBlock(numberOfBlock, numberOfEntity).equals("wall") )
 		{
@@ -263,7 +263,7 @@ public class MapFromJson
 	 * @param numberOfEntity Annak az Entity-nek a sorszáma, amiről információt szeretnénk.
 	 * @return Az adott Door által elvárt kulcsok száma. Ha nem Door-ról van szó akkor a visszatérési érték -1.
 	 */
-	int getNumberOfRequiredKeys(int numberOfBlock, int numberOfEntity)
+	public int getNumberOfRequiredKeys(int numberOfBlock, int numberOfEntity)
 	{
 		if( "Door".equals(this.getTypeOfEntityInBlock(numberOfBlock,numberOfEntity)) )
 		{
@@ -288,7 +288,7 @@ public class MapFromJson
 	 * @param numberOfEntity Annak az Entity-nek a sorszáma, amiről információt szeretnénk.
 	 * @return Az adott Wall x koordinátája.
 	 */
-	double getXPositionOfWallInBlock(int numberOfBlock,int numberOfEntity)
+	public double getXPositionOfWallInBlock(int numberOfBlock,int numberOfEntity)
 	{
 		if( "Wall".equals(this.getTypeOfEntityInBlock(numberOfBlock,numberOfEntity)) )
 		{
@@ -313,7 +313,7 @@ public class MapFromJson
 	 * @param numberOfEntity Annak az Entity-nek a sorszáma, amiről információt szeretnénk.
 	 * @return Az adott Wall y koordinátája.
 	 */
-	double getYPositionOfWallInBlock(int numberOfBlock,int numberOfEntity)
+	public double getYPositionOfWallInBlock(int numberOfBlock,int numberOfEntity)
 	{
 		if("Wall".equals(this.getTypeOfEntityInBlock(numberOfBlock,numberOfEntity)))
 		{
@@ -338,7 +338,7 @@ public class MapFromJson
 	 * @param numberOfEntity Annak az Entity-nek a sorszáma, amiről információt szeretnénk.
 	 * @return Az adott Wall szélessége.
 	 */
-	double getWidthOfWall(int numberOfBlock,int numberOfEntity)
+	public double getWidthOfWall(int numberOfBlock,int numberOfEntity)
 	{
 		if("Wall".equals(this.getTypeOfEntityInBlock(numberOfBlock,numberOfEntity)))
 		{
@@ -363,7 +363,7 @@ public class MapFromJson
 	 * @param numberOfEntity Annak az Entity-nek a sorszáma, amiről információt szeretnénk.
 	 * @return Az adott Wall magassága.
 	 */
-	double getHeightOfWall(int numberOfBlock,int numberOfEntity)
+	public double getHeightOfWall(int numberOfBlock,int numberOfEntity)
 	{
 		if("Wall".equals(this.getTypeOfEntityInBlock(numberOfBlock,numberOfEntity)))
 		{
@@ -388,7 +388,7 @@ public class MapFromJson
 	 * @param numberOfBlock Annak a Block-nak a sorszáma, amiről információt szeretnénk.
 	 * @return Az adott Block-ban lévő Player-ek száma.
 	 */
-	int getNumberOfPlayersInBlock(int numberOfBlock)
+	public int getNumberOfPlayersInBlock(int numberOfBlock)
 	{
 		try 
 		{
@@ -413,7 +413,7 @@ public class MapFromJson
 	 * @param numberOfPlayer Annak a Player-nek a sorszáma, amiről információt szeretnénk.
 	 * @return Az adott Player x poziciója.
 	 */
-	double getXPositionOfPlayerInBlock(int numberOfBlock, int numberOfPlayer)
+	public double getXPositionOfPlayerInBlock(int numberOfBlock, int numberOfPlayer)
 	{
 		try
 		{
@@ -434,7 +434,7 @@ public class MapFromJson
 	 * @param numberOfPlayer Annak a Player-nek a sorszáma, amiről információt szeretnénk.
 	 * @return Az adott Player y poziciója.
 	 */
-	double getYPositionOfPlayerInBlock(int numberOfBlock, int numberOfPlayer)
+	public double getYPositionOfPlayerInBlock(int numberOfBlock, int numberOfPlayer)
 	{
 		try
 		{

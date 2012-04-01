@@ -3,11 +3,10 @@ import java.util.*;
 
 /**
  * Wrapper osztály téglalap tárolásához.
- *
+ * 
  * Egy-egy téglalap négy paraméterrel reprezentálunk. Egy pont és a hozzá tartozó szélességi, valamint magassági adatokkal.
  * A téglalap kezdőpontjának a bal felső sarkot tekintjük.
  */
-
 public class Rectangle extends Shape
 {
 	/**
