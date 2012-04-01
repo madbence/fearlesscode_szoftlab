@@ -282,22 +282,20 @@ public class MapFromJson
 	}
 	
 	/**
-	 * Egy adott Block-ban lévő adott Wall adott Point-jának x koordinátáját lekérő metódus.
+	 * Egy adott Block-ban lévő adott Wall poziciójának x koordinátáját lekérő metódus.
 	 *
 	 * @param numberOfBlock Annak a Block-nak a sorszáma, amiről információt szeretnénk.
 	 * @param numberOfEntity Annak az Entity-nek a sorszáma, amiről információt szeretnénk.
-	 * @param numberOfPoint Annak a Point-nak a sorszáma amiről információt szeretnénk.
-	 * @return Az adott Wall adott Pointjának x koodrinátája.
+	 * @return Az adott Wall x koordinátája.
 	 */
-	double getXPointOfWallInBlock(int numberOfBlock,int numberOfEntity,int numberOfPoint)
+	double getXPositionOfWallInBlock(int numberOfBlock,int numberOfEntity)
 	{
 		if( "Wall".equals(this.getTypeOfEntityInBlock(numberOfBlock,numberOfEntity)) )
 		{
 			try
 			{
 				return rawMap.getJSONArray("blocks").getJSONObject(numberOfBlock)
-						.getJSONArray("entities").getJSONObject(numberOfEntity).
-						getJSONArray("points").getJSONObject(numberOfPoint).getDouble("x");
+						.getJSONArray("entities").getJSONObject(numberOfEntity).getJSONObject("position").getDouble("x");
 			}
 			catch (JSONException e) 
 			{
@@ -309,22 +307,70 @@ public class MapFromJson
 	}
 	
 	/**
-	 * Egy adott Block-ban lévő adott Wall adott Point-jának y koordinátáját lekérő metódus.
+	 * Egy adott Block-ban lévő adott Wall poziciójának y koordinátáját lekérő metódus.
 	 *
 	 * @param numberOfBlock Annak a Block-nak a sorszáma, amiről információt szeretnénk.
 	 * @param numberOfEntity Annak az Entity-nek a sorszáma, amiről információt szeretnénk.
-	 * @param numberOfPoint Annak a Point-nak a sorszáma amiről információt szeretnénk.
-	 * @return Az adott Wall adott Pointjának y koodrinátája.
+	 * @return Az adott Wall y koordinátája.
 	 */
-	double getYPointOfWallInBlock(int numberOfBlock,int numberOfEntity,int numberOfPoint)
+	double getYPositionOfWallInBlock(int numberOfBlock,int numberOfEntity)
 	{
 		if("Wall".equals(this.getTypeOfEntityInBlock(numberOfBlock,numberOfEntity)))
 		{
 			try
 			{
 				return rawMap.getJSONArray("blocks").getJSONObject(numberOfBlock)
-						.getJSONArray("entities").getJSONObject(numberOfEntity).
-						getJSONArray("points").getJSONObject(numberOfPoint).getDouble("y");
+						.getJSONArray("entities").getJSONObject(numberOfEntity).getJSONObject("position").getDouble("y");
+			}
+			catch (JSONException e) 
+			{
+				e.printStackTrace();
+			}
+			return -1;
+		}
+		return -1;
+	}
+	
+	/**
+	 * Egy adott Block-ban lévő adott Wall szélességét visszaadó metódus.
+	 *
+	 * @param numberOfBlock Annak a Block-nak a sorszáma, amiről információt szeretnénk.
+	 * @param numberOfEntity Annak az Entity-nek a sorszáma, amiről információt szeretnénk.
+	 * @return Az adott Wall szélessége.
+	 */
+	double getWidthOfWall(int numberOfBlock,int numberOfEntity)
+	{
+		if("Wall".equals(this.getTypeOfEntityInBlock(numberOfBlock,numberOfEntity)))
+		{
+			try
+			{
+				return rawMap.getJSONArray("blocks").getJSONObject(numberOfBlock)
+						.getJSONArray("entities").getJSONObject(numberOfEntity).getDouble("width");
+			}
+			catch (JSONException e) 
+			{
+				e.printStackTrace();
+			}
+			return -1;
+		}
+		return -1;
+	}
+	
+	/**
+	 * Egy adott Block-ban lévő adott Wall magasságát visszaadó metódus.
+	 *
+	 * @param numberOfBlock Annak a Block-nak a sorszáma, amiről információt szeretnénk.
+	 * @param numberOfEntity Annak az Entity-nek a sorszáma, amiről információt szeretnénk.
+	 * @return Az adott Wall magassága.
+	 */
+	double getHeightOfWall(int numberOfBlock,int numberOfEntity)
+	{
+		if("Wall".equals(this.getTypeOfEntityInBlock(numberOfBlock,numberOfEntity)))
+		{
+			try
+			{
+				return rawMap.getJSONArray("blocks").getJSONObject(numberOfBlock)
+						.getJSONArray("entities").getJSONObject(numberOfEntity).getDouble("height");
 			}
 			catch (JSONException e) 
 			{
