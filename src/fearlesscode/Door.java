@@ -1,6 +1,12 @@
-package fearlesscode;
-
 import fearlesscode.util.*;
+
+/**
+ * A pályán megjelenő ajtót reprezentáló objektum.
+ * 
+ * A Door objektum az Entity osztály kiterjesztése így ez is megvalósítja a meetPlayer
+ * metódust. Abban az esteben, ha a játékos rendelkezik az összes megszerzett kulccsal,
+ * akkor a játék végetér.  
+ */
 
 public class Door extends Entity
 {
@@ -17,6 +23,7 @@ public class Door extends Entity
 	/**
 	 * Ha a játékosnál lévő kulcsok száma megegyezik a szükséges
 	 * kulcsok számával, értesíti a PlayFieldet, hogy a pályának vége.
+	 * @param player Az adott Player objektum, amelyikkel a Door objektum találkozott.
 	 */
 	public void meetPlayer(Player player)
 	{

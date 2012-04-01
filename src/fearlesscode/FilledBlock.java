@@ -1,7 +1,4 @@
-package fearlesscode;
-
 import fearlesscode.util.*;
-
 
 /**
  * A sima blokkot reprezentálja, kezeli a benne található objektumokat
@@ -20,47 +17,59 @@ public class FilledBlock extends Block
 	public void checkBorders()
 	{
 		Logger.call(this,"checkBorders()");
-		player.player.getSpeed();
-		if(Logger.ask("Blokk szelehez ert?"))
+		for(int i = 0; i < this.players.size(); i++)
 		{
-			if(Logger.ask("Lehetseges az atjutas?"))
+			PlayerContainer player = this.players.get(i);
+
+			player.getPlayer().getSpeed();
+			if(Logger.ask("Blokk szelehez ert?"))
 			{
-				Block neighbour = playField.getBlocks().get(1).block;
-				player.player.enterBlock(neighbour);
-				neighbour.setPlayer(player.player,null);
+				if(Logger.ask("Lehetseges az atjutas?"))
+				{
+					Block neighbour = playField.getBlocks().get(1).block;
+					player.getPlayer().enterBlock(neighbour);
+					neighbour.setPlayer(player.getPlayer(),null);
+				}
+				else if(Logger.ask("Kiesik?"))
+				{
+					//playField.resetPlayer();
+				}
 			}
-			else if(Logger.ask("Kiesik?"))
+			else if(Logger.ask("Kilepett egy blokkbol?"))
 			{
-				//playField.resetPlayer();
+				player.getPlayer().leaveBlock(this);
 			}
+			Logger.ret(this,"checkBorders()");
 		}
-		else if(Logger.ask("Kilepett egy blokkbol?"))
-		{
-		player.player.leaveBlock(this);
-		}
-		Logger.ret(this,"checkBorders()");
 	}
 	
 	/**
-	 * Végignézi az összes objektumot, hogy ütközik-e a jétékossal,
+	 * Végignézi az összes objektumot, hogy ütközik-e a jétékosokkal,
 	 * ha pedig igen, meghívja a meetPlayer metódusukat.
 	 */
 	public void processCollisions()
 	{
 		Logger.call(this,"processCollisions()");
-		player.player.getSpeed();
-		if(Logger.ask("Volt utkozes fallal?"))
+        
+		for(int i = 0; i < this.players.size(); i++)
 		{
-			entities.get(0).entity.meetPlayer(player.player);
+			PlayerContainer player = this.players.get(i);
+
+			player.getPlayer().getSpeed();
+			if(Logger.ask("Volt utkozes fallal?"))
+			{
+				entities.get(0).getEntity().meetPlayer(player.getPlayer());
+			}
+			if(Logger.ask("Volt utkozes ajtoval?"))
+			{
+				entities.get(1).getEntity().meetPlayer(player.getPlayer());
+			}
+			if(Logger.ask("Volt utkozes kulccsal?"))
+			{
+				entities.get(2).getEntity().meetPlayer(player.getPlayer());
+			}
 		}
-		if(Logger.ask("Volt utkozes ajtoval?"))
-		{
-			entities.get(1).entity.meetPlayer(player.player);
-		}
-		if(Logger.ask("Volt utkozes kulccsal?"))
-		{
-			entities.get(2).entity.meetPlayer(player.player);
-		}
+
 		Logger.ret(this,"processCollisions()");
 	}
 }
