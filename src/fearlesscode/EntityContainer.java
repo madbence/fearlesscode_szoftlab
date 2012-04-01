@@ -26,7 +26,7 @@ public class EntityContainer
 	public EntityContainer(Entity en, EntityPosition pos)
 	{
 		entity = en;
-		position=pos;
+		position = pos;
 	}
 	
 	/**

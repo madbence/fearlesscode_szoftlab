@@ -4,7 +4,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-
 import org.json.*;
 
 /**
@@ -12,7 +11,8 @@ import org.json.*;
  *
  * A pályára vonatkozó összes információt lekérdező osztály.
  */
-public class MapFromJson {
+public class MapFromJson
+{
 	
 	/**
 	 * Az egész JSON állományt tartalmazó változó.
@@ -33,7 +33,8 @@ public class MapFromJson {
 			is = new BufferedInputStream(new FileInputStream(file));
 			rawMap = new JSONObject(new JSONTokener(is));
 		}
-		catch (Exception e) {
+		catch (Exception e)
+		{
 			e.printStackTrace();
 		}
 		
@@ -94,7 +95,7 @@ public class MapFromJson {
 	 */
 	boolean getTypeOfBlock(int numberOfBlock)
 	{
-		String type=new String();
+		String type = new String();
 		try
 		{
 			type = rawMap.getJSONArray("blocks").getJSONObject(numberOfBlock).getString("type");
@@ -165,7 +166,7 @@ public class MapFromJson {
 		try 
 		{
 			//ha EmptyBlockról van szó
-			if(this.getTypeOfBlock(numberOfBlock)==false)
+			if(this.getTypeOfBlock(numberOfBlock) == false)
 			{	
 				//akkor biztos hogy üres
 				return 0;
@@ -212,7 +213,7 @@ public class MapFromJson {
 	 */
 	double getXPositionOfEntityInBlock(int numberOfBlock, int numberOfEntity)
 	{
-		if(this.getTypeOfEntityInBlock(numberOfBlock, numberOfEntity).equals("wall"))
+		if( this.getTypeOfEntityInBlock(numberOfBlock, numberOfEntity).equals("wall") )
 		{
 			return -1;
 		}
@@ -238,7 +239,7 @@ public class MapFromJson {
 	 */
 	double getYPositionOfEntityInBlock(int numberOfBlock, int numberOfEntity)
 	{
-		if(this.getTypeOfEntityInBlock(numberOfBlock, numberOfEntity).equals("wall"))
+		if( this.getTypeOfEntityInBlock(numberOfBlock, numberOfEntity).equals("wall") )
 		{
 			return -1;
 		}
@@ -264,7 +265,7 @@ public class MapFromJson {
 	 */
 	int getNumberOfRequiredKeys(int numberOfBlock, int numberOfEntity)
 	{
-		if("Door".equals(this.getTypeOfEntityInBlock(numberOfBlock,numberOfEntity)))
+		if( "Door".equals(this.getTypeOfEntityInBlock(numberOfBlock,numberOfEntity)) )
 		{
 			try
 			{
@@ -290,7 +291,7 @@ public class MapFromJson {
 	 */
 	double getXPointOfWallInBlock(int numberOfBlock,int numberOfEntity,int numberOfPoint)
 	{
-		if("Wall".equals(this.getTypeOfEntityInBlock(numberOfBlock,numberOfEntity)))
+		if( "Wall".equals(this.getTypeOfEntityInBlock(numberOfBlock,numberOfEntity)) )
 		{
 			try
 			{

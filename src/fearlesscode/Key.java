@@ -12,7 +12,7 @@ public class Key extends Entity
 	/**
 	 * A kulcsok számát nyilvántartó osztály szintű változó.
 	 */
-	private static int count=0;
+	private static int count = 0;
 	
 	/**
 	 * A kulcs állapotát leíró boolean. Ha true akkor a kulcs már fel lett véve. Ha false akkor még nem lett felvéve.
@@ -29,10 +29,10 @@ public class Key extends Entity
 	public Key(PlayField playField)
 	{
 		super(playField);
-		String name="key"+(count++);
+		String name = "key"+(count++);
 		Logger.reg(this, name);
 		Logger.call(this,"init()");
-		isObtained=false;
+		isObtained = false;
 		Logger.ret(this,"init()");
 	}
 
@@ -42,16 +42,16 @@ public class Key extends Entity
 	 *
 	 * @param player A játékos, akivel a kulcs interakcióban van.
 	 */
-    public void meetPlayer(Player player)
-    {
-    	Logger.call(this,"meetPlayer(player)");
-    	if(!isObtained)
+	public void meetPlayer(Player player)
+	{
+		Logger.call(this,"meetPlayer(player)");
+		if( !isObtained )
 		{
 			player.addKey();
 			playField.setSpawnPosition(player, this);
-			isObtained=true;
+			isObtained = true;
 		}
-    	Logger.ret(this,"meetPlayer(player)");
+		Logger.ret(this,"meetPlayer(player)");
 	}
 	
 	/**

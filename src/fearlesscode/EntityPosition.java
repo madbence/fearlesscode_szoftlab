@@ -25,8 +25,8 @@ public class EntityPosition
 	*/
 	public EntityPosition(double x, double y)
 	{
-		this.x=x;
-		this.y=y;
+		this.x = x;
+		this.y = y;
 	}
 	
 	/**
@@ -54,7 +54,7 @@ public class EntityPosition
 	*/
 	public void setX(double x)
 	{
-		this.x=x;
+		this.x = x;
 	}
 	
 	/**
@@ -62,6 +62,6 @@ public class EntityPosition
 	*/
 	public void setY(double y)
 	{
-		this.y=y;
+		this.y = y;
 	}
 }

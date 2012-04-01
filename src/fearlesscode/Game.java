@@ -8,7 +8,8 @@ import fearlesscode.util.*;
  * A játék fő mozzanatait (pálya betöltés, játék megnyerése) kezeli. Kezdetben inicializál minden objektumot.
  * Felelőssége a pálya betöltése (és inicializálása).
  */
-public class Game {
+public class Game
+{
 
 	/**
 	* A tárolt PlayField referenciája.
@@ -34,7 +35,7 @@ public class Game {
 	public void loadNextLevel()
 	{
 		Logger.call(this, "loadNextLevel()");
-		playField=PlayFieldBuilder.createPlayField(this);
+		playField = PlayFieldBuilder.createPlayField(this);
 		Logger.ret(this, "loadNextLevel()");
 	}
 
@@ -46,7 +47,7 @@ public class Game {
 	public void start()
 	{
 		Logger.call(this, "start()");
-		playField=PlayFieldBuilder.createPlayField(this);
+		playField = PlayFieldBuilder.createPlayField(this);
 		Logger.ret(this, "start()");
 	}
 	

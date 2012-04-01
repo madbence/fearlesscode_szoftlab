@@ -74,18 +74,18 @@ public class PlayField
 	public void move(Block block, int direction)
 	{
 		block=blocks.get(0).block;
-		Logger.call(this, "move(Block, int)");          
-		block.getNeighbour(direction);      
+		Logger.call(this, "move(Block, int)");			
+		block.getNeighbour(direction);		
 		//player.getActiveBlocks();
 		if(Logger.ask("Letrejohet a csere?"))
 		{
-			block.getNeighbours();                
+			block.getNeighbours();				  
 			blocks.get(1).block.getNeighbours();
 			blocks.get(1).block.setNeighbours(null);
 			block.setNeighbours(null);
 			block.setNeighbour(blocks.get(1).block, 3, true);
 		}
-		Logger.ret(this, "move(Block, int)");    
+		Logger.ret(this, "move(Block, int)");	 
 	}
 
 	/**
@@ -135,8 +135,8 @@ public class PlayField
 		Logger.call(this, "tick()");
 		//@TODO javítani multiplayerre
 		//ArrayList<Block> l=player.getActiveBlocks();
-		//l.get(0).processCollisions();   // ütközések ellenőrzése egy blokkban itt:0.blokkban
-		//l.get(0).checkBorders();         //blokkok közötti mozgást kezeli
+		//l.get(0).processCollisions();	  // ütközések ellenőrzése egy blokkban itt:0.blokkban
+		//l.get(0).checkBorders();		   //blokkok közötti mozgást kezeli
 		Logger.ret(this, "tick()");
 	}
 
