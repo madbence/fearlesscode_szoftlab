@@ -93,7 +93,7 @@ public class MapFromJson
 	 * @param numberOfBlock Annak a Block-nak a sorszáma, amiről információt szeretnénk.
 	 * @return Az adott Block típusa boolean-ként. Ha FilledBlock akkor true, ha EmptyBlock akkor false.
 	 */
-	boolean getTypeOfBlock(int numberOfBlock)
+	boolean isFilledBlock(int numberOfBlock)
 	{
 		String type = new String();
 		try
@@ -166,7 +166,7 @@ public class MapFromJson
 		try 
 		{
 			//ha EmptyBlockról van szó
-			if(this.getTypeOfBlock(numberOfBlock) == false)
+			if(this.isFilledBlock(numberOfBlock) == false)
 			{	
 				//akkor biztos hogy üres
 				return 0;
@@ -346,7 +346,7 @@ public class MapFromJson
 	{
 		try 
 		{
-			if(this.getTypeOfBlock(numberOfBlock)==false)
+			if(this.isFilledBlock(numberOfBlock)==false)
 			{
 				return 0;
 			}
