@@ -1,7 +1,7 @@
 package fearlesscode;
 
 /**
- * A játékos sebesséét reprezentáló osztály.
+ * A játékos sebességét reprezentáló osztály.
  */
 public class Speed
 {

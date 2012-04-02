@@ -1,5 +1,8 @@
 package fearlesscode;
 
+/**
+ * A prototípus fő osztálya, kezeli a bemeneteket, és végrehajtja az azon érkező parancsokat.
+ */
 public class Proto
 {
 

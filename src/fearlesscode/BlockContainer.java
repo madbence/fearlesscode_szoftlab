@@ -23,4 +23,36 @@ public class BlockContainer
 		position=p;
 		block=b;
 	}
+	
+	/**
+	 * Position getter.
+	 */
+	public Position getPosition()
+	{
+		return this.position;
+	}
+	
+	/**
+	 * Block getter.
+	 */
+	public Block getBlock()
+	{
+		return this.block;
+	}
+	
+	/**
+	 * Position setter.
+	 */
+	public void setPosition(Position position)
+	{
+		this.position = position;
+	}
+	
+	/**
+	 * Block setter.
+	 */
+	public void setBlock(Block block)
+	{
+		this.block = block;
+	}
 }
