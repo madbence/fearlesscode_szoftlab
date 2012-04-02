@@ -26,7 +26,7 @@ public abstract class Entity
 	
 	/**
 	 * Kötelezően implementálandó metódus, a játékossal
-	 * való találkozás forgatókönyvét írja le.
+	 * való találkozás forgatókönyvét írja le.
 	 */
 	public abstract void meetPlayer(Player p);
 }

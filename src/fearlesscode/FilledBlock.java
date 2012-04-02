@@ -4,7 +4,7 @@ import fearlesscode.util.*;
  * A sima blokkot reprezentálja, kezeli a benne található objektumokat
  * (objektumok interakciója a játékossal).
  */
-public class FilledBlock extends Block
+public class FilledBlock extends Block implements Info
 {
 	public FilledBlock(PlayField pf)
 	{
@@ -50,7 +50,7 @@ public class FilledBlock extends Block
 	public void processCollisions()
 	{
 		Logger.call(this,"processCollisions()");
-        
+		
 		for(int i = 0; i < this.players.size(); i++)
 		{
 			PlayerContainer player = this.players.get(i);
@@ -72,4 +72,24 @@ public class FilledBlock extends Block
 
 		Logger.ret(this,"processCollisions()");
 	}
+	
+	/**
+	 * A FilledBlock információk lekérésére.
+	 * @return A Block koordinátáit a PlayField-en belül, melyik Player-ek, és milyen Entity-k tartózkodnak benne, és hogy milyen szomszédai vannak.
+	 */
+	public String getInfo()
+	{
+		
+	}
+	
+	
+	/**
+	 * A név és az ID lekérésére szolgáló metódus.
+	 * @return Szögletes zárójelek között visszaadja az ID-t és a nevet. ([ID:név])
+	 */
+	String getName()
+	{
+		
+	}
+	
 }

@@ -4,7 +4,7 @@ import fearlesscode.util.*;
  * Az üres blokkot reprezentálja, gyakorlatilag a Block osztály default (üres)
  * implemetációja.
  */
-public class EmptyBlock extends Block
+public class EmptyBlock extends Block implements Info
 {
 
 	/**
@@ -29,5 +29,23 @@ public class EmptyBlock extends Block
 	public void processCollisions()
 	{
 
+	}
+	
+	/**
+	 * Az EmptyBlock információk lekérésére.
+	 * @return A saját koordinátái a PlayField-en belül, és a szomszédai.
+	 */
+	public String getInfo()
+	{
+		
+	}
+	
+	/**
+	 * A név és az ID lekérésére szolgáló metódus.
+	 * @return Szögletes zárójelek között visszaadja az ID-t és a nevet. ([ID:név])
+	 */
+	String getName()
+	{
+		
 	}
 }

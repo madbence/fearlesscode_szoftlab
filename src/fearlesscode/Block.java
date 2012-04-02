@@ -96,7 +96,7 @@ public abstract class Block
 	{
 		if(bool)
 		{
-			setNeighbour(neighbour,(dir+2)%4,false);     
+			setNeighbour(neighbour,(dir+2)%4,false);	 
 		}
 			neighbours[dir]=neighbour;
 		}
@@ -119,4 +119,6 @@ public abstract class Block
 	{
 		this.player=new PlayerContainer(player,position);
 	}
+	
+	
 }

@@ -7,7 +7,7 @@ import fearlesscode.util.*;
  * metódust. Abban az esteben, ha a játékos rendelkezik az összes megszerzett kulccsal,
  * akkor a játék végetér.  
  */
-public class Door extends Entity
+public class Door extends Entity implements Info
 {
 	/**
 	 * A Door konstruktora
@@ -31,5 +31,23 @@ public class Door extends Entity
 		{
 			playField.win();
 		}
+	}
+	
+	/**
+	 * A Door informácioinak lekérése.
+	 * @ A saját koordinátái a Block-on belül, elvárt kulcsok száma.
+	 */
+	public String getInfo()
+	{
+		
+	}
+	
+	/**
+	 * A név és az ID lekérésére szolgáló metódus.
+	 * @return Szögletes zárójelek között visszaadja az ID-t és a nevet. ([ID:név])
+	 */
+	public String getName()
+	{
+		
 	}
 }

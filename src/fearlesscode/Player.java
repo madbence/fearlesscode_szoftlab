@@ -9,7 +9,7 @@ import java.util.*;
  * 
  * A Player számon tartja magáról, hogy mely blokkokban van jelen, valamint a nála lévő kulcsok számát.
  */
-public class Player
+public class Player implements Info
 {
 	/**
 	 * A játékos jelenlegi sebessége, ebből számítható a következő poziciója.
@@ -119,6 +119,24 @@ public class Player
 		Logger.call(this, "move(newSpeed)");
 
 		Logger.ret(this, "move(newSpeed)");
+	}
+	
+	/**
+	 * A Player informácioinak lekérésére.
+	 * @return A saját koordinátája a Block-on belül, és hogy hány kulcs van nála.
+	 */
+	public String getInfo()
+	{
+		
+	}
+	
+	/**
+	 * A név és az ID lekérésére szolgáló metódus.
+	 * @return Szögletes zárójelek között visszaadja az ID-t és a nevet. ([ID:név])
+	 */
+	String getName()
+	{
+		
 	}
 
 }

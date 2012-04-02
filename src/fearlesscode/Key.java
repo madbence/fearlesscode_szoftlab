@@ -6,7 +6,7 @@ import fearlesscode.util.*;
  * Egy kulcsot reprezentál, amit a játékosnak föl kell szednie.
  * Amennyiben játékossal találkozik, és még nem szerezte meg a kulcsot (ez a saját belsőállapota), akkor értesíti a játékost a fölvételről.
  */
-public class Key extends Entity
+public class Key extends Entity implements Info
 {
 	/**
 	 * A kulcsok számát nyilvántartó osztály szintű változó.
@@ -59,5 +59,24 @@ public class Key extends Entity
 	public int getCount()
 	{
 		return count;
+	}
+	
+	/**
+	 * A Key informácioinak lekérése.
+	 * @return A saját koordinátái a Block-on belül, és hogy felvették-e. 
+	 */
+	public String getInfo()
+	{
+		
+	}
+	
+	
+	/**
+	 * A név és az ID lekérésére szolgáló metódus.
+	 * @return Szögletes zárójelek között visszaadja az ID-t és a nevet. ([ID:név])
+	 */
+	String getName()
+	{
+		
 	}
 }

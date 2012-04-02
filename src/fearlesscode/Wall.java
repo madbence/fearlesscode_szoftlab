@@ -6,7 +6,7 @@ import java.util.*;
 /**
  * Falat reprezentáló osztály.
  */
-public class Wall extends Entity
+public class Wall extends Entity implements Info
 {
 	/**
 	 * A  fal szélessége.
@@ -43,5 +43,23 @@ public class Wall extends Entity
 	public void meetPlayer(Player player)
 	{
 
+	}
+	
+	/**
+	 * A Wall információinak lekérése.
+	 * @return A saját koordinátája a Block-on belül, szélessége, magassága. 
+	 */
+	public String getInfo()
+	{
+		
+	}
+	
+	/**
+	 * A név és az ID lekérésére szolgáló metódus.
+	 * @return Szögletes zárójelek között visszaadja az ID-t és a nevet. ([ID:név])
+	 */
+	String getName()
+	{
+		
 	}
 }
