@@ -35,7 +35,7 @@ public class Door extends Entity implements Info
 	
 	/**
 	 * A Door informácioinak lekérése.
-	 * @ A saját koordinátái a Block-on belül, elvárt kulcsok száma.
+	 * @return A saját koordinátái a Block-on belül, elvárt kulcsok száma.
 	 */
 	public String getInfo()
 	{
