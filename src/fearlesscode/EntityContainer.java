@@ -20,6 +20,7 @@ public class EntityContainer
 	/**
 	 * Az EntityContainer konstruktora, beállítja az Entity referenciáját,
 	 * és pozicióját.
+	 *
 	 * @param en Az eltárolandó Entity.
 	 * @param pos Az eltárolandó pozíció.
 	 */
@@ -31,15 +32,17 @@ public class EntityContainer
 	
 	/**
 	 * A tárolt Entity gettere.
+	 *
 	 * @return A tárolt Entity.
 	 */
-	public Player getPlayer()
+	public Entity getEntity()
 	{
-		return player;
+		return entity;
 	}
 
 	/**
 	 * A tárolt pozíció gettere.
+	 *
 	 * @return A tárolt pozíció.
 	 */
 	public EntityPosition getPosition()
