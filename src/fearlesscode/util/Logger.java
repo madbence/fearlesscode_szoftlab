@@ -13,7 +13,7 @@ public class Logger
 	 * pl.: [3:Player] has moved to position (10,15).
 	 * @param info Az esemény forrása
 	 * @param string Az esemény leírása
-	 * @retun A specifikált kimeneti nyelv szerinti formátumban az esemény szöveges reprezentációja.
+	 * @return A specifikált kimeneti nyelv szerinti formátumban az esemény szöveges reprezentációja.
 	 */
 	public static void log(Info info, String string)
 	{
