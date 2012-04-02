@@ -4,7 +4,7 @@ import fearlesscode.util.*;
  * Az üres blokkot reprezentálja, gyakorlatilag a Block osztály default (üres)
  * implemetációja.
  */
-public class EmptyBlock extends Block implements Info
+public class EmptyBlock extends Block
 {
 
 	/**

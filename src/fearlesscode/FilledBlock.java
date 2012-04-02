@@ -4,7 +4,7 @@ import fearlesscode.util.*;
  * A sima blokkot reprezentálja, kezeli a benne található objektumokat
  * (objektumok interakciója a játékossal).
  */
-public class FilledBlock extends Block implements Info
+public class FilledBlock extends Block
 {
 	public FilledBlock(PlayField pf)
 	{
