@@ -25,12 +25,7 @@ public class PlayField
 	/**
 	 * A Player-eket tároló lista.
 	 */
-	private ArrayList<Player> players;
-	
-	/**
-	 * A Player(ek) kezdő pozicióját tároló objektum referencia.
-	 */
-	private Entity spawnPosition;
+	private ArrayList<PlayerSpawnPoint> players;
 	
 	/**
 	 * A Block-okat tároló lista.
@@ -92,8 +87,9 @@ public class PlayField
 	 * Egy új játékos referenciát ad hozzá a játékosok listájához.
 	 * 
 	 * @param player Az új játékos referenciája.
+	 * @param spawnPoint Az új játékos SpawnPoint-jának referenciája.
 	 */
-	public void addPlayer(Player player)
+	public void addPlayer(Player player, Entity spawnPoint)
 	{
 		Logger.call(this, "setPlayer(Player)");
 		//@TODO listához adni
@@ -104,9 +100,9 @@ public class PlayField
 	/**
 	 * Visszaadja a játékosok listáját.
 	 * 
-	 * @return A PlayField objektumban eltárolt játékosok listája.
+	 * @return A PlayField objektumban eltárolt játékosok és spawnpoint-juk listája.
 	 */
-	public ArrayList<Player> getPlayers()
+	public ArrayList<PlayerSpawnPoint> getPlayers()
 	{
 		return players;
 	}
