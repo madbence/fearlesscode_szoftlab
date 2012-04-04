@@ -33,17 +33,18 @@ public class Game
 	 */
 	public void loadNextLevel()
 	{
-		//playField = PlayFieldBuilder.createPlayField(this);
+		playField=null;
 	}
 
 	/**
 	 * Elindítja a játékot.
 	 * 
 	 * Betölti a megfelelő specifikációval rendelkező pályát, majd elindítja a játékot vele.
+	 * @param pf Az elindítandó pálya.
 	 */
-	public void start()
+	public void start(PlayField pf)
 	{
-		//playField = PlayFieldBuilder.createPlayField(this);
+		playField=pf;
 	}
 	
 	/**
