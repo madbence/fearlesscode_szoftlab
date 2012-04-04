@@ -2,6 +2,7 @@ package fearlesscode.util;
 
 import java.util.*;
 import java.io.*;
+import fearlesscode.*;
 
 /**
  * Az események naplózásáért felelős osztály.

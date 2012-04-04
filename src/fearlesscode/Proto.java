@@ -34,10 +34,10 @@ public class Proto
 	 */
 	public void tick(int n)
 	{
-		for(int i=0;i<n;i++)
+		/*for(int i=0;i<n;i++)
 		{
 			game.getPlayField().tick();
-		}
+		}*/
 	}
 
 	/**
@@ -47,7 +47,7 @@ public class Proto
 	 */
 	public void moveBlock(int id, int dir)
 	{
-		game.getPlayField().move(game.getPlayField().getBlock(id), dir);
+		//game.getPlayField().move(game.getPlayField().getBlock(id), dir);
 	}
 
 	/**
@@ -55,7 +55,7 @@ public class Proto
 	 */
 	public void toggleMode()
 	{
-		game.getPlayField().toggleMode();
+		//game.getPlayField().toggleMode();
 	}
 
 	/**
@@ -66,7 +66,7 @@ public class Proto
 	 */
 	public void movePlayer(int id, int x, int y)
 	{
-		game.getPlayField().getPlayer(id).move(new Speed(x, y));
+		//game.getPlayField().getPlayer(id).move(new Speed(x, y));
 	}
 
 	/**
@@ -74,10 +74,10 @@ public class Proto
 	 */
 	public void getBlockInfo()
 	{
-		for(int i=0;i<game.getPlayField().getBlocks().size();i++)
+		/*for(int i=0;i<game.getPlayField().getBlocks().size();i++)
 		{
 			getBlockInfo(i);
-		}
+		}*/
 	}
 
 	/**
@@ -86,7 +86,7 @@ public class Proto
 	 */
 	public void getBlockInfo(int n)
 	{
-		game.getPlayField().getBlock(n);
+		//game.getPlayField().getBlock(n);
 	}
 
 	/**

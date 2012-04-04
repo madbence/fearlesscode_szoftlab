@@ -21,7 +21,7 @@ public class PlayFieldBuilder
 	 */
 	public static PlayField createPlayField(Game game, String file)
 	{
-		
+		/*
 		int numberOfBlocks = 16;
 		int numberOfEmptyBlock = 15;
 		int numberOfBlockToBuildUp = 1;
@@ -73,7 +73,8 @@ public class PlayFieldBuilder
 		blocks.get(0).setPlayer(player, null);	  //player beállítása a blokkban
 		//pf.setPlayer(player);						 //player beállítása a playfieldben
 		player.enterBlock(blocks.get(0));
-		return pf;
+		return pf;*/
+		return null;
 	}
 
 }

@@ -1,13 +1,12 @@
 package fearlesscode;
 
-interface Info{
-
+public interface Info
+{
 	/**
 	 * Információk lekérésére szolgáló metódus.
 	 * @return Az információk.
 	 */
 	String getInfo();
-	
 	
 	/**
 	 * A név és az ID lekérésére szolgáló metódus.
