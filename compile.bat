@@ -1,10 +1,7 @@
 @echo off
 echo Deleting prevorious release...
-rm -r -f bin
-mkdir bin
+rm -r -f build
+mkdir build
 echo Compiling...
-cd src
-javac -encoding UTF-8 -d ../bin/ fearlesscode/*.java
-javac -encoding UTF-8 -d ../bin/ fearlesscode/util/*.java
-cd ..
+javac -classpath .\src\ -encoding UTF-8 -d .\build\ .\src\fearlesscode\*.java .\src\fearlesscode\util\*.java
 @echo on

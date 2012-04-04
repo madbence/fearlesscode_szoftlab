@@ -1,9 +1,7 @@
 @echo off
-cd bin
 echo Running application...
 echo -----
-"C:\Program Files\Java\jre7\bin\java.exe" fearlesscode.Proto
-cd ..
+"C:\Program Files\Java\jre7\bin\java.exe" -classpath .\build\ fearlesscode.Proto
 echo -----
 echo Done.
 @echo on
