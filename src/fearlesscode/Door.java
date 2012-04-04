@@ -1,3 +1,5 @@
+package fearlesscode;
+
 import fearlesscode.util.*;
 
 /**
@@ -9,6 +11,11 @@ import fearlesscode.util.*;
  */
 public class Door extends Entity implements Info
 {
+	/**
+	 * Az ajtó kinyitásához szükséges kulcsok száma.
+	 */
+	private int requiredKeys;
+
 	/**
 	 * A Door konstruktora
 	 * @param requiredKeys Az ajtó kinyitásához szükséges kulcsok száma.
@@ -26,11 +33,9 @@ public class Door extends Entity implements Info
 	 */
 	public void meetPlayer(Player player)
 	{
-		player.getObtainedKeys();
-		if(Logger.ask("Nyithato az ajto?"))
-		{
-			playField.win();
-		}
+		this.requiredKeys-=player.getObtainedKeys();
+		//új metódus
+		//player.setObtainedKeys(0);
 	}
 	
 	/**
