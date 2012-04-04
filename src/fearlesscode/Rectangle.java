@@ -1,4 +1,6 @@
-﻿import fearlesscode.util.*;
+package fearlesscode;
+
+import fearlesscode.util.*;
 import java.util.*;
 
 /**
