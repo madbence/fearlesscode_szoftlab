@@ -43,7 +43,7 @@ public class PlayField
 	{
 		this.game=game;
 		blocks=new ArrayList<BlockContainer>();
-		//players=new ArrayList<Player>();
+		players=new ArrayList<PlayerSpawnPoint>();
 	}
 	
 	/**
@@ -90,7 +90,7 @@ public class PlayField
 	 */
 	public void addPlayer(Player player, Entity spawnPoint)
 	{
-		//players.add(player);
+		players.add(new PlayerSpawnPoint(player, spawnPoint));
 	}
 
 	/**
