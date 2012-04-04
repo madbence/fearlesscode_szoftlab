@@ -11,12 +11,12 @@ public class Wall extends Entity implements Info
 	/**
 	 * A  fal szélessége.
 	 */
-	private int x;
+	private double x;
 	
 	/**
 	 * A fal magassága.
 	 */
-	private int y;
+	private double y;
 
 	/**
 	 * Létrehoz egy új fal objektumot, a megadott pontokkal határolva.
@@ -25,7 +25,7 @@ public class Wall extends Entity implements Info
 	 * @ param x A fal szélessége.
 	 * @ param y A fal magassága.
 	 */
-	public Wall(PlayField playField, x, y)
+	public Wall(PlayField playField, double x, double y)
 	{
 		super(playField);
 		this.x=x;
