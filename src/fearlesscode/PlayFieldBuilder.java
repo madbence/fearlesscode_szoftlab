@@ -21,7 +21,6 @@ public class PlayFieldBuilder
 	 */
 	public static PlayField createPlayField(Game game, String file)
 	{
-		Logger.call("PlayFieldBuilder", "createPlayField()");
 		
 		int numberOfBlocks = 16;
 		int numberOfEmptyBlock = 15;
@@ -55,8 +54,6 @@ public class PlayFieldBuilder
 			}		
 		}
 
-		Logger.reg(blocks.get(0), "block");
-		Logger.reg(blocks.get(1), "neighbour");
 		
 		Wall wall = new Wall(pf, null);
 		Door door = new Door(0, pf);
@@ -76,8 +73,6 @@ public class PlayFieldBuilder
 		blocks.get(0).setPlayer(player, null);	  //player beállítása a blokkban
 		//pf.setPlayer(player);						 //player beállítása a playfieldben
 		player.enterBlock(blocks.get(0));
-	   
-		Logger.ret("PlayFieldBuilder", "createPlayField()");
 		return pf;
 	}
 

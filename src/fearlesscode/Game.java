@@ -22,7 +22,7 @@ public class Game
 	 */
 	public Game()
 	{
-		Logger.reg(this, "g");
+		
 	}
 
 	/**
@@ -33,9 +33,7 @@ public class Game
 	 */
 	public void loadNextLevel()
 	{
-		Logger.call(this, "loadNextLevel()");
-		playField = PlayFieldBuilder.createPlayField(this);
-		Logger.ret(this, "loadNextLevel()");
+		//playField = PlayFieldBuilder.createPlayField(this);
 	}
 
 	/**
@@ -45,9 +43,7 @@ public class Game
 	 */
 	public void start()
 	{
-		Logger.call(this, "start()");
-		playField = PlayFieldBuilder.createPlayField(this);
-		Logger.ret(this, "start()");
+		//playField = PlayFieldBuilder.createPlayField(this);
 	}
 	
 	/**

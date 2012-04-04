@@ -41,7 +41,6 @@ public class PlayField
 	 */
 	public PlayField(Game game)
 	{
-		Logger.reg(this, "pf");
 		this.game=game;
 		blocks=new ArrayList<BlockContainer>();
 		players=new ArrayList<Player>();
@@ -55,9 +54,7 @@ public class PlayField
 	 */
 	public void addBlock(Position position, Block block)
 	{
-		Logger.call(this, "addBlock(Position, Block)");
 		blocks.add(new BlockContainer(position, block));
-		Logger.ret(this, "addBlock(Position, Block)");
 	}
 
 	/**
@@ -68,6 +65,7 @@ public class PlayField
 	 */
 	public void move(Block block, int direction)
 	{
+		/*
 		block=blocks.get(0).block;
 		Logger.call(this, "move(Block, int)");			
 		block.getNeighbour(direction);		
@@ -80,7 +78,8 @@ public class PlayField
 			block.setNeighbours(null);
 			block.setNeighbour(blocks.get(1).block, 3, true);
 		}
-		Logger.ret(this, "move(Block, int)");	 
+		Logger.ret(this, "move(Block, int)");
+		*/ 
 	}
 
 	/**
@@ -91,10 +90,7 @@ public class PlayField
 	 */
 	public void addPlayer(Player player, Entity spawnPoint)
 	{
-		Logger.call(this, "setPlayer(Player)");
-		//@TODO listához adni
 		players.add(player);
-		Logger.ret(this, "setPlayer(Player)");
 	}
 
 	/**
@@ -115,9 +111,7 @@ public class PlayField
 	 */
 	public void setSpawnPosition(Player player, Entity entity)
 	{
-		Logger.call(this, "setSpawnPosition(Entity)");
-		//@TODO implementálni
-		Logger.ret(this, "setSpawnPosition(Entity)");
+
 	}
 
 	/**
@@ -128,12 +122,7 @@ public class PlayField
 	 */
 	public void tick()
 	{
-		Logger.call(this, "tick()");
-		//@TODO javítani multiplayerre
-		//ArrayList<Block> l=player.getActiveBlocks();
-		//l.get(0).processCollisions();	  // ütközések ellenőrzése egy blokkban itt:0.blokkban
-		//l.get(0).checkBorders();		   //blokkok közötti mozgást kezeli
-		Logger.ret(this, "tick()");
+		
 	}
 
 	/**
@@ -143,9 +132,7 @@ public class PlayField
 	 */
 	public void toggleMode()
 	{
-		Logger.call(this, "toggleMode()");
-
-		Logger.ret(this, "toggleMode()");
+		blockMode=!blockMode;
 	}
 
 	/**
@@ -155,9 +142,7 @@ public class PlayField
 	 */
 	public void win()
 	{
-		Logger.call(this, "win()");
 		game.loadNextLevel();
-		Logger.ret(this, "win()");
 	}
 
 	/**
@@ -167,9 +152,7 @@ public class PlayField
 	 */
 	public void resetPlayer(Player player)
 	{
-		Logger.call(this, "resetPlayer()");
-
-		Logger.ret(this, "resetPlayer()");
+		
 	}
 
 	/**

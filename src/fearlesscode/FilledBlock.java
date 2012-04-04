@@ -16,6 +16,7 @@ public class FilledBlock extends Block
 	 */
 	public void checkBorders()
 	{
+		/*
 		Logger.call(this,"checkBorders()");
 		for(int i = 0; i < this.players.size(); i++)
 		{
@@ -40,7 +41,7 @@ public class FilledBlock extends Block
 				player.getPlayer().leaveBlock(this);
 			}
 			Logger.ret(this,"checkBorders()");
-		}
+		}*/
 	}
 	
 	/**
@@ -49,6 +50,7 @@ public class FilledBlock extends Block
 	 */
 	public void processCollisions()
 	{
+		/*
 		Logger.call(this,"processCollisions()");
 		
 		for(int i = 0; i < this.players.size(); i++)
@@ -71,6 +73,7 @@ public class FilledBlock extends Block
 		}
 
 		Logger.ret(this,"processCollisions()");
+		*/
 	}
 	
 	/**
