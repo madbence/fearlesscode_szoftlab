@@ -86,7 +86,7 @@ public class Proto
 	 */
 	public void getBlockInfo(int n)
 	{
-		game.getPlayField().getBlock(n).
+		game.getPlayField().getBlock(n);
 	}
 
 	/**
