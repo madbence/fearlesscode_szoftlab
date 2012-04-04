@@ -1,7 +1,7 @@
 package fearlesscode;
 
 /**
- * A játékost, és újraéledési helyét tároló segédosztály. Számon tartja, hogy egy-egy játékos mely játékobjektumon köteles ujraéledni.
+ * A játékost, és újraéledési helyét tároló segédosztály. Számon tartja, hogy egy-egy játékos mely játékobjektumon köteles újraéledni.
  */
 public class PlayerSpawnPoint
 {
@@ -16,12 +16,12 @@ public class PlayerSpawnPoint
 	private Entity spawPoint;
 
 	/**
-	 * Egy új Player csomagolóobjektumot hoz létre
+	 * Egy új Player csomagolóobjektumot hoz létre.
 	 * 
-	 * Az objektum tárolja a Player referenciáját és az újraéledési helyét (egy Entity)
+	 * Az objektum tárolja a Player referenciáját és az újraéledési helyét (egy Entity).
 	 *
-	 * @param p A játékos referenciája
-	 * @param e Az újraéledési helye
+	 * @param p A játékos referenciája.
+	 * @param e Az újraéledési helye.
 	 */
 	public PlayerSpawnPoint(Player p, Entity e)
 	{
@@ -30,7 +30,7 @@ public class PlayerSpawnPoint
 	}
 
 	/**
-	 * Visszaadja a tárolt játékost
+	 * Visszaadja a tárolt játékost.
 	 * @return Az eltárolt játékos
 	 */
 	public Player getPlayer()
@@ -39,11 +39,20 @@ public class PlayerSpawnPoint
 	}
 
 	/**
-	 * Visszaadja az újjáéledési helyet
+	 * Visszaadja az újjáéledési helyet.
 	 * @return Az eltárolt újraéledési hely
 	 */
 	public Entity getSpawnPoint()
 	{
 		return spawPoint;
+	}
+
+	/**
+	 * Beállít egy új újjáéledési pontot.
+	 * @param e Az új újjáéledési pont.
+	 */
+	public void setSpawnPoint(Entity entity)
+	{
+		spawPoint=entity;
 	}
 }
