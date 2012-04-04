@@ -119,8 +119,6 @@ public abstract class Block implements Info
 	 */
 	public void setPlayer(Player player, EntityPosition position)
 	{
-		this.player=new PlayerContainer(player,position);
+		//this.player=new PlayerContainer(player,position);
 	}
-	
-	
 }
