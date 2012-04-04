@@ -65,21 +65,7 @@ public class PlayField
 	 */
 	public void move(Block block, int direction)
 	{
-		/*
-		block=blocks.get(0).block;
-		Logger.call(this, "move(Block, int)");			
-		block.getNeighbour(direction);		
-		//player.getActiveBlocks();
-		if(Logger.ask("Letrejohet a csere?"))
-		{
-			block.getNeighbours();				  
-			blocks.get(1).block.getNeighbours();
-			blocks.get(1).block.setNeighbours(null);
-			block.setNeighbours(null);
-			block.setNeighbour(blocks.get(1).block, 3, true);
-		}
-		Logger.ret(this, "move(Block, int)");
-		*/ 
+		
 	}
 
 	/**
@@ -159,7 +145,16 @@ public class PlayField
 	 */
 	public void resetPlayer(Player player)
 	{
-		
+		/*
+		for(PlayerSpawnPoint spawn : players)
+		{
+			if(spawn.getPlayer() == player)
+			{
+				//Na itt kéne visszateleportálni...
+				//Csakhogy akkor már kéne egy teleportTo(player, entity) metódus.
+			}
+		}
+		*/
 	}
 
 	/**
