@@ -111,7 +111,14 @@ public class PlayField
 	 */
 	public void setSpawnPosition(Player player, Entity entity)
 	{
-
+		for(PlayerSpawnPoint spawn : players)
+		{
+			//elég a referencia szerint egyezést vizsgálni
+			if(spawn.getPlayer() == player)
+			{
+				spawn.setSpawnPoint(entity);
+			}
+		}
 	}
 
 	/**
