@@ -164,4 +164,23 @@ public class PlayField
 	{
 		return blocks;
 	}
+
+	/**
+	 * Visszaadja a megadott azonosítójú blokkot
+	 * 
+	 * @param id A blokk azonosítója
+	 */
+	public Block getBlock(int id) throws CommandException
+	{
+		for(BlockContainer container : blocks)
+		{
+			/*
+			if(container.getBlock().getId() == id)
+			{
+				return container.getBlock();
+			}
+			*/
+		}
+		throw new CommandException("Block #"+id+" not found.");
+	}
 }
