@@ -19,7 +19,7 @@ public class PlayFieldBuilder
 	 * @param game A Game objektum referenciája.
 	 * @param file A pályát tartalmazó file elérési útja.
 	 */
-	public static PlayField createPlayField(Game game. String file)
+	public static PlayField createPlayField(Game game, String file)
 	{
 		Logger.call("PlayFieldBuilder", "createPlayField()");
 		
