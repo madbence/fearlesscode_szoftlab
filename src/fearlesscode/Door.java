@@ -44,7 +44,7 @@ public class Door extends Entity implements Info
 	 */
 	public String getInfo()
 	{
-		
+		return null;
 	}
 	
 	/**
@@ -53,6 +53,6 @@ public class Door extends Entity implements Info
 	 */
 	public String getName()
 	{
-		
+		return null;
 	}
 }

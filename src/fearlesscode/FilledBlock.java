@@ -1,3 +1,5 @@
+package fearlesscode;
+
 import fearlesscode.util.*;
 
 /**
@@ -82,7 +84,7 @@ public class FilledBlock extends Block
 	 */
 	public String getInfo()
 	{
-		
+		return null;
 	}
 	
 	
@@ -90,9 +92,9 @@ public class FilledBlock extends Block
 	 * A név és az ID lekérésére szolgáló metódus.
 	 * @return Szögletes zárójelek között visszaadja az ID-t és a nevet. ([ID:név])
 	 */
-	String getName()
+	public String getName()
 	{
-		
+		return null;
 	}
 	
 }

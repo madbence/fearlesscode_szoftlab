@@ -49,7 +49,7 @@ public class Key extends Entity implements Info
 	 */
 	public String getInfo()
 	{
-		
+		return null;
 	}
 	
 	
@@ -57,8 +57,8 @@ public class Key extends Entity implements Info
 	 * A név és az ID lekérésére szolgáló metódus.
 	 * @return Szögletes zárójelek között visszaadja az ID-t és a nevet. ([ID:név])
 	 */
-	String getName()
+	public String getName()
 	{
-		
+		return null;
 	}
 }
