@@ -1,3 +1,5 @@
+package fearlesscode;
+
 /**
  * Blokkot és a hozzátartozó pozíciót tömörítő wrapper osztály.
  */
