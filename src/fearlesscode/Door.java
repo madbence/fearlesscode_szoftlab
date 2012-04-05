@@ -45,9 +45,9 @@ public class Door extends Entity implements Info
 	public String getInfo()
 	{
 		//@TODO: pozíciót megszerezni.
-		return getName()+"
-	requiredKeys: "+requiredKeys+"
-	position: (pos)";
+		return getName()+"\n"+
+		"	requiredKeys: "+requiredKeys+"\n"+
+		"	position: (pos)";
 	}
 	
 	/**
