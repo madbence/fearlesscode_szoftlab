@@ -44,7 +44,10 @@ public class Door extends Entity implements Info
 	 */
 	public String getInfo()
 	{
-		return null;
+		//@TODO: pozíciót megszerezni.
+		return getName()+"\n"+
+		"	requiredKeys: "+requiredKeys+"\n"+
+		"	position: (pos)";
 	}
 	
 	/**
@@ -53,6 +56,7 @@ public class Door extends Entity implements Info
 	 */
 	public String getName()
 	{
-		return null;
+		//@TODO: id-t megszerezni.
+		return "[ID:Door]";
 	}
 }
