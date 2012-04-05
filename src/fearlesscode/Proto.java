@@ -37,7 +37,7 @@ public class Proto
 				if(splitted[0].equals("tick"))
 				{
 					if(splitted.length==1)proto.tick();
-					if(splitted.length==2)
+					else if(splitted.length==2)
 						{
 						int a = Integer.parseInt(splitted[1]);
 						proto.tick(a);
@@ -73,7 +73,7 @@ public class Proto
 				if(splitted[0].equals("getBlockInfo"))
 				{
 					if(splitted.length==1)proto.getBlockInfo();
-					if(splitted.length==2)
+					else if(splitted.length==2)
 						{
 						int a = Integer.parseInt(splitted[1]);
 						proto.getBlockInfo(a);
@@ -83,7 +83,7 @@ public class Proto
 				if(splitted[0].equals("getEntityInfo"))
 				{
 					if(splitted.length==1)proto.getEntityInfo();
-					if(splitted.length==2)
+					else if(splitted.length==2)
 						{
 						int a = Integer.parseInt(splitted[1]);
 						proto.getEntityInfo(a);
@@ -93,7 +93,7 @@ public class Proto
 				if(splitted[0].equals("getPlayerInfo"))
 				{
 					if(splitted.length==1)proto.getPlayerInfo();
-					if(splitted.length==2)
+					else if(splitted.length==2)
 						{
 						int a = Integer.parseInt(splitted[1]);
 						proto.getPlayerInfo(a);
