@@ -43,6 +43,74 @@ public class MapFromJson
 	}
 	
 	/**
+	 * A Map méretét tároló JSONObject-et lekérdező privát metódus.
+	 *
+	 * @return A Map méretének JSONObject-je.
+	 */
+	private JSONObject getSize() throws JSONException
+	{
+		return rawMap.getJSONObject("size");
+	}
+	
+	/**
+	 * A Map Block-jait tároló JSONArray-t lekérdező privát metódus.
+	 *
+	 * @return A Map Block-jainak JSONArray-je.
+	 */
+	private JSONArray getBlocks() throws JSONException
+	{
+		return rawMap.getJSONArray("blocks");
+	}
+	
+	/**
+	 * A Mapból egy Block-ot tároló JSONObjectet lekérdező privát metódus.
+	 *
+	 * @param numberOfBlock A Block sorszáma.
+	 * @return A Map egy Block-ját tároló JSONObject.
+	 */
+	private JSONObject getBlock(int numberOfBlock) throws JSONException
+	{
+		return this.getBlocks().getJSONObject(numberOfBlock);
+	}
+	
+	/**
+	 * A Map egy Blockjában egy Entity-t tároló JSONObjectet lekérdező privát metódus.
+	 *
+	 * @param numberOfBlock A Block sorszáma.
+	 * @param numberOfEntity Az Entity sorszáma.
+	 * @return A Map Block-jának Entity-jét tároló JSONObject.
+	 */
+	private JSONObject getEntity(int numberOfBlock, int numberOfEntity) throws JSONException
+	{
+		return this.getBlock(numberOfBlock).getJSONArray("entities").getJSONObject(numberOfEntity);
+	}
+	
+	/**
+	 * A Map egy Blockjában Player-eit tároló JSONArray-jét lekérdező privát metódus.
+	 *
+	 * @param numberOfBlock A Block sorszáma.
+	 * @return A Map Block-jának Player-eit tároló JSONArray.
+	 */
+	private JSONArray getPlayers(int numberOfBlock) throws JSONException
+	{
+		return this.getBlock(numberOfBlock).getJSONArray("players");
+	}
+	
+	
+	/**
+	 * A Mapb egy Blockjában egy Player-t tároló JSONObjectet lekérdező privát metódus.
+	 *
+	 * @param numberOfBlock A Block sorszáma.
+	 * @param numberOfPlayer Az Player sorszáma.
+	 * @return A Map Block-jának Player-jét tároló JSONObject.
+	 */
+	private JSONObject getPlayer(int numberOfBlock, int numberOfPlayer) throws JSONException
+	{
+		return this.getPlayers(numberOfBlock).getJSONObject(numberOfPlayer);
+	}
+	
+	
+	/**
 	 * A Map x irányú méretének lekérdezésére szolgáló metódus.
 	 *
 	 * @return A Map x irányú mérete.
@@ -51,7 +119,7 @@ public class MapFromJson
 	{
 		try
 		{
-			return rawMap.getJSONObject("size").getInt("x");
+			return this.getSize().getInt("x");
 		}
 		catch (JSONException e) 
 		{
@@ -69,7 +137,7 @@ public class MapFromJson
 	{
 		try 
 		{
-			return rawMap.getJSONObject("size").getInt("y");
+			return this.getSize().getInt("y");
 		}
 		catch (JSONException e)
 		{
@@ -100,7 +168,7 @@ public class MapFromJson
 		String type = new String();
 		try
 		{
-			type = rawMap.getJSONArray("blocks").getJSONObject(numberOfBlock).getString("type");
+			type = this.getBlock(numberOfBlock).getString("type");
 		}
 		catch (JSONException e)
 		{
@@ -127,8 +195,7 @@ public class MapFromJson
 	{
 		try
 		{
-			return rawMap.getJSONArray("blocks").getJSONObject(numberOfBlock)
-					.getJSONObject("position").getInt("x");
+			return this.getBlock(numberOfBlock).getJSONObject("position").getInt("x");
 		}
 		catch (JSONException e) 
 		{
@@ -147,8 +214,7 @@ public class MapFromJson
 	{
 		try
 		{
-			return rawMap.getJSONArray("blocks").getJSONObject(numberOfBlock)
-					.getJSONObject("position").getInt("y");
+			return this.getBlock(numberOfBlock).getJSONObject("position").getInt("y");
 		}
 		catch (JSONException e) 
 		{
@@ -173,8 +239,7 @@ public class MapFromJson
 				//akkor biztos hogy üres
 				return 0;
 			}
-			return rawMap.getJSONArray("blocks").getJSONObject(numberOfBlock)
-					.getJSONArray("entities").length();
+			return this.getBlock(numberOfBlock).getJSONArray("entities").length();
 			
 		}
 		catch (JSONException e) 
@@ -195,8 +260,7 @@ public class MapFromJson
 	{
 		try
 		{
-			return rawMap.getJSONArray("blocks").getJSONObject(numberOfBlock)
-					.getJSONArray("entities").getJSONObject(numberOfEntity).getString("type");
+			return this.getEntity(numberOfBlock, numberOfEntity).getString("type");
 		}
 		catch (JSONException e) 
 		{
@@ -221,9 +285,7 @@ public class MapFromJson
 		}
 		try
 		{
-			return rawMap.getJSONArray("blocks").getJSONObject(numberOfBlock)
-					.getJSONArray("entities").getJSONObject(numberOfEntity)
-					.getJSONObject("position").getDouble("x");
+			return this.getEntity(numberOfBlock, numberOfEntity).getJSONObject("position").getDouble("x");
 		}
 		catch (JSONException e) 
 		{
@@ -247,9 +309,7 @@ public class MapFromJson
 		}
 		try
 		{
-			return rawMap.getJSONArray("blocks").getJSONObject(numberOfBlock)
-					.getJSONArray("entities").getJSONObject(numberOfEntity)
-					.getJSONObject("position").getDouble("y");
+			return this.getEntity(numberOfBlock, numberOfEntity).getJSONObject("position").getDouble("y");
 		}
 		catch (JSONException e)
 		{
@@ -271,9 +331,7 @@ public class MapFromJson
 		{
 			try
 			{
-				return rawMap.getJSONArray("blocks").getJSONObject(numberOfBlock)
-						.getJSONArray("entities").getJSONObject(numberOfEntity)
-						.getInt("requiredKeys");
+				return this.getEntity(numberOfBlock, numberOfEntity).getInt("requiredKeys");
 			}
 			catch (JSONException e) 
 			{
@@ -296,8 +354,7 @@ public class MapFromJson
 		{
 			try
 			{
-				return rawMap.getJSONArray("blocks").getJSONObject(numberOfBlock)
-						.getJSONArray("entities").getJSONObject(numberOfEntity).getJSONObject("position").getDouble("x");
+				return this.getEntity(numberOfBlock, numberOfEntity).getJSONObject("position").getDouble("x");
 			}
 			catch (JSONException e) 
 			{
@@ -321,8 +378,7 @@ public class MapFromJson
 		{
 			try
 			{
-				return rawMap.getJSONArray("blocks").getJSONObject(numberOfBlock)
-						.getJSONArray("entities").getJSONObject(numberOfEntity).getJSONObject("position").getDouble("y");
+				return this.getEntity(numberOfBlock, numberOfEntity).getJSONObject("position").getDouble("y");
 			}
 			catch (JSONException e) 
 			{
@@ -346,8 +402,7 @@ public class MapFromJson
 		{
 			try
 			{
-				return rawMap.getJSONArray("blocks").getJSONObject(numberOfBlock)
-						.getJSONArray("entities").getJSONObject(numberOfEntity).getDouble("width");
+				return this.getEntity(numberOfBlock, numberOfEntity).getDouble("width");
 			}
 			catch (JSONException e) 
 			{
@@ -371,8 +426,7 @@ public class MapFromJson
 		{
 			try
 			{
-				return rawMap.getJSONArray("blocks").getJSONObject(numberOfBlock)
-						.getJSONArray("entities").getJSONObject(numberOfEntity).getDouble("height");
+				return this.getEntity(numberOfBlock, numberOfEntity).getDouble("height");
 			}
 			catch (JSONException e) 
 			{
@@ -398,8 +452,7 @@ public class MapFromJson
 			{
 				return 0;
 			}
-			return rawMap.getJSONArray("blocks").getJSONObject(numberOfBlock)
-					.getJSONArray("players").length();
+			return this.getBlock(numberOfBlock).getJSONArray("players").length();
 		}
 		catch (JSONException e) 
 		{
@@ -419,8 +472,7 @@ public class MapFromJson
 	{
 		try
 		{
-			return rawMap.getJSONArray("blocks").getJSONObject(numberOfBlock)
-					.getJSONArray("players").getJSONObject(numberOfPlayer).getJSONObject("position").getDouble("x");
+			return this.getPlayer(numberOfBlock, numberOfPlayer).getJSONObject("position").getDouble("x");
 		}
 		catch (JSONException e)
 		{
@@ -440,10 +492,49 @@ public class MapFromJson
 	{
 		try
 		{
-			return rawMap.getJSONArray("blocks").getJSONObject(numberOfBlock).getJSONArray("players")
-					.getJSONObject(numberOfPlayer).getJSONObject("position").getDouble("y");
+			return this.getPlayer(numberOfBlock,numberOfPlayer).getJSONObject("position").getDouble("y");
 		}
 		catch (JSONException e)
+		{
+			e.printStackTrace();
+		}
+		return -1;
+	}
+	
+	/**
+	 * Egy adott Block-ban lévő, adott Player SpawnPoint-jának x koordinátáját visszaadó metódus.
+	 * 
+	 * @param numberOfBlock Az adott Block száma.
+	 * @param numberOfPlayer Az adott Player száma
+	 * @return Az adott Block-ban lévő adott Player SpawnPoint-jának x koordinátája.
+	 */
+	public double getXSpawnPointOfPlayerInBlock(int numberOfBlock, int numberOfPlayer)
+	{
+		try
+		{
+			return this.getPlayer(numberOfBlock, numberOfPlayer).getJSONObject("SpawnPoint").getDouble("x");
+		}
+		catch(JSONException e)
+		{
+			e.printStackTrace();
+		}
+		return -1;
+	}
+	
+	/**
+	 * Egy adott Block-ban lévő, adott Player SpawnPoint-jának y koordinátáját visszaadó metódus.
+	 * 
+	 * @param numberOfBlock Az adott Block száma.
+	 * @param numberOfPlayer Az adott Player száma
+	 * @return Az adott Block-ban lévő adott Player SpawnPoint-jának y koordinátája.
+	 */
+	public double getYSpawnPointOfPlayerInBlock(int numberOfBlock, int numberOfPlayer)
+	{
+		try
+		{
+			return this.getPlayer(numberOfBlock, numberOfPlayer).getJSONObject("SpawnPoint").getDouble("y");
+		}
+		catch(JSONException e)
 		{
 			e.printStackTrace();
 		}
