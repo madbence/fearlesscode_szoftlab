@@ -115,7 +115,19 @@ public class PlayField
 	 */
 	public void tick()
 	{
-		
+		ArrayList<Block> active=new ArrayList<Block>();
+		for(PlayerSpawnPoint player:players)
+		{
+			for(Block block:player.getPlayer().getActiveBlocks())
+			{
+				if(!active.contains(block))
+				{
+					active.add(block);
+					block.processCollisions();
+					block.checkBorders();
+				}
+			}
+		}
 	}
 
 	/**
