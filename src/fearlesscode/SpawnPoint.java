@@ -8,12 +8,26 @@ import fearlesscode.util.*;
 public class SpawnPoint extends Entity implements Info
 {
 	/**
+	 * A SpawnPoint x koordin�t�ja.
+	 */
+	private double x;
+	
+	/**
+	 * A SpawnPoint y koordin�t�ja.
+	 */
+	private double y;
+	
+	/**
 	 * A SpawPoint konstruktora. Mivel üres implementáció, csak a szülő osztály konstruktorát hívja meg.
 	 * @param playField Az Entity konstruktorának továbbadott PlayField objektum.
+	 * @param x A SpawnPoint x koordin�t�ja.
+	 * @param y A SpawnPoint y koordin�t�ja.
 	 */
-	public SpawnPoint(PlayField playField)
+	public SpawnPoint(PlayField playField, double x, double y)
 	{
 		super(playField);
+		this.x=x;
+		this.y=y;
 	}
 
 	/**
