@@ -1,6 +1,5 @@
 package fearlesscode;
 
-import fearlesscode.util.*;
 
 
 /**
@@ -9,24 +8,29 @@ import fearlesscode.util.*;
  */
 public abstract class Entity
 {
-	/**
-	 * PlayField referencia, a leszármazottak a viselkedés leírásának megkönnyítése
-	 * érdekében felhasználhatják.
-	 */
-	protected PlayField playField;
 	
-	/**
-	 * Entity konstruktor
-	 * @param playField A tartalmazó playField referenciája.
-	 */
-	public Entity(PlayField playField)
-	{
-		this.playField=playField;
-	}
+	protected static int objectCount;
 	
-	/**
-	 * Kötelezően implementálandó metódus, a játékossal
-	 * való találkozás forgatókönyvét írja le.
-	 */
-	public abstract void meetPlayer(Player p);
+	protected int objectID;
+        /**
+         * PlayField referencia, a leszármazottak a viselkedés leírásának megkönnyítése
+         * érdekében felhasználhatják.
+         */
+        protected PlayField playField;
+        
+        /**
+         * Entity konstruktor
+         * @param playField A tartalmazó playField referenciája.
+         */
+        public Entity(PlayField playField)
+        {
+                this.playField = playField;
+                this.objectID = ++objectCount;
+        }
+        
+        /**
+         * Kötelezően implementálandó metódus, a játékossal
+         * való találkozás forgatókönyvét írja le.
+         */
+        public abstract void meetPlayer(Player p);
 }
