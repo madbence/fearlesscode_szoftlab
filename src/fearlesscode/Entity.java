@@ -1,23 +1,27 @@
 package fearlesscode;
 
-
-
 /**
  * Az Entity egy blokkon található statikus (nem mozgó) objektumot reprezentál,
  * minden leszármazottnak kötelessége viselkedést definiálni a játékossal való találkozásra.
  */
 public abstract class Entity
 {
-	
-	protected static int objectCount;
-	
-	protected int objectID;
-        /**
+		/**
+		 * Privát statikus számláló.
+		 */
+		private static int objectCount;
+		
+		/**
+		 * Protected azonosító.
+		 */
+		protected int objectID;
+        
+		/**
          * PlayField referencia, a leszármazottak a viselkedés leírásának megkönnyítése
          * érdekében felhasználhatják.
          */
         protected PlayField playField;
-        
+       
         /**
          * Entity konstruktor
          * @param playField A tartalmazó playField referenciája.
