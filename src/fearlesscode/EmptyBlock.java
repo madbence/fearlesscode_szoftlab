@@ -39,7 +39,24 @@ public class EmptyBlock extends Block
 	 */
 	public String getInfo()
 	{
-		return null;
+		String playersString = "Players:none\n"
+		String entitiesString = "Entites:none\n"
+		String neighbsString = "Neighbours:";
+		for(int i = 0; i < 4; i++)
+		{
+			if(neighbours[i] != null)
+			{
+				neighbsString += neighbours[i].getName();
+			}
+			else
+			{
+				neighbsString += "none";
+			}
+		}
+		String returnString= playersString;
+		returnString += entitiesString;
+		returnString += neighbsString; 
+		return returnString;
 	}
 	
 	/**
@@ -48,6 +65,6 @@ public class EmptyBlock extends Block
 	 */
 	public String getName()
 	{
-		return null;
+		return "["+this.ID+":EmptyBlock]";
 	}
 }
