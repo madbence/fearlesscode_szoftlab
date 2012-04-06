@@ -1,4 +1,4 @@
-﻿package fearlesscode;
+package fearlesscode;
 
 import java.io.BufferedReader;
 import java.io.IOException;
