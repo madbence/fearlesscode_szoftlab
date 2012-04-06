@@ -39,8 +39,8 @@ public class EmptyBlock extends Block
 	 */
 	public String getInfo()
 	{
-		String playersString = "Players:none\n"
-		String entitiesString = "Entites:none\n"
+		String playersString = "Players:none\n";
+		String entitiesString = "Entites:none\n";
 		String neighbsString = "Neighbours:";
 		for(int i = 0; i < 4; i++)
 		{
