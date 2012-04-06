@@ -142,7 +142,9 @@ public class PlayFieldBuilder
 				Player player = new Player();
 				double xSP = mfj.getXSpawnPointOfPlayerInBlock(i, j);
 				double ySP = mfj.getYSpawnPointOfPlayerInBlock(i, j);
+				EntityPosition spawnPos = new EntityPosition(xSP,ySP);
 				SpawnPoint spawnPoint = new SpawnPoint(pf);
+				blocks.get(i).addEntity(spawnPos,spawnPoint);
 				double xEP = mfj.getXPositionOfPlayerInBlock(i, j);
 				double yEP = mfj.getYPositionOfPlayerInBlock(i, j);
 				EntityPosition entityPos = new EntityPosition(xEP,yEP);

@@ -12,7 +12,7 @@ public class SpawnPoint extends Entity implements Info
 	 * A SpawPoint konstruktora. Mivel üres implementáció, csak a szülő osztály konstruktorát hívja meg.
 	 * @param playField Az Entity konstruktorának továbbadott PlayField objektum.
 	 */
-	public SpawnPoint(PlayField playField, double x, double y)
+	public SpawnPoint(PlayField playField)
 	{
 		super(playField);
 	}
