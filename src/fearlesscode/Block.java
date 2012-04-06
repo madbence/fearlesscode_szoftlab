@@ -31,6 +31,11 @@ public abstract class Block implements Info
 	 * PlayFieldre mutató referencia.
 	 */
 	protected PlayField playField;
+	
+	/**
+	 * A Block-ok azonosítója.
+	 */
+	protected static int ID;
 
 	/**
 	 * Block konstruktora PlayField referenciával.
@@ -41,6 +46,16 @@ public abstract class Block implements Info
 		entities=new ArrayList<EntityContainer>();
 		neighbours=new Block[4];
 		playField=pf;
+		ID++;
+	}
+	
+	/**
+	 * A Block ID-jának gettere.
+	 * @return A Block ID-ja. 
+	 */
+	public int getID()
+	{
+		return ID;
 	}
 
 	/**
@@ -119,6 +134,6 @@ public abstract class Block implements Info
 	 */
 	public void setPlayer(Player player, EntityPosition position)
 	{
-		//this.player=new PlayerContainer(player,position);
+		players.add(new PlayerContainer(player,position));
 	}
 }
