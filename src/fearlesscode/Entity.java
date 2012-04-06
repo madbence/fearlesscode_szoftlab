@@ -9,12 +9,17 @@ public abstract class Entity
 		/**
 		 * Privát statikus számláló.
 		 */
-		private static int Count;
+		private static int count;
 		
 		/**
 		 * Protected azonosító.
 		 */
 		protected int ID;
+		
+		/**
+		 * Referencia a Block-ra.
+		 */
+		protected Block block;
         
 		/**
          * PlayField referencia, a leszármazottak a viselkedés leírásának megkönnyítése
@@ -29,9 +34,20 @@ public abstract class Entity
         public Entity(PlayField playField)
         {
                 this.playField = playField;
-                this.objectID = ++objectCount;
+                this.block = null;
+				count++;
+				this.ID = count;
+				
         }
         
+		/**
+		 * A tartalmazó Block referenciáját beállító metódus.
+		 */
+		public void setBlock(Block block)
+		{
+			this.block=block;
+		}
+
         /**
          * Kötelezően implementálandó metódus, a játékossal
          * való találkozás forgatókönyvét írja le.

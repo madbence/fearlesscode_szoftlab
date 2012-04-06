@@ -42,6 +42,6 @@ public class SpawnPoint extends Entity implements Info
          */
         public String getName()
         {
-        	return "["+objectID+":SpawnPoint]";
+        	return "["+ID+":SpawnPoint]";
         }
 }

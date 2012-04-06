@@ -61,6 +61,6 @@ public class Key extends Entity implements Info
          */
         public String getName()
         {
-            return "["+objectID+":Door]";
+            return "["+ID+":Door]";
         }
 }
