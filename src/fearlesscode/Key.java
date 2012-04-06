@@ -51,7 +51,7 @@ public class Key extends Entity implements Info
             //@TODO: pozíciót megszerezni.
             return getName()+"\n"+
             "       isObtained: "+isObtained+"\n"+
-            "       Position: (pos)";
+            "       Coordinates: (pos)";
         }
         
         
