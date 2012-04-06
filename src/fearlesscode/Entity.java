@@ -9,12 +9,12 @@ public abstract class Entity
 		/**
 		 * Privát statikus számláló.
 		 */
-		private static int objectCount;
+		private static int Count;
 		
 		/**
 		 * Protected azonosító.
 		 */
-		protected int objectID;
+		protected int ID;
         
 		/**
          * PlayField referencia, a leszármazottak a viselkedés leírásának megkönnyítése
@@ -37,4 +37,12 @@ public abstract class Entity
          * való találkozás forgatókönyvét írja le.
          */
         public abstract void meetPlayer(Player p);
+
+		/**
+		 * Az azonosító gettere.
+		 */
+		public int getID()
+		{
+			return ID;
+		}
 }
