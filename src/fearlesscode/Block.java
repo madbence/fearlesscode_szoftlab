@@ -33,9 +33,14 @@ public abstract class Block implements Info
 	protected PlayField playField;
 	
 	/**
-	 * A Block-ok azonosítója.
+	 * Privát statikus számláló.
 	 */
-	protected static int ID;
+	private static int count;
+
+	/**
+	 * Protected azonosító.
+	 */
+	protected int ID;
 
 	/**
 	 * Block konstruktora PlayField referenciával.
@@ -46,7 +51,8 @@ public abstract class Block implements Info
 		entities=new ArrayList<EntityContainer>();
 		neighbours=new Block[4];
 		playField=pf;
-		ID++;
+		count++;
+		ID=count;
 	}
 	
 	/**
