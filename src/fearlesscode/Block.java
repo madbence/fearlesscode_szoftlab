@@ -100,8 +100,8 @@ public abstract class Block implements Info
 		{
 			setNeighbour(neighbour,(dir+2)%4,false);	 
 		}
-			neighbours[dir]=neighbour;
-		}
+		neighbours[dir]=neighbour;
+	}
 
 	/**
 	 * Felülírja az eddigi szomszédait, és a kapottakat állítja be.

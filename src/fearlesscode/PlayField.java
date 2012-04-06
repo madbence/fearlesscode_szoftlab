@@ -65,7 +65,12 @@ public class PlayField
 	 */
 	public void move(Block block, int direction)
 	{
-		
+		Block neighbour=block.getNeighbour(direction);
+		Block[] myNeighbours=block.getNeighbours();
+		Block[] otherNeighbours=neighbour.getNeighbours();
+		neighbour.setNeighbours(myNeighbours);
+		block.setNeighbours(otherNeighbours);
+		neighbour.setNeighbour(block, direction, true);
 	}
 
 	/**
