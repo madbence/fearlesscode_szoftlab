@@ -132,13 +132,13 @@ public abstract class Block implements Info
 	{
 		for(int i=0; i<4; i++)
 		{
-			if(neighbour[i]!=null)
+			if(neighbours[i]!=null)
 			{
 				this.setNeighbour(neighbours[i],i,true);
 			}
 			else
 			{
-				neighbour[i]=null;
+				neighbours[i]=null;
 			}
 		}
 	}
