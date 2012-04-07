@@ -130,7 +130,10 @@ public abstract class Block implements Info
 	 */
 	public void setNeighbours(Block[] neighbours)
 	{
-		//this.neighbours=neighbours;
+		for(int i=0; i<4; i++)
+		{
+				this.setNeighbour(neighbours[i],i,true);
+		}
 	}
 
 	/**
