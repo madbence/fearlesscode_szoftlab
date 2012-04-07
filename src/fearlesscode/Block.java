@@ -119,7 +119,7 @@ public abstract class Block implements Info
 	{
 		if(bool)
 		{
-			setNeighbour(neighbour,(dir+2)%4,false);	 
+			neighbour.setNeighbour(neighbour,(dir+2)%4,false);	 
 		}
 		neighbours[dir]=neighbour;
 	}
@@ -132,7 +132,14 @@ public abstract class Block implements Info
 	{
 		for(int i=0; i<4; i++)
 		{
+			if(neighbour[i]!=null)
+			{
 				this.setNeighbour(neighbours[i],i,true);
+			}
+			else
+			{
+				neighbour[i]=null;
+			}
 		}
 	}
 
