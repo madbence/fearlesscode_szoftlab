@@ -124,6 +124,18 @@ public class PlayFieldBuilder
 					{
 						Key key = new Key(pf);
 						blocks.get(i).addEntity(entityPos, key);
+					}
+					else if("SpawnPoint".equals(mfj.getTypeOfEntityInBlock(i,j)))
+					{
+						double xSP = mfj.getXPositionOfEntityInBlock(i, j);
+						double ySP = mfj.getYPositionOfEntityInBlock(i, j);
+						EntityPosition spawnPos = new EntityPosition(xSP,ySP);
+						SpawnPoint spawnPoint = new SpawnPoint(pf);
+						blocks.get(i).addEntity(spawnPos,spawnPoint);
+						Player player = new Player();
+						blocks.get(i).setPlayer(player, spawnPos);
+						pf.addPlayer(player, spawnPoint);
+						player.enterBlock(blocks.get(i));
 					}	
 				}
 			}
@@ -135,25 +147,7 @@ public class PlayFieldBuilder
 			pf.addBlock(pos, blocks.get(i));
 		}
 		
-		for(int i=0; i<mfj.getNumberOfBlocks();i++)
-		{
-			for(int j=0; i<mfj.getNumberOfPlayersInBlock(i);j++)
-			{
-				Player player = new Player();
-				double xSP = mfj.getXSpawnPointOfPlayerInBlock(i, j);
-				double ySP = mfj.getYSpawnPointOfPlayerInBlock(i, j);
-				EntityPosition spawnPos = new EntityPosition(xSP,ySP);
-				SpawnPoint spawnPoint = new SpawnPoint(pf);
-				blocks.get(i).addEntity(spawnPos,spawnPoint);
-				double xEP = mfj.getXPositionOfPlayerInBlock(i, j);
-				double yEP = mfj.getYPositionOfPlayerInBlock(i, j);
-				EntityPosition entityPos = new EntityPosition(xEP,yEP);
-				blocks.get(i).setPlayer(player, entityPos);
-				pf.addPlayer(player, spawnPoint);
-				player.enterBlock(blocks.get(i));
-			}
-		}
-		return null;
+		return pf;
 	}
 
 }
