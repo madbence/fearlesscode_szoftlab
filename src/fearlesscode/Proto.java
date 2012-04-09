@@ -9,10 +9,11 @@ import java.io.InputStreamReader;
  */
 public class Proto
 {
+	Game game;
 
 	public Proto()
 	{
-		
+		game = new Game();
 	}
 
 	/**
@@ -23,7 +24,7 @@ public class Proto
 	public static void main(String[] args) throws IOException
 	{
 		BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
-        String cmd;
+		String cmd;
 		Proto proto = new Proto();
 		
 		while(true)
@@ -132,10 +133,10 @@ public class Proto
 	 */
 	public void tick(int n)
 	{
-		/*for(int i=0;i<n;i++)
+		for(int i=0;i<n;i++)
 		{
 			game.getPlayField().tick();
-		}*/
+		}
 	}
 
 	/**
@@ -153,7 +154,7 @@ public class Proto
 	 */
 	public void toggleMode()
 	{
-		//game.getPlayField().toggleMode();
+		game.getPlayField().toggleMode();
 	}
 
 	/**
@@ -226,7 +227,8 @@ public class Proto
 	 */
 	public void exit()
 	{
-
+			System.out.println("Kilepes a protobol");
+			System.exit(1);
 	}
 
 	/**
