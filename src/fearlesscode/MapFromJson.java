@@ -85,30 +85,6 @@ public class MapFromJson
 		return this.getBlock(numberOfBlock).getJSONArray("entities").getJSONObject(numberOfEntity);
 	}
 	
-	/**
-	 * A Map egy Blockjában Player-eit tároló JSONArray-jét lekérdező privát metódus.
-	 *
-	 * @param numberOfBlock A Block sorszáma.
-	 * @return A Map Block-jának Player-eit tároló JSONArray.
-	 */
-	private JSONArray getPlayers(int numberOfBlock) throws JSONException
-	{
-		return this.getBlock(numberOfBlock).getJSONArray("players");
-	}
-	
-	
-	/**
-	 * A Mapb egy Blockjában egy Player-t tároló JSONObjectet lekérdező privát metódus.
-	 *
-	 * @param numberOfBlock A Block sorszáma.
-	 * @param numberOfPlayer Az Player sorszáma.
-	 * @return A Map Block-jának Player-jét tároló JSONObject.
-	 */
-	private JSONObject getPlayer(int numberOfBlock, int numberOfPlayer) throws JSONException
-	{
-		return this.getPlayers(numberOfBlock).getJSONObject(numberOfPlayer);
-	}
-	
 	
 	/**
 	 * A Map x irányú méretének lekérdezésére szolgáló metódus.
@@ -342,6 +318,29 @@ public class MapFromJson
 	}
 	
 	/**
+	 * Egy adott SpawnPoint PlayerID-ját lekérdező metódus.
+	 *
+	 * @param numberOfBlock Annak a Block-nak a sorszáma, amiről információt szeretnénk.
+	 * @param numberOfEntity Annak az Entity-nek a sorszáma, amiről információt szeretnénk.
+	 * @return Az adott Door által elvárt kulcsok száma. Ha nem Door-ról van szó akkor a visszatérési érték -1.
+	 */
+	public int getPlayerIDofSpawnPoint(int numberOfBlock, int numberOfEntity)
+	{
+		if( "SpawnPoint".equals(this.getTypeOfEntityInBlock(numberOfBlock,numberOfEntity)) )
+		{
+			try
+			{
+				return this.getEntity(numberOfBlock, numberOfEntity).getInt("playerID");
+			}
+			catch (JSONException e) 
+			{
+				e.printStackTrace();
+			}
+		}
+		return -1;	
+	}
+	
+	/**
 	 * Egy adott Block-ban lévő adott Wall poziciójának x koordinátáját lekérő metódus.
 	 *
 	 * @param numberOfBlock Annak a Block-nak a sorszáma, amiről információt szeretnénk.
@@ -437,107 +436,4 @@ public class MapFromJson
 		return -1;
 	}
 	
-	
-	/**
-	 * Egy adott Block-ban lévő Player-ek számát lekérdező metódus.
-	 *
-	 * @param numberOfBlock Annak a Block-nak a sorszáma, amiről információt szeretnénk.
-	 * @return Az adott Block-ban lévő Player-ek száma.
-	 */
-	public int getNumberOfPlayersInBlock(int numberOfBlock)
-	{
-		try 
-		{
-			if(this.isFilledBlock(numberOfBlock)==false)
-			{
-				return 0;
-			}
-			return this.getBlock(numberOfBlock).getJSONArray("players").length();
-		}
-		catch (JSONException e) 
-		{
-			e.printStackTrace();
-		}
-		return -1;
-	}
-	
-	/**
-	 * Egy adott Block-ban lévő, adott Player x pozicióját lekérő metódus.
-	 *
-	 * @param numberOfBlock Annak a Block-nak a sorszáma, amiről információt szeretnénk.
-	 * @param numberOfPlayer Annak a Player-nek a sorszáma, amiről információt szeretnénk.
-	 * @return Az adott Player x poziciója.
-	 */
-	public double getXPositionOfPlayerInBlock(int numberOfBlock, int numberOfPlayer)
-	{
-		try
-		{
-			return this.getPlayer(numberOfBlock, numberOfPlayer).getJSONObject("position").getDouble("x");
-		}
-		catch (JSONException e)
-		{
-			e.printStackTrace();
-		}
-		return -1;
-	}
-	
-	/**
-	 * Egy adott Block-ban lévő, adott Player y pozicióját lekérő metódus.
-	 *
-	 * @param numberOfBlock Annak a Block-nak a sorszáma, amiről információt szeretnénk.
-	 * @param numberOfPlayer Annak a Player-nek a sorszáma, amiről információt szeretnénk.
-	 * @return Az adott Player y poziciója.
-	 */
-	public double getYPositionOfPlayerInBlock(int numberOfBlock, int numberOfPlayer)
-	{
-		try
-		{
-			return this.getPlayer(numberOfBlock,numberOfPlayer).getJSONObject("position").getDouble("y");
-		}
-		catch (JSONException e)
-		{
-			e.printStackTrace();
-		}
-		return -1;
-	}
-	
-	/**
-	 * Egy adott Block-ban lévő, adott Player SpawnPoint-jának x koordinátáját visszaadó metódus.
-	 * 
-	 * @param numberOfBlock Az adott Block száma.
-	 * @param numberOfPlayer Az adott Player száma
-	 * @return Az adott Block-ban lévő adott Player SpawnPoint-jának x koordinátája.
-	 */
-	public double getXSpawnPointOfPlayerInBlock(int numberOfBlock, int numberOfPlayer)
-	{
-		try
-		{
-			return this.getPlayer(numberOfBlock, numberOfPlayer).getJSONObject("SpawnPoint").getDouble("x");
-		}
-		catch(JSONException e)
-		{
-			e.printStackTrace();
-		}
-		return -1;
-	}
-	
-	/**
-	 * Egy adott Block-ban lévő, adott Player SpawnPoint-jának y koordinátáját visszaadó metódus.
-	 * 
-	 * @param numberOfBlock Az adott Block száma.
-	 * @param numberOfPlayer Az adott Player száma
-	 * @return Az adott Block-ban lévő adott Player SpawnPoint-jának y koordinátája.
-	 */
-	public double getYSpawnPointOfPlayerInBlock(int numberOfBlock, int numberOfPlayer)
-	{
-		try
-		{
-			return this.getPlayer(numberOfBlock, numberOfPlayer).getJSONObject("SpawnPoint").getDouble("y");
-		}
-		catch(JSONException e)
-		{
-			e.printStackTrace();
-		}
-		return -1;
-	}
 }
