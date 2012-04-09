@@ -19,7 +19,7 @@ public class PlayField
 		
 		/**
 		 * A tárolt referencia a Game objektumra, ezt értesíti a pálya megnyerésekor.
-         */
+		*/
 		private Game game;
 		
 		/**
