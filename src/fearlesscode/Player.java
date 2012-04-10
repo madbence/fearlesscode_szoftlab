@@ -26,6 +26,15 @@ public class Player implements Info
 	 */
 	private ArrayList<Block> activeBlocks;
 
+	/**
+	 * Számolja a létrehozott játékosokat.
+	 */
+	private static int count=0;
+
+	/**
+	 * A játékos azonosítója.
+	 */
+	private int id;
 
 	/**
 	* A Player konstruktora.
@@ -35,6 +44,7 @@ public class Player implements Info
 	public Player()
 	{
 		activeBlocks=new ArrayList<Block>();
+		id=count++;
 	}
 
 
@@ -125,4 +135,11 @@ public class Player implements Info
 		return null;
 	}
 
+	/**
+	 * Visszaadja a játékos azonosítóját.
+	 */
+	public int getID()
+	{
+		return id;
+	}
 }
