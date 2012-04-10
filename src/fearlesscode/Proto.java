@@ -21,7 +21,7 @@ public class Proto
 	 * @param args A program parancssori paraméterei (nem használja a program).
 	 * @throws IOException 
 	 */
-	public static void main(String[] args) throws IOException
+	public static void main(String[] args) throws IOException, CommandException
 	{
 		BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
 		String cmd;
@@ -146,7 +146,16 @@ public class Proto
 	 */
 	public void moveBlock(int id, int dir)
 	{
-		//game.getPlayField().move(game.getPlayField().getBlock(id), dir);
+		try
+		{
+			game.getPlayField().move(game.getPlayField().getBlock(id), dir);
+		}
+		catch(CommandException e)
+		{
+			e.printStackTrace();
+		}
+		
+		
 	}
 
 	/**
@@ -165,7 +174,14 @@ public class Proto
 	 */
 	public void movePlayer(int id, int x, int y)
 	{
-		//game.getPlayField().getPlayer(id).move(new Speed(x, y));
+		try
+		{
+		game.getPlayField().getPlayer(id).move(new Speed(x, y));
+		}
+		catch(CommandException e)
+		{
+		e.printStackTrace();
+		}
 	}
 
 	/**
