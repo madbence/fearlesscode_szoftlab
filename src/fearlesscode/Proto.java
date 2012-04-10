@@ -189,10 +189,10 @@ public class Proto
 	 */
 	public void getBlockInfo()
 	{
-		/*for(int i=0;i<game.getPlayField().getBlocks().size();i++)
+		for(int i=0;i<game.getPlayField().getBlocks().size();i++)
 		{
 			getBlockInfo(i);
-		}*/
+		}
 	}
 
 	/**
@@ -201,7 +201,14 @@ public class Proto
 	 */
 	public void getBlockInfo(int n)
 	{
-		//game.getPlayField().getBlock(n);
+		try
+		{
+		System.out.println(game.getPlayField().getBlock(n).getInfo());
+		}
+		catch(CommandException e)
+		{
+		e.printStackTrace();
+		}
 	}
 
 	/**
