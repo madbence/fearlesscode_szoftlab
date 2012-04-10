@@ -62,4 +62,22 @@ public class Wall extends Entity implements Info
 	{
 		return null;
 	}
+
+	/**
+	 * Visszaadja a fal szélességeét.
+	 * @return A fal szélessége.
+	 */
+	public double getWidth()
+	{
+		return x;
+	}
+
+	/**
+	 * Visszaadja a fal magasságát.
+	 * @return A fal magassága.
+	 */
+	public double getHeight()
+	{
+		return y;
+	}
 }
