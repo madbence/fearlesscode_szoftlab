@@ -67,6 +67,14 @@ public class Player implements Info
 	}
 
 	/**
+	 * A felvett kulcsok számát nullázza.
+	 */
+	public void resetKeys()
+	{
+		obtainedKeys=0;
+	}
+
+	/**
 	 * A Block-ba történő beléptetést végző metódus.
 	 *
 	 * @param block Referencia, hogy melyik Block-ba történik a belépés.
