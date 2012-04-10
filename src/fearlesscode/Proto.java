@@ -203,11 +203,11 @@ public class Proto
 	{
 		try
 		{
-		System.out.println(game.getPlayField().getBlock(n).getInfo());
+			System.out.println(game.getPlayField().getBlock(n).getInfo());
 		}
 		catch(CommandException e)
 		{
-		e.printStackTrace();
+			e.printStackTrace();
 		}
 	}
 
@@ -233,7 +233,10 @@ public class Proto
 	 */
 	public void getPlayerInfo()
 	{
-
+		for(int i=0;i<2;i++)
+		{
+			getPlayerInfo(i);
+		}
 	}
 
 	/**
@@ -242,7 +245,14 @@ public class Proto
 	 */
 	public void getPlayerInfo(int n)
 	{
-
+		try
+		{
+			System.out.println(game.getPlayField().getPlayer(n).getInfo());
+		}
+		catch(CommandException e)
+		{
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -260,8 +270,8 @@ public class Proto
 	 */
 	public void loadMap(String file)
 	{
-		Game g=new Game();
 		PlayField pf=PlayFieldBuilder.createPlayField(g, file);
+		game.start(pf);
 	}
 
 	/**
