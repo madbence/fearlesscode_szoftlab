@@ -387,7 +387,8 @@ public class Proto
 				{
 						if(splitted.length==2)proto.include(splitted[1]);
 						else System.out.println("Nem megfelelő paraméterek");
-				}
-		
+				}		
 			}
+		}catch(Exception e){}
+	}
 }
