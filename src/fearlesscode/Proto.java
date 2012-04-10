@@ -270,7 +270,7 @@ public class Proto
 	 */
 	public void loadMap(String file)
 	{
-		PlayField pf=PlayFieldBuilder.createPlayField(g, file);
+		PlayField pf=PlayFieldBuilder.createPlayField(game, file);
 		game.start(pf);
 	}
 
