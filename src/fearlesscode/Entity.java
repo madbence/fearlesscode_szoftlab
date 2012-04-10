@@ -4,7 +4,7 @@ package fearlesscode;
  * Az Entity egy blokkon található statikus (nem mozgó) objektumot reprezentál,
  * minden leszármazottnak kötelessége viselkedést definiálni a játékossal való találkozásra.
  */
-public abstract class Entity
+public abstract class Entity implements Info
 {
 		/**
 		 * Privát statikus számláló.
