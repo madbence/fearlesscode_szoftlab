@@ -52,7 +52,7 @@ public abstract class Entity
          * Kötelezően implementálandó metódus, a játékossal
          * való találkozás forgatókönyvét írja le.
          */
-        public abstract void meetPlayer(Player p);
+        public abstract void meetPlayer(PlayerContainer p);
 
 		/**
 		 * Az azonosító gettere.

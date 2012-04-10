@@ -45,6 +45,8 @@ public class Player implements Info
 	{
 		activeBlocks=new ArrayList<Block>();
 		id=count++;
+		obtainedKeys = 0;
+		speed = new Speed(0, 0);
 	}
 
 

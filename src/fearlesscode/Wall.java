@@ -40,9 +40,8 @@ public class Wall extends Entity implements Info
 	 *
 	 * @ param player A játékos, akivel a fal interakcióba került
 	 */
-	public void meetPlayer(Player player)
+	public void meetPlayer(PlayerContainer player)
 	{
-
 	}
 	
 	/**
