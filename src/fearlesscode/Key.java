@@ -22,8 +22,8 @@ public class Key extends Entity implements Info
 	 */
 	public Key(PlayField playField)
 	{
-			super(playField);
-			isObtained = false;
+		super(playField);
+		isObtained = false;
 	}
 
 	/**
@@ -34,12 +34,12 @@ public class Key extends Entity implements Info
 	 */
 	public void meetPlayer(Player player)
 	{
-			if( !isObtained )
-			{
-					player.addKey();
-					playField.setSpawnPosition(player, this);
-					isObtained = true;
-			}
+		if( !isObtained )
+		{
+			player.addKey();
+			playField.setSpawnPosition(player, this);
+			isObtained = true;
+		}
 	}
 	
 	/**
@@ -50,8 +50,8 @@ public class Key extends Entity implements Info
 	{
 		//@TODO: pozíciót megszerezni.
 		return getName()+"\n"+
-		"		isObtained: "+isObtained+"\n"+
-		"		Coordinates: (pos)";
+		"	isObtained: "+isObtained+"\n"+
+		"	Coordinates: (pos)";
 	}
 
 	/**
