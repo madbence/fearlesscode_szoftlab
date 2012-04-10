@@ -41,10 +41,10 @@ public class Proto
 			{
 				if(splitted.length==1)proto.tick();
 				else if(splitted.length==2)
-					{
+				{
 					int a = Integer.parseInt(splitted[1]);
 					proto.tick(a);
-					}
+				}
 				else System.out.println("Nem megfelelő paraméterek");
 			}
 			if(splitted[0].equals("moveBlock"))
@@ -65,42 +65,42 @@ public class Proto
 			if(splitted[0].equals("movePlayer"))
 			{
 				if(splitted.length==4)
-					{
+				{
 					int a = Integer.parseInt(splitted[1]);
 					int b = Integer.parseInt(splitted[2]);
 					int c = Integer.parseInt(splitted[3]);
 					proto.movePlayer(a,b,c);
-					}
+				}
 				else System.out.println("Nem megfelelő paraméterek");
 			}
 			if(splitted[0].equals("getBlockInfo"))
 			{
 				if(splitted.length==1)proto.getBlockInfo();
 				else if(splitted.length==2)
-					{
+				{
 					int a = Integer.parseInt(splitted[1]);
 					proto.getBlockInfo(a);
-					}
+				}
 				else System.out.println("Nem megfelelő paraméterek");
 			}
 			if(splitted[0].equals("getEntityInfo"))
 			{
 				if(splitted.length==1)proto.getEntityInfo();
 				else if(splitted.length==2)
-					{
+				{
 					int a = Integer.parseInt(splitted[1]);
 					proto.getEntityInfo(a);
-					}
+				}
 				else System.out.println("Nem megfelelő paraméterek");
 			}
 			if(splitted[0].equals("getPlayerInfo"))
 			{
 				if(splitted.length==1)proto.getPlayerInfo();
 				else if(splitted.length==2)
-					{
+				{
 					int a = Integer.parseInt(splitted[1]);
 					proto.getPlayerInfo(a);
-					}
+				}
 				else System.out.println("Nem megfelelő paraméterek");
 			}
 			if(splitted[0].equals("exit"))
@@ -277,8 +277,8 @@ public class Proto
 	 */
 	public void exit()
 	{
-			System.out.println("Kilepes a protobol");
-			System.exit(1);
+		System.out.println("Kilepes a protobol");
+		System.exit(1);
 	}
 
 	/**
