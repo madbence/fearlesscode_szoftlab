@@ -185,19 +185,40 @@ public class PlayField
 	}
 
 	/**
-	 * Visszaadja a megadott azonosítójú blokkot
+	 * Visszaadja a megadott azonosítójú blokkot.
+	 * Ha nincs ilyen, akkor kivétel keletkezik (`CommandException`).
 	 * 
-	 * @param id A blokk azonosítója
+	 * @param id A blokk azonosítója.
+	 * @return A kért blokk.
 	 */
 	public Block getBlock(int id) throws CommandException
 	{
-			for(BlockContainer container : blocks)
-			{                       
-					if(container.getBlock().getID() == id)
-					{
-							return container.getBlock();
-					}
+		for(BlockContainer container : blocks)
+		{
+			if(container.getBlock().getID() == id)
+			{
+				return container.getBlock();
 			}
-			throw new CommandException("Block #"+id+" not found.");
+		}
+		throw new CommandException("Block #"+id+" not found.");
+	}
+
+	/**
+	 * Visszaadja a megadott azonosítójú játékost.
+	 * Ha nincs ilyen, akkor kivétel keletkezik (`CommandException`).
+	 *
+	 * @param id A játékos azonosítója.
+	 * @return A kért játékos.
+	 */
+	public Player getPlayer(int id) throws CommandException
+	{
+		for(PlayerSpawnPoint container:players)
+		{
+			if(container.getPlayer().getID() == id)
+			{
+				return container.getPlayer();
+			}
+		}
+		throw new CommandException("Player #"+id+" not found.");
 	}
 }
