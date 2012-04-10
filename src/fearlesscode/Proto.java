@@ -216,7 +216,13 @@ public class Proto
 	 */
 	public void getEntityInfo()
 	{
-
+		for(BlockContainer blockcontainer : game.getPlayField().getBlocks())
+			{
+				for(EntityContainer entitycontainer : blockcontainer.getBlock().getEntities())
+					{
+						System.out.println(entitycontainer.getEntity().getInfo());
+					}
+			}
 	}
 
 	/**
@@ -225,7 +231,16 @@ public class Proto
 	 */
 	public void getEntityInfo(int n)
 	{
-
+		for(BlockContainer blockcontainer : game.getPlayField().getBlocks())
+			{									
+				for( EntityContainer entitycontainer : blockcontainer.getBlock().getEntities())
+					{
+						if(entitycontainer.getEntity().getID() == n)
+							{
+							System.out.println(entitycontainer.getEntity().getInfo());
+							}
+					}
+				}
 	}
 
 	/**
