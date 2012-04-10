@@ -84,7 +84,50 @@ public class FilledBlock extends Block
 	 */
 	public String getInfo()
 	{
-		return null;
+		String entityList="";
+		if(entities.size()>0)
+		{
+			for(EntityContainer container:entities)
+			{
+				entityList+=container.getEntity().getName();
+			}
+		}
+		else
+		{
+			entityList="none";
+		}
+
+		String playerList="";
+		if(players.size()>0)
+		{
+			for(PlayerContainer container:players)
+			{
+				playerList+=container.getPlayer().getName();
+			}
+		}
+		else
+		{
+			playerList="none";
+		}
+
+		String neighbourList="";
+		for(Block neighbour:neighbours)
+		{
+			if(neighbour != null)
+			{
+				neighbourList+=neighbour.getName();
+			}
+			else
+			{
+				neighbourList+="none";
+			}
+		}
+
+		return getName()+"\r\n"+
+			"	Position: pos\r\n"+
+			"	Entities: "+entityList+"\r\n"+
+			"	Players: "+playerList+"\r\n"+
+			"	Neighbours: "+neighbourList;
 	}
 	
 	
@@ -94,7 +137,7 @@ public class FilledBlock extends Block
 	 */
 	public String getName()
 	{
-		return null;
+		return "["+ID+":FilledBlock]";
 	}
 	
 }
