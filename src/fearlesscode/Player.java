@@ -122,7 +122,7 @@ public class Player implements Info
 	 */
 	public void move(Speed newSpeed)
 	{
-
+		speed=new Speed(speed.getX()+newSpeed.getX(), speed.getY()+newSpeed.getY());
 	}
 	
 	/**
