@@ -74,6 +74,18 @@ public abstract class Block implements Info
 	{
 		entities.add(new EntityContainer(entity,position));
 	}
+	
+	public Entity getEntity(int id) throws CommandException
+		{
+				for(EntityContainer container : entities)
+				{
+						if(container.getEntity().getID() == id)
+						{
+							return container.getEntity();
+						}
+				}
+				throw new CommandException("Entity #"+id+" not found.");
+		}
 		
 	/**
 	 * A blokkok közötti mozgást kezeli le.
