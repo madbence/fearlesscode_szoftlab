@@ -74,6 +74,11 @@ public abstract class Block implements Info
 	{
 		entities.add(new EntityContainer(entity,position));
 	}
+	
+		public List<EntityContainer> getEntities()
+		{
+				return entities;
+		}
 		
 	/**
 	 * A blokkok közötti mozgást kezeli le.
