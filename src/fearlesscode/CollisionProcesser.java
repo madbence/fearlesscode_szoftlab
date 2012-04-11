@@ -22,19 +22,23 @@ public class CollisionProcesser
 	{
 		boolean isCollied = false;
 
-		if(this.isPointInRectangle(main.x, main.y, other)){
+		if(this.isPointInRectangle(main.x, main.y, other))
+		{
 			isCollied = true;
 		}
 
-		if(this.isPointInRectangle(main.x + main.height, main.y, other)){
+		if(this.isPointInRectangle(main.x + main.height, main.y, other))
+		{
 			isCollied = true;
 		}
 
-		if(this.isPointInRectangle(main.x, main.y + main.width, other)){
+		if(this.isPointInRectangle(main.x, main.y + main.width, other))
+		{
 			isCollied = true;
 		}
 
-		if(this.isPointInRectangle(main.x + main.height, main.y + main.width, other)){
+		if(this.isPointInRectangle(main.x + main.height, main.y + main.width, other))
+		{
 			isCollied = true;
 		}
 
@@ -53,7 +57,8 @@ public class CollisionProcesser
 	{
 		boolean isInInterval = false;
 
-		if(point > intervalStart && point < intervalEnd){
+		if(point > intervalStart && point < intervalEnd)
+		{
 			isInInterval = true;
 		}
 
@@ -73,7 +78,8 @@ public class CollisionProcesser
 		boolean isInRectangle = false;
 
 		if(this.isPointInInterval(px, rectangle.x, rectangle.x + rectangle.width) &&
-			this.isPointInInterval(py, rectangle.y, rectangle.y + rectangle.height)){
+			this.isPointInInterval(py, rectangle.y, rectangle.y + rectangle.height))
+		{
 			isInRectangle = true;
 		}
 
