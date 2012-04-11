@@ -210,6 +210,7 @@ public class Proto
 	/**
 	 * A parancs helyére behelyettesíti egy fájl tartalmát.
 	 * @param file A beillesztendő fájl neve.
+	 * @param proto Megkapja a Proto referenciáját.
 	 */
 	public void include(String file, Proto proto)
 	{
@@ -226,9 +227,15 @@ public class Proto
 		}
 		catch(Exception e)
 		{
+			System.out.println("File ERROR");
 		}
 	}	
 
+	/**
+	 * Értelmezi a parancsokat.
+	 * @param command Az értelmezendő parancs.
+	 * @param proto Megkapja a Proto referenciáját.
+	 */
 	public void commandSorter(String command,Proto proto)
 	{
 		String[] splitted = command.split("\\s+");
