@@ -31,9 +31,9 @@ public class Door extends Entity implements Info
 	 * kulcsok számával, értesíti a PlayFieldet, hogy a pályának vége.
 	 * @param player Az adott Player objektum, amelyikkel a Door objektum találkozott.
 	 */
-	public void meetPlayer(Player player)
+	public void meetPlayer(PlayerContainer player)
 	{
-		this.requiredKeys-=player.getObtainedKeys();
+		this.requiredKeys-=player.getPlayer().getObtainedKeys();
 		//új metódus
 		//player.setObtainedKeys(0);
 	}

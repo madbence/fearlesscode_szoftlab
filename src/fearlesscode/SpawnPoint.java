@@ -20,7 +20,7 @@ public class SpawnPoint extends Entity implements Info
          * Ha a játékos egy SpawPointtal ütközik, nem történik semmi, így a metódus implementációja teljesen üres.
          * @param player A játékos, akivel ütközik az objektum.
          */
-        public void meetPlayer(Player player)
+        public void meetPlayer(PlayerContainer player)
         {
                 
         }

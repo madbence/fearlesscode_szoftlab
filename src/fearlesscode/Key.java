@@ -32,12 +32,12 @@ public class Key extends Entity implements Info
 	 *
 	 * @param player A játékos, akivel a kulcs interakcióban van.
 	 */
-	public void meetPlayer(Player player)
+	public void meetPlayer(PlayerContainer player)
 	{
 		if( !isObtained )
 		{
-			player.addKey();
-			playField.setSpawnPosition(player, this);
+			player.getPlayer().addKey();
+			playField.setSpawnPosition(player.getPlayer(), this);
 			isObtained = true;
 		}
 	}
