@@ -59,4 +59,9 @@ public class Door extends Entity implements Info
 		//@TODO: id-t megszerezni.
 		return "[ID:Door]";
 	}
+
+	public Rectangle getBoundingBox()
+	{
+		return new Rectangle(10, 20);
+	}
 }

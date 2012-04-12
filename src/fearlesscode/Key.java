@@ -62,4 +62,9 @@ public class Key extends Entity implements Info
 	{
 		return "["+ID+":Door]";
 	}
+
+	public Rectangle getBoundingBox()
+	{
+		return new Rectangle(10, 20);
+	}
 }

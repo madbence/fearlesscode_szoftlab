@@ -79,4 +79,9 @@ public class Wall extends Entity implements Info
 	{
 		return y;
 	}
+
+	public Rectangle getBoundingBox()
+	{
+		return new Rectangle(x, y);
+	}
 }

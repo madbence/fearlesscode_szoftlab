@@ -18,26 +18,26 @@ public class CollisionProcesser
 	 * @param other A másik ütköztetendő Rectangle.
 	 * @return A visszatérési érték true, ha a két téglalap ütközött, false ha nem.
 	 */
-	public boolean isCollied(Rectangle main, Rectangle other)
+	public boolean isCollied(EntityPosition mainPos, Rectangle main, EntityPosition otherPos, Rectangle other)
 	{
 		boolean isCollied = false;
 
-		if(this.isPointInRectangle(main.x, main.y, other))
+		if(this.isPointInRectangle(mainPos.getX(), mainPos.getY(), otherPos, other))
 		{
 			isCollied = true;
 		}
 
-		if(this.isPointInRectangle(main.x + main.height, main.y, other))
+		if(this.isPointInRectangle(mainPos.getX(), mainPos.getY()+main.getHeight(), otherPos, other))
 		{
 			isCollied = true;
 		}
 
-		if(this.isPointInRectangle(main.x, main.y + main.width, other))
+		if(this.isPointInRectangle(mainPos.getX()+main.getWidth(), mainPos.getY(), otherPos, other))
 		{
 			isCollied = true;
 		}
 
-		if(this.isPointInRectangle(main.x + main.height, main.y + main.width, other))
+		if(this.isPointInRectangle(mainPos.getX()+main.getWidth(), mainPos.getY()+main.getHeight(), otherPos, other))
 		{
 			isCollied = true;
 		}
@@ -73,12 +73,12 @@ public class CollisionProcesser
 	 * @param rectangle A vizsgálandó téglalap
 	 * @return True értékkel tér vissza, ha az adott pont a meghatározott intervallumba esik.
 	 */
-	private boolean isPointInRectangle(double px, double py, Rectangle rectangle)
+	private boolean isPointInRectangle(double px, double py, EntityPosition pos, Rectangle rectangle)
 	{
 		boolean isInRectangle = false;
 
-		if(this.isPointInInterval(px, rectangle.x, rectangle.x + rectangle.width) &&
-			this.isPointInInterval(py, rectangle.y, rectangle.y + rectangle.height))
+		if(this.isPointInInterval(px, pos.getX(), pos.getX() + rectangle.getWidth()) &&
+			this.isPointInInterval(py, pos.getY(), pos.getY() + rectangle.getHeight()))
 		{
 			isInRectangle = true;
 		}

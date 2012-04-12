@@ -6,42 +6,46 @@ package fearlesscode;
  */
 public class SpawnPoint extends Entity implements Info
 {
-        
-        /**
-         * A SpawPoint konstruktora. Mivel üres implementáció, csak a szülő osztály konstruktorát hívja meg.
-         * @param playField Az Entity konstruktorának továbbadott PlayField objektum.
-         */
-        public SpawnPoint(PlayField playField)
-        {
-                super(playField);
-        }
+	/**
+	 * A SpawPoint konstruktora. Mivel üres implementáció, csak a szülő osztály konstruktorát hívja meg.
+	 * @param playField Az Entity konstruktorának továbbadott PlayField objektum.
+	 */
+	public SpawnPoint(PlayField playField)
+	{
+		super(playField);
+	}
 
-        /**
-         * Ha a játékos egy SpawPointtal ütközik, nem történik semmi, így a metódus implementációja teljesen üres.
-         * @param player A játékos, akivel ütközik az objektum.
-         */
-        public void meetPlayer(PlayerContainer player)
-        {
-                
-        }
-        
-        /**
-         * A SpawnPoint információinak lekérése.
-         * @return A saját koordinátája a Block-on belül.
-         */
-        public String getInfo()
-        {
-            //@TODO: pozíciót megszerezni.
-            return getName()+"\n"+
-            "       Coordinates: (pos)";
-        }
-                
-        /**
-         * A név és az ID lekérésére szolgáló metódus.
-         * @return Szögletes zárójelek között visszaadja az ID-t és a nevet. ([ID:név])
-         */
-        public String getName()
-        {
-        	return "["+ID+":SpawnPoint]";
-        }
+	/**
+	 * Ha a játékos egy SpawPointtal ütközik, nem történik semmi, így a metódus implementációja teljesen üres.
+	 * @param player A játékos, akivel ütközik az objektum.
+	 */
+	public void meetPlayer(PlayerContainer player)
+	{
+		  
+	}
+
+	/**
+	 * A SpawnPoint információinak lekérése.
+	 * @return A saját koordinátája a Block-on belül.
+	 */
+	public String getInfo()
+	{
+		//@TODO: pozíciót megszerezni.
+		return getName()+"\n"+
+		"	Coordinates: (pos)";
+	}
+
+	/**
+	 * A név és az ID lekérésére szolgáló metódus.
+	 * @return Szögletes zárójelek között visszaadja az ID-t és a nevet. ([ID:név])
+	 */
+	public String getName()
+	{
+		return "["+ID+":SpawnPoint]";
+	}
+
+	public Rectangle getBoundingBox()
+	{
+		return new Rectangle(0, 0);
+	}
 }

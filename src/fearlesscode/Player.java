@@ -9,7 +9,7 @@ import java.util.*;
  * 
  * A Player számon tartja magáról, hogy mely blokkokban van jelen, valamint a nála lévő kulcsok számát.
  */
-public class Player implements Info
+public class Player implements Info, Collideable
 {
 	/**
 	 * A játékos jelenlegi sebessége, ebből számítható a következő poziciója.
@@ -151,5 +151,10 @@ public class Player implements Info
 	public int getID()
 	{
 		return id;
+	}
+
+	public Rectangle getBoundingBox()
+	{
+		return new Rectangle(10, 20);
 	}
 }
