@@ -24,6 +24,7 @@ public class Door extends Entity implements Info
 	public Door(int requiredKeys, PlayField playField)
 	{
 		super(playField);
+		this.requiredKeys=requiredKeys;
 	}
 	
 	/**
@@ -36,7 +37,15 @@ public class Door extends Entity implements Info
 		this.requiredKeys-=player.getPlayer().getObtainedKeys();
 		//új metódus
 		//player.setObtainedKeys(0);
-		Logger.log(player.getPlayer()," has collided with "+getName());
+		Logger.log(player.getPlayer(),"collided with "+getName());
+		if(requiredKeys>0)
+		{
+			Logger.log(this,"remained closed.");
+		}
+		else
+		{
+			Logger.log(this, "become open.");
+		}
 	}
 	
 	/**
@@ -58,7 +67,7 @@ public class Door extends Entity implements Info
 	public String getName()
 	{
 		//@TODO: id-t megszerezni.
-		return "[ID:Door]";
+		return "["+ID+":Door]";
 	}
 
 	public Rectangle getBoundingBox()

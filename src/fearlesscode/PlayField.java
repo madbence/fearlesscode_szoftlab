@@ -143,6 +143,7 @@ public class PlayField
 	public void toggleMode()
 	{
 			blockMode=!blockMode;
+			Logger.log("Game mode has been toggled.");
 	}
 
 	/**
@@ -162,6 +163,7 @@ public class PlayField
 	 */
 	public void resetPlayer(Player player)
 	{
+			Logger.log(player,"been reset to ");			//ha megvan az implementáció szólj pls és megcsinálom (TIBI)
 			/*
 			for(PlayerSpawnPoint spawn : players)
 			{

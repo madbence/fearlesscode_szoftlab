@@ -35,13 +35,16 @@ public class Key extends Entity implements Info
 	 */
 	public void meetPlayer(PlayerContainer player)
 	{
+		Logger.log(player.getPlayer(),"collided with "+getName());
 		if( !isObtained )
 		{
 			player.getPlayer().addKey();
 			playField.setSpawnPosition(player.getPlayer(), this);
 			isObtained = true;
+			Logger.log(this,"been picked up.");
 		}
-		Logger.log(player.getPlayer()," has collided with "+getName());
+		Logger.log(this,"already been picked up.");
+		
 	}
 	
 	/**

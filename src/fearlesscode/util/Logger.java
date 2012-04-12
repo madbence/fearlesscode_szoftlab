@@ -20,4 +20,14 @@ public class Logger
 	{
 		System.out.println(info.getName()+" has "+ string);
 	}
+	
+	/**
+	 * Eseményeket ír ki a képernyőre.
+	 * pl.: Game mode has been toggled.
+	 * @param string Az esemény leírása
+	 */
+	public static void log(String string)
+	{
+		System.out.println(string);
+	}
 }

@@ -32,7 +32,7 @@ public class Proto
 		while(true)
 		{
 			System.out.print ("Command : ");
-			System.out.flush();	
+			System.out.flush(); 
 			cmd = stdin.readLine();
 			System.out.println("\n");
 			proto.commandSorter(cmd, proto);		
