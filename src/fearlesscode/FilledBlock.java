@@ -52,30 +52,20 @@ public class FilledBlock extends Block
 	 */
 	public void processCollisions()
 	{
-		/*
-		Logger.call(this,"processCollisions()");
-		
 		for(int i = 0; i < this.players.size(); i++)
 		{
 			PlayerContainer player = this.players.get(i);
-
-			player.getPlayer().getSpeed();
-			if(Logger.ask("Volt utkozes fallal?"))
+			Rectangle playerBox=player.getPlayer().getBoundingBox();
+			EntityPosition nextPosition=player.getPlayer().getNextPosition(player.getPosition());
+			for(EntityContainer container:entities)
 			{
-				entities.get(0).getEntity().meetPlayer(player.getPlayer());
-			}
-			if(Logger.ask("Volt utkozes ajtoval?"))
-			{
-				entities.get(1).getEntity().meetPlayer(player.getPlayer());
-			}
-			if(Logger.ask("Volt utkozes kulccsal?"))
-			{
-				entities.get(2).getEntity().meetPlayer(player.getPlayer());
+				Rectangle entityBox=container.getEntity().getBoundingBox();
+				if(CollisionProcesser.isCollied(nextPosition, playerBox, container.getPosition(), entityBox))
+				{
+					container.getEntity().meetPlayer(player);
+				}
 			}
 		}
-
-		Logger.ret(this,"processCollisions()");
-		*/
 	}
 	
 	/**

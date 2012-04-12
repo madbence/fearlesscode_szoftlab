@@ -18,26 +18,26 @@ public class CollisionProcesser
 	 * @param other A másik ütköztetendő Rectangle.
 	 * @return A visszatérési érték true, ha a két téglalap ütközött, false ha nem.
 	 */
-	public boolean isCollied(EntityPosition mainPos, Rectangle main, EntityPosition otherPos, Rectangle other)
+	public static boolean isCollied(EntityPosition mainPos, Rectangle main, EntityPosition otherPos, Rectangle other)
 	{
 		boolean isCollied = false;
 
-		if(this.isPointInRectangle(mainPos.getX(), mainPos.getY(), otherPos, other))
+		if(isPointInRectangle(mainPos.getX(), mainPos.getY(), otherPos, other))
 		{
 			isCollied = true;
 		}
 
-		if(this.isPointInRectangle(mainPos.getX(), mainPos.getY()+main.getHeight(), otherPos, other))
+		if(isPointInRectangle(mainPos.getX(), mainPos.getY()+main.getHeight(), otherPos, other))
 		{
 			isCollied = true;
 		}
 
-		if(this.isPointInRectangle(mainPos.getX()+main.getWidth(), mainPos.getY(), otherPos, other))
+		if(isPointInRectangle(mainPos.getX()+main.getWidth(), mainPos.getY(), otherPos, other))
 		{
 			isCollied = true;
 		}
 
-		if(this.isPointInRectangle(mainPos.getX()+main.getWidth(), mainPos.getY()+main.getHeight(), otherPos, other))
+		if(isPointInRectangle(mainPos.getX()+main.getWidth(), mainPos.getY()+main.getHeight(), otherPos, other))
 		{
 			isCollied = true;
 		}
@@ -53,7 +53,7 @@ public class CollisionProcesser
 	 * @param intervalStart Az intervallum vége.
 	 * @return True értékkel tér vissza, ha az adott pont a meghatározott intervallumba esik.
 	 */
-	private boolean isPointInInterval(double point, double intervalStart, double intervalEnd)
+	private static boolean isPointInInterval(double point, double intervalStart, double intervalEnd)
 	{
 		boolean isInInterval = false;
 
@@ -73,12 +73,12 @@ public class CollisionProcesser
 	 * @param rectangle A vizsgálandó téglalap
 	 * @return True értékkel tér vissza, ha az adott pont a meghatározott intervallumba esik.
 	 */
-	private boolean isPointInRectangle(double px, double py, EntityPosition pos, Rectangle rectangle)
+	private static boolean isPointInRectangle(double px, double py, EntityPosition pos, Rectangle rectangle)
 	{
 		boolean isInRectangle = false;
 
-		if(this.isPointInInterval(px, pos.getX(), pos.getX() + rectangle.getWidth()) &&
-			this.isPointInInterval(py, pos.getY(), pos.getY() + rectangle.getHeight()))
+		if(isPointInInterval(px, pos.getX(), pos.getX() + rectangle.getWidth()) &&
+			isPointInInterval(py, pos.getY(), pos.getY() + rectangle.getHeight()))
 		{
 			isInRectangle = true;
 		}
