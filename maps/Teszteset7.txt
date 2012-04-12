@@ -1,0 +1,9 @@
+[1:Player] has moved to Position: (170,75)
+[1:Player] has collided with [2:Door]
+[2:Door] became open.
+[2:Door]
+    Coordinates: (170,75)
+    requiredKeys: 0
+[1:Player]
+    Coordinates: (170,75)
+    Obtained Keys: 1
