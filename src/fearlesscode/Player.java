@@ -153,8 +153,21 @@ public class Player implements Info, Collideable
 		return id;
 	}
 
+	/**
+	 * Visszaadja a befoglaló téglalap méretét.
+	 */
 	public Rectangle getBoundingBox()
 	{
 		return new Rectangle(10, 20);
+	}
+
+	/**
+	 * Az aktuális sebesség alapján visszaadja a következő pozíciót.
+	 * @param current Az aktuális pozíció.
+	 * @return A sebesség és a paraméter alapján számolt pozíció.
+	 */
+	public EntityPosition getNextPosition(EntityPosition current)
+	{
+		return new EntityPosition(current.getX()+speed.getX(), current.getY()+speed.getY());
 	}
 }
