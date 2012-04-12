@@ -1,0 +1,71 @@
+{
+    "size":
+    {
+        "x": 2,
+        "y": 2
+    },
+    "blocks":
+    [
+		{
+		    "type": "FilledBlock",
+		    "position":
+		    {
+		        "x": 1,
+		        "y": 1
+		    },
+		    "entities":
+		    [
+				{
+				    "type": "SpawnPoint",
+				    "position":
+				    {
+				        "x": 190,
+				        "y": 130
+				    },
+				    "playerID": 1
+				}
+		    ]
+		},
+		{
+		    "type": "EmptyBlock",
+		    "position":
+		    {
+		        "x": 2,
+		        "y": 1
+		    }
+		},
+		{
+		    "type": "FilledBlock",
+		    "position":
+		    {
+		        "x": 2,
+		        "y": 1
+		    },
+		    "entities":
+		    [
+		    	{
+				    "type": "Wall",
+				    "position":
+				    {
+				        "x": 0,
+				        "y": 50
+				    },
+				    "width": 200,
+				    "height": 100
+				}
+		    ]
+		},
+		{
+		    "type": "FilledBlock",
+		    "position":
+		    {
+		        "x": 2,
+		        "y": 2
+		    },
+		    "entities":
+		    [
+		    ]
+		}
+	]
+}
+		
