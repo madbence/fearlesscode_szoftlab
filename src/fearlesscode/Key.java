@@ -1,5 +1,6 @@
 package fearlesscode;
 
+import fearlesscode.util.*;
 
 /**
  * Egy kulcsot reprezentál, amit a játékosnak föl kell szednie.
@@ -40,6 +41,7 @@ public class Key extends Entity implements Info
 			playField.setSpawnPosition(player.getPlayer(), this);
 			isObtained = true;
 		}
+		Logger.log(player.getPlayer()," has collided with "+getName());
 	}
 	
 	/**

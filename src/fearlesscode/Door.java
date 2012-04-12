@@ -36,6 +36,7 @@ public class Door extends Entity implements Info
 		this.requiredKeys-=player.getPlayer().getObtainedKeys();
 		//új metódus
 		//player.setObtainedKeys(0);
+		Logger.log(player.getPlayer()," has collided with "+getName());
 	}
 	
 	/**
