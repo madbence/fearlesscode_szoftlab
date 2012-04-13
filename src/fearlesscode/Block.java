@@ -52,6 +52,7 @@ public abstract class Block implements Info
 	public Block(PlayField pf)
 	{
 		entities=new ArrayList<EntityContainer>();
+		players=new ArrayList<PlayerContainer>();
 		neighbours=new Block[4];
 		playField=pf;
 		ID=count++;
