@@ -125,7 +125,7 @@ public class Proto
 		{
 			for(EntityContainer entitycontainer : blockcontainer.getBlock().getEntities())
 			{
-				System.out.println(entitycontainer.getEntity().getInfo());
+				System.out.println(entitycontainer.getEntity().getInfo(entitycontainer.getPosition()));
 			}
 		}
 	}
@@ -142,7 +142,7 @@ public class Proto
 			{
 				if(entitycontainer.getEntity().getID() == n)
 				{
-					System.out.println(entitycontainer.getEntity().getInfo());
+					System.out.println(entitycontainer.getEntity().getInfo(entitycontainer.getPosition()));
 				}
 			}
 		}
@@ -155,7 +155,8 @@ public class Proto
 	{
 		for(PlayerSpawnPoint c:game.getPlayField().getPlayers())
 		{
-			getBlockInfo(c.getPlayer().getID());
+			//getBlockInfo(c.getPlayer().getID());
+			getPlayerInfo(c.getPlayer().getID());
 		}
 	}
 
@@ -163,9 +164,27 @@ public class Proto
 	 * Kiírja egy játékos adatait.
 	 * @param n A játékos azonosítója.
 	 */
+	/*public void getPlayerInfo(int n) throws CommandException
+	{
+		System.out.println(game.getPlayField().getPlayer(n).getInfo(game.getPlayField().getPlayerPosition(n)));
+	}*/
+	
+	/**
+	 * Kiírja egy Player adatait.
+	 * @param n Az entitás azonosítója.
+	 */
 	public void getPlayerInfo(int n) throws CommandException
 	{
-		System.out.println(game.getPlayField().getPlayer(n).getInfo());
+		for(BlockContainer blockcontainer : game.getPlayField().getBlocks())
+		{									
+			for( PlayerContainer playercontainer : blockcontainer.getBlock().getPlayers())
+			{
+				if(playercontainer.getPlayer().getID() == n)
+				{
+					System.out.println(playercontainer.getPlayer().getInfo(playercontainer.getPosition()));
+				}
+			}
+		}
 	}
 
 	/**

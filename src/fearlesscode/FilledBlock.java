@@ -116,10 +116,10 @@ public class FilledBlock extends Block
 		String posString ="("+pos.getX()+","+pos.getY()+")";
 
 		return getName()+"\r\n"+
-			"  Position: "+posString+"\r\n"+
-			"  Players: "+playerList+"\r\n"+
-			"  Entities: "+entityList+"\r\n"+
-			"  Neighbours: "+neighbourList;
+			"  Position:"+posString+"\r\n"+
+			"  Players:"+playerList+"\r\n"+
+			"  Entities:"+entityList+"\r\n"+
+			"  Neighbours:"+neighbourList;
 	}
 	
 	

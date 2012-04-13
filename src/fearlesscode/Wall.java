@@ -48,9 +48,12 @@ public class Wall extends Entity implements Info
 	 * A Wall információinak lekérése.
 	 * @return A saját koordinátája a Block-on belül, szélessége, magassága. 
 	 */
-	public String getInfo()
+	public String getInfo(EntityPosition pos)
 	{
-		return null;
+		return getName()+"\r\n"+
+			"  Coordinates: ("+pos.getX()+","+pos.getY()+")\n"+
+			"  Width: "+this.x+"\r\n"+
+			"  Height: "+this.y;
 	}
 	
 	/**

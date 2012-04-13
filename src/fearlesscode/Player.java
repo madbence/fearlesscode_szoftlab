@@ -131,9 +131,11 @@ public class Player implements Info, Collideable
 	 * A Player informácioinak lekérésére.
 	 * @return A saját koordinátája a Block-on belül, és hogy hány kulcs van nála.
 	 */
-	public String getInfo()
+	public String getInfo(EntityPosition pos)
 	{
-		return null;
+		return getName()+"\r\n"+
+		    "  Coordinates:("+pos.getX()+","+pos.getY()+")\n"+
+			"  Obtained Keys:"+this.obtainedKeys;
 	}
 	
 	/**

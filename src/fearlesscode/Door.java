@@ -50,12 +50,12 @@ public class Door extends Entity implements Info
 	 * A Door informácioinak lekérése.
 	 * @return A saját koordinátái a Block-on belül, elvárt kulcsok száma.
 	 */
-	public String getInfo()
+	public String getInfo(EntityPosition pos)
 	{
 		//@TODO: pozíciót megszerezni.
 		return getName()+"\n"+
-		"	requiredKeys: "+requiredKeys+"\n"+
-		"	position: (pos)";
+		"  Coordinates:("+pos.getX()+","+pos.getY()+")\n"+
+		"  requiredKeys:"+requiredKeys;
 	}
 	
 	/**

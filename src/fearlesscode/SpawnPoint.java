@@ -28,11 +28,11 @@ public class SpawnPoint extends Entity implements Info
 	 * A SpawnPoint információinak lekérése.
 	 * @return A saját koordinátája a Block-on belül.
 	 */
-	public String getInfo()
+	public String getInfo(EntityPosition pos)
 	{
 		//@TODO: pozíciót megszerezni.
 		return getName()+"\n"+
-		"	Coordinates: (pos)";
+		"  Coordinates:("+pos.getX()+","+pos.getY()+")";
 	}
 
 	/**

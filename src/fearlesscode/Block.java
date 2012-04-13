@@ -160,6 +160,11 @@ public abstract class Block implements BlockInfo
 	{
 		players.add(new PlayerContainer(player,position));
 	}
+	
+	public ArrayList<PlayerContainer> getPlayers()
+	{
+		return players;
+	}
 
 	public abstract boolean matches(Block other);
 }
