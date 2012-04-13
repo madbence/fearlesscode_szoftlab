@@ -42,7 +42,7 @@ public class EmptyBlock extends Block
 		String playersString = "Players:none\n";
 		String entitiesString = "Entites:none\n";
 		String neighbsString = "Neighbours:";
-		String posString = "Position:";
+		String posString = "Coordinates:";
 		posString+="("+pos.getX()+","+pos.getY()+")\n";
 		
 		for(int i = 0; i < 4; i++)
