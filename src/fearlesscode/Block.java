@@ -127,7 +127,7 @@ public abstract class Block implements Info
 	{
 		if(bool)
 		{
-			neighbour.setNeighbour(neighbour,(dir+2)%4,false);	 
+			neighbour.setNeighbour(this,(dir+2)%4,false);	 
 		}
 		neighbours[dir]=neighbour;
 	}

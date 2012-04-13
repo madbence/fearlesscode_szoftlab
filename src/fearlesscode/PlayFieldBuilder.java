@@ -89,7 +89,7 @@ public class PlayFieldBuilder
 				blocks.add(new EmptyBlock(pf));
 			}
 		}
-		for(int i=0; i<mfj.getNumberOfBlocks(); i++)
+		/*for(int i=0; i<mfj.getNumberOfBlocks(); i++)
 		{			 
 			if(i%4!=0)
 			{
@@ -99,7 +99,13 @@ public class PlayFieldBuilder
 			{
 				blocks.get(i).setNeighbour(blocks.get(i-4),0,true);
 			}		
-		}
+		}*/
+		
+		blocks.get(0).setNeighbour(blocks.get(1),1,true);
+		blocks.get(0).setNeighbour(blocks.get(2),2,true);
+		blocks.get(1).setNeighbour(blocks.get(3),2,true);
+		blocks.get(2).setNeighbour(blocks.get(3),1,true);
+		
 		for(int i=0; i<mfj.getNumberOfBlocks();i++)
 		{
 			if(mfj.isFilledBlock(i))								//ha FilledBlock-ról van szó
