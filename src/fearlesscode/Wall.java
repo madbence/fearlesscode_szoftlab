@@ -84,4 +84,10 @@ public class Wall extends Entity implements Info
 	{
 		return new Rectangle(x, y);
 	}
+
+	public void accept(BlockMatcher matcher)
+	{
+		matcher.setWidth(x);
+		matcher.setHeight(y);
+	}
 }

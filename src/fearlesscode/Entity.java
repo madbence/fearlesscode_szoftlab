@@ -61,4 +61,9 @@ public abstract class Entity implements Info, Collideable
 	{
 		return ID;
 	}
+
+	public void accept(BlockMatcher matcher)
+	{
+		return;
+	}
 }

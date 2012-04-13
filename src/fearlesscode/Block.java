@@ -12,6 +12,9 @@ import fearlesscode.util.*;
  */
 public abstract class Block implements Info
 {
+
+	public static final double HEIGHT=150;
+	public static final double WIDTH=200;
 	/**
 	 * Egy adott Blockban található Entityk tárolására szolgál.
 	 */
