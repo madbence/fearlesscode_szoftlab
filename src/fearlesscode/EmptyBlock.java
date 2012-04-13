@@ -53,10 +53,10 @@ public class EmptyBlock extends Block
 				neighbsString += "none";
 			}
 		}
-		String returnString= playersString;
-		returnString += entitiesString;
-		returnString += neighbsString; 
-		return returnString;
+		return getName()+"\n"+
+			"  "+playersString+
+			"  "+entitiesString+
+			"  "+neighbsString;
 	}
 	
 	/**

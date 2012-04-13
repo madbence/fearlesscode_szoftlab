@@ -115,10 +115,10 @@ public class FilledBlock extends Block
 		}
 
 		return getName()+"\r\n"+
-			"	Position: pos\r\n"+
-			"	Entities: "+entityList+"\r\n"+
-			"	Players: "+playerList+"\r\n"+
-			"	Neighbours: "+neighbourList;
+			"  Position: pos\r\n"+
+			"  Entities: "+entityList+"\r\n"+
+			"  Players: "+playerList+"\r\n"+
+			"  Neighbours: "+neighbourList;
 	}
 	
 	
