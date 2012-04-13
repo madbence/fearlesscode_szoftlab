@@ -129,5 +129,9 @@ public class FilledBlock extends Block
 	{
 		return "["+ID+":FilledBlock]";
 	}
-	
+
+	public boolean matches(Block other)
+	{
+		return false;
+	}
 }

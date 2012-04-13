@@ -67,4 +67,9 @@ public class EmptyBlock extends Block
 	{
 		return "["+this.ID+":EmptyBlock]";
 	}
+
+	public boolean matches(Block other)
+	{
+		return false;
+	}
 }

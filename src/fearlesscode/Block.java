@@ -157,4 +157,6 @@ public abstract class Block implements Info
 	{
 		players.add(new PlayerContainer(player,position));
 	}
+
+	public abstract boolean matches(Block other);
 }
