@@ -55,7 +55,7 @@ public abstract class Block implements Info
 		players=new ArrayList<PlayerContainer>();
 		neighbours=new Block[4];
 		playField=pf;
-		ID=count++;
+		ID=++count;
 	}
 	
 	/**

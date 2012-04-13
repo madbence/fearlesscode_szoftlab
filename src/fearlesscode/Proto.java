@@ -101,9 +101,9 @@ public class Proto
 	 */
 	public void getBlockInfo() throws CommandException
 	{
-		for(int i=0;i<game.getPlayField().getBlocks().size();i++)
+		for(BlockContainer c:game.getPlayField().getBlocks())
 		{
-			getBlockInfo(i);
+			getBlockInfo(c.getBlock().getID());
 		}
 	}
 
