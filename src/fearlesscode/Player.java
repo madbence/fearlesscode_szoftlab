@@ -29,12 +29,12 @@ public class Player implements Info, Collideable
 	/**
 	 * Számolja a létrehozott játékosokat.
 	 */
-	private static int count=0;
+	private static int count=1;
 
 	/**
 	 * A játékos azonosítója.
 	 */
-	private int id;
+	private int ID;
 
 	/**
 	* A Player konstruktora.
@@ -44,7 +44,7 @@ public class Player implements Info, Collideable
 	public Player()
 	{
 		activeBlocks=new ArrayList<Block>();
-		id=count++;
+		ID=count++;
 		obtainedKeys = 0;
 		speed = new Speed(0, 0);
 	}
@@ -142,7 +142,7 @@ public class Player implements Info, Collideable
 	 */
 	public String getName()
 	{
-		return null;
+		return "["+ID+":Player]";
 	}
 
 	/**
@@ -150,7 +150,7 @@ public class Player implements Info, Collideable
 	 */
 	public int getID()
 	{
-		return id;
+		return ID;
 	}
 
 	/**

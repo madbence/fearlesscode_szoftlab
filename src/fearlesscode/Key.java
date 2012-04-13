@@ -64,7 +64,7 @@ public class Key extends Entity implements Info
 	 */
 	public String getName()
 	{
-		return "["+ID+":Door]";
+		return "["+ID+":Key]";
 	}
 
 	public Rectangle getBoundingBox()

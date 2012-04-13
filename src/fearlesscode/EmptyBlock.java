@@ -37,11 +37,14 @@ public class EmptyBlock extends Block
 	 * Az EmptyBlock információk lekérésére.
 	 * @return A saját koordinátái a PlayField-en belül, és a szomszédai.
 	 */
-	public String getInfo()
+	public String getInfo(Position pos)
 	{
 		String playersString = "Players:none\n";
 		String entitiesString = "Entites:none\n";
 		String neighbsString = "Neighbours:";
+		String posString = "Position:";
+		posString+="("+pos.getX()+","+pos.getY()+")\n";
+		
 		for(int i = 0; i < 4; i++)
 		{
 			if(neighbours[i] != null)
@@ -50,10 +53,11 @@ public class EmptyBlock extends Block
 			}
 			else
 			{
-				neighbsString += "none";
+				neighbsString += "[none]";
 			}
 		}
 		return getName()+"\n"+
+			"  "+posString+
 			"  "+playersString+
 			"  "+entitiesString+
 			"  "+neighbsString;

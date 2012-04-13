@@ -73,7 +73,7 @@ public class FilledBlock extends Block
 	 * A FilledBlock információk lekérésére.
 	 * @return A Block koordinátáit a PlayField-en belül, melyik Player-ek, és milyen Entity-k tartózkodnak benne, és hogy milyen szomszédai vannak.
 	 */
-	public String getInfo()
+	public String getInfo(Position pos)
 	{
 		String entityList="";
 		if(entities.size()>0)
@@ -110,14 +110,15 @@ public class FilledBlock extends Block
 			}
 			else
 			{
-				neighbourList+="none";
+				neighbourList+="[none]";
 			}
 		}
+		String posString ="("+pos.getX()+","+pos.getY()+")";
 
 		return getName()+"\r\n"+
-			"  Position: pos\r\n"+
-			"  Entities: "+entityList+"\r\n"+
+			"  Position: "+posString+"\r\n"+
 			"  Players: "+playerList+"\r\n"+
+			"  Entities: "+entityList+"\r\n"+
 			"  Neighbours: "+neighbourList;
 	}
 	

@@ -59,7 +59,7 @@ public class Wall extends Entity implements Info
 	 */
 	public String getName()
 	{
-		return null;
+		return "["+ID+":Wall]";
 	}
 
 	/**

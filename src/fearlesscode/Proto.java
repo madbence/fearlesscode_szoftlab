@@ -113,7 +113,7 @@ public class Proto
 	 */
 	public void getBlockInfo(int n) throws CommandException
 	{
-		System.out.println(game.getPlayField().getBlock(n).getInfo());
+		System.out.println(game.getPlayField().getBlock(n).getInfo(game.getPlayField().getBlockPosition(n)));
 	}
 
 	/**

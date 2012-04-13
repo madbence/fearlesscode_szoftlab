@@ -10,7 +10,7 @@ import fearlesscode.util.*;
  * A játéktér azonos méretű elemkre osztott darabokból áll. Ezek típusa lehet üres~ vagy játékblokk. Mindkét verzió
  * egy közös ősből száramazik, mégpedig ebből, az úgynevezett Block osztályból.
  */
-public abstract class Block implements Info
+public abstract class Block implements BlockInfo
 {
 
 	public static final double HEIGHT=150;

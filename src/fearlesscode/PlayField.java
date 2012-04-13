@@ -207,7 +207,26 @@ public class PlayField
 		}
 		throw new CommandException("Block #"+id+" not found.");
 	}
-
+	
+	/**
+	 * Visszaadja a megadott azonosítójú blokk pozicióját.
+	 * Ha nincs ilyen, akkor kivétel keletkezik (`CommandException`).
+	 * 
+	 * @param id A blokk azonosítója.
+	 * @return A kért blokk poziciója.
+	 */
+	public Position getBlockPosition(int id) throws CommandException
+	{
+		for(BlockContainer container : blocks)
+		{
+			if(container.getBlock().getID() == id)
+			{
+				return container.getPosition();
+			}
+		}
+		throw new CommandException("Block #"+id+" not found.");
+	}
+	
 	/**
 	 * Visszaadja a megadott azonosítójú játékost.
 	 * Ha nincs ilyen, akkor kivétel keletkezik (`CommandException`).

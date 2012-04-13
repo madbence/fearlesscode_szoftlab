@@ -110,26 +110,23 @@ public class PlayFieldBuilder
 		{
 			if(mfj.isFilledBlock(i))								//ha FilledBlock-ról van szó
 			{
-				for(int j=0;j<mfj.getNumberOfEntitiesInBlock(j);j++)
+				for(int j=0;j<mfj.getNumberOfEntitiesInBlock(i);j++)
 				{
 					EntityPosition entityPos = new EntityPosition(mfj.getXPositionOfEntityInBlock(i, j),mfj.getYPositionOfEntityInBlock(i, j));
 					if("Wall".equals(mfj.getTypeOfEntityInBlock(i, j)))
 					{
 						double width = mfj.getWidthOfWall(i, j);
 						double height = mfj.getHeightOfWall(i, j);
-						Wall wall = new Wall(pf,width,height);
-						blocks.get(i).addEntity(entityPos,wall);
+						blocks.get(i).addEntity(entityPos, new Wall(pf,width,height));
 					}
 					else if("Door".equals(mfj.getTypeOfEntityInBlock(i,j)))
 					{
 						int keys = mfj.getNumberOfRequiredKeys(i, j);
-						Door door = new Door(keys,pf);
-						blocks.get(i).addEntity(entityPos,door);
+						blocks.get(i).addEntity(entityPos, new Door(keys,pf));
 					}
 					else if("Key".equals(mfj.getTypeOfEntityInBlock(i,j)))
 					{
-						Key key = new Key(pf);
-						blocks.get(i).addEntity(entityPos, key);
+						blocks.get(i).addEntity(entityPos, new Key(pf));
 					}
 					else if("SpawnPoint".equals(mfj.getTypeOfEntityInBlock(i,j)))
 					{
