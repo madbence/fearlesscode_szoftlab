@@ -226,7 +226,7 @@ public class Proto
 		}
 		catch(Exception e)
 		{
-			System.out.println("File ERROR");
+			System.out.println("Error: Nem letezik ilyen file");
 		}
 	}	
 
