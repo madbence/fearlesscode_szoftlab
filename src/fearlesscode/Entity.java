@@ -51,6 +51,7 @@ public abstract class Entity implements Info, Collideable
 	/**
 	 * Kötelezően implementálandó metódus, a játékossal
 	 * való találkozás forgatókönyvét írja le.
+	 * @param p A Player tárolója.
 	 */
 	public abstract void meetPlayer(PlayerContainer p);
 

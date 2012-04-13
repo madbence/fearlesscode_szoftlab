@@ -71,6 +71,7 @@ public class FilledBlock extends Block
 	
 	/**
 	 * A FilledBlock információk lekérésére.
+	 * @param pos A FilledBlock poziciója.
 	 * @return A Block koordinátáit a PlayField-en belül, melyik Player-ek, és milyen Entity-k tartózkodnak benne, és hogy milyen szomszédai vannak.
 	 */
 	public String getInfo(Position pos)

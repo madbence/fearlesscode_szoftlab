@@ -4,6 +4,7 @@ public interface Info
 {
 	/**
 	 * Információk lekérésére szolgáló metódus.
+	 * @param pos A pozició.
 	 * @return Az információk.
 	 */
 	String getInfo(EntityPosition pos);

@@ -4,6 +4,7 @@ public interface BlockInfo
 {
 	/**
 	 * Információk lekérésére szolgáló metódus.
+	 * @param post A pozició.
 	 * @return Az információk.
 	 */
 	String getInfo(Position pos);

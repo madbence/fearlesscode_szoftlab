@@ -26,6 +26,7 @@ public class SpawnPoint extends Entity implements Info
 
 	/**
 	 * A SpawnPoint információinak lekérése.
+	 * @param pos A SpawnPoint poziciója.
 	 * @return A saját koordinátája a Block-on belül.
 	 */
 	public String getInfo(EntityPosition pos)

@@ -48,11 +48,11 @@ public class Key extends Entity implements Info
 	
 	/**
 	 * A Key informácioinak lekérése.
+	 * @param post A Key poziciója.
 	 * @return A saját koordinátái a Block-on belül, és hogy felvették-e. 
 	 */
 	public String getInfo(EntityPosition pos)
 	{
-		//@TODO: pozíciót megszerezni.
 		return getName()+"\n"+
 		"  Coordinates:("+pos.getX()+","+pos.getY()+")\n"+
 		"  isObtained:"+isObtained;

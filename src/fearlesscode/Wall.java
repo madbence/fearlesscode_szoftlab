@@ -46,6 +46,7 @@ public class Wall extends Entity implements Info
 	
 	/**
 	 * A Wall információinak lekérése.
+	 * @param post A Wall poziciója.
 	 * @return A saját koordinátája a Block-on belül, szélessége, magassága. 
 	 */
 	public String getInfo(EntityPosition pos)

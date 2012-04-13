@@ -161,6 +161,10 @@ public abstract class Block implements BlockInfo
 		players.add(new PlayerContainer(player,position));
 	}
 	
+	/**
+	 * A Block-ban található Player-eket lekérdező metódus.
+	 * @return A Block-ban található Playerek.
+	 */
 	public ArrayList<PlayerContainer> getPlayers()
 	{
 		return players;

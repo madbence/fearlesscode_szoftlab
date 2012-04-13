@@ -246,22 +246,4 @@ public class PlayField
 		throw new CommandException("Player #"+id+" not found.");
 	}
 	
-	/**
-	 * Visszaadja a megadott azonosítójú játékos pozicióját.
-	 * Ha nincs ilyen, akkor kivétel keletkezik (`CommandException`).
-	 *
-	 * @param id A játékos azonosítója.
-	 * @return A kért játékos poziciója.
-	 */
-	/*public EntityPosition getPlayerPosition(int id) throws CommandException
-	{
-		for(PlayerSpawnPoint container:players)
-		{
-			if(container.getPlayer().getID() == id)
-			{
-				return container.getPosition();
-			}
-		}
-		throw new CommandException("Player #"+id+" not found.");
-	}*/
 }
