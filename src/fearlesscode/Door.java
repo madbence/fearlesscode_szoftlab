@@ -35,9 +35,7 @@ public class Door extends Entity implements Info
 	public void meetPlayer(PlayerContainer player)
 	{
 		this.requiredKeys-=player.getPlayer().getObtainedKeys();
-		//új metódus
-		//player.setObtainedKeys(0);
-		Logger.log(player.getPlayer(),"collided with "+getName());
+		player.getPlayer().resetKeys();
 		if(requiredKeys>0)
 		{
 			Logger.log(this,"remained closed.");

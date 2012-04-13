@@ -35,7 +35,6 @@ public class Key extends Entity implements Info
 	 */
 	public void meetPlayer(PlayerContainer player)
 	{
-		Logger.log(player.getPlayer(),"collided with "+getName());
 		if( !isObtained )
 		{
 			player.getPlayer().addKey();

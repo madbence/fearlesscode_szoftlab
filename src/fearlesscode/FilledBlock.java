@@ -62,6 +62,7 @@ public class FilledBlock extends Block
 				Rectangle entityBox=container.getEntity().getBoundingBox();
 				if(CollisionProcesser.isCollied(nextPosition, playerBox, container.getPosition(), entityBox))
 				{
+					Logger.log(player.getPlayer(),"collided with "+container.getEntity().getName());
 					container.getEntity().meetPlayer(player);
 				}
 			}
