@@ -23,19 +23,27 @@ public class Proto
 	 * @param args A program parancssori paraméterei (nem használja a program).
 	 * @throws IOException 
 	 */
-	public static void main(String[] args) throws IOException, CommandException
+	public static void main(String[] args)
 	{
-		BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
-		String cmd;
-		Proto proto = new Proto();
-		
-		while(true)
+		try
 		{
-			System.out.print ("Command : ");
-			System.out.flush(); 
-			cmd = stdin.readLine();
-			System.out.println("\n");
-			proto.commandSorter(cmd, proto);		
+			BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
+			String cmd;
+			Proto proto = new Proto();
+			
+			while(true)
+			{
+				System.out.print ("> ");
+				System.out.flush(); 
+				cmd = stdin.readLine();
+				System.out.println("\n");
+				proto.commandSorter(cmd, proto);		
+			}
+		}
+		catch(Exception e)
+		{
+			System.out.println("Uncaught exception...");
+			e.printStackTrace();
 		}
 	}
 
@@ -64,16 +72,9 @@ public class Proto
 	 * @param id A blokk azonosítója.
 	 * @param dir A mozgatás iránya.
 	 */
-	public void moveBlock(int id, int dir)
+	public void moveBlock(int id, int dir) throws CommandException
 	{
-		try
-		{
-			game.getPlayField().move(game.getPlayField().getBlock(id), dir);
-		}
-		catch(CommandException e)
-		{
-			e.printStackTrace();
-		}
+		game.getPlayField().move(game.getPlayField().getBlock(id), dir);
 	}
 
 	/**
@@ -90,22 +91,15 @@ public class Proto
 	 * @param x A mozgatás vízszintes irányú komponense.
 	 * @param y A mozgatás függőleges irányú komponense.
 	 */
-	public void movePlayer(int id, int x, int y)
+	public void movePlayer(int id, int x, int y) throws CommandException
 	{
-		try
-		{
-			game.getPlayField().getPlayer(id).move(new Speed(x, y));
-		}
-		catch(CommandException e)
-		{
-			e.printStackTrace();
-		}
+		game.getPlayField().getPlayer(id).move(new Speed(x, y));
 	}
 
 	/**
 	 * Kiírja a játékban található összes blokk adatait.
 	 */
-	public void getBlockInfo()
+	public void getBlockInfo() throws CommandException
 	{
 		for(int i=0;i<game.getPlayField().getBlocks().size();i++)
 		{
@@ -117,22 +111,15 @@ public class Proto
 	 * Kiírja egy blokk adatait.
 	 * @param n A blokk azonosítója.
 	 */
-	public void getBlockInfo(int n)
+	public void getBlockInfo(int n) throws CommandException
 	{
-		try
-		{
-			System.out.println(game.getPlayField().getBlock(n).getInfo());
-		}
-		catch(CommandException e)
-		{
-			e.printStackTrace();
-		}
+		System.out.println(game.getPlayField().getBlock(n).getInfo());
 	}
 
 	/**
 	 * Kiírja a játékban található összes entitás adatait.
 	 */
-	public void getEntityInfo()
+	public void getEntityInfo() throws CommandException
 	{
 		for(BlockContainer blockcontainer : game.getPlayField().getBlocks())
 		{
@@ -147,7 +134,7 @@ public class Proto
 	 * Kiírja egy entitás adatait.
 	 * @param n Az entitás azonosítója.
 	 */
-	public void getEntityInfo(int n)
+	public void getEntityInfo(int n) throws CommandException
 	{
 		for(BlockContainer blockcontainer : game.getPlayField().getBlocks())
 		{									
@@ -164,7 +151,7 @@ public class Proto
 	/**
 	 * Kiírja a játékban található összes játékos adatait.
 	 */
-	public void getPlayerInfo()
+	public void getPlayerInfo() throws CommandException
 	{
 		for(int i=0;i<2;i++)
 		{
@@ -176,16 +163,9 @@ public class Proto
 	 * Kiírja egy játékos adatait.
 	 * @param n A játékos azonosítója.
 	 */
-	public void getPlayerInfo(int n)
+	public void getPlayerInfo(int n) throws CommandException
 	{
-		try
-		{
-			System.out.println(game.getPlayField().getPlayer(n).getInfo());
-		}
-		catch(CommandException e)
-		{
-			e.printStackTrace();
-		}
+		System.out.println(game.getPlayField().getPlayer(n).getInfo());
 	}
 
 	/**
@@ -238,141 +218,148 @@ public class Proto
 	 */
 	public void commandSorter(String command,Proto proto)
 	{
-		String[] splitted = command.split("\\s+");
-		if(splitted[0].equals("tick"))
+		try
 		{
-			if(splitted.length==1)
+			String[] splitted = command.split("\\s+");
+			if(splitted[0].equals("tick"))
 			{
-				proto.tick();
+				if(splitted.length==1)
+				{
+					proto.tick();
+				}
+				else if(splitted.length==2)
+				{
+					int a = Integer.parseInt(splitted[1]);
+					proto.tick(a);
+				}
+				else
+				{
+					System.out.println("Nem megfelelő paraméterek");
+				}
 			}
-			else if(splitted.length==2)
+			if(splitted[0].equals("moveBlock"))
 			{
-				int a = Integer.parseInt(splitted[1]);
-				proto.tick(a);
+				if(splitted.length==3)
+				{
+					int a = Integer.parseInt(splitted[1]);
+					int b = Integer.parseInt(splitted[2]);
+					proto.moveBlock(a,b);
+				}
+				else
+				{
+					System.out.println("Nem megfelelő paraméterek");
+				}
 			}
-			else
+			if(splitted[0].equals("toggleMode"))
 			{
-				System.out.println("Nem megfelelő paraméterek");
+				if(splitted.length==1)
+				{
+					proto.toggleMode();
+				}
+				else
+				{
+					System.out.println("Nem megfelelő paraméterek");
+				}
+			}
+			if(splitted[0].equals("movePlayer"))
+			{
+				if(splitted.length==4)
+				{
+					int a = Integer.parseInt(splitted[1]);
+					int b = Integer.parseInt(splitted[2]);
+					int c = Integer.parseInt(splitted[3]);
+					proto.movePlayer(a,b,c);
+				}
+				else 
+				{
+					System.out.println("Nem megfelelő paraméterek");
+				}
+			}
+			if(splitted[0].equals("getBlockInfo"))
+			{
+				if(splitted.length==1)
+				{
+					proto.getBlockInfo();
+				}
+				else if(splitted.length==2)
+				{
+					int a = Integer.parseInt(splitted[1]);
+					proto.getBlockInfo(a);
+				}
+				else 
+				{
+					System.out.println("Nem megfelelő paraméterek");
+				}
+			}
+			if(splitted[0].equals("getEntityInfo"))
+			{
+				if(splitted.length==1)
+				{
+					proto.getEntityInfo();
+				}
+				else if(splitted.length==2)
+				{
+					int a = Integer.parseInt(splitted[1]);
+					proto.getEntityInfo(a);
+				}
+				else 
+				{
+					System.out.println("Nem megfelelő paraméterek");
+				}
+			}
+			if(splitted[0].equals("getPlayerInfo"))
+			{
+				if(splitted.length==1)
+				{
+					proto.getPlayerInfo();
+				}
+				else if(splitted.length==2)
+				{
+					int a = Integer.parseInt(splitted[1]);
+					proto.getPlayerInfo(a);
+				}
+				else 
+				{
+					System.out.println("Nem megfelelő paraméterek");
+				}
+			}
+			if(splitted[0].equals("exit"))
+			{
+				if(splitted.length==1)
+				{
+					proto.exit();
+				}
+				else 
+				{
+					System.out.println("Nem megfelelő paraméterek");
+				}
+			}
+			if(splitted[0].equals("loadMap"))
+			{
+				if(splitted.length==2)
+				{
+					proto.loadMap(splitted[1]);
+				}
+				else
+				{
+					System.out.println("Nem megfelelő paraméterek");
+				}
+			}
+			if(splitted[0].equals("include"))
+			{
+				if(splitted.length==2)
+				{
+					proto.include(splitted[1], proto);
+				}
+				else 
+				{
+					System.out.println("Nem megfelelő paraméterek");
+				}
 			}
 		}
-		if(splitted[0].equals("moveBlock"))
+		catch(CommandException ce)
 		{
-			if(splitted.length==3)
-			{
-				int a = Integer.parseInt(splitted[1]);
-				int b = Integer.parseInt(splitted[2]);
-				proto.moveBlock(a,b);
-			}
-			else
-			{
-				System.out.println("Nem megfelelő paraméterek");
-			}
-		}
-		if(splitted[0].equals("toggleMode"))
-		{
-			if(splitted.length==1)
-			{
-				proto.toggleMode();
-			}
-			else
-			{
-				System.out.println("Nem megfelelő paraméterek");
-			}
-		}
-		if(splitted[0].equals("movePlayer"))
-		{
-			if(splitted.length==4)
-			{
-				int a = Integer.parseInt(splitted[1]);
-				int b = Integer.parseInt(splitted[2]);
-				int c = Integer.parseInt(splitted[3]);
-				proto.movePlayer(a,b,c);
-			}
-			else 
-			{
-				System.out.println("Nem megfelelő paraméterek");
-			}
-		}
-		if(splitted[0].equals("getBlockInfo"))
-		{
-			if(splitted.length==1)
-			{
-				proto.getBlockInfo();
-			}
-			else if(splitted.length==2)
-			{
-				int a = Integer.parseInt(splitted[1]);
-				proto.getBlockInfo(a);
-			}
-			else 
-			{
-				System.out.println("Nem megfelelő paraméterek");
-			}
-		}
-		if(splitted[0].equals("getEntityInfo"))
-		{
-			if(splitted.length==1)
-			{
-				proto.getEntityInfo();
-			}
-			else if(splitted.length==2)
-			{
-				int a = Integer.parseInt(splitted[1]);
-				proto.getEntityInfo(a);
-			}
-			else 
-			{
-				System.out.println("Nem megfelelő paraméterek");
-			}
-		}
-		if(splitted[0].equals("getPlayerInfo"))
-		{
-			if(splitted.length==1)
-			{
-				proto.getPlayerInfo();
-			}
-			else if(splitted.length==2)
-			{
-				int a = Integer.parseInt(splitted[1]);
-				proto.getPlayerInfo(a);
-			}
-			else 
-			{
-				System.out.println("Nem megfelelő paraméterek");
-			}
-		}
-		if(splitted[0].equals("exit"))
-		{
-			if(splitted.length==1)
-			{
-				proto.exit();
-			}
-			else 
-			{
-				System.out.println("Nem megfelelő paraméterek");
-			}
-		}
-		if(splitted[0].equals("loadMap"))
-		{
-			if(splitted.length==2)
-			{
-				proto.loadMap(splitted[1]);
-			}
-			else
-			{
-				System.out.println("Nem megfelelő paraméterek");
-			}
-		}
-		if(splitted[0].equals("include"))
-		{
-			if(splitted.length==2)
-			{
-				proto.include(splitted[1], proto);
-			}
-			else 
-			{
-				System.out.println("Nem megfelelő paraméterek");
-			}
+			System.out.println(ce.getMessage());
 		}
 	}
 }
