@@ -153,9 +153,9 @@ public class Proto
 	 */
 	public void getPlayerInfo() throws CommandException
 	{
-		for(int i=0;i<2;i++)
+		for(PlayerSpawnPoint c:game.getPlayField().getPlayers())
 		{
-			getPlayerInfo(i);
+			getBlockInfo(c.getPlayer().getID());
 		}
 	}
 
