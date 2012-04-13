@@ -12,6 +12,8 @@ import fearlesscode.util.*;
  */
 public class PlayField
 {
+	public final double GRAVITY=10;
+
 	/**
 	 * A PlayField állapota. Blokk módban az értéke igaz, egyébként hamis.
 	 */
@@ -19,7 +21,7 @@ public class PlayField
 	
 	/**
 	 * A tárolt referencia a Game objektumra, ezt értesíti a pálya megnyerésekor.
-	*/
+	 */
 	private Game game;
 	
 	/**
@@ -41,9 +43,9 @@ public class PlayField
 	 */
 	public PlayField(Game game)
 	{
-			this.game=game;
-			blocks=new ArrayList<BlockContainer>();
-			players=new ArrayList<PlayerSpawnPoint>();
+		this.game=game;
+		blocks=new ArrayList<BlockContainer>();
+		players=new ArrayList<PlayerSpawnPoint>();
 	}
 	
 	/**
@@ -54,7 +56,7 @@ public class PlayField
 	 */
 	public void addBlock(Position position, Block block)
 	{
-			blocks.add(new BlockContainer(position, block));
+		blocks.add(new BlockContainer(position, block));
 	}
 
 	/**
@@ -65,12 +67,12 @@ public class PlayField
 	 */
 	public void move(Block block, int direction)
 	{
-			Block neighbour=block.getNeighbour(direction);
-			Block[] myNeighbours=block.getNeighbours();
-			Block[] otherNeighbours=neighbour.getNeighbours();
-			neighbour.setNeighbours(myNeighbours);
-			block.setNeighbours(otherNeighbours);
-			neighbour.setNeighbour(block, direction, true);
+		Block neighbour=block.getNeighbour(direction);
+		Block[] myNeighbours=block.getNeighbours();
+		Block[] otherNeighbours=neighbour.getNeighbours();
+		neighbour.setNeighbours(myNeighbours);
+		block.setNeighbours(otherNeighbours);
+		neighbour.setNeighbour(block, direction, true);
 	}
 
 	/**
@@ -81,7 +83,7 @@ public class PlayField
 	 */
 	public void addPlayer(Player player, Entity spawnPoint)
 	{
-			players.add(new PlayerSpawnPoint(player, spawnPoint));
+		players.add(new PlayerSpawnPoint(player, spawnPoint));
 	}
 
 	/**
@@ -91,7 +93,7 @@ public class PlayField
 	*/
 	public ArrayList<PlayerSpawnPoint> getPlayers()
 	{
-			return players;
+		return players;
 	}
 
 	/**
@@ -102,14 +104,14 @@ public class PlayField
 	 */
 	public void setSpawnPosition(Player player, Entity entity)
 	{
-			for(PlayerSpawnPoint spawn : players)
+		for(PlayerSpawnPoint spawn : players)
+		{
+			//elég a referencia szerint egyezést vizsgálni
+			if(spawn.getPlayer() == player)
 			{
-					//elég a referencia szerint egyezést vizsgálni
-					if(spawn.getPlayer() == player)
-					{
-							spawn.setSpawnPoint(entity);
-					}
+				spawn.setSpawnPoint(entity);
 			}
+		}
 	}
 
 	/**
@@ -120,19 +122,20 @@ public class PlayField
 	 */
 	public void tick()
 	{
-			ArrayList<Block> active=new ArrayList<Block>();
-			for(PlayerSpawnPoint player:players)
+		ArrayList<Block> active=new ArrayList<Block>();
+		for(PlayerSpawnPoint player:players)
+		{
+			player.getPlayer().move(new Speed(0, GRAVITY));
+			for(Block block:player.getPlayer().getActiveBlocks())
 			{
-					for(Block block:player.getPlayer().getActiveBlocks())
-					{
-							if(!active.contains(block))
-							{
-									active.add(block);
-									block.processCollisions();
-									block.checkBorders();
-							}
-					}
+				if(!active.contains(block))
+				{
+					active.add(block);
+					block.processCollisions();
+					block.checkBorders();
+				}
 			}
+		}
 	}
 
 	/**
@@ -142,8 +145,8 @@ public class PlayField
 	 */
 	public void toggleMode()
 	{
-			blockMode=!blockMode;
-			Logger.log("Game mode has been toggled.");
+		blockMode=!blockMode;
+		Logger.log("Game mode has been toggled.");
 	}
 
 	/**
@@ -153,7 +156,7 @@ public class PlayField
 	 */
 	public void win()
 	{
-			game.loadNextLevel();
+		game.loadNextLevel();
 	}
 
 	/**
@@ -183,7 +186,7 @@ public class PlayField
 	 */
 	public ArrayList<BlockContainer> getBlocks()
 	{
-			return blocks;
+		return blocks;
 	}
 
 	/**
