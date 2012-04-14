@@ -146,6 +146,26 @@ public abstract class Block implements BlockInfo
 			}
 			else
 			{
+				this.neighbours[i]=null;
+			}
+		}
+	}
+	
+	/**
+	 * Felülírja az eddigi szomszédait, és a kapottakat állítja be. Bool paraméter függvényében visszafele is állítja a szomszédságot.
+	 * @param bool Visszafele is állít e.
+	 * @param neighbours Az új szomszédok.
+	 */
+	public void setNeighbours(Block[] neighbours,boolean bool)
+	{
+		for(int i=0; i<4; i++)
+		{
+			if(neighbours[i]!=null)
+			{
+				this.setNeighbour(neighbours[i],i,bool);
+			}
+			else
+			{
 				neighbours[i]=null;
 			}
 		}
