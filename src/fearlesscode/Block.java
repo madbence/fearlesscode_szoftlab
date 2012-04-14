@@ -127,7 +127,10 @@ public abstract class Block implements BlockInfo
 	{
 		if(bool)
 		{
-			neighbour.setNeighbour(this,(dir+2)%4,false);	 
+			if(neighbour!=null)
+			{
+				neighbour.setNeighbour(this,(dir+2)%4,false);	 
+			}
 		}
 		neighbours[dir]=neighbour;
 	}

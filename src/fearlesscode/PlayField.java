@@ -69,15 +69,18 @@ public class PlayField
 	{
 		Position blockPos = new Position(-1,-1);
 		Position neighbPos = new Position(-1,-1);
+		Block neighbour = block.getNeighbour(direction);
+		int neighbourID = neighbour.getID();
 		for(BlockContainer blockcontainer : game.getPlayField().getBlocks())
 		{									
 			if(blockcontainer.getBlock().getID()==block.getID())
 			{
 				blockPos=blockcontainer.getPosition();
 			}
-			else if(blockcontainer.getBlock().getID()==block.getNeighbour(direction).getID())
+			else if(blockcontainer.getBlock().getID()==neighbourID)
 			{
 				neighbPos=blockcontainer.getPosition();
+				
 			}
 		}
 		for(BlockContainer blockcontainer : game.getPlayField().getBlocks())
@@ -86,20 +89,20 @@ public class PlayField
 			{
 				blockcontainer.setPosition(neighbPos);
 			}
-			else if(blockcontainer.getBlock().getID()==block.getNeighbour(direction).getID())
+			else if(blockcontainer.getBlock().getID()==neighbourID)
 			{
 				blockcontainer.setPosition(blockPos);
 			}
 		}
-		Block neighbour=block.getNeighbour(direction);
-		Block temp1 = block.getNeighbour((2+direction)%4);
-		Block temp2 = neighbour.getNeighbour(direction);
-		Block temp = block.getNeighbour((direction-1)%4);
-		block.setNeighbour(neighbour.getNeighbour((direction-1)%4),(direction-1)%4,true);
-		neighbour.setNeighbour(temp,(direction-1)%4,true);
-		neighbour.setNeighbour(temp1,(2+direction)%4,false);
-		block.setNeighbour(temp2,direction,false);
-		neighbour.setNeighbour(block,direction,true);
+		block.setNeighbour(getBlock(new Position(neighbPos.getX(),neighbPos.getY()-1)),0,true);
+		block.setNeighbour(getBlock(new Position(neighbPos.getX()+1,neighbPos.getY())),1,true);
+		block.setNeighbour(getBlock(new Position(neighbPos.getX(),neighbPos.getY()+1)),2,true);
+		block.setNeighbour(getBlock(new Position(neighbPos.getX()-1,neighbPos.getY())),3,true);
+		neighbour.setNeighbour(getBlock(new Position(blockPos.getX(),blockPos.getY()-1)),0,true);
+		neighbour.setNeighbour(getBlock(new Position(blockPos.getX()+1,blockPos.getY())),1,true);
+		neighbour.setNeighbour(getBlock(new Position(blockPos.getX(),blockPos.getY()+1)),2,true);
+		neighbour.setNeighbour(getBlock(new Position(blockPos.getX()-1,blockPos.getY())),3,true);
+		
 	}
 
 	/**
@@ -121,6 +124,19 @@ public class PlayField
 	public ArrayList<PlayerSpawnPoint> getPlayers()
 	{
 		return players;
+	}
+	
+	public Block getBlock(Position pos)
+	{
+		for(BlockContainer blockcontainer : game.getPlayField().getBlocks())
+		{								
+			if(blockcontainer.getPosition().getX()==pos.getX()&&blockcontainer.getPosition().getY()==pos.getY())
+			{
+				return blockcontainer.getBlock();
+			}
+		}
+		return null;
+		
 	}
 
 	/**
