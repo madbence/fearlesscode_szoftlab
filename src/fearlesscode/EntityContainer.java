@@ -26,8 +26,9 @@ public class EntityContainer
 	 */
 	public EntityContainer(Entity en, EntityPosition pos)
 	{
-		entity = en;
-		position = pos;
+		entity=en;
+		position=pos;
+		entity.setContainer(this);
 	}
 	
 	/**

@@ -27,6 +27,8 @@ public abstract class Entity implements Info, Collideable
 	 */
 	protected PlayField playField;
 
+	protected EntityContainer container;
+
 	/**
 	 * Entity konstruktor
 	 * @param playField A tartalmazó playField referenciája.
@@ -37,7 +39,24 @@ public abstract class Entity implements Info, Collideable
 		this.block = null;
 		count++;
 		this.ID = count;
-			
+	}
+
+	/**
+	 * Visszaadja a tartalmazó objektumot.
+	 * @return Az objektum, amiben az Entity van.
+	 */
+	public EntityContainer getContainer()
+	{
+		return container;
+	}
+
+	/**
+	 * Beállítja a konténer objektumot.
+	 * @param con Az objektum, ami tartalmazza az Entity-t.
+	 */
+	public void setContainer(EntityContainer con)
+	{
+		container=con;
 	}
 
 	/**
