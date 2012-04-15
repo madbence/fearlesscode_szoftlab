@@ -290,4 +290,12 @@ public class PlayField
 		throw new CommandException("Player #"+id+" not found.");
 	}
 	
+	/**
+	 * Visszaadja, hogy a játéktér blokk-módban van-e.
+	 * @return Blokk módban vagyunk-e.
+	 */
+	public boolean isBlockMode()
+	{
+		return blockMode;
+	}
 }

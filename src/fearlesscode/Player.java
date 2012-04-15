@@ -153,7 +153,8 @@ public class Player implements Info, Collideable
 	{
 		return getName()+"\r\n"+
 		    "  Coordinates:("+pos.getX()+","+pos.getY()+")\n"+
-			"  Obtained Keys:"+this.obtainedKeys;
+			"  Obtained Keys:"+this.obtainedKeys+"\n"+
+			"  Speed:("+speed.getX()+","+speed.getY()+")";
 	}
 	
 	/**
