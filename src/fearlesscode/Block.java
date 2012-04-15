@@ -179,7 +179,7 @@ public abstract class Block implements BlockInfo
 	 * @param player A player referenciája.
 	 * @param position A player poziciója.
 	 */
-	public void setPlayer(Player player, EntityPosition position)
+	public void addPlayer(Player player, EntityPosition position)
 	{
 		players.add(new PlayerContainer(player,position));
 	}
@@ -193,5 +193,5 @@ public abstract class Block implements BlockInfo
 		return players;
 	}
 
-	public abstract boolean matches(Block other);
+	public abstract boolean matches(Block other, int dir, boolean callback);
 }

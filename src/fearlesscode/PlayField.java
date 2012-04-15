@@ -204,19 +204,19 @@ public class PlayField
 	 *
 	 * @param player Az áthelyezni kívánt játékos.
 	 */
-	public void resetPlayer(Player player)
+	public void resetPlayer(PlayerContainer player)
 	{
-			Logger.log(player,"been reset to ");			//ha megvan az implementáció szólj pls és megcsinálom (TIBI)
-			/*
-			for(PlayerSpawnPoint spawn : players)
-			{
-					if(spawn.getPlayer() == player)
-					{
-							//Na itt kéne visszateleportálni...
-							//Csakhogy akkor már kéne egy teleportTo(player, entity) metódus.
-					}
-			}
-			*/
+		Logger.log(player.getPlayer(),"been reset to ");			//ha megvan az implementáció szólj pls és megcsinálom (TIBI)
+		/*
+		for(PlayerSpawnPoint spawn : players)
+		{
+				if(spawn.getPlayer() == player)
+				{
+						//Na itt kéne visszateleportálni...
+						//Csakhogy akkor már kéne egy teleportTo(player, entity) metódus.
+				}
+		}
+		*/
 	}
 
 	/**

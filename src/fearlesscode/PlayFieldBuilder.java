@@ -136,7 +136,7 @@ public class PlayFieldBuilder
 						SpawnPoint spawnPoint = new SpawnPoint(pf);
 						blocks.get(i).addEntity(spawnPos,spawnPoint);
 						Player player = new Player();
-						blocks.get(i).setPlayer(player, spawnPos);
+						blocks.get(i).addPlayer(player, spawnPos);
 						pf.addPlayer(player, spawnPoint);
 						player.enterBlock(blocks.get(i));
 					}	

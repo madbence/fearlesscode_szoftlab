@@ -18,32 +18,62 @@ public class FilledBlock extends Block
 	 */
 	public void checkBorders()
 	{
-		/*
-		Logger.call(this,"checkBorders()");
-		for(int i = 0; i < this.players.size(); i++)
+		for(PlayerContainer player:players)
 		{
-			PlayerContainer player = this.players.get(i);
+			EntityPosition currentPosition=player.getPosition();
+			EntityPosition nextPosition=player.getPlayer().getNextPosition(player.getPosition());
+			int dir=-1;
+			if(nextPosition.getX()<0 && currentPosition.getX()>0)
+			{
+				dir=3;
+			}
+			else if(nextPosition.getX()+Player.WIDTH > Block.WIDTH && nextPosition.getX()+Player.WIDTH < Block.WIDTH)
+			{
+				dir=1;
+			}
+			else if(nextPosition.getY()<0 && currentPosition.getY()>0)
+			{
+				dir=0;
+			}
+			else if(nextPosition.getY()+Player.HEIGHT > Block.HEIGHT && nextPosition.getX()+Player.HEIGHT < Block.HEIGHT)
+			{
+				dir=2;
+			}
+			if(dir != -1)
+			{
+				Block neighbour=getNeighbour(dir);
+				if(neighbour != null)
+				{
+					if(matches(neighbour, dir, true))
+					{
+						player.getPlayer().enterBlock(neighbour);
+					}
+					else if(dir == 2)
+					{
+						playField.resetPlayer(player);
+					}
+					else
+					{
+						player.getPlayer().move(
+							new Speed(
+								player.getPlayer().getSpeed().getX()*((dir+1)%2),
+								player.getPlayer().getSpeed().getY()*(dir%2)));
+					}
+				}
+				else if(dir == 2)
+				{
+					playField.resetPlayer(player);
+				}
+				else
+				{
+					player.getPlayer().move(
+						new Speed(
+							player.getPlayer().getSpeed().getX()*((dir+1)%2),
+							player.getPlayer().getSpeed().getY()*(dir%2)));
+				}
+			}
 
-			player.getPlayer().getSpeed();
-			if(Logger.ask("Blokk szelehez ert?"))
-			{
-				if(Logger.ask("Lehetseges az atjutas?"))
-				{
-					Block neighbour = playField.getBlocks().get(1).block;
-					player.getPlayer().enterBlock(neighbour);
-					neighbour.setPlayer(player.getPlayer(),null);
-				}
-				else if(Logger.ask("Kiesik?"))
-				{
-					//playField.resetPlayer();
-				}
-			}
-			else if(Logger.ask("Kilepett egy blokkbol?"))
-			{
-				player.getPlayer().leaveBlock(this);
-			}
-			Logger.ret(this,"checkBorders()");
-		}*/
+		}
 	}
 	
 	/**
@@ -52,9 +82,8 @@ public class FilledBlock extends Block
 	 */
 	public void processCollisions()
 	{
-		for(int i = 0; i < this.players.size(); i++)
+		for(PlayerContainer player:players)
 		{
-			PlayerContainer player = this.players.get(i);
 			Rectangle playerBox=player.getPlayer().getBoundingBox();
 			EntityPosition nextPosition=player.getPlayer().getNextPosition(player.getPosition());
 			for(EntityContainer container:entities)
@@ -133,8 +162,17 @@ public class FilledBlock extends Block
 		return "["+ID+":FilledBlock]";
 	}
 
-	public boolean matches(Block other)
+	public boolean matches(Block other, int dir, boolean callback)
 	{
+		BlockMatcher matcher=new BlockMatcher(this, other, dir);
+		if(matcher.matches())
+		{
+			if(callback)
+			{
+				return other.matches(this, (dir+2)%4, false);
+			}
+			return true;
+		}
 		return false;
 	}
 }
