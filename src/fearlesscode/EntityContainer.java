@@ -18,6 +18,11 @@ public class EntityContainer
 	private EntityPosition position;
 
 	/**
+	 * A konténer ezen az objektumon belül van.
+	 */
+	private Block block;
+
+	/**
 	 * Az EntityContainer konstruktora, beállítja az Entity referenciáját,
 	 * és pozicióját.
 	 *
@@ -49,5 +54,23 @@ public class EntityContainer
 	public EntityPosition getPosition()
 	{
 		return position;
+	}
+
+	/**
+	 * A tartalmazó objektum gettere.
+	 * @return A konténert tartalmazó objektum.
+	 */
+	public Block getBlock()
+	{
+		return block;
+	}
+
+	/**
+	 * A tartalmazó objektum settere.
+	 * @param block A beállítandó objektum.
+	 */
+	public void setBlock(Block block)
+	{
+		this.block=block;
 	}
 }
