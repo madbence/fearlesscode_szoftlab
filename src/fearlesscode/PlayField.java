@@ -70,26 +70,24 @@ public class PlayField
 		Position blockPos = new Position(-1,-1);
 		Position neighbPos = new Position(-1,-1);
 		Block neighbour = block.getNeighbour(direction);
-		int neighbourID = neighbour.getID();
 		for(BlockContainer blockcontainer : game.getPlayField().getBlocks())
 		{									
-			if(blockcontainer.getBlock().getID()==block.getID())
+			if(blockcontainer.getBlock() == block)
 			{
 				blockPos=blockcontainer.getPosition();
 			}
-			else if(blockcontainer.getBlock().getID()==neighbourID)
+			else if(blockcontainer.getBlock() == neighbour)
 			{
 				neighbPos=blockcontainer.getPosition();
-				
 			}
 		}
 		for(BlockContainer blockcontainer : game.getPlayField().getBlocks())
 		{									
-			if(blockcontainer.getBlock().getID()==block.getID())
+			if(blockcontainer.getBlock() == block)
 			{
 				blockcontainer.setPosition(neighbPos);
 			}
-			else if(blockcontainer.getBlock().getID()==neighbourID)
+			else if(blockcontainer.getBlock() == neighbour)
 			{
 				blockcontainer.setPosition(blockPos);
 			}
@@ -102,7 +100,6 @@ public class PlayField
 		neighbour.setNeighbour(getBlock(new Position(blockPos.getX()+1,blockPos.getY())),1,true);
 		neighbour.setNeighbour(getBlock(new Position(blockPos.getX(),blockPos.getY()+1)),2,true);
 		neighbour.setNeighbour(getBlock(new Position(blockPos.getX()-1,blockPos.getY())),3,true);
-		
 	}
 
 	/**
