@@ -63,6 +63,13 @@ public class FilledBlock extends Block
 							-player.getPlayer().getSpeed().getY()*((dir+1)%2)));
 				}
 			}
+			if( nextPosition.getY() > Block.HEIGHT ||
+				nextPosition.getY()+Player.HEIGHT < 0 ||
+				nextPosition.getX() > Block.WIDTH ||
+				nextPosition.getX()+Player.WIDTH < 0)
+			{
+				player.getPlayer().leaveBlock(this);
+			}
 			player.setPosition(player.getPlayer().getNextPosition(currentPosition));
 			Logger.log(
 				player.getPlayer().getName()+
