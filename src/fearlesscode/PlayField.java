@@ -171,10 +171,13 @@ public class PlayField
 				if(!active.contains(block))
 				{
 					active.add(block);
-					block.processCollisions();
-					block.checkBorders();
 				}
 			}
+		}
+		for(Block block:active)
+		{
+			block.processCollisions();
+			block.checkBorders();
 		}
 	}
 
