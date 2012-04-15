@@ -3,9 +3,9 @@ movePlayer 1 10 0
 tick
 getEntityInfo 1
 getPlayerInfo 1
-movePlayer 1 -10 0
+movePlayer 1 -20 0
 tick
-movePlayer 1 10 0
+movePlayer 1 20 0
 tick
 getEntityInfo 1
 getPlayerInfo 1

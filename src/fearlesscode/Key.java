@@ -42,8 +42,10 @@ public class Key extends Entity implements Info
 			isObtained = true;
 			Logger.log(this,"been picked up.");
 		}
-		Logger.log(this,"already been picked up.");
-		
+		else
+		{
+			Logger.log(this,"already been picked up.");
+		}
 	}
 	
 	/**
