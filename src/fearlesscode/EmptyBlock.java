@@ -40,7 +40,7 @@ public class EmptyBlock extends Block
 	public String getInfo(Position pos)
 	{
 		String playersString = "Players:none\n";
-		String entitiesString = "Entites:none\n";
+		String entitiesString = "Entities:none\n";
 		String neighbsString = "Neighbours:";
 		String posString = "Coordinates:";
 		posString+="("+pos.getX()+","+pos.getY()+")\n";
