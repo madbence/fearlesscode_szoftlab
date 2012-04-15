@@ -34,7 +34,7 @@ public class FilledBlock extends Block
 			else if(nextPosition.getX()+Player.WIDTH >= Block.WIDTH && currentPosition.getX()+Player.WIDTH < Block.WIDTH)
 			{
 				dir=1;
-				entryPosition=new EntityPosition(0, currentPosition.getY());
+				entryPosition=new EntityPosition(-Player.WIDTH, currentPosition.getY());
 			}
 			else if(nextPosition.getY()<=0 && currentPosition.getY()>0)
 			{
@@ -44,7 +44,7 @@ public class FilledBlock extends Block
 			else if(nextPosition.getY()+Player.HEIGHT >= Block.HEIGHT && currentPosition.getX()+Player.HEIGHT < Block.HEIGHT)
 			{
 				dir=2;
-				entryPosition=new EntityPosition(currentPosition.getX(), 0);
+				entryPosition=new EntityPosition(currentPosition.getX(), -Player.HEIGHT);
 			}
 			if(dir != -1)
 			{
