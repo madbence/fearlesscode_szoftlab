@@ -26,22 +26,22 @@ public class FilledBlock extends Block
 			EntityPosition nextPosition=player.getPlayer().getNextPosition(player.getPosition());
 			EntityPosition entryPosition=null;
 			int dir=-1;
-			if(nextPosition.getX()<0 && currentPosition.getX()>0)
+			if(nextPosition.getX()<=0 && currentPosition.getX()>0)
 			{
 				dir=3;
 				entryPosition=new EntityPosition(Block.WIDTH, currentPosition.getY());
 			}
-			else if(nextPosition.getX()+Player.WIDTH > Block.WIDTH && nextPosition.getX()+Player.WIDTH < Block.WIDTH)
+			else if(nextPosition.getX()+Player.WIDTH >= Block.WIDTH && currentPosition.getX()+Player.WIDTH < Block.WIDTH)
 			{
 				dir=1;
 				entryPosition=new EntityPosition(0, currentPosition.getY());
 			}
-			else if(nextPosition.getY()<0 && currentPosition.getY()>0)
+			else if(nextPosition.getY()<=0 && currentPosition.getY()>0)
 			{
 				dir=0;
 				entryPosition=new EntityPosition(currentPosition.getX(), Block.HEIGHT);
 			}
-			else if(nextPosition.getY()+Player.HEIGHT > Block.HEIGHT && nextPosition.getX()+Player.HEIGHT < Block.HEIGHT)
+			else if(nextPosition.getY()+Player.HEIGHT >= Block.HEIGHT && currentPosition.getX()+Player.HEIGHT < Block.HEIGHT)
 			{
 				dir=2;
 				entryPosition=new EntityPosition(currentPosition.getX(), 0);
@@ -51,6 +51,7 @@ public class FilledBlock extends Block
 				Block neighbour=getNeighbour(dir);
 				if(neighbour != null && neighbour.matches(neighbour, dir, true))
 				{
+					Logger.debug("enterBlock "+neighbour.getName());
 					player.getPlayer().enterBlock(neighbour, entryPosition);
 				}
 				else if(dir == 2)
