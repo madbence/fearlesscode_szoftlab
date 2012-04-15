@@ -54,8 +54,8 @@ public class FilledBlock extends Block
 				{
 					player.getPlayer().move(
 						new Speed(
-							player.getPlayer().getSpeed().getX()*((dir+1)%2),
-							player.getPlayer().getSpeed().getY()*(dir%2)));
+							-player.getPlayer().getSpeed().getX()*(dir%2),
+							-player.getPlayer().getSpeed().getY()*((dir+1)%2)));
 				}
 			}
 			player.setPosition(player.getPlayer().getNextPosition(currentPosition));
