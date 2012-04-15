@@ -34,8 +34,7 @@ public class Proto
 			
 			while(true)
 			{
-				System.out.print ("> ");
-				System.out.flush(); 
+				//System.out.print("> ");
 				cmd = stdin.readLine();
 				proto.commandSorter(cmd, proto);		
 			}

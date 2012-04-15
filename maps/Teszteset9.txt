@@ -5,14 +5,14 @@
 [1:Player] has moved to Position: (170,75)
 [1:Key] has already been picked up.
 [1:Key]
-    Coordinates: (170,75)
-    isObtained: true
+  Coordinates: (170,75)
+  isObtained: true
 [1:Player]
-    Coordinates: (170,75)
-    Obtained Keys: 1
+  Coordinates: (170,75)
+  Obtained Keys: 1
 [1:Key]
-    Coordinates: (170,75)
-    isObtained: true
+  Coordinates: (170,75)
+  isObtained: true
 [1:Player]
-    Coordinates: (170,75)
-    Obtained Keys: 1
+  Coordinates: (170,75)
+  Obtained Keys: 1

@@ -3,48 +3,48 @@ Game mode has been toggled
 Game mode has been toggled
 [1:Player] has moved to Position(40,75)
 [1:FilledBlock]
-    Coordinates:(1,1)
-    Players:none
-    Entities:none
-    Neighbours:none[4:Block][3:Block]none
+  Coordinates:(1,1)
+  Players:none
+  Entities:none
+  Neighbours:none[4:Block][3:Block]none
 [2:FilledBlock]
-    Coordinates:(2,1)
-    Players:[1:Player][2:Player]
-    Entities:[1:Key][2:Wall][3:SpawnPoint][4:Door]
-    Neighbours:[3:Block]nonenone[4:Block]
+  Coordinates:(2,1)
+  Players:[1:Player][2:Player]
+  Entities:[1:Key][2:Wall][3:SpawnPoint][4:Door]
+  Neighbours:[3:Block]nonenone[4:Block]
 [3:EmptyBlock]
-    Coordinates:(1,2)
-    Players:none
-    Entities:none
-    Neighbours:none[2:Block]none[1:Block]
+  Coordinates:(1,2)
+  Players:none
+  Entities:none
+  Neighbours:none[2:Block]none[1:Block]
 [4:FilledBlock]
-    Coordinates:(2,2)
-    Players:none
-    Entities::none
-    Neighbours:[1:Block]none[2:Block]none
+  Coordinates:(2,2)
+  Players:none
+  Entities::none
+  Neighbours:[1:Block]none[2:Block]none
 [1:Player]
-    Coordinates: (50,75)
-    Obtained Keys: 0
+  Coordinates: (50,75)
+  Obtained Keys: 0
 [1:FilledBlock]
-    Coordinates:(1,1)
-    Players:none
-    Entities:none
-    Neighbours:none[4:Block][3:Block]none
+  Coordinates:(1,1)
+  Players:none
+  Entities:none
+  Neighbours:none[4:Block][3:Block]none
 [2:FilledBlock]
-    Coordinates:(2,1)
-    Players:[1:Player][2:Player]
-    Entities:[1:Key][2:Wall][3:SpawnPoint][4:Door]
-    Neighbours:[3:Block]nonenone[4:Block]
+  Coordinates:(2,1)
+  Players:[1:Player][2:Player]
+  Entities:[1:Key][2:Wall][3:SpawnPoint][4:Door]
+  Neighbours:[3:Block]nonenone[4:Block]
 [3:EmptyBlock]
-    Coordinates:(1,2)
-    Players:none
-    Entities:none
-    Neighbours:none[2:Block]none[1:Block]
+  Coordinates:(1,2)
+  Players:none
+  Entities:none
+  Neighbours:none[2:Block]none[1:Block]
 [4:FilledBlock]
-    Coordinates:(2,2)
-    Players:none
-    Entities:none
-    Neighbours:[1:Block]none[2:Block]none
+  Coordinates:(2,2)
+  Players:none
+  Entities:none
+  Neighbours:[1:Block]none[2:Block]none
 [1:Player]
-    Coordinates: (40,75)
-    Obtained Keys: 0
+  Coordinates: (40,75)
+  Obtained Keys: 0
