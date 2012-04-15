@@ -42,23 +42,9 @@ public class FilledBlock extends Block
 			if(dir != -1)
 			{
 				Block neighbour=getNeighbour(dir);
-				if(neighbour != null)
+				if(neighbour != null && neighbour.matches(neighbour, dir, true))
 				{
-					if(matches(neighbour, dir, true))
-					{
-						player.getPlayer().enterBlock(neighbour);
-					}
-					else if(dir == 2)
-					{
-						playField.resetPlayer(player);
-					}
-					else
-					{
-						player.getPlayer().move(
-							new Speed(
-								player.getPlayer().getSpeed().getX()*((dir+1)%2),
-								player.getPlayer().getSpeed().getY()*(dir%2)));
-					}
+					player.getPlayer().enterBlock(neighbour);
 				}
 				else if(dir == 2)
 				{
