@@ -38,11 +38,12 @@ public class Door extends Entity implements Info
 		player.getPlayer().resetKeys();
 		if(requiredKeys>0)
 		{
-			Logger.log(this,"remained closed.");
+			Logger.log(this,"not opened.");
 		}
 		else
 		{
-			Logger.log(this, "become open.");
+			Logger.log(this, "opened.");
+			playField.win();
 		}
 	}
 	

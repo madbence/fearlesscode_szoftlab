@@ -200,6 +200,7 @@ public class PlayField
 	public void win()
 	{
 		game.loadNextLevel();
+		Logger.log("Level finished!");
 	}
 
 	/**
