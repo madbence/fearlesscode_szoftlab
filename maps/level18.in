@@ -1,0 +1,4 @@
+loadMap maps/level18.json
+tick 2
+getPlayerInfo
+exit

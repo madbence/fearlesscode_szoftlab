@@ -1,0 +1,4 @@
+loadMap maps/level8.json
+movePlayer 1 10 0
+tick
+exit
