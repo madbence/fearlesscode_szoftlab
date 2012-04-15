@@ -42,6 +42,20 @@ public class Wall extends Entity implements Info
 	 */
 	public void meetPlayer(PlayerContainer player)
 	{
+		EntityPosition pos=container.getPosition();
+		if( player.getPosition().getY()+Player.HEIGHT>pos.getY() && 
+			player.getPosition().getY()<pos.getY()+y)
+		{
+			player.getPlayer().move(new Speed(
+				-player.getPlayer().getSpeed().getX(),
+				0));
+		}
+		else
+		{
+			player.getPlayer().move(new Speed(
+				0,
+				-player.getPlayer().getSpeed().getY()));
+		}
 	}
 	
 	/**
