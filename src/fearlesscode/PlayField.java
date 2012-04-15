@@ -210,16 +210,17 @@ public class PlayField
 	public void resetPlayer(PlayerContainer player)
 	{
 		Logger.log(player.getPlayer(),"been reset to ");			//ha megvan az implementáció szólj pls és megcsinálom (TIBI)
-		/*
 		for(PlayerSpawnPoint spawn : players)
 		{
-				if(spawn.getPlayer() == player)
-				{
-						//Na itt kéne visszateleportálni...
-						//Csakhogy akkor már kéne egy teleportTo(player, entity) metódus.
-				}
+			if(spawn.getPlayer() == player.getPlayer());
+			{
+				spawn.getPlayer().reset();
+				spawn.getPlayer().enterBlock(
+					spawn.getSpawnPoint().getContainer().getBlock(),
+					spawn.getSpawnPoint().getContainer().getPosition());
+				return;
+			}
 		}
-		*/
 	}
 
 	/**
