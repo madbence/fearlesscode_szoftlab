@@ -41,7 +41,7 @@ public class FilledBlock extends Block
 				dir=0;
 				entryPosition=new EntityPosition(currentPosition.getX(), Block.HEIGHT);
 			}
-			else if(nextPosition.getY()+Player.HEIGHT >= Block.HEIGHT && currentPosition.getX()+Player.HEIGHT < Block.HEIGHT)
+			else if(nextPosition.getY()+Player.HEIGHT >= Block.HEIGHT && currentPosition.getY()+Player.HEIGHT < Block.HEIGHT)
 			{
 				dir=2;
 				entryPosition=new EntityPosition(currentPosition.getX(), -Player.HEIGHT);
@@ -49,7 +49,7 @@ public class FilledBlock extends Block
 			if(dir != -1)
 			{
 				Block neighbour=getNeighbour(dir);
-				if(neighbour != null && neighbour.matches(neighbour, dir, true))
+				if(neighbour != null && matches(neighbour, dir, true))
 				{
 					Logger.debug("enterBlock "+neighbour.getName());
 					player.getPlayer().enterBlock(neighbour, entryPosition);
@@ -57,6 +57,8 @@ public class FilledBlock extends Block
 				else if(dir == 2)
 				{
 					playField.resetPlayer(player);
+					return;
+					//instant visszaterunk, mert nem kell tovabb szarozni.
 				}
 				else
 				{
