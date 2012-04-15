@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
+import fearlesscode.util.*;
 
 /**
  * A prototípus fő osztálya, kezeli a bemeneteket, és végrehajtja az azon érkező parancsokat.
@@ -41,7 +42,7 @@ public class Proto
 		}
 		catch(Exception e)
 		{
-			System.out.println("Uncaught exception...");
+			Logger.error("UNCAUGHT EXCEPTION");
 			e.printStackTrace();
 		}
 	}
@@ -191,8 +192,7 @@ public class Proto
 	 */
 	public void exit()
 	{
-		System.out.println("Kilepes a protobol");
-		System.exit(1);
+		System.exit(0);
 	}
 
 	/**
@@ -225,7 +225,7 @@ public class Proto
 		}
 		catch(Exception e)
 		{
-			System.out.println("Error: Nem letezik ilyen file");
+			Logger.error("File does not exists.");
 		}
 	}	
 
@@ -238,7 +238,7 @@ public class Proto
 	{
 		try
 		{
-			String[] splitted = command.split("\\s+");
+			String[] splitted = command.split(" ");
 			if(splitted[0].equals("tick"))
 			{
 				if(splitted.length==1)
@@ -252,7 +252,7 @@ public class Proto
 				}
 				else
 				{
-					System.out.println("Nem megfelelő paraméterek");
+					Logger.error("Wrong params. Usage: 'tick [n]'");
 				}
 			}
 			if(splitted[0].equals("moveBlock"))
@@ -265,7 +265,7 @@ public class Proto
 				}
 				else
 				{
-					System.out.println("Nem megfelelő paraméterek");
+					Logger.error("Wrong params. Usage: 'moveBlock id dir'");
 				}
 			}
 			if(splitted[0].equals("toggleMode"))
@@ -276,7 +276,7 @@ public class Proto
 				}
 				else
 				{
-					System.out.println("Nem megfelelő paraméterek");
+					Logger.error("Wrong params. Usage: 'toggleMode'");
 				}
 			}
 			if(splitted[0].equals("movePlayer"))
@@ -290,7 +290,7 @@ public class Proto
 				}
 				else 
 				{
-					System.out.println("Nem megfelelő paraméterek");
+					Logger.error("Wrong params. Usage: 'movePlayer id x y'");
 				}
 			}
 			if(splitted[0].equals("getBlockInfo"))
@@ -306,7 +306,7 @@ public class Proto
 				}
 				else 
 				{
-					System.out.println("Nem megfelelő paraméterek");
+					Logger.error("Wrong params. Usage: 'getBlockInfo [id]'");
 				}
 			}
 			if(splitted[0].equals("getEntityInfo"))
@@ -322,7 +322,7 @@ public class Proto
 				}
 				else 
 				{
-					System.out.println("Nem megfelelő paraméterek");
+					Logger.error("Wrong params. Usage: 'getEntityInfo [id]'");
 				}
 			}
 			if(splitted[0].equals("getPlayerInfo"))
@@ -338,7 +338,7 @@ public class Proto
 				}
 				else 
 				{
-					System.out.println("Nem megfelelő paraméterek");
+					Logger.error("Wrong params. Usage: 'getPlayerInfo [id]'");
 				}
 			}
 			if(splitted[0].equals("exit"))
@@ -349,7 +349,7 @@ public class Proto
 				}
 				else 
 				{
-					System.out.println("Nem megfelelő paraméterek");
+					Logger.error("Wrong params. Usage: 'exit'");
 				}
 			}
 			if(splitted[0].equals("loadMap"))
@@ -360,7 +360,7 @@ public class Proto
 				}
 				else
 				{
-					System.out.println("Nem megfelelő paraméterek");
+					Logger.error("Wrong params. Usage: 'loadMap file'");
 				}
 			}
 			if(splitted[0].equals("include"))
@@ -371,7 +371,7 @@ public class Proto
 				}
 				else 
 				{
-					System.out.println("Nem megfelelő paraméterek");
+					Logger.error("Wrong params. Usage: 'include file'");
 				}
 			}
 		}
