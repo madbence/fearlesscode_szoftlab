@@ -75,7 +75,10 @@ public abstract class Block implements BlockInfo
 	 */
 	public void addEntity(EntityPosition position, Entity entity)
 	{
-		entities.add(new EntityContainer(entity,position));
+		EntityContainer con=new EntityContainer(entity,position);
+		entities.add(con);
+		entity.setBlock(this);
+		con.setBlock(this);
 	}
 	
 	public List<EntityContainer> getEntities()
