@@ -183,6 +183,21 @@ public abstract class Block implements BlockInfo
 	{
 		players.add(new PlayerContainer(player,position));
 	}
+
+	/**
+	 * Eltávolítja a játékost a blokkról.
+	 * @param player Az eltávolítandó játékos.
+	 */
+	public void removePlayer(Player player)
+	{
+		for(PlayerContainer con:players)
+		{
+			if(con.getPlayer() == player)
+			{
+				players.remove(con);
+			}
+		}
+	}
 	
 	/**
 	 * A Block-ban található Player-eket lekérdező metódus.

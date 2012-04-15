@@ -83,9 +83,10 @@ public class Player implements Info, Collideable
 	 *
 	 * @param block Referencia, hogy melyik Block-ba történik a belépés.
 	 */
-	public void enterBlock(Block block)
+	public void enterBlock(Block block, EntityPosition pos)
 	{
 		activeBlocks.add(block);
+		block.addPlayer(this, pos);
 	}
 
 	/**
@@ -115,7 +116,8 @@ public class Player implements Info, Collideable
 	 */
 	public void leaveBlock(Block block)
 	{
-		activeBlocks.remove(activeBlocks.indexOf(block));
+		activeBlocks.remove(block);
+		block.removePlayer(this);
 	}
 
 	/**
