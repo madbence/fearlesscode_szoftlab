@@ -36,7 +36,6 @@ public class Proto
 				System.out.print ("> ");
 				System.out.flush(); 
 				cmd = stdin.readLine();
-				System.out.println("\n");
 				proto.commandSorter(cmd, proto);		
 			}
 		}
