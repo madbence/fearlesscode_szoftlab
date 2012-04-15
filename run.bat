@@ -1,3 +1,1 @@
-@echo off
 "C:\Program Files\Java\jre7\bin\java.exe" -classpath .\build\ fearlesscode.Proto
-@echo on
