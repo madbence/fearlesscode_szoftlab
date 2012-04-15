@@ -79,6 +79,20 @@ public class Player implements Info, Collideable
 	}
 
 	/**
+	 * Eltávolítja a Playerre vonatkozó referenciákat.
+	 */
+	public void reset()
+	{
+		ArrayList<Block> copy=(ArrayList<Block>) activeBlocks.clone();
+		for(Block b:copy)
+		{
+			leaveBlock(b);
+		}
+		activeBlocks.clear();
+		speed=new Speed(0,0);
+	}
+
+	/**
 	 * A Block-ba történő beléptetést végző metódus.
 	 *
 	 * @param block Referencia, hogy melyik Block-ba történik a belépés.
