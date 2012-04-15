@@ -1,6 +1,7 @@
 package fearlesscode;
 
 import fearlesscode.util.*;
+import java.util.*;
 
 /**
  * A sima blokkot reprezentálja, kezeli a benne található objektumokat
@@ -18,28 +19,29 @@ public class FilledBlock extends Block
 	 */
 	public void checkBorders()
 	{
+		ArrayList<Player> leaveList=new ArrayList<Player>();
 		for(PlayerContainer player:players)
 		{
 			EntityPosition currentPosition=player.getPosition();
 			EntityPosition nextPosition=player.getPlayer().getNextPosition(player.getPosition());
 			EntityPosition entryPosition=null;
 			int dir=-1;
-			if(nextPosition.getX()<0 && currentPosition.getX()+Player.WIDTH>0)
+			if(nextPosition.getX()<0 && currentPosition.getX()>0)
 			{
 				dir=3;
 				entryPosition=new EntityPosition(Block.WIDTH, currentPosition.getY());
 			}
-			else if(nextPosition.getX()+Player.WIDTH > Block.WIDTH && nextPosition.getX() < Block.WIDTH)
+			else if(nextPosition.getX()+Player.WIDTH > Block.WIDTH && nextPosition.getX()+Player.WIDTH < Block.WIDTH)
 			{
 				dir=1;
 				entryPosition=new EntityPosition(0, currentPosition.getY());
 			}
-			else if(nextPosition.getY()<0 && currentPosition.getY()+Player.HEIGHT>0)
+			else if(nextPosition.getY()<0 && currentPosition.getY()>0)
 			{
 				dir=0;
 				entryPosition=new EntityPosition(currentPosition.getX(), Block.HEIGHT);
 			}
-			else if(nextPosition.getY()+Player.HEIGHT > Block.HEIGHT && nextPosition.getX() < Block.HEIGHT)
+			else if(nextPosition.getY()+Player.HEIGHT > Block.HEIGHT && nextPosition.getX()+Player.HEIGHT < Block.HEIGHT)
 			{
 				dir=2;
 				entryPosition=new EntityPosition(currentPosition.getX(), 0);
@@ -68,7 +70,7 @@ public class FilledBlock extends Block
 				nextPosition.getX() > Block.WIDTH ||
 				nextPosition.getX()+Player.WIDTH < 0)
 			{
-				player.getPlayer().leaveBlock(this);
+				leaveList.add(player.getPlayer());
 			}
 			player.setPosition(player.getPlayer().getNextPosition(currentPosition));
 			Logger.log(
@@ -79,6 +81,10 @@ public class FilledBlock extends Block
 				player.getPosition().getY()+
 				") in "+
 				getName());
+		}
+		for(Player p:leaveList)
+		{
+			p.leaveBlock(this);
 		}
 	}
 	

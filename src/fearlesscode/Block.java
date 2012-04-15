@@ -190,12 +190,18 @@ public abstract class Block implements BlockInfo
 	 */
 	public void removePlayer(Player player)
 	{
+		PlayerContainer delete=null;
 		for(PlayerContainer con:players)
 		{
 			if(con.getPlayer() == player)
 			{
-				players.remove(con);
+				delete=con;
+				break;
 			}
+		}
+		if(delete != null)
+		{
+			players.remove(delete);
 		}
 	}
 	
