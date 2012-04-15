@@ -47,4 +47,13 @@ public class PlayerContainer
 	{
 		return position;
 	}
+
+	/**
+	 * A tárolt pozíció settere.
+	 * @param pos Az új pozíció.
+	 */
+	public void setPosition(EntityPosition pos)
+	{
+		position=pos;
+	}
 }
