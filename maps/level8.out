@@ -1,9 +1,4 @@
-[1:Player] has moved to Position: (170,75)
-[1:Player] has collided with [2:Door]
-[2:Door] remained closed.
-[2:Door]
-  Coordinates: (170,75)
-  requiredKeys: 1
-[1:Player]
-  Coordinates: (170,75)
-  Obtained Keys: 0
+[1:Player] has collided with [1:Door]
+[1:Door] has  not opened.
+[1:Player] has collided with [2:Wall]
+[1:Player] is now at (175.0,75.0) in [2:FilledBlock]
