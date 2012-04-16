@@ -45,7 +45,7 @@ public class Diff {
         for(int j = 0; j < pairs.size(); j++){
             for(; x < fixArray.size(); x++){
                 if(pairs.get(j).equalsIgnoreCase(fixArray.get(x))){
-                    Diff.writeToFileWriter(pairs.get(j), output);
+                    Diff.writeToFileWriter(gap + pairs.get(j), output);
                     x++;
                     break;
                 } else {
@@ -73,6 +73,7 @@ public class Diff {
 			for(int j = 0; j < input.size(); j++){
 				if(fix.get(i).equalsIgnoreCase(input.get(j))){
 					pairs.add(fix.get(i));
+                    System.out.println("pair: " + fix.get(i));
 					j = input.size();
 				}
 			}
