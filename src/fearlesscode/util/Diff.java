@@ -72,9 +72,10 @@ public class Diff {
 	}
 
 	private static void writeToFileWriter(String string, FileWriter output){
-		BufferedWriter out = new BufferedWriter(output);
+        PrintWriter out = new PrintWriter(output);
+
         try{
-			out.write(string);
+			out.println(string);
 		} catch (Exception e){
 			System.err.println("Error during printing to output.");
 		}
