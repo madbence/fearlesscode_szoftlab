@@ -36,11 +36,6 @@ public class Player implements Info, Collideable
 	private ArrayList<Block> activeBlocks;
 
 	/**
-	 * Számolja a létrehozott játékosokat.
-	 */
-	private static int count=1;
-
-	/**
 	 * A játékos azonosítója.
 	 */
 	private int ID;
@@ -50,10 +45,10 @@ public class Player implements Info, Collideable
 	* 
 	* Egy új üres listát hoz létre az activeBlockoknak.
 	*/
-	public Player()
+	public Player(int id)
 	{
 		activeBlocks=new ArrayList<Block>();
-		ID=count++;
+		ID=id;
 		obtainedKeys = 0;
 		speed = new Speed(0, 0);
 	}
