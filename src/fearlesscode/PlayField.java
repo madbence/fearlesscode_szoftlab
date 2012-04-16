@@ -143,12 +143,16 @@ public class PlayField
 	 * Visszaadja a játékosok listáját.
 	 * 
 	 * @return A PlayField objektumban eltárolt játékosok és spawnpoint-juk listája.
-	*/
+	 */
 	public ArrayList<PlayerSpawnPoint> getPlayers()
 	{
 		return players;
 	}
 	
+	/**
+	 * Adott Position-ű Block-ot visszaadó metódus.
+	 * @param pos Az adott Position.
+	 */
 	public Block getBlock(Position pos)
 	{
 		for(BlockContainer blockcontainer : game.getPlayField().getBlocks())

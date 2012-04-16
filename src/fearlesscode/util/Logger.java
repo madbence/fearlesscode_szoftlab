@@ -39,6 +39,11 @@ public class Logger
 		System.out.println("Error: "+str);
 	}
 
+	/**
+	 * Debuggolásra szólgáló logger metódus.
+	 *
+	 * @param str A kiirandó szöveg.
+	 */
 	public static void debug(String str)
 	{
 		System.err.println("Debug: "+str);

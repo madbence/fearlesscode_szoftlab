@@ -1,5 +1,9 @@
 package fearlesscode;
 
+
+/**
+ * Blokkokról szóló nformációk szolgáltatás biztosító interface.
+ */
 public interface BlockInfo
 {
 	/**

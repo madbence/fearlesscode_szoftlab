@@ -12,8 +12,16 @@ import fearlesscode.util.*;
  */
 public class Proto
 {
+	/**
+	 * Game referencia.
+	 */
 	Game game;
-
+	
+	/**
+	 * A Proto konstruktora.
+	 *
+	 * Létrehoz egy új Game-et.
+	 */
 	public Proto()
 	{
 		game = new Game();
@@ -159,14 +167,6 @@ public class Proto
 		}
 	}
 
-	/**
-	 * Kiírja egy játékos adatait.
-	 * @param n A játékos azonosítója.
-	 */
-	/*public void getPlayerInfo(int n) throws CommandException
-	{
-		System.out.println(game.getPlayField().getPlayer(n).getInfo(game.getPlayField().getPlayerPosition(n)));
-	}*/
 	
 	/**
 	 * Kiírja egy Player adatait.

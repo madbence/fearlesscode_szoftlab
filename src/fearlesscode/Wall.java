@@ -44,7 +44,7 @@ public class Wall extends Entity implements Info
 	{
 		EntityPosition pos=container.getPosition();
 		if( player.getPosition().getY()+Player.HEIGHT>pos.getY() && 
-			player.getPosition().getY()<pos.getY()+y)
+			player.getPosition().getY()<pos.getY()+y) //ha a Player a falfelett van
 		{
 			player.getPlayer().move(new Speed(
 				-player.getPlayer().getSpeed().getX(),

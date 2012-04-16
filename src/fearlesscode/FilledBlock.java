@@ -9,6 +9,10 @@ import java.util.*;
  */
 public class FilledBlock extends Block
 {
+	/**
+	 * A FilledBlock konstruktora.
+	 * @param p A tartalmazó PlayField referenciája.
+	 */
 	public FilledBlock(PlayField pf)
 	{
 		super(pf);
