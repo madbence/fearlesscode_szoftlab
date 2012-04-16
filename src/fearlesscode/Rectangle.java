@@ -34,11 +34,19 @@ public class Rectangle extends Shape
 		this.height = height;
 	}
 
+	/**
+	 * A szélessége gettere.
+	 * @return A téglalap szélessége.
+	 */
 	public double getWidth()
 	{
 		return width;
 	}
 
+	/**
+	 * A magasság gettere.
+	 * @return A téglalap magassága.
+	 */
 	public double getHeight()
 	{
 		return height;

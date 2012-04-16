@@ -45,6 +45,9 @@ public class SpawnPoint extends Entity implements Info
 		return "["+ID+":SpawnPoint]";
 	}
 
+	/**
+	 * Visszaadja a befoglaló dobozt.
+	 */
 	public Rectangle getBoundingBox()
 	{
 		return new Rectangle(0, 0);

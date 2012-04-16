@@ -9,7 +9,7 @@ import java.util.*;
 public class Wall extends Entity implements Info
 {
 	/**
-	 * A  fal szélessége.
+	 * A fal szélessége.
 	 */
 	private double x;
 	
@@ -98,11 +98,18 @@ public class Wall extends Entity implements Info
 		return y;
 	}
 
+	/**
+	 * Visszaadja a befoglaló dobozt.
+	 */
 	public Rectangle getBoundingBox()
 	{
 		return new Rectangle(x, y);
 	}
 
+	/**
+	 * A visitor pattern alapján egy BlockMatcherrel kommunikál. Beállítja a saját szélességét, magasságát.
+	 * @param matcher A kommunikációt kezdeményező objektum.
+	 */
 	public void accept(BlockMatcher matcher)
 	{
 		matcher.setWidth(x);

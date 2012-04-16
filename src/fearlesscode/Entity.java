@@ -27,6 +27,9 @@ public abstract class Entity implements Info, Collideable
 	 */
 	protected PlayField playField;
 
+	/**
+	 * A befoglaló konténer.
+	 */
 	protected EntityContainer container;
 
 	/**
@@ -82,6 +85,11 @@ public abstract class Entity implements Info, Collideable
 		return ID;
 	}
 
+	/**
+	 * A visitor pattern alapján egy BlockMatcherrel kommunikál. Alapértelmezetten kivételt dob,
+	 * Ezzel jelezve, hogy az illeszkedés vizsgálatában nincs szerepe.
+	 * @param matcher A kommunikációt kezdeményező objektum.
+	 */
 	public void accept(BlockMatcher matcher) throws Exception
 	{
 		throw new Exception();

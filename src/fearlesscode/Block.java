@@ -12,13 +12,20 @@ import fearlesscode.util.*;
  */
 public abstract class Block implements BlockInfo
 {
-
+	/**
+	 * Egy blokk magassága.
+	 */
 	public static final double HEIGHT=150;
+
+	/**
+	 * Egy blokk szélessége.
+	 */
+
 	public static final double WIDTH=200;
 	/**
 	 * Egy adott Blockban található Entityk tárolására szolgál.
 	 */
-	protected List<EntityContainer> entities;
+	protected ArrayList<EntityContainer> entities;
 
 	/**
 	 * A szomszédossági kapcsolatokat írja le a többi a játéktéren található szomszédos Blockokhoz.
@@ -81,7 +88,11 @@ public abstract class Block implements BlockInfo
 		con.setBlock(this);
 	}
 	
-	public List<EntityContainer> getEntities()
+	/**
+	 * Visszaadja a tartalmazott entitásokat.
+	 * @return A blokkban található játékobjektumok
+	 */
+	public ArrayList<EntityContainer> getEntities()
 	{
 		return entities;
 	}
@@ -217,5 +228,11 @@ public abstract class Block implements BlockInfo
 		return players;
 	}
 
+	/**
+	 * Absztrakt metódus, ami 2 blokk szélének egyezőségét adja meg.
+	 * @param other A másik blokk.
+	 * @param dir A vizsgálat mely oldalon történjen.
+	 * @param callback Történjen-e visszahívás (másik oldalról is elvégzi a vizsgálatot).
+	 */
 	public abstract boolean matches(Block other, int dir, boolean callback);
 }

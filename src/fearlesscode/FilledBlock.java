@@ -182,6 +182,12 @@ public class FilledBlock extends Block
 		return "["+ID+":FilledBlock]";
 	}
 
+	/**
+	 * Metódus, ami 2 blokk szélének egyezőségét adja meg.
+	 * @param other A másik blokk.
+	 * @param dir A vizsgálat mely oldalon történjen.
+	 * @param callback Történjen-e visszahívás (másik oldalról is elvégzi a vizsgálatot).
+	 */
 	public boolean matches(Block other, int dir, boolean callback)
 	{
 		BlockMatcher matcher=new BlockMatcher(this, other, dir);
