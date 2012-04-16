@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.*;
 
 public class Diff {
-	static void diff(BufferedReader fix, BufferedReader input, FileWriter output){
+	static void diff(BufferedReader fix, BufferedReader input, PrintWriter output){
 		String gap = "  ";
 		String plus = "++";
 		String minus = "--";
@@ -71,22 +71,24 @@ public class Diff {
 		return pairs;
 	}
 
-	private static void writeToFileWriter(String string, FileWriter output){
-		BufferedWriter out = new BufferedWriter(output);
+	private static void writeToFileWriter(String string, PrintWriter output){
         try{
-			out.write(string);
+			output.println(string);
 		} catch (Exception e){
-			System.err.println("Error during printing to output.");
+			System.out.println("Error during printing to output.");
 		}
 	}
 
 	public static void main(String[] args)
 	{
+        /*
 		File result=new File("./result.txt");
 		result.delete();
+        */
+
 		try
 		{
-			FileWriter o=new FileWriter("./result.txt");
+			PrintWriter o=new PrintWriter(new FileWriter(new File("./result.txt")));
 			File out=new File("./out/");
 			File[] list=out.listFiles();
 			for(File file:list)
@@ -99,11 +101,11 @@ public class Diff {
 
                     BufferedReader fileBr = new BufferedReader(new FileReader(file));
 
-					diff(fixBr, fileBr, new FileWriter("./result.txt", true));
-					o.write(file.getName());
-					o.write(fix.length()+"-"+file.length()+":"+((fix.length() == file.length())?"OK":"FAIL"));
-					System.out.print(file.getName()+": ");
-					System.out.println(fix.length()+"-"+file.length()+":"+((fix.length() == file.length())?"OK":"FAIL"));
+					diff(fixBr, fileBr, o);
+					//o.write(file.getName());
+					//o.write(fix.length()+"-"+file.length()+":"+((fix.length() == file.length())?"OK":"FAIL"));
+					//System.out.print(file.getName()+": ");
+					//System.out.println(fix.length()+"-"+file.length()+":"+((fix.length() == file.length())?"OK":"FAIL"));
 				}
 				catch(Exception e)
 				{
@@ -111,6 +113,7 @@ public class Diff {
 					e.printStackTrace();
 				}
 			}
+			o.close();
 		}
 		catch(Exception e)
 		{
