@@ -12,33 +12,33 @@ public class Diff {
 		ArrayList<String> fixArray = new ArrayList<String>();
 		ArrayList<String> inputArray = new ArrayList<String>();
 
-        System.err.println("Break 1");
+        System.out.println("Break 1");
 
         try{
             for(String i = fix.readLine(); i != null; i = fix.readLine()){
                 fixArray.add(i);
             }
         } catch (Exception e){
-            System.err.println("Error during opening the fix input file.");
+            System.out.println("Error during opening the fix input file.");
         }
 
-        System.err.println("Break 2");
+        System.out.println("Break 2");
 
         try{
             for(String i = input.readLine(); i != null; i = input.readLine()){
                 inputArray.add(i);
             }
         } catch (Exception e){
-            System.err.println("Error during opening the program's input file.");
+            System.out.println("Error during opening the program's input file.");
         }
 
-        System.err.println("Break 3");
+        System.out.println("Break 3");
 
         ArrayList<String> pairs = Diff.findPairs(fixArray, inputArray);
         ArrayList<String> minusArray = new ArrayList<String>();
         ArrayList<String> plusArray = new ArrayList<String>();
 
-        System.err.println("Break 4");
+        System.out.println("Break 4");
 
         int x = 0;
         int y = 0;
@@ -63,7 +63,7 @@ public class Diff {
             }
         }
 
-        System.err.println("Break 5");
+        System.out.println("Break 5");
     }
 
 	private static ArrayList<String> findPairs(ArrayList<String> fix, ArrayList<String> input){
@@ -84,6 +84,7 @@ public class Diff {
 	private static void writeToFileWriter(String string, FileWriter output){
 		try{
 			output.write(string);
+            System.out.println("std: " + string);
 		} catch (Exception e){
 			System.err.println("Error during printing to output.");
 		}
@@ -104,10 +105,11 @@ public class Diff {
 				System.out.println(file.getName());
 				try
 				{
-					/*diff(
-						new BufferedReader(new FileReader(fix)),
-						new BufferedReader(new FileReader(file)),
-						new FileWriter("./result.txt", true));*/
+                    BufferedReader fixBr = new BufferedReader(new FileReader(fix));
+
+                    BufferedReader fileBr = new BufferedReader(new FileReader(fix));
+
+					diff(fixBr, fileBr, new FileWriter("./result.txt", true));
 					o.write(file.getName());
 					o.write(fix.length()+"-"+file.length()+":"+((fix.length() == file.length())?"OK":"FAIL"));
 					System.out.print(file.getName()+": ");
