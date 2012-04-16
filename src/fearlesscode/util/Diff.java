@@ -12,8 +12,6 @@ public class Diff {
 		ArrayList<String> fixArray = new ArrayList<String>();
 		ArrayList<String> inputArray = new ArrayList<String>();
 
-        System.out.println("Break 1");
-
         try{
             for(String i = fix.readLine(); i != null; i = fix.readLine()){
                 fixArray.add(i);
@@ -21,8 +19,6 @@ public class Diff {
         } catch (Exception e){
             System.out.println("Error during opening the fix input file.");
         }
-
-        System.out.println("Break 2");
 
         try{
             for(String i = input.readLine(); i != null; i = input.readLine()){
@@ -32,13 +28,9 @@ public class Diff {
             System.out.println("Error during opening the program's input file.");
         }
 
-        System.out.println("Break 3");
-
         ArrayList<String> pairs = Diff.findPairs(fixArray, inputArray);
         ArrayList<String> minusArray = new ArrayList<String>();
         ArrayList<String> plusArray = new ArrayList<String>();
-
-        System.out.println("Break 4");
 
         int x = 0;
         int y = 0;
@@ -62,8 +54,6 @@ public class Diff {
                 }
             }
         }
-
-        System.out.println("Break 5");
     }
 
 	private static ArrayList<String> findPairs(ArrayList<String> fix, ArrayList<String> input){
@@ -73,7 +63,6 @@ public class Diff {
 			for(int j = 0; j < input.size(); j++){
 				if(fix.get(i).equalsIgnoreCase(input.get(j))){
 					pairs.add(fix.get(i));
-                    System.out.println("pair: " + fix.get(i));
 					j = input.size();
 				}
 			}
@@ -86,7 +75,6 @@ public class Diff {
 		BufferedWriter out = new BufferedWriter(output);
         try{
 			out.write(string);
-            System.out.println("std: " + string);
 		} catch (Exception e){
 			System.err.println("Error during printing to output.");
 		}
