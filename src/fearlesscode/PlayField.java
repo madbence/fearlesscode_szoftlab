@@ -12,7 +12,10 @@ import fearlesscode.util.*;
  */
 public class PlayField
 {
-	public final double GRAVITY=1;
+	/**
+	 * A gravitáció mértéke.
+	 */
+	public static final double GRAVITY=1;
 
 	/**
 	 * A PlayField állapota. Blokk módban az értéke igaz, egyébként hamis.

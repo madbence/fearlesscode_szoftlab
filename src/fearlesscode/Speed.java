@@ -19,8 +19,8 @@ public class Speed
 	/**
 	 * Speed osztály konstruktora.
 	 *
-	 * @ param x Vízszintes irányú sebesség.
-	 * @ param y Függőleges irányú sebesség.
+	 * @param x Vízszintes irányú sebesség.
+	 * @param y Függőleges irányú sebesség.
 	 */
 	public Speed(double x, double y)
 	{
@@ -31,7 +31,7 @@ public class Speed
 	/**
 	 * A vízszintes irányú sebességet adja vissza.
 	 *
-	 * @ return x Vízszintes irányú sebesség.
+	 * @return x Vízszintes irányú sebesség.
 	 */
 	public double getX()
 	{
@@ -41,7 +41,7 @@ public class Speed
 	/**
 	 * A függőleges irányú sebességet adja vissza.
 	 *
-	 * @ return y Függőleges irányú sebesség.
+	 * @return y Függőleges irányú sebesség.
 	 */
 	public double getY()
 	{

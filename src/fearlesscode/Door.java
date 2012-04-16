@@ -69,6 +69,10 @@ public class Door extends Entity implements Info
 		return "["+ID+":Door]";
 	}
 
+	/**
+	 * Visszaadja a befoglaló dobozt.
+	 * @return Az objektum befoglaló doboza.
+	 */
 	public Rectangle getBoundingBox()
 	{
 		return new Rectangle(10, 20);

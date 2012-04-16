@@ -2,15 +2,42 @@ package fearlesscode;
 
 import fearlesscode.util.*;
 
+/**
+ * Két blokk egyezőségét (a megfelelő széleken) vizsgálja.
+ */
 public class BlockMatcher
 {
+	/**
+	 * Az egyik blokk.
+	 */
 	private Block block1;
+
+	/**
+	 * A másik blokk.
+	 */
 	private Block block2;
+
+	/**
+	 * A vizsgálat iránya.
+	 */
 	private int dir;
 
+	/**
+	 * Az aktuális entitás szélessége.
+	 */
 	private double width;
+
+	/**
+	 * Az aktuális entitás magassága.
+	 */
 	private double height;
 
+	/**
+	 * Létrehoz egy új BlockMatchert.
+	 * @param b1 Az egyik blokk.
+	 * @param b2 A másik blokk.
+	 * @param d A vizsgálat iránya.
+	 */
 	public BlockMatcher(Block b1, Block b2, int d)
 	{
 		block1=b1;
@@ -18,6 +45,10 @@ public class BlockMatcher
 		dir=d;
 	}
 
+	/**
+	 * Elvégzi a vizsgálatot.
+	 * @return Igaz, ha illeszkedik a két blokk.
+	 */
 	public boolean matches()
 	{
 		switch(dir)
@@ -29,6 +60,10 @@ public class BlockMatcher
 		}
 	}
 
+	/**
+	 * Az északi oldal egyezőségét vizsgálja.
+	 * @return Igaz, ha illeszkedik a két blokk.
+	 */
 	private boolean matchesNorth()
 	{
 		for(EntityContainer container:block1.getEntities())
@@ -67,6 +102,10 @@ public class BlockMatcher
 		return true;
 	}
 
+	/**
+	 * A keleti oldal egyezőségét vizsgálja.
+	 * @return Igaz, ha illeszkedik a két blokk.
+	 */
 	private boolean matchesEast()
 	{
 		for(EntityContainer container:block1.getEntities())
@@ -120,6 +159,10 @@ public class BlockMatcher
 		return true;
 	}
 
+	/**
+	 * A déli oldal egyezőségét vizsgálja.
+	 * @return Igaz, ha illeszkedik a két blokk.
+	 */
 	private boolean matchesSouth()
 	{
 		for(EntityContainer container:block1.getEntities())
@@ -158,6 +201,10 @@ public class BlockMatcher
 		return true;
 	}
 
+	/**
+	 * A nyugati oldal egyezőségét vizsgálja.
+	 * @return Igaz, ha illeszkedik a két blokk.
+	 */
 	private boolean matchesWest()
 	{
 		for(EntityContainer container:block1.getEntities())
@@ -196,11 +243,19 @@ public class BlockMatcher
 		return true;
 	}
 
+	/**
+	 * Beállítja az aktuális entitás a matchernek a saját szélességét.
+	 * @param w Az entitás szélessége.
+	 */
 	public void setWidth(double w)
 	{
 		width=w;
 	}
 
+	/**
+	 * Beállítja az aktuális entitás a matchernek a saját magasságát.
+	 * @param h Az entitás magassága.
+	 */
 	public void setHeight(double h)
 	{
 		height=h;

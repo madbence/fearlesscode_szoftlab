@@ -69,6 +69,9 @@ public class Key extends Entity implements Info
 		return "["+ID+":Key]";
 	}
 
+	/**
+	 * Visszaadja a befoglaló dobozt.
+	 */
 	public Rectangle getBoundingBox()
 	{
 		return new Rectangle(10, 20);

@@ -11,8 +11,15 @@ import java.util.*;
  */
 public class Player implements Info, Collideable
 {
-	public static double WIDTH=10;
-	public static double HEIGHT=20;
+	/**
+	 * A játékos szélessége.
+	 */
+	public static final double WIDTH=10;
+
+	/**
+	 * A játékos magassága.
+	 */
+	public static final double HEIGHT=20;
 	/**
 	 * A játékos jelenlegi sebessége, ebből számítható a következő poziciója.
 	 */

@@ -1,5 +1,8 @@
 package fearlesscode;
 
+/**
+ * Az interfészt implementálók rendelkeznek a szöveges kiírást könnyítő debug metódusokkal.
+ */
 public interface Info
 {
 	/**
