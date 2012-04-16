@@ -82,11 +82,14 @@ public class Diff {
 
 	public static void main(String[] args)
 	{
+        /*
 		File result=new File("./result.txt");
 		result.delete();
+        */
+
 		try
 		{
-			FileWriter o=new FileWriter("./result.txt");
+			FileWriter o=new FileWriter(new File("./result.txt"));
 			File out=new File("./out/");
 			File[] list=out.listFiles();
 			for(File file:list)
