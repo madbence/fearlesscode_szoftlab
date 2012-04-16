@@ -108,7 +108,7 @@ public class Diff {
 				{
                     BufferedReader fixBr = new BufferedReader(new FileReader(fix));
 
-                    BufferedReader fileBr = new BufferedReader(new FileReader(fix));
+                    BufferedReader fileBr = new BufferedReader(new FileReader(file));
 
 					diff(fixBr, fileBr, new FileWriter("./result.txt", true));
 					o.write(file.getName());
