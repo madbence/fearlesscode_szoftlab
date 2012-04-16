@@ -72,12 +72,11 @@ public class Diff {
 	}
 
 	private static void writeToFileWriter(String string, FileWriter output){
-        PrintWriter out = new PrintWriter(output);
-
         try{
+            PrintWriter out = new PrintWriter(output);
 			out.println(string);
 		} catch (Exception e){
-			System.err.println("Error during printing to output.");
+			System.out.println("Error during printing to output.");
 		}
 	}
 
