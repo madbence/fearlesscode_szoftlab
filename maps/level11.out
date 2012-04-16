@@ -1,9 +1,7 @@
-[1:Player] has moved to Position:(190,75)
-[1:Player] has collided with [5:Wall]
-[5:Wall]
-  Coordinates: (170,15)
-  Width: 10
-  Height: 40
+[1:Player] has collided with [1:Wall]
+[1:Player] has collided with [2:Wall]
+[1:Player] is now at (185.0,75.0) in [2:FilledBlock]
 [1:Player]
-  Coordinates: (190,75)
-  Obtained Keys: 0
+  Coordinates:(185.0,75.0)
+  Obtained Keys:0
+  Speed:(0.0,0.0)
