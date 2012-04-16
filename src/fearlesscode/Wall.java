@@ -66,7 +66,7 @@ public class Wall extends Entity implements Info
 	public String getInfo(EntityPosition pos)
 	{
 		return getName()+"\r\n"+
-			"  Coordinates: ("+pos.getX()+","+pos.getY()+")\n"+
+			"  Coordinates: ("+pos.getX()+","+pos.getY()+")\r\n"+
 			"  Width: "+this.x+"\r\n"+
 			"  Height: "+this.y;
 	}

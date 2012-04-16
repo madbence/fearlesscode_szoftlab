@@ -55,8 +55,8 @@ public class Key extends Entity implements Info
 	 */
 	public String getInfo(EntityPosition pos)
 	{
-		return getName()+"\n"+
-		"  Coordinates:("+pos.getX()+","+pos.getY()+")\n"+
+		return getName()+"\r\n"+
+		"  Coordinates:("+pos.getX()+","+pos.getY()+")\r\n"+
 		"  isObtained:"+isObtained;
 	}
 

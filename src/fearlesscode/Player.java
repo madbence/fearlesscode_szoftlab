@@ -152,8 +152,8 @@ public class Player implements Info, Collideable
 	public String getInfo(EntityPosition pos)
 	{
 		return getName()+"\r\n"+
-		    "  Coordinates:("+pos.getX()+","+pos.getY()+")\n"+
-			"  Obtained Keys:"+this.obtainedKeys+"\n"+
+		    "  Coordinates:("+pos.getX()+","+pos.getY()+")\r\n"+
+			"  Obtained Keys:"+this.obtainedKeys+"\r\n"+
 			"  Speed:("+speed.getX()+","+speed.getY()+")";
 	}
 	

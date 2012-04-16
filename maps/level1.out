@@ -11,7 +11,7 @@
 [3:EmptyBlock]
   Coordinates:(1,2)
   Players:none
-  Entites:none
+  Entities:none
   Neighbours:[1:FilledBlock][4:FilledBlock][none][none]
 [4:FilledBlock]
   Coordinates:(2,2)
