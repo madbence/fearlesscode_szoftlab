@@ -77,15 +77,18 @@ public class FilledBlock extends Block
 				leaveList.add(player.getPlayer());
 				Logger.log(player.getPlayer(), "left "+getName());
 			}
-			player.setPosition(player.getPlayer().getNextPosition(currentPosition));
-			Logger.log(
-				player.getPlayer().getName()+
-				" is now at ("+
-				player.getPosition().getX()+
-				","+
-				player.getPosition().getY()+
-				") in "+
-				getName());
+			else
+			{
+				player.setPosition(player.getPlayer().getNextPosition(currentPosition));
+				Logger.log(
+					player.getPlayer().getName()+
+					" is now at ("+
+					player.getPosition().getX()+
+					","+
+					player.getPosition().getY()+
+					") in "+
+					getName());
+			}
 		}
 		for(Player p:leaveList)
 		{

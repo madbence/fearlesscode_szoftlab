@@ -19,17 +19,17 @@
 				    "type": "Wall",
 				    "position":
 				    {
-				        "x": 0,
+				        "x": -10,
 				        "y": 95
 				    },
-				    "width": 200,
+				    "width": 220,
 				    "height": 55
 				},
 				{
 				    "type": "SpawnPoint",
 				    "position":
 				    {
-				        "x": 189,
+				        "x": 185,
 				        "y": 75
 				    },
 				    "playerID": 1
@@ -49,10 +49,10 @@
 				    "type": "Wall",
 				    "position":
 				    {
-				        "x": 0,
+				        "x": -10,
 				        "y": 50
 				    },
-				    "width": 200,
+				    "width": 220,
 				    "height": 55
 				}
 		    ]
