@@ -254,7 +254,7 @@ public class Proto
 					Logger.error("Wrong params. Usage: 'tick [n]'");
 				}
 			}
-			if(splitted[0].equals("moveBlock"))
+			else if(splitted[0].equals("moveBlock"))
 			{
 				if(splitted.length==3)
 				{
@@ -267,7 +267,7 @@ public class Proto
 					Logger.error("Wrong params. Usage: 'moveBlock id dir'");
 				}
 			}
-			if(splitted[0].equals("toggleMode"))
+			else if(splitted[0].equals("toggleMode"))
 			{
 				if(splitted.length==1)
 				{
@@ -278,7 +278,7 @@ public class Proto
 					Logger.error("Wrong params. Usage: 'toggleMode'");
 				}
 			}
-			if(splitted[0].equals("movePlayer"))
+			else if(splitted[0].equals("movePlayer"))
 			{
 				if(splitted.length==4)
 				{
@@ -292,7 +292,7 @@ public class Proto
 					Logger.error("Wrong params. Usage: 'movePlayer id x y'");
 				}
 			}
-			if(splitted[0].equals("getBlockInfo"))
+			else if(splitted[0].equals("getBlockInfo"))
 			{
 				if(splitted.length==1)
 				{
@@ -308,7 +308,7 @@ public class Proto
 					Logger.error("Wrong params. Usage: 'getBlockInfo [id]'");
 				}
 			}
-			if(splitted[0].equals("getEntityInfo"))
+			else if(splitted[0].equals("getEntityInfo"))
 			{
 				if(splitted.length==1)
 				{
@@ -324,7 +324,7 @@ public class Proto
 					Logger.error("Wrong params. Usage: 'getEntityInfo [id]'");
 				}
 			}
-			if(splitted[0].equals("getPlayerInfo"))
+			else if(splitted[0].equals("getPlayerInfo"))
 			{
 				if(splitted.length==1)
 				{
@@ -340,7 +340,7 @@ public class Proto
 					Logger.error("Wrong params. Usage: 'getPlayerInfo [id]'");
 				}
 			}
-			if(splitted[0].equals("exit"))
+			else if(splitted[0].equals("exit"))
 			{
 				if(splitted.length==1)
 				{
@@ -351,7 +351,7 @@ public class Proto
 					Logger.error("Wrong params. Usage: 'exit'");
 				}
 			}
-			if(splitted[0].equals("loadMap"))
+			else if(splitted[0].equals("loadMap"))
 			{
 				if(splitted.length==2)
 				{
@@ -362,7 +362,7 @@ public class Proto
 					Logger.error("Wrong params. Usage: 'loadMap file'");
 				}
 			}
-			if(splitted[0].equals("include"))
+			else if(splitted[0].equals("include"))
 			{
 				if(splitted.length==2)
 				{
@@ -372,6 +372,10 @@ public class Proto
 				{
 					Logger.error("Wrong params. Usage: 'include file'");
 				}
+			}
+			else
+			{
+				throw new CommandException("Unknown command");
 			}
 		}
 		catch(CommandException ce)
