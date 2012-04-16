@@ -1,0 +1,6 @@
+loadMap maps/level14.json
+movePlayer 1 10 0
+tick
+moveBlock 1 2
+getBlockInfo
+exit

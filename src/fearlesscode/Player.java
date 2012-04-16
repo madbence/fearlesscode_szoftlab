@@ -79,13 +79,28 @@ public class Player implements Info, Collideable
 	}
 
 	/**
+	 * Eltávolítja a Playerre vonatkozó referenciákat.
+	 */
+	public void reset()
+	{
+		ArrayList<Block> copy=(ArrayList<Block>) activeBlocks.clone();
+		for(Block b:copy)
+		{
+			leaveBlock(b);
+		}
+		activeBlocks.clear();
+		speed=new Speed(0,0);
+	}
+
+	/**
 	 * A Block-ba történő beléptetést végző metódus.
 	 *
 	 * @param block Referencia, hogy melyik Block-ba történik a belépés.
 	 */
-	public void enterBlock(Block block)
+	public void enterBlock(Block block, EntityPosition pos)
 	{
 		activeBlocks.add(block);
+		block.addPlayer(this, pos);
 	}
 
 	/**
@@ -115,7 +130,8 @@ public class Player implements Info, Collideable
 	 */
 	public void leaveBlock(Block block)
 	{
-		activeBlocks.remove(activeBlocks.indexOf(block));
+		activeBlocks.remove(block);
+		block.removePlayer(this);
 	}
 
 	/**
@@ -136,8 +152,9 @@ public class Player implements Info, Collideable
 	public String getInfo(EntityPosition pos)
 	{
 		return getName()+"\r\n"+
-		    "  Coordinates:("+pos.getX()+","+pos.getY()+")\n"+
-			"  Obtained Keys:"+this.obtainedKeys;
+		    "  Coordinates:("+pos.getX()+","+pos.getY()+")\r\n"+
+			"  Obtained Keys:"+this.obtainedKeys+"\r\n"+
+			"  Speed:("+speed.getX()+","+speed.getY()+")";
 	}
 	
 	/**

@@ -1,0 +1,4 @@
+[1:Player] has collided with [1:Door]
+[1:Door] has not opened.
+[1:Player] has collided with [2:Wall]
+[1:Player] is now at (175.0,75.0) in [2:FilledBlock]

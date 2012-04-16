@@ -1,0 +1,42 @@
+[1:FilledBlock]
+  Coordinates:(1,1)
+  Players:none
+  Entities:none
+  Neighbours:[none][2:FilledBlock][3:EmptyBlock][none]
+[2:FilledBlock]
+  Coordinates:(2,1)
+  Players:[1:Player][2:Player]
+  Entities:[1:Key][2:Door][3:Wall][4:SpawnPoint][5:SpawnPoint]
+  Neighbours:[none][none][4:FilledBlock][1:FilledBlock]
+[3:EmptyBlock]
+  Coordinates:(1,2)
+  Players:none
+  Entities:none
+  Neighbours:[1:FilledBlock][4:FilledBlock][none][none]
+[4:FilledBlock]
+  Coordinates:(2,2)
+  Players:none
+  Entities:none
+  Neighbours:[2:FilledBlock][none][none][3:EmptyBlock]
+[1:Key]
+  Coordinates:(150.0,75.0)
+  isObtained:false
+[2:Door]
+  Coordinates:(170.0,75.0)
+  requiredKeys:1
+[3:Wall]
+  Coordinates: (0.0,95.0)
+  Width: 200.0
+  Height: 55.0
+[4:SpawnPoint]
+  Coordinates:(50.0,75.0)
+[5:SpawnPoint]
+  Coordinates:(50.0,75.0)
+[1:Player]
+  Coordinates:(50.0,75.0)
+  Obtained Keys:0
+  Speed:(0.0,0.0)
+[2:Player]
+  Coordinates:(50.0,75.0)
+  Obtained Keys:0
+  Speed:(0.0,0.0)

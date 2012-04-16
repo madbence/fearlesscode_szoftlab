@@ -67,9 +67,32 @@ public class PlayField
 	 */
 	public void move(Block block, int direction)
 	{
+		for(PlayerContainer pc:block.getPlayers())
+		{
+			if(pc.getPlayer().getActiveBlocks().size() != 1)
+			{
+				return;
+			}
+		}
+		Block neighbour = block.getNeighbour(direction);
+		if(neighbour != null)
+		{
+			for(PlayerContainer pc:neighbour.getPlayers())
+			{
+				if(pc.getPlayer().getActiveBlocks().size() != 1)
+				{
+					return;
+				}
+			}
+		}
+		else
+		{
+			//Ha a szomszéd null, úgyse lehet mozgatni.
+			return;
+		}
 		Position blockPos = new Position(-1,-1);
 		Position neighbPos = new Position(-1,-1);
-		Block neighbour = block.getNeighbour(direction);
+		
 		for(BlockContainer blockcontainer : game.getPlayField().getBlocks())
 		{									
 			if(blockcontainer.getBlock() == block)
@@ -200,6 +223,7 @@ public class PlayField
 	public void win()
 	{
 		game.loadNextLevel();
+		Logger.log("Level finished!");
 	}
 
 	/**
@@ -209,17 +233,19 @@ public class PlayField
 	 */
 	public void resetPlayer(PlayerContainer player)
 	{
-		Logger.log(player.getPlayer(),"been reset to ");			//ha megvan az implementáció szólj pls és megcsinálom (TIBI)
-		/*
+					//ha megvan az implementáció szólj pls és megcsinálom (TIBI)
 		for(PlayerSpawnPoint spawn : players)
 		{
-				if(spawn.getPlayer() == player)
-				{
-						//Na itt kéne visszateleportálni...
-						//Csakhogy akkor már kéne egy teleportTo(player, entity) metódus.
-				}
+			if(spawn.getPlayer() == player.getPlayer());
+			{
+				Logger.log(player.getPlayer(),"been reset to "+spawn.getSpawnPoint().getName());
+				spawn.getPlayer().reset();
+				spawn.getPlayer().enterBlock(
+					spawn.getSpawnPoint().getContainer().getBlock(),
+					spawn.getSpawnPoint().getContainer().getPosition());
+				return;
+			}
 		}
-		*/
 	}
 
 	/**
@@ -289,4 +315,12 @@ public class PlayField
 		throw new CommandException("Player #"+id+" not found.");
 	}
 	
+	/**
+	 * Visszaadja, hogy a játéktér blokk-módban van-e.
+	 * @return Blokk módban vagyunk-e.
+	 */
+	public boolean isBlockMode()
+	{
+		return blockMode;
+	}
 }

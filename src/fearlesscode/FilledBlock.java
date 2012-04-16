@@ -1,6 +1,7 @@
 package fearlesscode;
 
 import fearlesscode.util.*;
+import java.util.*;
 
 /**
  * A sima blokkot reprezentálja, kezeli a benne található objektumokat
@@ -18,55 +19,80 @@ public class FilledBlock extends Block
 	 */
 	public void checkBorders()
 	{
+		ArrayList<Player> leaveList=new ArrayList<Player>();
 		for(PlayerContainer player:players)
 		{
 			EntityPosition currentPosition=player.getPosition();
 			EntityPosition nextPosition=player.getPlayer().getNextPosition(player.getPosition());
+			EntityPosition entryPosition=null;
 			int dir=-1;
-			if(nextPosition.getX()<0 && currentPosition.getX()>0)
+			if(nextPosition.getX()<=0 && currentPosition.getX()>0)
 			{
 				dir=3;
+				entryPosition=new EntityPosition(Block.WIDTH, currentPosition.getY());
 			}
-			else if(nextPosition.getX()+Player.WIDTH > Block.WIDTH && nextPosition.getX()+Player.WIDTH < Block.WIDTH)
+			else if(nextPosition.getX()+Player.WIDTH >= Block.WIDTH && currentPosition.getX()+Player.WIDTH < Block.WIDTH)
 			{
 				dir=1;
+				entryPosition=new EntityPosition(-Player.WIDTH, currentPosition.getY());
 			}
-			else if(nextPosition.getY()<0 && currentPosition.getY()>0)
+			else if(nextPosition.getY()<=0 && currentPosition.getY()>0)
 			{
 				dir=0;
+				entryPosition=new EntityPosition(currentPosition.getX(), Block.HEIGHT);
 			}
-			else if(nextPosition.getY()+Player.HEIGHT > Block.HEIGHT && nextPosition.getX()+Player.HEIGHT < Block.HEIGHT)
+			else if(nextPosition.getY()+Player.HEIGHT >= Block.HEIGHT && currentPosition.getY()+Player.HEIGHT < Block.HEIGHT)
 			{
 				dir=2;
+				entryPosition=new EntityPosition(currentPosition.getX(), -Player.HEIGHT);
 			}
 			if(dir != -1)
 			{
 				Block neighbour=getNeighbour(dir);
-				if(neighbour != null && neighbour.matches(neighbour, dir, true))
+				if(neighbour != null && matches(neighbour, dir, true))
 				{
-					player.getPlayer().enterBlock(neighbour);
+					Logger.log(player.getPlayer(), "entered "+neighbour.getName());
+					player.getPlayer().enterBlock(neighbour, entryPosition);
 				}
 				else if(dir == 2)
 				{
 					playField.resetPlayer(player);
+					return;
+					//instant visszaterunk, mert nem kell tovabb szarozni.
 				}
 				else
 				{
+					Logger.log(player.getPlayer(), "collided with the border of "+getName());
 					player.getPlayer().move(
 						new Speed(
 							-player.getPlayer().getSpeed().getX()*(dir%2),
 							-player.getPlayer().getSpeed().getY()*((dir+1)%2)));
 				}
 			}
-			player.setPosition(player.getPlayer().getNextPosition(currentPosition));
-			Logger.log(
-				player.getPlayer().getName()+
-				" is now at ("+
-				player.getPosition().getX()+
-				","+
-				player.getPosition().getY()+
-				") in "+
-				getName());
+			if( nextPosition.getY() > Block.HEIGHT ||
+				nextPosition.getY()+Player.HEIGHT < 0 ||
+				nextPosition.getX() > Block.WIDTH ||
+				nextPosition.getX()+Player.WIDTH < 0)
+			{
+				leaveList.add(player.getPlayer());
+				Logger.log(player.getPlayer(), "left "+getName());
+			}
+			else
+			{
+				player.setPosition(player.getPlayer().getNextPosition(currentPosition));
+				Logger.log(
+					player.getPlayer().getName()+
+					" is now at ("+
+					player.getPosition().getX()+
+					","+
+					player.getPosition().getY()+
+					") in "+
+					getName());
+			}
+		}
+		for(Player p:leaveList)
+		{
+			p.leaveBlock(this);
 		}
 	}
 	

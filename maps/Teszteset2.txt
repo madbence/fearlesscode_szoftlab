@@ -1,4 +1,0 @@
-[1:Player] has moved to Position: (50,85)
-[1:Player]
-  Coordinates: (50,85)
-  Obtained Keys: 0

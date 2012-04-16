@@ -32,7 +32,7 @@ public class SpawnPoint extends Entity implements Info
 	public String getInfo(EntityPosition pos)
 	{
 		//@TODO: pozíciót megszerezni.
-		return getName()+"\n"+
+		return getName()+"\r\n"+
 		"  Coordinates:("+pos.getX()+","+pos.getY()+")";
 	}
 

@@ -1,0 +1,5 @@
+loadMap maps/level1.json
+getBlockInfo
+getEntityInfo
+getPlayerInfo
+exit

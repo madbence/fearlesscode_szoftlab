@@ -1,0 +1,7 @@
+loadMap maps/level15.json
+movePlayer 1 10 0
+tick
+getPlayerInfo 1
+tick
+getPlayerInfo 1
+exit

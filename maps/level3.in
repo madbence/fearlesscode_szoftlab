@@ -1,0 +1,4 @@
+loadMap maps/level3.json
+tick 2
+getPlayerInfo 1
+exit

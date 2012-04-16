@@ -38,4 +38,9 @@ public class Logger
 	{
 		System.out.println("Error: "+str);
 	}
+
+	public static void debug(String str)
+	{
+		System.err.println("Debug: "+str);
+	}
 }

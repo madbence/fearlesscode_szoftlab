@@ -42,8 +42,10 @@ public class Key extends Entity implements Info
 			isObtained = true;
 			Logger.log(this,"been picked up.");
 		}
-		Logger.log(this,"already been picked up.");
-		
+		else
+		{
+			Logger.log(this,"already been picked up.");
+		}
 	}
 	
 	/**
@@ -53,8 +55,8 @@ public class Key extends Entity implements Info
 	 */
 	public String getInfo(EntityPosition pos)
 	{
-		return getName()+"\n"+
-		"  Coordinates:("+pos.getX()+","+pos.getY()+")\n"+
+		return getName()+"\r\n"+
+		"  Coordinates:("+pos.getX()+","+pos.getY()+")\r\n"+
 		"  isObtained:"+isObtained;
 	}
 

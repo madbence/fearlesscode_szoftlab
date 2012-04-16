@@ -1,0 +1,20 @@
+[1:FilledBlock]
+  Coordinates:(1,2)
+  Players:none
+  Entities:none
+  Neighbours:[3:EmptyBlock][4:FilledBlock][none][none]
+[2:FilledBlock]
+  Coordinates:(2,1)
+  Players:[1:Player]
+  Entities:[1:SpawnPoint]
+  Neighbours:[none][none][4:FilledBlock][3:EmptyBlock]
+[3:EmptyBlock]
+  Coordinates:(1,1)
+  Players:none
+  Entities:none
+  Neighbours:[none][2:FilledBlock][1:FilledBlock][none]
+[4:FilledBlock]
+  Coordinates:(2,2)
+  Players:none
+  Entities:none
+  Neighbours:[2:FilledBlock][none][none][1:FilledBlock]

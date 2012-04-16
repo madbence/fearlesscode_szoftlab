@@ -1,0 +1,4 @@
+loadMap maps/level7.json
+movePlayer 1 10 0
+tick
+exit

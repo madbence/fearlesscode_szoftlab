@@ -75,7 +75,10 @@ public abstract class Block implements BlockInfo
 	 */
 	public void addEntity(EntityPosition position, Entity entity)
 	{
-		entities.add(new EntityContainer(entity,position));
+		EntityContainer con=new EntityContainer(entity,position);
+		entities.add(con);
+		entity.setBlock(this);
+		con.setBlock(this);
 	}
 	
 	public List<EntityContainer> getEntities()
@@ -182,6 +185,27 @@ public abstract class Block implements BlockInfo
 	public void addPlayer(Player player, EntityPosition position)
 	{
 		players.add(new PlayerContainer(player,position));
+	}
+
+	/**
+	 * Eltávolítja a játékost a blokkról.
+	 * @param player Az eltávolítandó játékos.
+	 */
+	public void removePlayer(Player player)
+	{
+		PlayerContainer delete=null;
+		for(PlayerContainer con:players)
+		{
+			if(con.getPlayer() == player)
+			{
+				delete=con;
+				break;
+			}
+		}
+		if(delete != null)
+		{
+			players.remove(delete);
+		}
 	}
 	
 	/**

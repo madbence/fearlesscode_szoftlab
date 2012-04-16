@@ -1,0 +1,4 @@
+loadMap maps/level13.json
+moveBlock 1 2
+getBlockInfo
+exit

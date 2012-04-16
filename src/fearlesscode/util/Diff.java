@@ -1,18 +1,16 @@
 package fearlesscode.util;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.util.ArrayList;
+import java.io.*;
+import java.util.*;
 
 public class Diff {
-    static void diff(BufferedReader fix, BufferedReader input, FileWriter output){
-        String gap = "  ";
-        String plus = "++";
-        String minus = "--";
+	static void diff(BufferedReader fix, BufferedReader input, FileWriter output){
+		String gap = "  ";
+		String plus = "++";
+		String minus = "--";
 
-        ArrayList<String> fixArray = new ArrayList<String>();
-        ArrayList<String> inputArray = new ArrayList<String>();
+		ArrayList<String> fixArray = new ArrayList<String>();
+		ArrayList<String> inputArray = new ArrayList<String>();
 
         System.err.println("Break 1");
 
@@ -68,26 +66,63 @@ public class Diff {
         System.err.println("Break 5");
     }
 
-    private static ArrayList<String> findPairs(ArrayList<String> fix, ArrayList<String> input){
-        ArrayList<String> pairs = new ArrayList<String>();
+	private static ArrayList<String> findPairs(ArrayList<String> fix, ArrayList<String> input){
+		ArrayList<String> pairs = new ArrayList<String>();
 
-        for(int i = 0; i < fix.size(); i++){
-            for(int j = 0; j < input.size(); j++){
-                if(fix.get(i).equalsIgnoreCase(input.get(j))){
-                    pairs.add(fix.get(i));
-                    j = input.size();
-                }
-            }
-        }
-        
-        return pairs;
-    }
+		for(int i = 0; i < fix.size(); i++){
+			for(int j = 0; j < input.size(); j++){
+				if(fix.get(i).equalsIgnoreCase(input.get(j))){
+					pairs.add(fix.get(i));
+					j = input.size();
+				}
+			}
+		}
+		
+		return pairs;
+	}
 
-    private static void writeToFileWriter(String string, FileWriter output){
-        try{
-            output.write(string);
-        } catch (Exception e){
-            System.err.println("Error during printing to output.");
-        }
-    }
+	private static void writeToFileWriter(String string, FileWriter output){
+		try{
+			output.write(string);
+		} catch (Exception e){
+			System.err.println("Error during printing to output.");
+		}
+	}
+
+	public static void main(String[] args)
+	{
+		File result=new File("./result.txt");
+		result.delete();
+		try
+		{
+			FileWriter o=new FileWriter("./result.txt");
+			File out=new File("./out/");
+			File[] list=out.listFiles();
+			for(File file:list)
+			{
+				File fix=new File("./maps/"+file.getName());
+				System.out.println(file.getName());
+				try
+				{
+					/*diff(
+						new BufferedReader(new FileReader(fix)),
+						new BufferedReader(new FileReader(file)),
+						new FileWriter("./result.txt", true));*/
+					o.write(file.getName());
+					o.write(fix.length()+"-"+file.length()+":"+((fix.length() == file.length())?"OK":"FAIL"));
+					System.out.print(file.getName()+": ");
+					System.out.println(fix.length()+"-"+file.length()+":"+((fix.length() == file.length())?"OK":"FAIL"));
+				}
+				catch(Exception e)
+				{
+					System.out.println("Hiba...");
+					e.printStackTrace();
+				}
+			}
+		}
+		catch(Exception e)
+		{
+
+		}
+	}
 }
