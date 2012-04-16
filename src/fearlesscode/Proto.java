@@ -198,7 +198,7 @@ public class Proto
 	 * Betölt egy új pályát.
 	 * @param file A betöltendő fájl neve.
 	 */
-	public void loadMap(String file)
+	public void loadMap(String file) throws CommandException
 	{
 		PlayField pf=PlayFieldBuilder.createPlayField(game, file);
 		game.start(pf);

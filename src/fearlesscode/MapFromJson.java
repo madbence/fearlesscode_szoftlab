@@ -27,7 +27,7 @@ public class MapFromJson
 	 *
 	 * @param file A JSON-t tartalmazó file elérési útja.
 	 */
-	public MapFromJson(String file)
+	public MapFromJson(String file) throws CommandException
 	{
 		InputStream is;
 		try 
@@ -37,7 +37,7 @@ public class MapFromJson
 		}
 		catch (Exception e)
 		{
-			e.printStackTrace();
+			throw new CommandException("JSON File "+file+ " not found.");
 		}
 		
 	}
