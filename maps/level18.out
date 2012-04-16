@@ -1,26 +1,11 @@
-[1:Player] has moved to Position: (190,140)
-[1:Player] has moved to [3:Block]
-[1:Player] has moved to Position: (0,10)
-[1:FilledBlock]
-  Coordinates:(1,1)
-  Players:[2:Player]
-  Entities:[1:Key][2:Wall][3:SpawnPoint][4:Door]
-  Neighbours:none[2:Block]none[3:Block]
-[2:EmptyBlock]
-  Coordinates:(2,1)
-  Players:none
-  Entities:none
-  Neighbours:[1:Block]nonenone[4:Block]
-[3:FilledBlock]
-  Coordinates:(1,2)
-  Players:[1:Player]
-  Entities:none
-  Neighbours:none[4:Block][1:Block]none
-[4:FilledBlock]
-  Coordinates:(2,2)
-  Players:none
-  Entities:none
-  Neighbours:[3:Block]none[2:Block]none
+[1:Player] is now at (190.0,129.0) in [1:FilledBlock]
+[1:Player] has entered [3:FilledBlock]
+[1:Player] is now at (190.0,131.0) in [1:FilledBlock]
 [1:Player]
-  Coordinates: (0,10)
-  Obtained Keys: 0
+  Coordinates:(190.0,131.0)
+  Obtained Keys:0
+  Speed:(0.0,2.0)
+[1:Player]
+  Coordinates:(190.0,-20.0)
+  Obtained Keys:0
+  Speed:(0.0,2.0)

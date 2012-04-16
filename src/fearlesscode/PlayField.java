@@ -233,11 +233,12 @@ public class PlayField
 	 */
 	public void resetPlayer(PlayerContainer player)
 	{
-		Logger.log(player.getPlayer(),"been reset to ");			//ha megvan az implementáció szólj pls és megcsinálom (TIBI)
+					//ha megvan az implementáció szólj pls és megcsinálom (TIBI)
 		for(PlayerSpawnPoint spawn : players)
 		{
 			if(spawn.getPlayer() == player.getPlayer());
 			{
+				Logger.log(player.getPlayer(),"been reset to "+spawn.getSpawnPoint().getName());
 				spawn.getPlayer().reset();
 				spawn.getPlayer().enterBlock(
 					spawn.getSpawnPoint().getContainer().getBlock(),
