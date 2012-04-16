@@ -67,9 +67,32 @@ public class PlayField
 	 */
 	public void move(Block block, int direction)
 	{
+		for(PlayerContainer pc:block.getPlayers())
+		{
+			if(pc.getPlayer().getActiveBlocks().size() != 1)
+			{
+				return;
+			}
+		}
+		Block neighbour = block.getNeighbour(direction);
+		if(neighbour != null)
+		{
+			for(PlayerContainer pc:neighbour.getPlayers())
+			{
+				if(pc.getPlayer().getActiveBlocks().size() != 1)
+				{
+					return;
+				}
+			}
+		}
+		else
+		{
+			//Ha a szomszéd null, úgyse lehet mozgatni.
+			return;
+		}
 		Position blockPos = new Position(-1,-1);
 		Position neighbPos = new Position(-1,-1);
-		Block neighbour = block.getNeighbour(direction);
+		
 		for(BlockContainer blockcontainer : game.getPlayField().getBlocks())
 		{									
 			if(blockcontainer.getBlock() == block)

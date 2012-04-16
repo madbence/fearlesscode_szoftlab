@@ -51,7 +51,7 @@ public class FilledBlock extends Block
 				Block neighbour=getNeighbour(dir);
 				if(neighbour != null && matches(neighbour, dir, true))
 				{
-					Logger.debug("enterBlock "+neighbour.getName());
+					Logger.log(player.getPlayer(), "entered "+neighbour.getName());
 					player.getPlayer().enterBlock(neighbour, entryPosition);
 				}
 				else if(dir == 2)
@@ -62,6 +62,7 @@ public class FilledBlock extends Block
 				}
 				else
 				{
+					Logger.log(player.getPlayer(), "collided with the border of "+getName());
 					player.getPlayer().move(
 						new Speed(
 							-player.getPlayer().getSpeed().getX()*(dir%2),
@@ -74,6 +75,7 @@ public class FilledBlock extends Block
 				nextPosition.getX()+Player.WIDTH < 0)
 			{
 				leaveList.add(player.getPlayer());
+				Logger.log(player.getPlayer(), "left "+getName());
 			}
 			player.setPosition(player.getPlayer().getNextPosition(currentPosition));
 			Logger.log(

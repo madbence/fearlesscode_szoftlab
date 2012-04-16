@@ -19,10 +19,10 @@
 				    "type": "Wall",
 				    "position":
 				    {
-				        "x": 0,
+				        "x": -10,
 				        "y": 95
 				    },
-				    "width": 200,
+				    "width": 220,
 				    "height": 55
 				},
 				{
@@ -49,10 +49,10 @@
 				    "type": "Wall",
 				    "position":
 				    {
-				        "x": 0,
+				        "x": -10,
 				        "y": 95
 				    },
-				    "width": 200,
+				    "width": 220,
 				    "height": 55
 				}
 		    ]

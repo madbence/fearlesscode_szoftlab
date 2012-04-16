@@ -1,24 +1,23 @@
-[1:Player] has moved to Position(195,75)
+[1:Player] has collided with [1:Wall]
+[1:Player] has entered [2:FilledBlock]
+[1:Player] is now at (195.0,75.0) in [1:FilledBlock]
 [1:FilledBlock]
   Coordinates:(1,1)
-  Players:[1:Player][2:Player]
-  Entities::[1:Key][2:Wall][3:SpawnPoint][4:Door]
-  Neighbours:none[2:Block]none[3:Block]
+  Players:[1:Player]
+  Entities:[1:Wall][2:SpawnPoint]
+  Neighbours:[none][2:FilledBlock][3:EmptyBlock][none]
 [2:FilledBlock]
   Coordinates:(2,1)
   Players:[1:Player]
-  Entities:none
-  Neighbours:[1:Block]nonenone[4:Block]
+  Entities:[3:Wall]
+  Neighbours:[none][none][4:FilledBlock][1:FilledBlock]
 [3:EmptyBlock]
   Coordinates:(1,2)
   Players:none
   Entities:none
-  Neighbours:none[4:Block][1:Block]none
+  Neighbours:[1:FilledBlock][4:FilledBlock][none][none]
 [4:FilledBlock]
   Coordinates:(2,2)
   Players:none
   Entities:none
-  Neighbours:[3:Block]none[2:Block]none
-[1:Player]
-  Coordinates: (195,75)
-  Obtained Keys: 0
+  Neighbours:[2:FilledBlock][none][none][3:EmptyBlock]
