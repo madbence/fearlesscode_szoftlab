@@ -77,15 +77,22 @@ public class BlockMatcher
 					boolean pairFound=false;
 					for(EntityContainer pair:block2.getEntities())
 					{
-						pair.getEntity().accept(this);
-						if(pair.getPosition().getY()+height>Block.HEIGHT)
+						try
 						{
-							if( Math.abs(container.getPosition().getX()-pair.getPosition().getX())<0.001 &&
-								Math.abs(container.getPosition().getX()+width1-pair.getPosition().getX()-width)<0.001)
+							pair.getEntity().accept(this);
+							if(pair.getPosition().getY()+height>Block.HEIGHT)
 							{
-								pairFound=true;
-								break;
+								if( Math.abs(container.getPosition().getX()-pair.getPosition().getX())<0.001 &&
+									Math.abs(container.getPosition().getX()+width1-pair.getPosition().getX()-width)<0.001)
+								{
+									pairFound=true;
+									break;
+								}
 							}
+						}						
+						catch(Exception e)
+						{
+							
 						}
 					}
 					if(!pairFound)
@@ -127,20 +134,27 @@ public class BlockMatcher
 					{
 						//Logger.debug("--pair--");
 						//Logger.debug(pair.getEntity().getName());
-						pair.getEntity().accept(this);
-						if(pair.getPosition().getX()<0)
+						try
 						{
-							//Logger.debug("if:");
-							//Logger.debug("  "+(Math.abs(container.getPosition().getY()-pair.getPosition().getY())<0.001));
-							//Logger.debug("  "+(Math.abs(container.getPosition().getY()+height1-pair.getPosition().getY()-height)<0.001));
-							//Logger.debug("    Y:"+container.getPosition().getY());
-							//Logger.debug("    pY:"+pair.getPosition().getY());
-							if( Math.abs(container.getPosition().getY()-pair.getPosition().getY())<0.001 &&
-								Math.abs(container.getPosition().getY()+height1-pair.getPosition().getY()-height)<0.001)
+							pair.getEntity().accept(this);
+							if(pair.getPosition().getX()<0)
 							{
-								pairFound=true;
-								break;
+								//Logger.debug("if:");
+								//Logger.debug("  "+(Math.abs(container.getPosition().getY()-pair.getPosition().getY())<0.001));
+								//Logger.debug("  "+(Math.abs(container.getPosition().getY()+height1-pair.getPosition().getY()-height)<0.001));
+								//Logger.debug("    Y:"+container.getPosition().getY());
+								//Logger.debug("    pY:"+pair.getPosition().getY());
+								if( Math.abs(container.getPosition().getY()-pair.getPosition().getY())<0.001 &&
+									Math.abs(container.getPosition().getY()+height1-pair.getPosition().getY()-height)<0.001)
+								{
+									pairFound=true;
+									break;
+								}
 							}
+						}
+						catch(Exception e)
+						{
+							
 						}
 					}
 					if(!pairFound)
@@ -176,15 +190,22 @@ public class BlockMatcher
 					boolean pairFound=false;
 					for(EntityContainer pair:block2.getEntities())
 					{
-						pair.getEntity().accept(this);
-						if(pair.getPosition().getY()<0)
+						try
 						{
-							if( Math.abs(container.getPosition().getX()-pair.getPosition().getX())<0.001 &&
-								Math.abs(container.getPosition().getX()+width1-pair.getPosition().getX()-width)<0.001)
+							pair.getEntity().accept(this);
+							if(pair.getPosition().getY()<0)
 							{
-								pairFound=true;
-								break;
+								if( Math.abs(container.getPosition().getX()-pair.getPosition().getX())<0.001 &&
+									Math.abs(container.getPosition().getX()+width1-pair.getPosition().getX()-width)<0.001)
+								{
+									pairFound=true;
+									break;
+								}
 							}
+						}
+						catch(Exception e)
+						{
+							
 						}
 					}
 					if(!pairFound)
@@ -218,15 +239,22 @@ public class BlockMatcher
 					boolean pairFound=false;
 					for(EntityContainer pair:block2.getEntities())
 					{
-						pair.getEntity().accept(this);
-						if(pair.getPosition().getX()+width>Block.WIDTH)
+						try
 						{
-							if( Math.abs(container.getPosition().getY()-pair.getPosition().getY())<0.001 &&
-								Math.abs(container.getPosition().getY()+height1-pair.getPosition().getY()-height)<0.001)
+							pair.getEntity().accept(this);
+							if(pair.getPosition().getX()+width>Block.WIDTH)
 							{
-								pairFound=true;
-								break;
+								if( Math.abs(container.getPosition().getY()-pair.getPosition().getY())<0.001 &&
+									Math.abs(container.getPosition().getY()+height1-pair.getPosition().getY()-height)<0.001)
+								{
+									pairFound=true;
+									break;
+								}
 							}
+						}
+						catch(Exception e)
+						{
+							
 						}
 					}
 					if(!pairFound)

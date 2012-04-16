@@ -141,7 +141,7 @@
 				    "position":
 				    {
 				        "x": -10,
-				        "y": 75
+				        "y": 55
 				    },
 				    "width": 220,
 				    "height": 20
@@ -161,7 +161,7 @@
 				    "type": "SpawnPoint",
 				    "position":
 				    {
-				        "x": 90,
+				        "x": 95,
 				        "y": 75
 				    },
 				    "playerID": 2
