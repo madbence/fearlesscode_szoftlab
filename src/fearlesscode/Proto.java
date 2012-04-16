@@ -380,7 +380,7 @@ public class Proto
 		}
 		catch(CommandException ce)
 		{
-			System.out.println(ce.getMessage());
+			Logger.error(ce.getMessage());
 		}
 	}
 }
