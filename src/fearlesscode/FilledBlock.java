@@ -2,6 +2,7 @@ package fearlesscode;
 
 import fearlesscode.util.*;
 import java.util.*;
+import fearlesscode.gui.*;
 
 /**
  * A sima blokkot reprezentálja, kezeli a benne található objektumokat
@@ -204,5 +205,10 @@ public class FilledBlock extends Block
 			return true;
 		}
 		return false;
+	}
+
+	public BlockDrawer getBlockDrawer()
+	{
+		return new FilledBlockDrawer(this);
 	}
 }

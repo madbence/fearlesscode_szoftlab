@@ -2,6 +2,7 @@ package fearlesscode;
 
 import fearlesscode.util.*;
 import java.util.*;
+import fearlesscode.gui.*;
 
 /**
  * Falat reprezentáló osztály.
@@ -53,7 +54,7 @@ public class Wall extends Entity implements Info
 		else
 		{
 			player.getPlayer().move(new Speed(
-				0,
+				-player.getPlayer().getSpeed().getX()*0.1,
 				-player.getPlayer().getSpeed().getY()));
 		}
 	}
@@ -114,5 +115,10 @@ public class Wall extends Entity implements Info
 	{
 		matcher.setWidth(x);
 		matcher.setHeight(y);
+	}
+
+	public EntityDrawer getEntityDrawer()
+	{
+		return new WallDrawer(this);
 	}
 }

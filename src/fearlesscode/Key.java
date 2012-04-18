@@ -1,6 +1,7 @@
 package fearlesscode;
 
 import fearlesscode.util.*;
+import fearlesscode.gui.*;
 
 /**
  * Egy kulcsot reprezentál, amit a játékosnak föl kell szednie.
@@ -75,5 +76,15 @@ public class Key extends Entity implements Info
 	public Rectangle getBoundingBox()
 	{
 		return new Rectangle(10, 20);
+	}
+
+	public EntityDrawer getEntityDrawer()
+	{
+		return new KeyDrawer(this);
+	}
+
+	public boolean isObtained()
+	{
+		return isObtained;
 	}
 }

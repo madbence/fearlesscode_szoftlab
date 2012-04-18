@@ -2,6 +2,7 @@ package fearlesscode;
 
 import java.util.*;
 import fearlesscode.util.*;
+import fearlesscode.gui.*;
 
 /**
  * A pályát (Blokkok összességét) reprezentáló objektum.
@@ -15,7 +16,7 @@ public class PlayField
 	/**
 	 * A gravitáció mértéke.
 	 */
-	public static final double GRAVITY=1;
+	public static final double GRAVITY=0.2;
 
 	/**
 	 * A PlayField állapota. Blokk módban az értéke igaz, egyébként hamis.

@@ -1,0 +1,24 @@
+package fearlesscode.gui;
+
+import fearlesscode.*;
+import java.awt.*;
+
+public class PlayFieldDrawer
+{
+	private PlayField playField;
+	public PlayFieldDrawer(PlayField subject)
+	{
+		playField=subject;
+	}
+	public void draw(Graphics2D g)
+	{
+		for(BlockContainer bc:playField.getBlocks())
+		{
+			BlockContainerDrawer drawer=new BlockContainerDrawer(bc);
+			if(drawer != null)
+			{
+				drawer.draw(g);
+			}
+		}
+	}
+}

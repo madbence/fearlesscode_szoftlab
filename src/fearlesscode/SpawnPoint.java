@@ -1,5 +1,6 @@
 package fearlesscode;
 
+import fearlesscode.gui.*;
 
 /**
  * Az Entity osztály üres implementációja, a játékosok alapértelmezetten ennek az osztály egy példányának a helyén jönnek létre.
@@ -51,5 +52,10 @@ public class SpawnPoint extends Entity implements Info
 	public Rectangle getBoundingBox()
 	{
 		return new Rectangle(0, 0);
+	}
+
+	public EntityDrawer getEntityDrawer()
+	{
+		return null;
 	}
 }

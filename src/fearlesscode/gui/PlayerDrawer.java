@@ -1,0 +1,18 @@
+package fearlesscode.gui;
+
+import fearlesscode.*;
+import java.awt.*;
+
+public class PlayerDrawer
+{
+	private Player player;
+	public PlayerDrawer(Player subject)
+	{
+		player=subject;
+	}
+	public void draw(Graphics2D g)
+	{
+		g.setPaint(Color.blue);
+		g.fillRect(0,0,10,20);
+	}
+}

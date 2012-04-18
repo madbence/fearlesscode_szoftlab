@@ -2,6 +2,7 @@ package fearlesscode;
 
 import fearlesscode.util.*;
 import java.util.*;
+import fearlesscode.gui.*;
 
 
 /**
@@ -192,5 +193,10 @@ public class Player implements Info, Collideable
 	public EntityPosition getNextPosition(EntityPosition current)
 	{
 		return new EntityPosition(current.getX()+speed.getX(), current.getY()+speed.getY());
+	}
+
+	public PlayerDrawer getPlayerDrawer()
+	{
+		return new PlayerDrawer(this);
 	}
 }
