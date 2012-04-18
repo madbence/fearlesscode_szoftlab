@@ -54,7 +54,7 @@ public class Wall extends Entity implements Info
 		else
 		{
 			player.getPlayer().move(new Speed(
-				-player.getPlayer().getSpeed().getX()*0.1,
+				-player.getPlayer().getSpeed().getX()*0.05,
 				-player.getPlayer().getSpeed().getY()));
 		}
 	}

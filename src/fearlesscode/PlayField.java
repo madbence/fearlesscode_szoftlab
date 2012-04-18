@@ -97,7 +97,7 @@ public class PlayField
 		Position blockPos = new Position(-1,-1);
 		Position neighbPos = new Position(-1,-1);
 		
-		for(BlockContainer blockcontainer : game.getPlayField().getBlocks())
+		for(BlockContainer blockcontainer : blocks)
 		{									
 			if(blockcontainer.getBlock() == block)
 			{
@@ -108,7 +108,7 @@ public class PlayField
 				neighbPos=blockcontainer.getPosition();
 			}
 		}
-		for(BlockContainer blockcontainer : game.getPlayField().getBlocks())
+		for(BlockContainer blockcontainer : blocks)
 		{									
 			if(blockcontainer.getBlock() == block)
 			{
@@ -156,7 +156,7 @@ public class PlayField
 	 */
 	public Block getBlock(Position pos)
 	{
-		for(BlockContainer blockcontainer : game.getPlayField().getBlocks())
+		for(BlockContainer blockcontainer : blocks)
 		{								
 			if(blockcontainer.getPosition().getX()==pos.getX()&&blockcontainer.getPosition().getY()==pos.getY())
 			{

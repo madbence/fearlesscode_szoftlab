@@ -13,6 +13,7 @@ public class FilledBlockDrawer extends BlockDrawer
 	{
 		g.setPaint(Color.black);
 		g.drawRect(0,0,200,150);
+		g.clipRect(0,0,200,150);
 		for(EntityContainer entity:block.getEntities())
 		{
 			EntityContainerDrawer drawer=new EntityContainerDrawer(entity);
@@ -23,5 +24,6 @@ public class FilledBlockDrawer extends BlockDrawer
 			PlayerContainerDrawer drawer=new PlayerContainerDrawer(player);
 			drawer.draw(g);
 		}
+		g.setClip(null);
 	}
 }

@@ -12,13 +12,14 @@ public class Grafikus extends Frame
 	public PlayField pf;
 	public int dir=-1;
 	public boolean jump;
+	public Block b;
+	public boolean bm=true;
 	public void paint(Graphics g)
 	{
 		pfd.draw((Graphics2D)g);
 	}
 	public void update(Graphics g)
 	{
-		System.out.println("update");
 		Graphics offgc;
 		Image offscreen = null;
 		java.awt.Rectangle box = g.getClipRect();
@@ -43,8 +44,9 @@ public class Grafikus extends Frame
 		Game g=new Game();
 		try
 		{
-			frame.pf=PlayFieldBuilder.createPlayField(g, "maps/szilard.json");
+			frame.pf=PlayFieldBuilder.createPlayField(g, "maps/default.json");
 			frame.pfd=new PlayFieldDrawer(frame.pf);
+			frame.b=frame.pf.getBlocks().get(1).getBlock();
 		}
 		catch(Exception e)
 		{
@@ -72,6 +74,15 @@ public class Grafikus extends Frame
 				else if(e.getKeyChar() == 'w')
 				{
 					frame.jump=true;
+					frame.dir=0;
+				}
+				else if(e.getKeyChar() == 's')
+				{
+					frame.dir=2;
+				}
+				else if(e.getKeyChar() == ' ')
+				{
+					frame.bm=!frame.bm;
 				}
 			}
 			public void keyReleased(KeyEvent e)
@@ -95,20 +106,34 @@ public class Grafikus extends Frame
 			{
 				//System.out.println("run");
 				//frame.repaint();
-				if(frame.dir == 1)
+				if(frame.bm)
 				{
-					frame.pf.getPlayers().get(0).getPlayer().move(new Speed(0.1, 0));
+					if(frame.dir == 1)
+					{
+						Speed s=frame.pf.getPlayers().get(0).getPlayer().getSpeed();
+						frame.pf.getPlayers().get(0).getPlayer().move(new Speed(2-s.getX(), 0));
+					}
+					else if(frame.dir == 3)
+					{
+						Speed s=frame.pf.getPlayers().get(0).getPlayer().getSpeed();
+						frame.pf.getPlayers().get(0).getPlayer().move(new Speed(-2-s.getX(), 0));
+					}
+					if(frame.jump)
+					{
+						frame.jump=false;
+						frame.pf.getPlayers().get(0).getPlayer().move(new Speed(0, -6));
+					}
+					frame.pf.tick();
 				}
-				else if(frame.dir == 3)
+				else
 				{
-					frame.pf.getPlayers().get(0).getPlayer().move(new Speed(-0.1, 0));
+					if(frame.dir != -1)
+					{
+						System.out.println(frame.b.getName());
+						frame.pf.move(frame.b, (frame.dir+2)%4);
+						frame.dir=-1;
+					}
 				}
-				if(frame.jump)
-				{
-					frame.jump=false;
-					frame.pf.getPlayers().get(0).getPlayer().move(new Speed(0, -10));
-				}
-				frame.pf.tick();
 				frame.repaint();
 			}
 		}, 1000, (long)(1000/30));
