@@ -56,8 +56,16 @@ public class FilledBlock extends Block
 				Block neighbour=getNeighbour(dir);
 				if(neighbour != null && matches(neighbour, dir, true))
 				{
+					Logger.enable();
+					//Grafikus.rem=10;
 					Logger.log(player.getPlayer(), "entered "+neighbour.getName());
+					Logger.log("x:"+player.getPlayer().getSpeed().getX()+",y:"+player.getPlayer().getSpeed().getY());
+					Logger.disable();
 					player.getPlayer().enterBlock(neighbour, entryPosition);
+					for(Block b:player.getPlayer().getActiveBlocks())
+					{
+						Logger.debug(b.getName());
+					}
 				}
 				else if(dir == 2)
 				{
@@ -79,8 +87,24 @@ public class FilledBlock extends Block
 				nextPosition.getX() > Block.WIDTH ||
 				nextPosition.getX()+Player.WIDTH < 0)
 			{
-				leaveList.add(player.getPlayer());
-				Logger.log(player.getPlayer(), "left "+getName());
+				if(player.getPlayer().getActiveBlocks().size()>1)
+				{
+					leaveList.add(player.getPlayer());
+					Logger.enable();
+					Logger.log(player.getPlayer(), "left "+getName());
+					Logger.log("x:"+player.getPlayer().getSpeed().getX()+",y:"+player.getPlayer().getSpeed().getY());
+					Logger.disable();
+				}
+				else
+				{
+					Logger.debug("HOPP EGY BUG!");
+					Logger.debug("left "+getName());
+					Logger.debug("x:"+player.getPlayer().getSpeed().getX()+",y:"+player.getPlayer().getSpeed().getY());
+					for(Block b:player.getPlayer().getActiveBlocks())
+					{
+						Logger.debug(b.getName());
+					}
+				}
 			}
 			else
 			{

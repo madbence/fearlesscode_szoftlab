@@ -1,6 +1,7 @@
 package fearlesscode;
 
 import fearlesscode.gui.*;
+import fearlesscode.util.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.geom.*;
@@ -14,6 +15,7 @@ public class Grafikus extends Frame
 	public boolean jump;
 	public Block b;
 	public boolean bm=true;
+	public static int rem=0;
 	public void paint(Graphics g)
 	{
 		pfd.draw((Graphics2D)g);
@@ -98,6 +100,7 @@ public class Grafikus extends Frame
 			}
 		});
 		frame.setSize(400, 300);
+		frame.setUndecorated(true);
 		frame.setVisible(true);
 		Timer t=new Timer();
 		t.schedule(new TimerTask()
@@ -108,6 +111,15 @@ public class Grafikus extends Frame
 				//frame.repaint();
 				if(frame.bm)
 				{
+					if(Grafikus.rem > 0)
+					{
+						Grafikus.rem--;
+						Logger.enable();
+					}
+					else
+					{
+						Logger.disable();
+					}
 					if(frame.dir == 1)
 					{
 						Speed s=frame.pf.getPlayers().get(0).getPlayer().getSpeed();
