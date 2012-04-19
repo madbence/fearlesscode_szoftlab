@@ -1,1 +1,1 @@
-java -classpath .\build\ fearlesscode.Proto
+java -classpath .\build\ fearlesscode.app.Grafikus
