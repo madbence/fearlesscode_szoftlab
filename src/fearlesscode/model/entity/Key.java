@@ -1,13 +1,18 @@
 package fearlesscode.model.entity;
 
-import fearlesscode.util.*;
+import fearlesscode.tools.*;
 import fearlesscode.gui.*;
+import fearlesscode.model.core.*;
+import fearlesscode.model.physics.*;
+import fearlesscode.model.container.*;
+import fearlesscode.model.block.*;
+import fearlesscode.model.misc.*;
 
 /**
  * Egy kulcsot reprezentál, amit a játékosnak föl kell szednie.
  * Amennyiben játékossal találkozik, és még nem szerezte meg a kulcsot (ez a saját belsőállapota), akkor értesíti a játékost a fölvételről.
  */
-public class Key extends Entity implements Info
+public class Key extends Entity
 {
 	
 	/**

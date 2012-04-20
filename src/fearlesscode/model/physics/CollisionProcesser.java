@@ -1,7 +1,7 @@
 package fearlesscode.model.physics;
 
-import fearlesscode.util.*;
 import java.util.*;
+import fearlesscode.model.misc.*;
 
 /**
  * Ütközések detektálására szolgáló objektum.

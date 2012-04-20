@@ -1,6 +1,7 @@
 package fearlesscode.gui;
 
-import fearlesscode.*;
+import fearlesscode.model.block.*;
+import fearlesscode.model.container.*;
 import java.awt.*;
 
 public class FilledBlockDrawer extends BlockDrawer

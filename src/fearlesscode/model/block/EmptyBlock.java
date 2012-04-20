@@ -1,6 +1,8 @@
 package fearlesscode.model.block;
 
-import fearlesscode.util.*;
+import fearlesscode.tools.*;
+import fearlesscode.model.misc.*;
+import fearlesscode.model.core.*;
 import fearlesscode.gui.*;
 
 /**

@@ -1,6 +1,5 @@
 package fearlesscode.model.misc;
 
-
 /**
  * Blokkokról szóló nformációk szolgáltatás biztosító interface.
  */

@@ -1,7 +1,5 @@
 package fearlesscode.model.core;
 
-import fearlesscode.util.*;
-
 /**
  * A játék fő mozzanatait kezelő osztály.
  * A játék fő mozzanatait (pálya betöltés, játék megnyerése) kezeli. Kezdetben inicializál minden objektumot.

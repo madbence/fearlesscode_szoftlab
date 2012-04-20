@@ -1,7 +1,12 @@
 package fearlesscode.model.entity;
 
-import fearlesscode.util.*;
+import fearlesscode.tools.*;
 import fearlesscode.gui.*;
+import fearlesscode.model.core.*;
+import fearlesscode.model.physics.*;
+import fearlesscode.model.container.*;
+import fearlesscode.model.block.*;
+import fearlesscode.model.misc.*;
 
 /**
  * A pályán megjelenő ajtót reprezentáló objektum.
@@ -10,7 +15,7 @@ import fearlesscode.gui.*;
  * metódust. Abban az esteben, ha a játékos rendelkezik az összes megszerzett kulccsal,
  * akkor a játék végetér.  
  */
-public class Door extends Entity implements Info
+public class Door extends Entity
 {
 	/**
 	 * Az ajtó kinyitásához szükséges kulcsok száma.

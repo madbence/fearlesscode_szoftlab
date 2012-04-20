@@ -1,6 +1,11 @@
 package fearlesscode.model.entity;
 
 import fearlesscode.gui.*;
+import fearlesscode.model.core.*;
+import fearlesscode.model.physics.*;
+import fearlesscode.model.container.*;
+import fearlesscode.model.block.*;
+import fearlesscode.model.misc.*;
 
 /**
  * Az Entity egy blokkon található statikus (nem mozgó) objektumot reprezentál,

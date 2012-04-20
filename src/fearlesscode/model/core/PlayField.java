@@ -1,8 +1,14 @@
 package fearlesscode.model.core;
 
 import java.util.*;
-import fearlesscode.util.*;
+import fearlesscode.tools.*;
 import fearlesscode.gui.*;
+import fearlesscode.model.container.*;
+import fearlesscode.model.misc.*;
+import fearlesscode.model.block.*;
+import fearlesscode.model.player.*;
+import fearlesscode.model.entity.*;
+import fearlesscode.model.exception.*;
 
 /**
  * A pályát (Blokkok összességét) reprezentáló objektum.

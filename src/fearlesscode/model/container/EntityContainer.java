@@ -1,5 +1,9 @@
 package fearlesscode.model.container;
 
+import fearlesscode.model.misc.*;
+import fearlesscode.model.entity.*;
+import fearlesscode.model.block.*;
+
 /**
  * Az Entity-t és az Entity pozicióját tároló segédosztály.
  * 

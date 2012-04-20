@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import org.json.*;
+import fearlesscode.model.exception.*;
 
 /**
  * A pálya információkat JSON file-ból betöltő osztály.

@@ -1,5 +1,8 @@
 package fearlesscode.model.misc;
 
+import fearlesscode.model.player.*;
+import fearlesscode.model.entity.*;
+
 /**
  * A játékost, és újraéledési helyét tároló segédosztály. Számon tartja, hogy egy-egy játékos mely játékobjektumon köteles újraéledni.
  */

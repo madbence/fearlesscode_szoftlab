@@ -1,13 +1,19 @@
 package fearlesscode.model.entity;
 
-import fearlesscode.util.*;
+import fearlesscode.tools.*;
 import java.util.*;
 import fearlesscode.gui.*;
+import fearlesscode.model.core.*;
+import fearlesscode.model.physics.*;
+import fearlesscode.model.container.*;
+import fearlesscode.model.misc.*;
+import fearlesscode.model.player.*;
+import fearlesscode.model.block.*;
 
 /**
  * Falat reprezentáló osztály.
  */
-public class Wall extends Entity implements Info
+public class Wall extends Entity
 {
 	/**
 	 * A fal szélessége.

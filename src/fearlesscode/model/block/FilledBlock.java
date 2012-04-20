@@ -1,6 +1,11 @@
 package fearlesscode.model.block;
 
-import fearlesscode.util.*;
+import fearlesscode.tools.*;
+import fearlesscode.model.core.*;
+import fearlesscode.model.misc.*;
+import fearlesscode.model.player.*;
+import fearlesscode.model.container.*;
+import fearlesscode.model.physics.*;
 import java.util.*;
 import fearlesscode.gui.*;
 

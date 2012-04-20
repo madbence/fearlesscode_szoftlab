@@ -2,8 +2,13 @@ package fearlesscode.model.block;
 
 import java.util.ArrayList;
 import java.util.List;
-import fearlesscode.util.*;
+import fearlesscode.tools.*;
 import fearlesscode.gui.*;
+import fearlesscode.model.container.*;
+import fearlesscode.model.core.*;
+import fearlesscode.model.misc.*;
+import fearlesscode.model.entity.*;
+import fearlesscode.model.player.*;
 
 /**
  * Absztarkt osztály a speciális blokkok leszármaztatásához.

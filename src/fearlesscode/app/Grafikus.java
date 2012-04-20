@@ -1,7 +1,11 @@
 package fearlesscode.app;
 
 import fearlesscode.gui.*;
-import fearlesscode.util.*;
+import fearlesscode.tools.*;
+import fearlesscode.model.core.*;
+import fearlesscode.model.misc.*;
+import fearlesscode.model.block.*;
+import fearlesscode.model.util.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.geom.*;

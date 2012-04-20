@@ -1,8 +1,8 @@
-package fearlesscode.util;
+package fearlesscode.tools;
 
 import java.util.*;
 import java.io.*;
-import fearlesscode.*;
+import fearlesscode.model.misc.*;
 
 /**
  * Az események naplózásáért felelős osztály.

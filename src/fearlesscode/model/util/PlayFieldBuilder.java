@@ -1,7 +1,13 @@
 package fearlesscode.model.util;
 
 import java.util.ArrayList;
-import fearlesscode.util.*;
+import fearlesscode.tools.*;
+import fearlesscode.model.core.*;
+import fearlesscode.model.block.*;
+import fearlesscode.model.entity.*;
+import fearlesscode.model.player.*;
+import fearlesscode.model.exception.*;
+import fearlesscode.model.misc.*;
 
 /**
  * A PlayField-et felépítő osztály.

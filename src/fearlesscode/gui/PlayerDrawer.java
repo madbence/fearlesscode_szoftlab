@@ -1,6 +1,6 @@
 package fearlesscode.gui;
 
-import fearlesscode.*;
+import fearlesscode.model.player.*;
 import java.awt.*;
 
 public class PlayerDrawer

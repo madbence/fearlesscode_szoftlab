@@ -1,5 +1,7 @@
 package fearlesscode.model.container;
 
+import fearlesscode.model.misc.*;
+import fearlesscode.model.player.*;
 
 /**
  * A Playert és a Player pozicióját tároló segédosztály.

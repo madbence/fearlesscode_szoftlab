@@ -1,6 +1,6 @@
 package fearlesscode.gui;
 
-import fearlesscode.*;
+import fearlesscode.model.entity.*;
 import java.awt.*;
 
 public class WallDrawer extends EntityDrawer

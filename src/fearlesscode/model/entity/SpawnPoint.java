@@ -1,11 +1,16 @@
 package fearlesscode.model.entity;
 
 import fearlesscode.gui.*;
+import fearlesscode.model.core.*;
+import fearlesscode.model.physics.*;
+import fearlesscode.model.container.*;
+import fearlesscode.model.block.*;
+import fearlesscode.model.misc.*;
 
 /**
  * Az Entity osztály üres implementációja, a játékosok alapértelmezetten ennek az osztály egy példányának a helyén jönnek létre.
  */
-public class SpawnPoint extends Entity implements Info
+public class SpawnPoint extends Entity
 {
 	/**
 	 * A SpawPoint konstruktora. Mivel üres implementáció, csak a szülő osztály konstruktorát hívja meg.

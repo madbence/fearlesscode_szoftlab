@@ -1,5 +1,8 @@
 package fearlesscode.model.container;
 
+import fearlesscode.model.block.*;
+import fearlesscode.model.misc.*;
+
 /**
  * Blokkot és a hozzátartozó pozíciót tömörítő wrapper osztály.
  */

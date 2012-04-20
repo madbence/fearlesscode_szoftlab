@@ -1,9 +1,12 @@
 package fearlesscode.model.player;
 
-import fearlesscode.util.*;
+import fearlesscode.tools.*;
 import java.util.*;
 import fearlesscode.gui.*;
-
+import fearlesscode.model.block.*;
+import fearlesscode.model.container.*;
+import fearlesscode.model.misc.*;
+import fearlesscode.model.physics.*;
 
 /**
  * A játékos(okat) reprezentáló osztály. 
