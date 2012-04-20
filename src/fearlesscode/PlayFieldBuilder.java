@@ -37,10 +37,21 @@ public class PlayFieldBuilder
 			}
 		}
 		
-		blocks.get(0).setNeighbour(blocks.get(1),1,true);
-		blocks.get(0).setNeighbour(blocks.get(2),2,true);
-		blocks.get(1).setNeighbour(blocks.get(3),2,true);
-		blocks.get(2).setNeighbour(blocks.get(3),1,true);
+		for(int i=0; i<mfj.getMapSizeY()-1;i++)
+		{
+			int j;
+			for(j=0;j<mfj.getMapSizeX()-1;j++)
+			{
+				blocks.get(i*mfj.getMapSizeX()+j).setNeighbour(blocks.get(i*mfj.getMapSizeX()+j+1),1,true); //vizszintes beállítás
+				blocks.get(i*mfj.getMapSizeX()+j).setNeighbour(blocks.get((i+1)*mfj.getMapSizeX()+j),2,true); //függőleges beállítás
+			}
+			blocks.get(i*mfj.getMapSizeX()+j).setNeighbour(blocks.get((i+1)*mfj.getMapSizeX()+j),2,true); //függőleges beállítás a legszélsőre
+			
+		}
+		for(int i=0; i<mfj.getMapSizeX()-1;i++)
+		{
+			blocks.get((mfj.getMapSizeY()-1)*mfj.getMapSizeX()+i).setNeighbour(blocks.get((mfj.getMapSizeY()-1)*mfj.getMapSizeX()+i+1),1,true);
+		}
 		
 		for(int i=0; i<mfj.getNumberOfBlocks();i++)
 		{
