@@ -1,0 +1,19 @@
+cls
+java -classpath .\build\ fearlesscode.Proto > out/level1.out < maps/level1.in 
+java -classpath .\build\ fearlesscode.Proto > out/level2.out < maps/level2.in 
+java -classpath .\build\ fearlesscode.Proto > out/level3.out < maps/level3.in 
+java -classpath .\build\ fearlesscode.Proto > out/level4.out < maps/level4.in 
+java -classpath .\build\ fearlesscode.Proto > out/level5.out < maps/level5.in 
+java -classpath .\build\ fearlesscode.Proto > out/level6.out < maps/level6.in 
+java -classpath .\build\ fearlesscode.Proto > out/level7.out < maps/level7.in 
+java -classpath .\build\ fearlesscode.Proto > out/level8.out < maps/level8.in 
+java -classpath .\build\ fearlesscode.Proto > out/level9.out < maps/level9.in 
+java -classpath .\build\ fearlesscode.Proto > out/level10.out < maps/level10.in
+java -classpath .\build\ fearlesscode.Proto > out/level11.out < maps/level11.in
+java -classpath .\build\ fearlesscode.Proto > out/level12.out < maps/level12.in
+java -classpath .\build\ fearlesscode.Proto > out/level13.out < maps/level13.in
+java -classpath .\build\ fearlesscode.Proto > out/level14.out < maps/level14.in
+java -classpath .\build\ fearlesscode.Proto > out/level15.out < maps/level15.in
+java -classpath .\build\ fearlesscode.Proto > out/level16.out < maps/level16.in
+java -classpath .\build\ fearlesscode.Proto > out/level17.out < maps/level17.in
+java -classpath .\build\ fearlesscode.Proto > out/level18.out < maps/level18.in
