@@ -1,6 +1,7 @@
 package fearlesscode.gui;
 
-import fearlesscode.*;
+import fearlesscode.model.core.*;
+import fearlesscode.model.container.*;
 import java.awt.*;
 
 public class PlayFieldDrawer

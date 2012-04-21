@@ -1,6 +1,6 @@
 package fearlesscode.gui;
 
-import fearlesscode.*;
+import fearlesscode.model.container.*;
 import java.awt.*;
 import java.awt.geom.*;
 

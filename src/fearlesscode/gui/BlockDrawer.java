@@ -1,6 +1,6 @@
 package fearlesscode.gui;
 
-import fearlesscode.*;
+import fearlesscode.model.block.*;
 import java.awt.*;
 
 public abstract class BlockDrawer
