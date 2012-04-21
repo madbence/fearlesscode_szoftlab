@@ -234,6 +234,11 @@ public abstract class Block implements BlockInfo
 		return players;
 	}
 
+	public PlayField getPlayField()
+	{
+		return playField;
+	}
+
 	/**
 	 * Absztrakt metódus, ami 2 blokk szélének egyezőségét adja meg.
 	 * @param other A másik blokk.
