@@ -6,6 +6,7 @@ import fearlesscode.model.physics.*;
 import fearlesscode.model.container.*;
 import fearlesscode.model.block.*;
 import fearlesscode.model.misc.*;
+import fearlesscode.model.block.*;
 
 /**
  * Az Entity egy blokkon található statikus (nem mozgó) objektumot reprezentál,
