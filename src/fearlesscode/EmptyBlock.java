@@ -1,6 +1,7 @@
 package fearlesscode;
 
 import fearlesscode.util.*;
+import fearlesscode.gui.*;
 
 /**
  * Az üres blokkot reprezentálja, gyakorlatilag a Block osztály default (üres)
@@ -81,5 +82,10 @@ public class EmptyBlock extends Block
 	public boolean matches(Block other, int dir, boolean callback)
 	{
 		return false;
+	}
+
+	public BlockDrawer getBlockDrawer()
+	{
+		return null;
 	}
 }

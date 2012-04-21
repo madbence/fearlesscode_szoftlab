@@ -9,6 +9,7 @@ import fearlesscode.*;
  */
 public class Logger
 {
+	private static boolean enabled=false;
 	/**
 	 * Eseményeket ír ki a képernyőre.
 	 * pl.: [3:Player] has moved to position (10,15).
@@ -17,7 +18,7 @@ public class Logger
 	 */
 	public static void log(Info info, String string)
 	{
-		System.out.println(info.getName()+" has "+ string);
+		print(info.getName()+" has "+ string);
 	}
 	
 	/**
@@ -27,7 +28,7 @@ public class Logger
 	 */
 	public static void log(String string)
 	{
-		System.out.println(string);
+		print(string);
 	}
 
 	/**
@@ -36,7 +37,7 @@ public class Logger
 	 */
 	public static void error(String str)
 	{
-		System.out.println("Error: "+str);
+		print("Error: "+str);
 	}
 
 	/**
@@ -47,5 +48,21 @@ public class Logger
 	public static void debug(String str)
 	{
 		System.err.println("Debug: "+str);
+	}
+
+	public static void enable()
+	{
+		enabled=true;
+	}
+	public static void disable()
+	{
+		enabled=false;
+	}
+	public static void print(String s)
+	{
+		if(enabled)
+		{
+			System.out.println(s);
+		}
 	}
 }

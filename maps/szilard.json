@@ -1,0 +1,138 @@
+{
+	"size":
+	{
+		"x": 2,
+		"y": 2
+	},
+	"blocks":
+	[
+		{
+			"type": "FilledBlock",
+			"position":
+			{
+				"x": 1,
+				"y": 1
+			},
+			"entities":
+			[
+				{
+					"type": "Wall",
+					"position":
+					{
+						"x": 70,
+						"y": 80
+					},
+					"width": 10,
+					"height": 20
+				},
+				{
+					"type": "Wall",
+					"position":
+					{
+						"x": 110,
+						"y": 80
+					},
+					"width": 10,
+					"height": 20
+				},
+				{
+					"type": "Wall",
+					"position":
+					{
+						"x": 70,
+						"y": 90
+					},
+					"width": 50,
+					"height": 10
+				},
+				{
+					"type": "Wall",
+					"position":
+					{
+						"x": 70,
+						"y": 140
+					},
+					"width": 50,
+					"height": 20
+				},
+				{
+					"type": "SpawnPoint",
+					"position":
+					{
+						"x": 85,
+						"y": 70
+					},
+					"playerID": 1
+				}
+			]
+		},
+		{
+			"type": "EmptyBlock",
+			"position":
+			{
+				"x": 2,
+				"y": 1
+			}
+		},
+		{
+			"type": "FilledBlock",
+			"position":
+			{
+				"x": 1,
+				"y": 2
+			},
+			"entities":
+			[
+				{
+					"type": "Wall",
+					"position":
+					{
+						"x": 70,
+						"y": -10
+					},
+					"width": 50,
+					"height": 20
+				},
+				{
+					"type": "Key",
+					"position":
+					{
+						"x": 5,
+						"y": 50
+					}
+				}
+			]
+		},
+		{
+			"type": "FilledBlock",
+			"position":
+			{
+				"x": 2,
+				"y": 2
+			},
+			"entities":
+			[
+				{
+					"type": "Wall",
+					"position":
+					{
+						"x": -10,
+						"y": 50
+					},
+					"width": 220,
+					"height": 20
+				},
+				{
+					"type": "Wall",
+					"position":
+					{
+						"x": 70,
+						"y": 100
+					},
+					"width": 50,
+					"height": 20
+				},
+			]
+		}
+	]
+}

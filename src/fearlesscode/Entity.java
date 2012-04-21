@@ -1,5 +1,7 @@
 package fearlesscode;
 
+import fearlesscode.gui.*;
+
 /**
  * Az Entity egy blokkon található statikus (nem mozgó) objektumot reprezentál,
  * minden leszármazottnak kötelessége viselkedést definiálni a játékossal való találkozásra.
@@ -94,4 +96,6 @@ public abstract class Entity implements Info, Collideable
 	{
 		throw new Exception();
 	}
+
+	public abstract EntityDrawer getEntityDrawer();
 }

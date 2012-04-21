@@ -1,6 +1,7 @@
 package fearlesscode;
 
 import fearlesscode.util.*;
+import fearlesscode.gui.*;
 
 /**
  * A pályán megjelenő ajtót reprezentáló objektum.
@@ -76,5 +77,10 @@ public class Door extends Entity implements Info
 	public Rectangle getBoundingBox()
 	{
 		return new Rectangle(10, 20);
+	}
+
+	public EntityDrawer getEntityDrawer()
+	{
+		return new DoorDrawer(this);
 	}
 }

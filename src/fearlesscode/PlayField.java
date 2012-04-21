@@ -2,6 +2,7 @@ package fearlesscode;
 
 import java.util.*;
 import fearlesscode.util.*;
+import fearlesscode.gui.*;
 
 /**
  * A pályát (Blokkok összességét) reprezentáló objektum.
@@ -15,7 +16,7 @@ public class PlayField
 	/**
 	 * A gravitáció mértéke.
 	 */
-	public static final double GRAVITY=1;
+	public static final double GRAVITY=0.2;
 
 	/**
 	 * A PlayField állapota. Blokk módban az értéke igaz, egyébként hamis.
@@ -96,7 +97,7 @@ public class PlayField
 		Position blockPos = new Position(-1,-1);
 		Position neighbPos = new Position(-1,-1);
 		
-		for(BlockContainer blockcontainer : game.getPlayField().getBlocks())
+		for(BlockContainer blockcontainer : blocks)
 		{									
 			if(blockcontainer.getBlock() == block)
 			{
@@ -107,7 +108,7 @@ public class PlayField
 				neighbPos=blockcontainer.getPosition();
 			}
 		}
-		for(BlockContainer blockcontainer : game.getPlayField().getBlocks())
+		for(BlockContainer blockcontainer : blocks)
 		{									
 			if(blockcontainer.getBlock() == block)
 			{
@@ -155,7 +156,7 @@ public class PlayField
 	 */
 	public Block getBlock(Position pos)
 	{
-		for(BlockContainer blockcontainer : game.getPlayField().getBlocks())
+		for(BlockContainer blockcontainer : blocks)
 		{								
 			if(blockcontainer.getPosition().getX()==pos.getX()&&blockcontainer.getPosition().getY()==pos.getY())
 			{

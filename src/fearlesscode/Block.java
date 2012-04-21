@@ -3,6 +3,7 @@ package fearlesscode;
 import java.util.ArrayList;
 import java.util.List;
 import fearlesscode.util.*;
+import fearlesscode.gui.*;
 
 /**
  * Absztarkt osztály a speciális blokkok leszármaztatásához.
@@ -235,4 +236,6 @@ public abstract class Block implements BlockInfo
 	 * @param callback Történjen-e visszahívás (másik oldalról is elvégzi a vizsgálatot).
 	 */
 	public abstract boolean matches(Block other, int dir, boolean callback);
+
+	public abstract BlockDrawer getBlockDrawer();
 }
