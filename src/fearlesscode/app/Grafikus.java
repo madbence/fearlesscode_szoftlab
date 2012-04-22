@@ -16,45 +16,22 @@ public class Grafikus
 		Grafikus app=new Grafikus();
 	}
 
-	private Game game;
+	private final Game game;
 	private final GameFrame gameFrame;
+	private final Timer clock;
 	public Grafikus()
 	{
 		game=new Game();
+		gameFrame=new GameFrame();
+		clock=new Timer();
 		try
 		{
-			PlayField playField=PlayFieldBuilder.createPlayField(game, "maps/default.json");
-			game.start(playField);
+			play("maps/default.json");
 		}
 		catch(Exception e)
 		{
 			e.printStackTrace();
 		}
-		gameFrame=new GameFrame();
-		Timer clock=new Timer();
-		final InputDispatcher dispatcher=createInputDispatcher();
-		clock.scheduleAtFixedRate(new TimerTask()
-		{
-			public void run()
-			{
-				game.getPlayField().tick();
-				gameFrame.repaint();
-			}
-		},0,(long)(1000/30));
-		gameFrame.addKeyListener(new KeyAdapter()
-		{
-			public void keyPressed(KeyEvent e)
-			{
-				dispatcher.handleKeyPressed(e.getKeyCode());
-			}
-			public void keyReleased(KeyEvent e)
-			{
-				dispatcher.handleKeyReleased(e.getKeyCode());
-			}
-		});
-		gameFrame.setSize(400, 300);
-		gameFrame.setVisible(true);
-
 	}
 
 	public InputDispatcher createInputDispatcher()
@@ -99,4 +76,23 @@ public class Grafikus
 		gameFrame.setVisible(true);
 	}
 
+	public void play(String level) throws Exception
+	{
+		PlayField playField=PlayFieldBuilder.createPlayField(game, level);
+		game.start(playField);
+		//gameFrame.clearKeyListeners();
+		InputDispatcher dispatcher=createInputDispatcher();
+
+		gameFrame.addKeyListener(dispatcher);
+		gameFrame.setDrawer(new PlayFieldDrawer(playField));
+		clock.scheduleAtFixedRate(new TimerTask()
+		{
+			public void run()
+			{
+				game.getPlayField().tick();
+				gameFrame.repaint();
+			}
+		},0,(long)(1000/30));
+		resize(200*playField.getWidth(), 150*playField.getHeight());
+	}
 }

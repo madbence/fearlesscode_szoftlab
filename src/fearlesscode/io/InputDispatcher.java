@@ -1,30 +1,32 @@
 package fearlesscode.io;
 
 import java.util.*;
+import java.awt.event.*;
 
-public class InputDispatcher
+public class InputDispatcher extends KeyAdapter
 {
 	private ArrayList<InputHandler> listeners;
 	public InputDispatcher()
 	{
+		super();
 		listeners=new ArrayList<InputHandler>();
 	}
 	public void attach(InputHandler handler)
 	{
 		listeners.add(handler);
 	}
-	public void handleKeyPressed(int k)
+	public void keyPressed(KeyEvent e)
 	{
 		for(InputHandler listener:listeners)
 		{
-			listener.handleKeyPressed(k);
+			listener.handleKeyPressed(e.getKeyCode());
 		}
 	}
-	public void handleKeyReleased(int k)
+	public void keyReleased(KeyEvent e)
 	{
 		for(InputHandler listener:listeners)
 		{
-			listener.handleKeyReleased(k);
+			listener.handleKeyReleased(e.getKeyCode());
 		}
 	}
 }

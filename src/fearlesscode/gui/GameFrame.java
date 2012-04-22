@@ -2,6 +2,8 @@ package fearlesscode.gui;
 
 import fearlesscode.model.core.*;
 import java.awt.*;
+import java.awt.event.*;
+import java.util.*;
 
 public class GameFrame extends Frame
 {
@@ -50,5 +52,18 @@ public class GameFrame extends Frame
 		paint(offgc);
 		// átmásoljuk a buffert a képernyőre
 		g.drawImage(offscreen, box.x, box.y, this);
+	}
+
+	public void clearKeyListeners()
+	{
+		ArrayList<KeyListener> listeners=new ArrayList<KeyListener>();
+		for(KeyListener listener:getKeyListeners())
+		{
+			listeners.add(listener);
+		}
+		for(KeyListener listener:listeners)
+		{
+			removeKeyListener(listener);
+		}
 	}
 }
