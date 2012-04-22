@@ -77,10 +77,16 @@ public class Grafikus
 		p2.setConfig(new PlayerKeyConfiguration(KeyEvent.VK_A, KeyEvent.VK_D, KeyEvent.VK_W));
 		dispatcher.attach(p2);
 
-		BlockInputHandler b=new BlockInputHandler();
-		b.setController(new BlockController(game.getPlayField().getBlocks().get(1).getBlock(), game.getPlayField()));
-		b.setConfig(new BlockKeyConfiguration(KeyEvent.VK_W, KeyEvent.VK_D, KeyEvent.VK_S, KeyEvent.VK_A));
-		dispatcher.attach(b);
+		//@TODO: az üres blokkot kéne mozgatni...
+		BlockInputHandler b1=new BlockInputHandler();
+		b1.setController(new BlockController(game.getPlayField().getBlocks().get(1).getBlock(), game.getPlayField()));
+		b1.setConfig(new BlockKeyConfiguration(KeyEvent.VK_W, KeyEvent.VK_D, KeyEvent.VK_S, KeyEvent.VK_A));
+		dispatcher.attach(b1);
+
+		BlockInputHandler b2=new BlockInputHandler();
+		b2.setController(new BlockController(game.getPlayField().getBlocks().get(1).getBlock(), game.getPlayField()));
+		b2.setConfig(new BlockKeyConfiguration(KeyEvent.VK_UP, KeyEvent.VK_RIGHT, KeyEvent.VK_DOWN, KeyEvent.VK_LEFT));
+		dispatcher.attach(b2);
 
 		return dispatcher;
 	}
