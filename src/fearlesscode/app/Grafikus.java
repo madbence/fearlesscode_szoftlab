@@ -3,6 +3,7 @@ package fearlesscode.app;
 import fearlesscode.model.util.*;
 import fearlesscode.model.core.*;
 import fearlesscode.controller.*;
+import fearlesscode.menu.*;
 import fearlesscode.io.*;
 import fearlesscode.gui.*;
 import fearlesscode.tools.*;
@@ -15,12 +16,13 @@ public class Grafikus
 	public static void main(String[] args)
 	{
 		Grafikus app=Grafikus.getInstance();
+		//try{app.play(1);}catch(Exception e){}
 		app.loadMainMenu();
 	}
 
 	private final Game game;
 	private final GameFrame gameFrame;
-	private final Timer clock;
+	private Timer clock;
 	private int level=1;
 	private static Grafikus instance;
 	public static Grafikus getInstance()
@@ -35,15 +37,6 @@ public class Grafikus
 	{
 		game=new Game();
 		gameFrame=new GameFrame();
-		clock=new Timer();
-		try
-		{
-			play(1);
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
-		}
 	}
 
 	public InputDispatcher createInputDispatcher()
@@ -111,6 +104,8 @@ public class Grafikus
 
 		gameFrame.addKeyListener(dispatcher);
 		gameFrame.setDrawer(new PlayFieldDrawer(playField));
+
+		clock=new Timer();
 		clock.scheduleAtFixedRate(new TimerTask()
 		{
 			public void run()
@@ -134,12 +129,49 @@ public class Grafikus
 	}
 	public void loadMainMenu()
 	{
-
+		showStaticScreen();
+		final Menu mainMenu=new Menu();
+		mainMenu.addItem(new PlayGameMenuItem());
+		mainMenu.addItem(new ContinueGameMenuItem());
+		mainMenu.addItem(new ExitGameMenuItem());
+		mainMenu.setActive(0);
+		gameFrame.setDrawer(new MenuDrawer(mainMenu));
+		gameFrame.repaint();
+		gameFrame.addKeyListener(new KeyAdapter()
+		{
+			public void keyPressed(KeyEvent e)
+			{
+				if(e.getKeyCode() == KeyEvent.VK_UP)
+				{
+					mainMenu.setActive(mainMenu.getSelectedIndex()-1);
+				}
+				else if(e.getKeyCode() == KeyEvent.VK_DOWN)
+				{
+					mainMenu.setActive(mainMenu.getSelectedIndex()+1);
+				}
+				else if(e.getKeyCode() == KeyEvent.VK_ENTER)
+				{
+					mainMenu.activate();
+				}
+				else
+				{
+					return;
+				}
+				gameFrame.repaint();
+			}
+		});
 	}
 	public void showStaticScreen()
 	{
 		resize(400, 300);
-		clock.cancel();
+		if(clock != null)
+		{
+			clock.cancel();
+		}
 		gameFrame.clearKeyListeners();
+	}
+	public int getLevel()
+	{
+		return level;
 	}
 }

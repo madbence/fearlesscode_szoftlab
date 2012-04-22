@@ -1,5 +1,7 @@
 package fearlesscode.menu;
 
+import fearlesscode.app.*;
+
 public class PlayGameMenuItem extends MenuItem
 {
 	public PlayGameMenuItem()
@@ -8,6 +10,13 @@ public class PlayGameMenuItem extends MenuItem
 	}
 	public void activate()
 	{
-		System.exit(0);
+		try
+		{
+			Grafikus.getInstance().play(1);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 	}
 }

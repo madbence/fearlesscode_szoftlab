@@ -1,6 +1,8 @@
 package fearlesscode.gui;
 
 import java.awt.*;
+import fearlesscode.menu.Menu;
+import fearlesscode.menu.MenuItem;
 
 public class MenuItemDrawer implements Drawer
 {
@@ -13,12 +15,13 @@ public class MenuItemDrawer implements Drawer
 	{
 		if(item.isActive())
 		{
-			g.setPaint(Paint.red);
+			g.setPaint(Color.red);
 		}
 		else
 		{
-			g.setPaint(Paint.black);
+			g.setPaint(Color.black);
 		}
 		g.drawString(item.getTitle(),0,0);
+		//g.fillRect(30, 30, 30, 30);
 	}
 }

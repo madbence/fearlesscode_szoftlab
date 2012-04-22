@@ -11,6 +11,7 @@ public class GameFrame extends Frame
 	public GameFrame()
 	{
 		super();
+		setResizable(false);
 	}
 
 	/**

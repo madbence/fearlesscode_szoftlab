@@ -1,6 +1,9 @@
 package fearlesscode.gui;
 
 import java.awt.*;
+import java.awt.geom.*;
+import fearlesscode.menu.Menu;
+import fearlesscode.menu.MenuItem;
 
 public class MenuDrawer implements Drawer
 {
@@ -12,6 +15,7 @@ public class MenuDrawer implements Drawer
 	public void draw(Graphics2D g)
 	{
 		AffineTransform t=g.getTransform();
+		g.translate(100, 60);
 		for(MenuItem item:menu.getItems())
 		{
 			MenuItemDrawer drawer=new MenuItemDrawer(item);

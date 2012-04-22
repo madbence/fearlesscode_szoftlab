@@ -17,4 +17,8 @@ public abstract class MenuItem
 	{
 		active=state;
 	}
+	public boolean isActive()
+	{
+		return active;
+	}
 }

@@ -1,6 +1,7 @@
 package fearlesscode.menu;
 
 import fearlesscode.gui.*;
+import java.util.*;
 
 public class Menu
 {
@@ -15,7 +16,7 @@ public class Menu
 	{
 		items.add(item);
 	}
-	public void removeItem(Menuitem item)
+	public void removeItem(MenuItem item)
 	{
 		items.remove(item);
 	}
@@ -41,11 +42,14 @@ public class Menu
 		{
 			return;
 		}
-		items.get(selectedIndex).setActive(false);
+		if(selectedIndex!=-1)
+		{
+			items.get(selectedIndex).setActive(false);
+		}
 		items.get(n).setActive(true);
 		selectedIndex=n;
 	}
-	public int getSelectedIntex()
+	public int getSelectedIndex()
 	{
 		return selectedIndex;
 	}
