@@ -22,7 +22,7 @@ public class PlayerInputHandler extends InputHandler
 	{
 		config=c;
 	}
-	public boolean handleKeyPressed(int k)
+	public void handleKeyPressed(int k)
 	{
 		if(k == config.getLeft())
 		{
@@ -36,13 +36,8 @@ public class PlayerInputHandler extends InputHandler
 		{
 			controller.jump();
 		}
-		else
-		{
-			return false;
-		}
-		return true;
 	}
-	public boolean handleKeyReleased(int k)
+	public void handleKeyReleased(int k)
 	{
 		if(k == config.getLeft())
 		{
@@ -52,10 +47,5 @@ public class PlayerInputHandler extends InputHandler
 		{
 			controller.stopMove();
 		}
-		else
-		{
-			return false;
-		}
-		return true;
 	}
 }

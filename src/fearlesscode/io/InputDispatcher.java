@@ -17,20 +17,14 @@ public class InputDispatcher
 	{
 		for(InputHandler listener:listeners)
 		{
-			if(listener.handleKeyPressed(k))
-			{
-				return;
-			}
+			listener.handleKeyPressed(k);
 		}
 	}
 	public void handleKeyReleased(int k)
 	{
 		for(InputHandler listener:listeners)
 		{
-			if(listener.handleKeyReleased(k))
-			{
-				return;
-			}
+			listener.handleKeyReleased(k);
 		}
 	}
 }

@@ -14,17 +14,14 @@ public class PlayFieldInputHandler extends InputHandler
 	{
 		config=con;
 	}
-	public boolean handleKeyPressed(int k)
+	public void handleKeyPressed(int k)
 	{
 		if(k == config.getToggleMode())
 		{
 			controller.toggleMode();
-			return true;
 		}
-		return false;
 	}
-	public boolean handleKeyReleased(int k)
+	public void handleKeyReleased(int k)
 	{
-		return false;
 	}
 }

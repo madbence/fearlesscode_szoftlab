@@ -1,6 +1,6 @@
 package fearlesscode.io;
 
-import fearlesscode.controller;
+import fearlesscode.controller.*;
 
 public class BlockInputHandler extends InputHandler
 {
@@ -22,7 +22,7 @@ public class BlockInputHandler extends InputHandler
 	{
 		config=c;
 	}
-	public boolean handleKeyPressed(int k)
+	public void handleKeyPressed(int k)
 	{
 		if(k == config.getNorth())
 		{
@@ -40,14 +40,9 @@ public class BlockInputHandler extends InputHandler
 		{
 			controller.moveWest();
 		}
-		else
-		{
-			return false;
-		}
-		return true;
 	}
-	public boolean handleKeyReleased(int k)
+	public void handleKeyReleased(int k)
 	{
-		return false;
+
 	}
 }

@@ -68,9 +68,19 @@ public class Grafikus
 		dispatcher.attach(pfih);
 
 		PlayerInputHandler p1=new PlayerInputHandler();
-		p1.setController(new PlayerController(game.getPlayField().getPlayers().get(0).getPlayer()));
+		p1.setController(new PlayerController(game.getPlayField().getPlayers().get(0).getPlayer(), game.getPlayField()));
 		p1.setConfig(new PlayerKeyConfiguration(KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT, KeyEvent.VK_UP));
 		dispatcher.attach(p1);
+
+		PlayerInputHandler p2=new PlayerInputHandler();
+		p2.setController(new PlayerController(game.getPlayField().getPlayers().get(1).getPlayer(), game.getPlayField()));
+		p2.setConfig(new PlayerKeyConfiguration(KeyEvent.VK_A, KeyEvent.VK_D, KeyEvent.VK_W));
+		dispatcher.attach(p2);
+
+		BlockInputHandler b=new BlockInputHandler();
+		b.setController(new BlockController(game.getPlayField().getBlocks().get(1).getBlock(), game.getPlayField()));
+		b.setConfig(new BlockKeyConfiguration(KeyEvent.VK_W, KeyEvent.VK_D, KeyEvent.VK_S, KeyEvent.VK_A));
+		dispatcher.attach(b);
 
 		return dispatcher;
 	}

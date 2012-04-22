@@ -1,28 +1,43 @@
 package fearlesscode.controller;
 
 import fearlesscode.model.block.*;
+import fearlesscode.model.core.*;
 
 public class BlockController
 {
 	private Block block;
-	public BlockController(Block block)
+	private PlayField playField;
+	public BlockController(Block block, PlayField pf)
 	{
 		this.block=block;
+		playField=pf;
 	}
 	public void moveNorth()
 	{
-		block.getPlayField().move(block, 2);
+		if(playField.isBlockMode())
+		{
+			block.getPlayField().move(block, 2);
+		}
 	}
 	public void moveEast()
 	{
-		block.getPlayField().move(block, 3);
+		if(playField.isBlockMode())
+		{
+			block.getPlayField().move(block, 3);
+		}
 	}
 	public void moveSouth()
 	{
-		block.getPlayField().move(block, 0);
+		if(playField.isBlockMode())
+		{
+			block.getPlayField().move(block, 0);
+		}
 	}
 	public void moveWest()
 	{
-		block.getPlayField().move(block, 1);
+		if(playField.isBlockMode())
+		{
+			block.getPlayField().move(block, 1);
+		}
 	}
 }
