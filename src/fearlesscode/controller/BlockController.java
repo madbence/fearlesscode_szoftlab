@@ -1,6 +1,6 @@
 package fearlesscode.controller;
 
-import fearlesscode.block.*;
+import fearlesscode.model.block.*;
 
 public class BlockController
 {

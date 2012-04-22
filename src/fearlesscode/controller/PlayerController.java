@@ -12,17 +12,21 @@ public class PlayerController
 	}
 	public void moveLeft()
 	{
-		this.player.move(new Speed(-1, 0));
+		player.move(new Speed(-1-player.getSpeed().getX(), 0));
 	}
 	public void moveRight()
 	{
-		this.player.move(new Speed(1, 0));
+		player.move(new Speed(1-player.getSpeed().getX(), 0));
 	}
 	public void jump()
 	{
 		if(Math.abs(player.getSpeed().getY())<0.001)
 		{
-			this.player.move(new Speed(0, -5));
+			player.move(new Speed(0, -5));
 		}
+	}
+	public void stopMove()
+	{
+		player.move(new Speed(-player.getSpeed().getX(), 0));
 	}
 }

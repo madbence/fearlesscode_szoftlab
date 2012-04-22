@@ -5,16 +5,26 @@ import fearlesscode.controller.*;
 public class PlayFieldInputHandler extends InputHandler
 {
 	private PlayFieldController controller;
-	public PlayFieldInputHandler(PlayFieldController con)
+	private PlayFieldKeyConfiguration config;
+	public void setController(PlayFieldController con)
 	{
 		controller=con;
 	}
+	public void setConfig(PlayFieldKeyConfiguration con)
+	{
+		config=con;
+	}
 	public boolean handleKeyPressed(int k)
 	{
-		controller.press(k);
+		if(k == config.getToggleMode())
+		{
+			controller.toggleMode();
+			return true;
+		}
+		return false;
 	}
 	public boolean handleKeyReleased(int k)
 	{
-		controller.release(k);
+		return false;
 	}
 }

@@ -60,7 +60,7 @@ public class Wall extends Entity
 		else
 		{
 			player.getPlayer().move(new Speed(
-				-player.getPlayer().getSpeed().getX()*0.05,
+				0/*-player.getPlayer().getSpeed().getX()*0.05*/,
 				-player.getPlayer().getSpeed().getY()));
 		}
 	}

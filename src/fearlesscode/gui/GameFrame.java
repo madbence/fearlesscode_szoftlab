@@ -1,6 +1,7 @@
 package fearlesscode.gui;
 
-import fearlesscode.core.*;
+import fearlesscode.model.core.*;
+import java.awt.*;
 
 public class GameFrame extends Frame
 {

@@ -1,6 +1,6 @@
 package fearlesscode.io;
 
-import fearlesscode.controller;
+import fearlesscode.controller.*;
 
 public class PlayerInputHandler extends InputHandler
 {
@@ -46,11 +46,11 @@ public class PlayerInputHandler extends InputHandler
 	{
 		if(k == config.getLeft())
 		{
-			controller.moveRight();
+			controller.stopMove();
 		}
 		else if(k == config.getRight())
 		{
-			controller.moveLeft();
+			controller.stopMove();
 		}
 		else
 		{

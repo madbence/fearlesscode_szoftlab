@@ -1,39 +1,16 @@
 package fearlesscode.controller;
 
-import fearlesscode.io.*;
+import fearlesscode.model.core.*;
 
 public class PlayFieldController
 {
-	private ArrayList<PlayerInputHandler> players;
-	private BlockController block;
 	private PlayField playField;
 	public PlayFieldController(PlayField pf)
 	{
 		playField=pf;
 	}
-	public addPlayerController(PlayerInputHandler handler)
+	public void toggleMode()
 	{
-		players.add(handler);
-	}
-	public setBlockController(BlockInputHandler handler)
-	{
-		block=handler;
-	}
-	public void press(int k)
-	{
-		if(playField.isBlockMode())
-		{
-			block.handleKeyPressed(k);
-		}
-		else
-		{
-			for(PlayerInputHandler player:players)
-			{
-				if(player.handleKeyPressed(k))
-				{
-					return;
-				}
-			}
-		}
+		playField.toggleMode();
 	}
 }
