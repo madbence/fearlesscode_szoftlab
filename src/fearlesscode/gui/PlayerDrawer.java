@@ -3,7 +3,7 @@ package fearlesscode.gui;
 import fearlesscode.model.player.*;
 import java.awt.*;
 
-public class PlayerDrawer
+public class PlayerDrawer implements Drawer
 {
 	private Player player;
 	public PlayerDrawer(Player subject)

@@ -2,6 +2,7 @@ package fearlesscode.model.container;
 
 import fearlesscode.model.block.*;
 import fearlesscode.model.misc.*;
+import fearlesscode.model.core.*;
 
 /**
  * Blokkot és a hozzátartozó pozíciót tömörítő wrapper osztály.
@@ -17,6 +18,11 @@ public class BlockContainer
 	 * Az adott blokk.
 	 */
 	private Block block;
+
+	/**
+	 * A tartalmazó PlayField referenciája.
+	 */
+	private PlayField playField;
 
 	/**
 	 * Létrehoz egy BlockContainert a megadott paraméterekkel.
@@ -59,5 +65,23 @@ public class BlockContainer
 	public void setBlock(Block block)
 	{
 		this.block = block;
+	}
+
+	/**
+	 * Beállítja a tartalmazó PlayFieldet.
+	 * @param pf A tartalmazó PlayField.
+	 */
+	public void setPlayField(PlayField pf)
+	{
+		playField=pf;
+	}
+
+	/**
+	 * Lekéri a tartalmazó PlayFieldet.
+	 * @return A tartalmazó PlayField.
+	 */
+	public PlayField getPlayField()
+	{
+		return playField;
 	}
 }

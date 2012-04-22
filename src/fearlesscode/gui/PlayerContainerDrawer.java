@@ -4,7 +4,7 @@ import fearlesscode.model.container.*;
 import java.awt.*;
 import java.awt.geom.*;
 
-public class PlayerContainerDrawer
+public class PlayerContainerDrawer implements Drawer
 {
 	private PlayerContainer container;
 	public PlayerContainerDrawer(PlayerContainer subject)

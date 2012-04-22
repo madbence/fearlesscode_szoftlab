@@ -3,7 +3,7 @@ package fearlesscode.gui;
 import fearlesscode.model.entity.*;
 import java.awt.*;
 
-public abstract class EntityDrawer
+public abstract class EntityDrawer implements Drawer
 {
 	protected Entity entity;
 	public EntityDrawer(Entity subject)

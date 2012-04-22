@@ -4,7 +4,7 @@ import fearlesscode.model.core.*;
 import fearlesscode.model.container.*;
 import java.awt.*;
 
-public class PlayFieldDrawer
+public class PlayFieldDrawer implements Drawer
 {
 	private PlayField playField;
 	public PlayFieldDrawer(PlayField subject)

@@ -42,6 +42,9 @@ public class PlayFieldBuilder
 				blocks.add(new EmptyBlock(pf));
 			}
 		}
+
+		pf.setWidth(mfj.getMapSizeX());
+		pf.setHeight(mfj.getMapSizeY());
 		
 		for(int i=0; i<mfj.getMapSizeY()-1;i++)
 		{

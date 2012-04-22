@@ -13,23 +13,24 @@ public class Grafikus
 {
 	public static void main(String[] args)
 	{
-		Grafikus app=new Grafikus(args[0]);
+		Grafikus app=new Grafikus();
 	}
 
-	public Game game;
-	public Grafikus(String map)
+	private Game game;
+	private final GameFrame gameFrame;
+	public Grafikus()
 	{
 		game=new Game();
 		try
 		{
-			PlayField playField=PlayFieldBuilder.createPlayField(game, map);
+			PlayField playField=PlayFieldBuilder.createPlayField(game, "maps/default.json");
 			game.start(playField);
 		}
 		catch(Exception e)
 		{
 			e.printStackTrace();
 		}
-		final GameFrame gameFrame=new GameFrame(game);
+		gameFrame=new GameFrame();
 		Timer clock=new Timer();
 		final InputDispatcher dispatcher=createInputDispatcher();
 		clock.scheduleAtFixedRate(new TimerTask()
@@ -90,4 +91,12 @@ public class Grafikus
 
 		return dispatcher;
 	}
+
+	public void resize(int x, int y)
+	{
+		gameFrame.setVisible(false);
+		gameFrame.setSize(x, y);
+		gameFrame.setVisible(true);
+	}
+
 }

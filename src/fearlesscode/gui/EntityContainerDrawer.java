@@ -4,7 +4,7 @@ import fearlesscode.model.container.*;
 import java.awt.*;
 import java.awt.geom.*;
 
-public class EntityContainerDrawer
+public class EntityContainerDrawer implements Drawer
 {
 	private EntityContainer container;
 	public EntityContainerDrawer(EntityContainer c)

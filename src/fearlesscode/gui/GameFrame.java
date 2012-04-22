@@ -5,16 +5,33 @@ import java.awt.*;
 
 public class GameFrame extends Frame
 {
-	private PlayFieldDrawer drawer;
-	public GameFrame(Game game)
+	private Drawer drawer;
+	public GameFrame()
 	{
 		super();
-		this.drawer=new PlayFieldDrawer(game.getPlayField());
 	}
+
+	/**
+	 * A natív frame ezt a rajzolót fogja használni a rendereléshez.
+	 */
+	public void setDrawer(Drawer d)
+	{
+		drawer=d;
+	}
+
+	/**
+	 * A rajzolás a natív Graphics objektumra történik, a beállított rajzoló objektummal.
+	 * @param g A natív Graphics objektum.
+	 */
 	public void paint(Graphics g)
 	{
 		drawer.draw((Graphics2D)g);
 	}
+
+	/**
+	 * A kép villogásának elkerülése érdekében dupla bufferelést használunk, ezt a natív update metódus felüldefiniálásával tesszük meg.
+	 * @param g A natív Graphics objektum.
+	 */
 	public void update(Graphics g)
 	{
 		Graphics offgc;

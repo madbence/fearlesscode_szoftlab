@@ -44,6 +44,9 @@ public class PlayField
 	 */
 	private ArrayList<BlockContainer> blocks;
 
+	private int width;
+
+	private int height;
 
 	/**
 	 * Példányosít egy PlayField objektumot.
@@ -66,7 +69,9 @@ public class PlayField
 	 */
 	public void addBlock(Position position, Block block)
 	{
-		blocks.add(new BlockContainer(position, block));
+		BlockContainer container=new BlockContainer(position, block);
+		container.setPlayField(this);
+		blocks.add(container);
 	}
 
 	/**
@@ -335,5 +340,22 @@ public class PlayField
 	public boolean isBlockMode()
 	{
 		return blockMode;
+	}
+
+	public void setWidth(int x)
+	{
+		width=x;
+	}
+	public int getWidth()
+	{
+		return width;
+	}
+	public void setHeight(int y)
+	{
+		height=y;
+	}
+	public int getHeight()
+	{
+		return height;
 	}
 }

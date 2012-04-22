@@ -3,7 +3,7 @@ package fearlesscode.gui;
 import fearlesscode.model.block.*;
 import java.awt.*;
 
-public abstract class BlockDrawer
+public abstract class BlockDrawer implements Drawer
 {
 	protected Block block;
 	public BlockDrawer(Block subject)
