@@ -40,6 +40,8 @@ public class Door extends Entity
 	 */
 	public void meetPlayer(PlayerContainer player)
 	{
+		Logger.log("player had "+player.getPlayer().getObtainedKeys()+" keys");
+		Logger.log("door requires "+requiredKeys+" keys");
 		this.requiredKeys-=player.getPlayer().getObtainedKeys();
 		player.getPlayer().resetKeys();
 		if(requiredKeys>0)

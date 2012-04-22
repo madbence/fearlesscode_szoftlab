@@ -5,6 +5,7 @@ import fearlesscode.model.core.*;
 import fearlesscode.controller.*;
 import fearlesscode.io.*;
 import fearlesscode.gui.*;
+import fearlesscode.tools.*;
 import java.util.*;
 import java.awt.event.*;
 
@@ -13,20 +14,31 @@ public class Grafikus
 {
 	public static void main(String[] args)
 	{
-		Grafikus app=new Grafikus();
+		Grafikus app=Grafikus.getInstance();
+		app.loadMainMenu();
 	}
 
 	private final Game game;
 	private final GameFrame gameFrame;
 	private final Timer clock;
-	public Grafikus()
+	private int level=1;
+	private static Grafikus instance;
+	public static Grafikus getInstance()
+	{
+		if(instance==null)
+		{
+			instance=new Grafikus();
+		}
+		return instance;
+	}
+	protected Grafikus()
 	{
 		game=new Game();
 		gameFrame=new GameFrame();
 		clock=new Timer();
 		try
 		{
-			play("maps/default.json");
+			play(1);
 		}
 		catch(Exception e)
 		{
@@ -45,15 +57,29 @@ public class Grafikus
 		pfih.setConfig(pfkc);
 		dispatcher.attach(pfih);
 
-		PlayerInputHandler p1=new PlayerInputHandler();
-		p1.setController(new PlayerController(game.getPlayField().getPlayers().get(0).getPlayer(), game.getPlayField()));
-		p1.setConfig(new PlayerKeyConfiguration(KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT, KeyEvent.VK_UP));
-		dispatcher.attach(p1);
+		try
+		{
+			PlayerInputHandler p1=new PlayerInputHandler();
+			p1.setController(new PlayerController(game.getPlayField().getPlayers().get(0).getPlayer(), game.getPlayField()));
+			p1.setConfig(new PlayerKeyConfiguration(KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT, KeyEvent.VK_UP));
+			dispatcher.attach(p1);
+		}
+		catch(Exception e)
+		{
+			Logger.debug("Map has no players");
+		}
 
-		PlayerInputHandler p2=new PlayerInputHandler();
-		p2.setController(new PlayerController(game.getPlayField().getPlayers().get(1).getPlayer(), game.getPlayField()));
-		p2.setConfig(new PlayerKeyConfiguration(KeyEvent.VK_A, KeyEvent.VK_D, KeyEvent.VK_W));
-		dispatcher.attach(p2);
+		try
+		{
+			PlayerInputHandler p2=new PlayerInputHandler();
+			p2.setController(new PlayerController(game.getPlayField().getPlayers().get(1).getPlayer(), game.getPlayField()));
+			p2.setConfig(new PlayerKeyConfiguration(KeyEvent.VK_A, KeyEvent.VK_D, KeyEvent.VK_W));
+			dispatcher.attach(p2);
+		}
+		catch(Exception e)
+		{
+			Logger.debug("Map has only 1 player");
+		}
 
 		//@TODO: az üres blokkot kéne mozgatni...
 		BlockInputHandler b1=new BlockInputHandler();
@@ -76,11 +102,11 @@ public class Grafikus
 		gameFrame.setVisible(true);
 	}
 
-	public void play(String level) throws Exception
+	public void play(int n) throws Exception
 	{
-		PlayField playField=PlayFieldBuilder.createPlayField(game, level);
+		PlayField playField=PlayFieldBuilder.createPlayField(game, "maps/level"+level+".json");
 		game.start(playField);
-		//gameFrame.clearKeyListeners();
+		gameFrame.clearKeyListeners();
 		InputDispatcher dispatcher=createInputDispatcher();
 
 		gameFrame.addKeyListener(dispatcher);
@@ -94,5 +120,26 @@ public class Grafikus
 			}
 		},0,(long)(1000/30));
 		resize(200*playField.getWidth(), 150*playField.getHeight());
+	}
+	public void playNext()
+	{
+		try
+		{
+			play(++level);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+	public void loadMainMenu()
+	{
+
+	}
+	public void showStaticScreen()
+	{
+		resize(400, 300);
+		clock.cancel();
+		gameFrame.clearKeyListeners();
 	}
 }

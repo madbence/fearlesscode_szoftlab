@@ -44,6 +44,7 @@ public class Key extends Entity
 		if( !isObtained )
 		{
 			player.getPlayer().addKey();
+			Logger.log(player.getPlayer().getName()+" now has "+player.getPlayer().getObtainedKeys());
 			playField.setSpawnPosition(player.getPlayer(), this);
 			isObtained = true;
 			Logger.log(this,"been picked up.");

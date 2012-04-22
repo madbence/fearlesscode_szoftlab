@@ -1,5 +1,7 @@
 package fearlesscode.model.core;
 
+import fearlesscode.app.*;
+
 /**
  * A játék fő mozzanatait kezelő osztály.
  * A játék fő mozzanatait (pálya betöltés, játék megnyerése) kezeli. Kezdetben inicializál minden objektumot.
@@ -31,7 +33,7 @@ public class Game
 	 */
 	public void loadNextLevel()
 	{
-		playField=null;
+		Grafikus.getInstance().playNext();
 	}
 
 	/**

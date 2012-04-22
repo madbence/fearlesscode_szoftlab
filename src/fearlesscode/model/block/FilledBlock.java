@@ -61,11 +61,11 @@ public class FilledBlock extends Block
 				Block neighbour=getNeighbour(dir);
 				if(neighbour != null && matches(neighbour, dir, true))
 				{
-					Logger.enable();
+					//Logger.enable();
 					//Grafikus.rem=10;
-					Logger.log(player.getPlayer(), "entered "+neighbour.getName());
-					Logger.log("x:"+player.getPlayer().getSpeed().getX()+",y:"+player.getPlayer().getSpeed().getY());
-					Logger.disable();
+					//Logger.log(player.getPlayer(), "entered "+neighbour.getName());
+					//Logger.log("x:"+player.getPlayer().getSpeed().getX()+",y:"+player.getPlayer().getSpeed().getY());
+					//Logger.disable();
 					player.getPlayer().enterBlock(neighbour, entryPosition);
 					for(Block b:player.getPlayer().getActiveBlocks())
 					{
@@ -80,7 +80,7 @@ public class FilledBlock extends Block
 				}
 				else
 				{
-					Logger.log(player.getPlayer(), "collided with the border of "+getName());
+					//Logger.log(player.getPlayer(), "collided with the border of "+getName());
 					player.getPlayer().move(
 						new Speed(
 							-player.getPlayer().getSpeed().getX()*(dir%2),
@@ -95,33 +95,33 @@ public class FilledBlock extends Block
 				if(player.getPlayer().getActiveBlocks().size()>1)
 				{
 					leaveList.add(player.getPlayer());
-					Logger.enable();
-					Logger.log(player.getPlayer(), "left "+getName());
-					Logger.log("x:"+player.getPlayer().getSpeed().getX()+",y:"+player.getPlayer().getSpeed().getY());
-					Logger.disable();
+					//Logger.enable();
+					//Logger.log(player.getPlayer(), "left "+getName());
+					//Logger.log("x:"+player.getPlayer().getSpeed().getX()+",y:"+player.getPlayer().getSpeed().getY());
+					//Logger.disable();
 				}
 				else
 				{
-					Logger.debug("HOPP EGY BUG!");
-					Logger.debug("left "+getName());
-					Logger.debug("x:"+player.getPlayer().getSpeed().getX()+",y:"+player.getPlayer().getSpeed().getY());
+					//Logger.debug("HOPP EGY BUG!");
+					//Logger.debug("left "+getName());
+					//Logger.debug("x:"+player.getPlayer().getSpeed().getX()+",y:"+player.getPlayer().getSpeed().getY());
 					for(Block b:player.getPlayer().getActiveBlocks())
 					{
-						Logger.debug(b.getName());
+						//Logger.debug(b.getName());
 					}
 				}
 			}
 			else
 			{
 				player.setPosition(player.getPlayer().getNextPosition(currentPosition));
-				Logger.log(
+				/*Logger.log(
 					player.getPlayer().getName()+
 					" is now at ("+
 					player.getPosition().getX()+
 					","+
 					player.getPosition().getY()+
 					") in "+
-					getName());
+					getName());*/
 			}
 		}
 		for(Player p:leaveList)
@@ -145,7 +145,7 @@ public class FilledBlock extends Block
 				Rectangle entityBox=container.getEntity().getBoundingBox();
 				if(CollisionProcesser.isCollied(nextPosition, playerBox, container.getPosition(), entityBox))
 				{
-					Logger.log(player.getPlayer(),"collided with "+container.getEntity().getName());
+					//Logger.log(player.getPlayer(),"collided with "+container.getEntity().getName());
 					container.getEntity().meetPlayer(player);
 				}
 			}

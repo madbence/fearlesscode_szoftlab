@@ -126,7 +126,7 @@ public class Player implements Info, Collideable
 	 */
 	public int getObtainedKeys()
 	{
-		return 0;
+		return obtainedKeys;
 	}
 
 	/**

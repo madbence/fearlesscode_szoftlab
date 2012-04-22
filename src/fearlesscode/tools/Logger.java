@@ -9,7 +9,7 @@ import fearlesscode.model.misc.*;
  */
 public class Logger
 {
-	private static boolean enabled=false;
+	private static boolean enabled=true;
 	/**
 	 * Eseményeket ír ki a képernyőre.
 	 * pl.: [3:Player] has moved to position (10,15).
