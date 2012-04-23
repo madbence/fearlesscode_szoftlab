@@ -4,13 +4,28 @@ import fearlesscode.model.core.*;
 import fearlesscode.model.container.*;
 import java.awt.*;
 
+/**
+ * Kirajzolja a játékteret.
+ */
 public class PlayFieldDrawer implements Drawer
 {
+	/**
+	 * A kirajzolandó játéktér.
+	 */
 	private PlayField playField;
+
+	/**
+	 * Létrehoz egy rajzolót a megadott játéktérhez.
+	 */
 	public PlayFieldDrawer(PlayField subject)
 	{
 		playField=subject;
 	}
+
+	/**
+	 * Végigiterál a blokkok konténerein, és meghívja a rajzolójuk draw() metódusát.
+	 * @param g A grafikus felület, amire rajzolunk.
+	 */
 	public void draw(Graphics2D g)
 	{
 		for(BlockContainer bc:playField.getBlocks())

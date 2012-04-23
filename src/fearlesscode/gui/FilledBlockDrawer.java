@@ -4,12 +4,24 @@ import fearlesscode.model.block.*;
 import fearlesscode.model.container.*;
 import java.awt.*;
 
+/**
+ * Egy FilledBlock objektumot kirajzol.
+ */
 public class FilledBlockDrawer extends BlockDrawer
 {
+	/**
+	 * Létrehoz egy új rajzolót a megadott FilledBlocknak.
+	 * @param subject A kirajzolandó FilledBlock.
+	 */
 	public FilledBlockDrawer(FilledBlock subject)
 	{
 		super(subject);
 	}
+
+	/**
+	 * Végigiterál az entitásokon, és a játékosokon, és mindnek meghívja a draw metódusát.
+	 * @param g A grafikus felület, amire rajzolunk.
+	 */
 	public void draw(Graphics2D g)
 	{
 		g.setPaint(Color.black);

@@ -2,12 +2,19 @@ package fearlesscode.menu;
 
 import fearlesscode.app.*;
 
+/**
+ * A MenuItem leszármazottja, viselkedése az activate() metódusban szerepel.
+ */
 public class ContinueGameMenuItem extends MenuItem
 {
 	public ContinueGameMenuItem()
 	{
 		super("Continue Game");
 	}
+
+	/**
+	 * A legutolsó (amire a játékos eljutott) pályától indít egy játékot.
+	 */
 	public void activate()
 	{
 		try
