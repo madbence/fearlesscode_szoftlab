@@ -28,6 +28,7 @@ public class PlayFieldDrawer implements Drawer
 	 */
 	public void draw(Graphics2D g)
 	{
+		g.drawString(String.valueOf(playField.getTick()), 10, 50);
 		for(BlockContainer bc:playField.getBlocks())
 		{
 			BlockContainerDrawer drawer=new BlockContainerDrawer(bc);

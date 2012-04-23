@@ -10,7 +10,7 @@ public class PlayFieldInputHandler extends InputHandler
 	/**
 	 * A tárolt kontroller.
 	 */
-	private PlayFieldController controller
+	private PlayFieldController controller;
 
 	/**
 	 * A tárolt konfiguráció.

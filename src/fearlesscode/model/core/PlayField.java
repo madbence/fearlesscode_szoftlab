@@ -48,6 +48,8 @@ public class PlayField
 
 	private int height;
 
+	private long tick=0;
+
 	/**
 	 * Példányosít egy PlayField objektumot.
 	 *
@@ -204,6 +206,7 @@ public class PlayField
 	 */
 	public void tick()
 	{
+		tick++;
 		ArrayList<Block> active=new ArrayList<Block>();
 		for(PlayerSpawnPoint player:players)
 		{
@@ -357,5 +360,9 @@ public class PlayField
 	public int getHeight()
 	{
 		return height;
+	}
+	public long getTick()
+	{
+		return tick;
 	}
 }

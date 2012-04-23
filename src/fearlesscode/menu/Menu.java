@@ -39,13 +39,13 @@ public class Menu
 
 	/*/**
 	 * Elvesz egy
-	public void removeItem(MenuItem item)
+	//public void removeItem(MenuItem item)
 	{
 		items.remove(item);
 	}*/
 
 	/*
-	public void clear()
+	//public void clear()
 	{
 		items.clear();
 	}*/

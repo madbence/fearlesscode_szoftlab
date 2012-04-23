@@ -10,9 +10,15 @@ import fearlesscode.tools.*;
 import java.util.*;
 import java.awt.event.*;
 
-
+/**
+ * A program grafikus változatának fő osztálya.
+ */
 public class Grafikus
 {
+	/**
+	 * Létrehoz egy Grafikus objektumot, majd betölti rajta a főmenüt.
+	 * @param args Parancssori paraméterek (nem használjuk).
+	 */
 	public static void main(String[] args)
 	{
 		Grafikus app=Grafikus.getInstance();
@@ -20,11 +26,34 @@ public class Grafikus
 		app.loadMainMenu();
 	}
 
+	/**
+	 * A tárolt játék objektum.
+	 */
 	private final Game game;
+
+	/**
+	 * A tárolt grafikus felület.
+	 */
 	private final GameFrame gameFrame;
+
+	/**
+	 * A játék órája.
+	 */
 	private Timer clock;
-	private int level=1;
+
+	/**
+	 * Az aktuális pálya száma.
+	 */
+	private int level;
+
+	/**
+	 * A Grafikus példányának tárolására (sigleton pattern).
+	 */
 	private static Grafikus instance;
+
+	/**
+	 * Visszaadja a Grafikus egyetlen példányát (sigleton pattern).
+	 */
 	public static Grafikus getInstance()
 	{
 		if(instance==null)
@@ -33,12 +62,17 @@ public class Grafikus
 		}
 		return instance;
 	}
+
 	protected Grafikus()
 	{
 		game=new Game();
 		gameFrame=new GameFrame();
+		level=1;
 	}
 
+	/**
+	 * Létrehozza a játékhoz szükséges InputHandlereket (részletesen a szekvenciadiargamokon).
+	 */
 	public InputDispatcher createInputDispatcher()
 	{
 		InputDispatcher dispatcher=new InputDispatcher();
@@ -88,6 +122,7 @@ public class Grafikus
 		return dispatcher;
 	}
 
+	
 	public void resize(int x, int y)
 	{
 		gameFrame.setVisible(false);
@@ -95,6 +130,10 @@ public class Grafikus
 		gameFrame.setVisible(true);
 	}
 
+	/**
+	 * A megadott pályától indít egy játékot.
+	 * @param n A pálya száma.
+	 */
 	public void play(int n) throws Exception
 	{
 		PlayField playField=PlayFieldBuilder.createPlayField(game, "maps/level"+level+".json");
@@ -105,6 +144,10 @@ public class Grafikus
 		gameFrame.addKeyListener(dispatcher);
 		gameFrame.setDrawer(new PlayFieldDrawer(playField));
 
+		if(clock != null)
+		{
+			clock.cancel();
+		}
 		clock=new Timer();
 		clock.scheduleAtFixedRate(new TimerTask()
 		{
@@ -116,6 +159,10 @@ public class Grafikus
 		},0,(long)(1000/30));
 		resize(200*playField.getWidth(), 150*playField.getHeight());
 	}
+
+	/**
+	 * Elindítja a következő pályát, és növeli az aktuális pálya számát ennek megfelelően.
+	 */
 	public void playNext()
 	{
 		try
@@ -127,6 +174,10 @@ public class Grafikus
 			e.printStackTrace();
 		}
 	}
+
+	/**
+	 * Betölti a főmenüt.
+	 */
 	public void loadMainMenu()
 	{
 		showStaticScreen();
@@ -170,8 +221,29 @@ public class Grafikus
 		}
 		gameFrame.clearKeyListeners();
 	}
+	
+	/**
+	 * Visszaadja az aktuális pálya számát.
+	 */
 	public int getLevel()
 	{
 		return level;
+	}
+
+	/**
+	 * Megjelenít egy statikus képernyőt ("Loading next level..." felirattal).
+	 * Majd betölti a következő pályát.
+	 */
+	public void loadNextLevel()
+	{
+
+	}
+
+	/**
+	 * Megjeleníti a játék vége képernyőt, majd visszatér a főmenübe.
+	 */
+	public void endGame()
+	{
+		
 	}
 }
