@@ -1,6 +1,0 @@
-[1:Player] has collided with [1:Wall]
-[1:Player] is now at (60.0,75.0) in [2:FilledBlock]
-[1:Player]
-  Coordinates:(60.0,75.0)
-  Obtained Keys:0
-  Speed:(10.0,0.0)

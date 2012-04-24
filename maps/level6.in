@@ -1,5 +1,0 @@
-loadMap maps/level6.json
-movePlayer 1 0 -10
-tick
-getPlayerInfo
-exit

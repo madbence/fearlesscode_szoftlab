@@ -20,7 +20,7 @@ public class CollisionProcesser
 	 */
 	public static boolean isCollied(EntityPosition mainPos, Rectangle main, EntityPosition otherPos, Rectangle other)
 	{
-		boolean isCollied = false;
+		/*boolean isCollied = false;
 
 		if(isPointInRectangle(mainPos.getX(), mainPos.getY(), otherPos, other))
 		{
@@ -42,7 +42,14 @@ public class CollisionProcesser
 			isCollied = true;
 		}
 
-		return isCollied;
+		return isCollied;*/
+
+		if(Math.max(mainPos.getX(), otherPos.getX())<Math.min(mainPos.getX()+main.getWidth(), otherPos.getX()+other.getWidth()) &&
+			Math.max(mainPos.getY(), otherPos.getY())<Math.min(mainPos.getY()+main.getHeight(), otherPos.getY()+other.getHeight()))
+		{
+			return true;
+		}
+		return false;
 	}
 
 	/**

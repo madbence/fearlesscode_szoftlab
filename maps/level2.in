@@ -1,4 +1,0 @@
-loadMap maps/level2.json
-tick 1
-getPlayerInfo
-exit
