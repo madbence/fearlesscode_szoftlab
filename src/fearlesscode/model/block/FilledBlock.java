@@ -29,55 +29,101 @@ public class FilledBlock extends Block
 	 */
 	public void checkBorders()
 	{
+		/**
+		 * Lista, hogy melyik játékosok fogják elhagyni a blokkot.
+		 * Mivel iteráció közben nem lehet módosítani az objektumot, amin iterálunk,
+		 * ezért kell a workaround.
+		 */
 		ArrayList<Player> leaveList=new ArrayList<Player>();
+
+		/**
+		 * Minden játékoson végigiterálunk.
+		 */
 		for(PlayerContainer player:players)
 		{
+			/**
+			 * A kevesebb kód érdekében az egyes pozíciókat gyorsan is el lehet érni
+			 */
 			EntityPosition currentPosition=player.getPosition();
 			EntityPosition nextPosition=player.getPlayer().getNextPosition(player.getPosition());
+
+			/**
+			 * Ha a játékos egy új blokkba lép, azt ezen a pozíción teszi majd meg.
+			 */
 			EntityPosition entryPosition=null;
+
+			/**
+			 * A blokk elhagyásának iránya (0 észak, 90 fokonként az cw irányban számoljuk).
+			 * Ha nem megy ki a blokkból, -1.
+			 */
 			int dir=-1;
+
+			/**
+			 * Ha a játékos BAL oldalvonala elhagyta a blokk BAL oldalvonalát, kilépett a blokkból (3as irányban).
+			 */
 			if(nextPosition.getX()<=0 && currentPosition.getX()>0)
 			{
 				dir=3;
 				entryPosition=new EntityPosition(Block.WIDTH, currentPosition.getY()+player.getPlayer().getSpeed().getY());
 			}
+			/**
+			 * Ha a játékos JOBB oldalvonala átlépte a blokk JOBB oldalvonalát, akkor kilépett 1-es irányban.
+			 */
 			else if(nextPosition.getX()+Player.WIDTH >= Block.WIDTH && currentPosition.getX()+Player.WIDTH < Block.WIDTH)
 			{
 				dir=1;
 				entryPosition=new EntityPosition(-Player.WIDTH, currentPosition.getY()+player.getPlayer().getSpeed().getY());
 			}
+			/**
+			 * Ha a játékos FELSŐ oldalvonala elhagyta a blokk FELSŐ oldalvonalát, akkor kilépett 0-ás irányban.
+			 */
 			else if(nextPosition.getY()<=0 && currentPosition.getY()>0)
 			{
 				dir=0;
 				entryPosition=new EntityPosition(currentPosition.getX()+player.getPlayer().getSpeed().getX(), Block.HEIGHT);
 			}
+			/**
+			 * Ha a játékos ALSÓ oldalvonala elhagyta a blokk ALSÓ oldalvonalát, 2-es irányban lépett ki.
+			 */
 			else if(nextPosition.getY()+Player.HEIGHT >= Block.HEIGHT && currentPosition.getY()+Player.HEIGHT < Block.HEIGHT)
 			{
 				dir=2;
 				entryPosition=new EntityPosition(currentPosition.getX()+player.getPlayer().getSpeed().getX(), -Player.HEIGHT);
 			}
+
+			/**
+			 * Ha a játékos kilépett a blokkból.
+			 */
 			if(dir != -1)
 			{
+				/**
+				 * Megkeressük a megfelelő szomszédot.
+				 */
 				Block neighbour=getNeighbour(dir);
+
+				/**
+				 * Ha a szomszédja létezik (nem a PlayField szélén akarunk átlépni),
+				 * valamint illeszkedik a két blokk.
+				 */
 				if(neighbour != null && matches(neighbour, dir, true))
 				{
-					//Logger.enable();
-					//Grafikus.rem=10;
-					//Logger.log(player.getPlayer(), "entered "+neighbour.getName());
-					//Logger.log("x:"+player.getPlayer().getSpeed().getX()+",y:"+player.getPlayer().getSpeed().getY());
-					//Logger.disable();
+					/**
+					 * Akkor a játékos belép a blokkba a megadott pozíción.
+					 */
 					player.getPlayer().enterBlock(neighbour, entryPosition);
-					for(Block b:player.getPlayer().getActiveBlocks())
-					{
-						Logger.debug(b.getName());
-					}
 				}
+				/**
+				 * Ha nincs szomszéd, vagy nem illeszkedik, viszont LEFELÉ hagytuk el a blokkot, akkor reset.
+				 */
 				else if(dir == 2)
 				{
 					playField.resetPlayer(player);
 					return;
 					//instant visszaterunk, mert nem kell tovabb szarozni.
 				}
+				/**
+				 * Egyébként egyszerűen megállunk a blokk szélénél.
+				 */
 				else
 				{
 					//Logger.log(player.getPlayer(), "collided with the border of "+getName());
@@ -87,43 +133,40 @@ public class FilledBlock extends Block
 							-player.getPlayer().getSpeed().getY()*((dir+1)%2)));
 				}
 			}
+			/**
+			 * Ha a játékos TELJESEN kilépett a blokkból.
+			 *
+			 * Tehát a játékos JOBB oldalvonala elhagyta a blokk BAL oldalvonalát, stb.
+			 */
 			if( nextPosition.getY() > Block.HEIGHT ||
 				nextPosition.getY()+Player.HEIGHT < 0 ||
 				nextPosition.getX() > Block.WIDTH ||
 				nextPosition.getX()+Player.WIDTH < 0)
 			{
+				/**
+				 * Itt volt/van egy bug, néha el tudott veszni, reprodukálni a bugot nem nagyon sikerült még szándékosan.
+				 *
+				 * Mindenesetre nem hagyjuk, hogy teljesen elvesszen a játékos minden blokkreferenciája.
+				 */
 				if(player.getPlayer().getActiveBlocks().size()>1)
 				{
+					/**
+					 * Elhagyjuk a blokkot. (itt csak jelezzük, a metódus elején részletezett okok miatt)
+					 */
 					leaveList.add(player.getPlayer());
-					//Logger.enable();
-					//Logger.log(player.getPlayer(), "left "+getName());
-					//Logger.log("x:"+player.getPlayer().getSpeed().getX()+",y:"+player.getPlayer().getSpeed().getY());
-					//Logger.disable();
-				}
-				else
-				{
-					//Logger.debug("HOPP EGY BUG!");
-					//Logger.debug("left "+getName());
-					//Logger.debug("x:"+player.getPlayer().getSpeed().getX()+",y:"+player.getPlayer().getSpeed().getY());
-					for(Block b:player.getPlayer().getActiveBlocks())
-					{
-						//Logger.debug(b.getName());
-					}
 				}
 			}
 			else
 			{
+				/**
+				 * Egyébként minden normális, a játékos a következő pozícióra mozoghat.
+				 */
 				player.setPosition(player.getPlayer().getNextPosition(currentPosition));
-				/*Logger.log(
-					player.getPlayer().getName()+
-					" is now at ("+
-					player.getPosition().getX()+
-					","+
-					player.getPosition().getY()+
-					") in "+
-					getName());*/
 			}
 		}
+		/**
+		 * Utólag végrehajtjuk a blokk elhagyásokat.
+		 */
 		for(Player p:leaveList)
 		{
 			p.leaveBlock(this);
@@ -138,14 +181,23 @@ public class FilledBlock extends Block
 	{
 		for(PlayerContainer player:players)
 		{
+			/**
+			 * Elkérjük a játékos következő pozícióját, és a befoglaló téglalapját.
+			 */
 			Rectangle playerBox=player.getPlayer().getBoundingBox();
 			EntityPosition nextPosition=player.getPlayer().getNextPosition(player.getPosition());
 			for(EntityContainer container:entities)
 			{
+				/**
+				 * Elkérjük az entitás befoglaló téglalapját.
+				 */
 				Rectangle entityBox=container.getEntity().getBoundingBox();
+
+				/**
+				 * Ha ez a két téglalap metszi egymást, ütközés van.
+				 */
 				if(CollisionProcesser.isCollied(nextPosition, playerBox, container.getPosition(), entityBox))
 				{
-					//Logger.log(player.getPlayer(),"collided with "+container.getEntity().getName());
 					container.getEntity().meetPlayer(player);
 				}
 			}
