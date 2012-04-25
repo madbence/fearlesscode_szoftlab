@@ -18,7 +18,7 @@ public class Logger
 	 */
 	public static void log(Info info, String string)
 	{
-		print(info.getName()+" has "+ string);
+		print(System.currentTimeMillis()+": "+info.getName()+" has "+ string);
 	}
 	
 	/**
