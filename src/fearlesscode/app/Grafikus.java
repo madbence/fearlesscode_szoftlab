@@ -2,6 +2,7 @@ package fearlesscode.app;
 
 import fearlesscode.model.util.*;
 import fearlesscode.model.core.*;
+import fearlesscode.model.block.*;
 import fearlesscode.controller.*;
 import fearlesscode.menu.*;
 import fearlesscode.io.*;
@@ -163,7 +164,7 @@ public class Grafikus
 				gameFrame.repaint();
 			}
 		},0,(long)(1000/30));
-		resize(200*playField.getWidth(), 150*playField.getHeight());
+		resize((int)Block.WIDTH*playField.getWidth(), (int)Block.HEIGHT*playField.getHeight());
 	}
 
 	/**

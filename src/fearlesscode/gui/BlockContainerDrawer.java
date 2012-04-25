@@ -1,6 +1,7 @@
 package fearlesscode.gui;
 
 import fearlesscode.model.container.*;
+import fearlesscode.model.block.*;
 import java.awt.*;
 import java.awt.geom.*;
 
@@ -30,7 +31,7 @@ public class BlockContainerDrawer implements Drawer
 	public void draw(Graphics2D g)
 	{
 		AffineTransform t=g.getTransform();
-		g.translate((container.getPosition().getX()-1)*200, (container.getPosition().getY()-1)*150);
+		g.translate((container.getPosition().getX()-1)*Block.WIDTH, (container.getPosition().getY()-1)*Block.HEIGHT);
 		BlockDrawer drawer=container.getBlock().getBlockDrawer();
 		g.scale(0.95, 0.95);
 		if(container.getPlayField().isBlockMode())

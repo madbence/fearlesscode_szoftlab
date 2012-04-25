@@ -25,8 +25,8 @@ public class FilledBlockDrawer extends BlockDrawer
 	public void draw(Graphics2D g)
 	{
 		g.setPaint(Color.black);
-		g.drawRect(0,0,200,150);
-		g.clipRect(0,0,200,150);
+		g.drawRect(0,0,(int)Block.WIDTH,(int)Block.HEIGHT);
+		g.clipRect(0,0,(int)Block.WIDTH,(int)Block.HEIGHT);
 		for(EntityContainer entity:block.getEntities())
 		{
 			EntityContainerDrawer drawer=new EntityContainerDrawer(entity);
