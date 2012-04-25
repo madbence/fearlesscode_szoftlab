@@ -39,22 +39,22 @@ public class FilledBlock extends Block
 			if(nextPosition.getX()<=0 && currentPosition.getX()>0)
 			{
 				dir=3;
-				entryPosition=new EntityPosition(Block.WIDTH, currentPosition.getY());
+				entryPosition=new EntityPosition(Block.WIDTH, currentPosition.getY()+player.getPlayer().getSpeed().getY());
 			}
 			else if(nextPosition.getX()+Player.WIDTH >= Block.WIDTH && currentPosition.getX()+Player.WIDTH < Block.WIDTH)
 			{
 				dir=1;
-				entryPosition=new EntityPosition(-Player.WIDTH, currentPosition.getY());
+				entryPosition=new EntityPosition(-Player.WIDTH, currentPosition.getY()+player.getPlayer().getSpeed().getY());
 			}
 			else if(nextPosition.getY()<=0 && currentPosition.getY()>0)
 			{
 				dir=0;
-				entryPosition=new EntityPosition(currentPosition.getX(), Block.HEIGHT);
+				entryPosition=new EntityPosition(currentPosition.getX()+player.getPlayer().getSpeed().getX(), Block.HEIGHT);
 			}
 			else if(nextPosition.getY()+Player.HEIGHT >= Block.HEIGHT && currentPosition.getY()+Player.HEIGHT < Block.HEIGHT)
 			{
 				dir=2;
-				entryPosition=new EntityPosition(currentPosition.getX(), -Player.HEIGHT);
+				entryPosition=new EntityPosition(currentPosition.getX()+player.getPlayer().getSpeed().getX(), -Player.HEIGHT);
 			}
 			if(dir != -1)
 			{
