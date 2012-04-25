@@ -22,7 +22,7 @@ public class PlayField
 	/**
 	 * A gravitáció mértéke.
 	 */
-	public static final double GRAVITY=0.2;
+	public static final double GRAVITY=0.21;
 
 	/**
 	 * A PlayField állapota. Blokk módban az értéke igaz, egyébként hamis.
@@ -222,6 +222,9 @@ public class PlayField
 		for(Block block:active)
 		{
 			block.processCollisions();
+		}
+		for(Block block:active)
+		{
 			block.checkBorders();
 		}
 	}
