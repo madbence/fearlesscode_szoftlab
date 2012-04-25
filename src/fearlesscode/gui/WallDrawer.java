@@ -25,6 +25,8 @@ public class WallDrawer extends EntityDrawer
 	public void draw(Graphics2D g)
 	{
 		Wall wall=(Wall)entity;
+		g.setPaint(Color.magenta);
+		g.drawString(wall.getName(), 0, -10);
 		g.setPaint(Color.black);
 		g.fillRect(0,0,(int)wall.getWidth(),(int)wall.getHeight());
 	}
