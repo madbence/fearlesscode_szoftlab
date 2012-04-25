@@ -32,10 +32,11 @@ public class BlockContainerDrawer implements Drawer
 		AffineTransform t=g.getTransform();
 		g.translate((container.getPosition().getX()-1)*200, (container.getPosition().getY()-1)*150);
 		BlockDrawer drawer=container.getBlock().getBlockDrawer();
+		g.scale(0.95, 0.95);
 		if(container.getPlayField().isBlockMode())
 		{
 			g.translate(20, 15);
-			g.scale(0.8, 0.8);
+			g.scale(0.9, 0.9);
 		}
 		if(drawer != null)
 		{
