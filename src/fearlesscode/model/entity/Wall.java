@@ -49,19 +49,50 @@ public class Wall extends Entity
 	 */
 	public void meetPlayer(PlayerContainer player)
 	{
-		EntityPosition pos=container.getPosition();
-		if( player.getPosition().getY()+Player.HEIGHT>pos.getY() && 
-			player.getPosition().getY()<pos.getY()+y) //ha a Player a falfelett van
+		Logger.log(this, "collided with "+player.getPlayer().getName());
+
+		EntityPosition w=container.getPosition();
+		EntityPosition p=player.getPosition();
+
+		double px1=p.getX();
+		double px2=px1+Player.WIDTH;
+		double py1=p.getY();
+		double py2=py1+Player.HEIGHT;
+
+		double wx1=w.getX();
+		double wx2=wx1+x;
+		double wy1=w.getY();
+		double wy2=wy1+y;
+
+		if((px2<wx1 && px1>wx2) || (py1<wy2 && py2>wy1))
 		{
+			double sx;
+			if(px1<wx1)
+			{
+				sx=px2-wx1;
+			}
+			else
+			{
+				sx=px1-wx2;
+			}
 			player.getPlayer().move(new Speed(
-				-player.getPlayer().getSpeed().getX(),
+				-player.getPlayer().getSpeed().getX()-sx,
 				0));
 		}
 		else
 		{
+			double sy;
+			if(py1<wy1)
+			{
+				sy=py2-wy1;
+			}
+			else
+			{
+				sy=py1-wy2;
+			}
 			player.getPlayer().move(new Speed(
 				0/*-player.getPlayer().getSpeed().getX()*0.05*/,
-				-player.getPlayer().getSpeed().getY()));
+				-player.getPlayer().getSpeed().getY()-sy));
 		}
 	}
 	
