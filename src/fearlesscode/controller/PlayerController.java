@@ -37,7 +37,7 @@ public class PlayerController
 	{
 		if(!playField.isBlockMode())
 		{
-			player.move(new Speed(-1-player.getSpeed().getX(), 0));
+			player.move(new Speed(-1.5-player.getSpeed().getX(), 0));
 		}
 	}
 
@@ -48,7 +48,7 @@ public class PlayerController
 	{
 		if(!playField.isBlockMode())
 		{
-			player.move(new Speed(1-player.getSpeed().getX(), 0));
+			player.move(new Speed(1.5-player.getSpeed().getX(), 0));
 		}
 	}
 
@@ -61,7 +61,7 @@ public class PlayerController
 		{
 			if(Math.abs(player.getSpeed().getY())<0.001)
 			{
-				player.move(new Speed(0, -5));
+				player.move(new Speed(0, -4.7));
 			}
 		}
 	}
