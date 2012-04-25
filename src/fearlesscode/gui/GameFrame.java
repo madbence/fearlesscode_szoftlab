@@ -28,7 +28,10 @@ public class GameFrame extends Frame
 	 */
 	public void paint(Graphics g)
 	{
-		drawer.draw((Graphics2D)g);
+		Graphics2D gd=(Graphics2D)g;
+		gd.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);
+		gd.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+		drawer.draw(gd);
 	}
 
 	/**
