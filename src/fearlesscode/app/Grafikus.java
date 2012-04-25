@@ -24,6 +24,10 @@ public class Grafikus
 		Grafikus app=Grafikus.getInstance();
 		//try{app.play(1);}catch(Exception e){}
 		app.loadMainMenu();
+		if(args[0] != null)
+		{
+			app.level=Integer.parseInt(args[0]);
+		}
 	}
 
 	/**
@@ -44,7 +48,7 @@ public class Grafikus
 	/**
 	 * Az aktuális pálya száma.
 	 */
-	private int level;
+	public int level;
 
 	/**
 	 * A Grafikus példányának tárolására (sigleton pattern).
@@ -67,7 +71,6 @@ public class Grafikus
 	{
 		game=new Game();
 		gameFrame=new GameFrame();
-		level=1;
 	}
 
 	/**
@@ -153,7 +156,10 @@ public class Grafikus
 		{
 			public void run()
 			{
-				game.getPlayField().tick();
+				if(!game.getPlayField().isBlockMode())
+				{
+					game.getPlayField().tick();
+				}
 				gameFrame.repaint();
 			}
 		},0,(long)(1000/30));
