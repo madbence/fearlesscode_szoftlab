@@ -17,6 +17,8 @@ import fearlesscode.model.misc.*;
  */
 public class Door extends Entity
 {
+	public static final double WIDTH=10;
+	public static final double HEIGHT=20;
 	/**
 	 * Az ajtó kinyitásához szükséges kulcsok száma.
 	 */
@@ -83,7 +85,7 @@ public class Door extends Entity
 	 */
 	public Rectangle getBoundingBox()
 	{
-		return new Rectangle(10, 20);
+		return new Rectangle(WIDTH, HEIGHT);
 	}
 
 	public EntityDrawer getEntityDrawer()

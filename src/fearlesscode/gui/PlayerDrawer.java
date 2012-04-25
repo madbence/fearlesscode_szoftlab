@@ -29,6 +29,6 @@ public class PlayerDrawer implements Drawer
 	public void draw(Graphics2D g)
 	{
 		g.setPaint(Color.blue);
-		g.fillRect(0,0,10,20);
+		g.fillRect(0,0,(int)Player.WIDTH,(int)Player.HEIGHT);
 	}
 }

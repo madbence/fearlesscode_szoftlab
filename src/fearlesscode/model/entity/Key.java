@@ -14,7 +14,8 @@ import fearlesscode.model.misc.*;
  */
 public class Key extends Entity
 {
-	
+	public static final double WIDTH=10;
+	public static final double HEIGHT=20;
 	/**
 	 * A kulcs állapotát leíró boolean. Ha true akkor a kulcs már fel lett véve. Ha false akkor még nem lett felvéve.
 	 */
@@ -81,7 +82,7 @@ public class Key extends Entity
 	 */
 	public Rectangle getBoundingBox()
 	{
-		return new Rectangle(10, 20);
+		return new Rectangle(WIDTH, HEIGHT);
 	}
 
 	public EntityDrawer getEntityDrawer()

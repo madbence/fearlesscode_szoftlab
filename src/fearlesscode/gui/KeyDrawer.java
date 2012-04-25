@@ -31,6 +31,6 @@ public class KeyDrawer extends EntityDrawer
 		{
 			g.setPaint(Color.red);
 		}
-		g.fillRect(0,0,10,20);
+		g.fillRect(0,0,(int)Key.WIDTH,(int)Key.HEIGHT);
 	}
 }

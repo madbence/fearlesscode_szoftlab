@@ -24,6 +24,6 @@ public class DoorDrawer extends EntityDrawer
 	public void draw(Graphics2D g)
 	{
 		g.setPaint(Color.yellow);
-		g.fillRect(0,0,10,20);
+		g.fillRect(0,0,(int)Door.WIDTH,(int)Door.HEIGHT);
 	}
 }
