@@ -122,31 +122,18 @@ public class BlockMatcher
 		{
 			try
 			{
-				//Logger.debug("---matchesEast---");
-				//Logger.debug(container.getEntity().getName());
 				container.getEntity().accept(this);
 				double height1=height;
-				//Logger.debug("height: "+height);
-				//Logger.debug("container.getPosition().getX()+width>Block.WIDTH:");
-				//Logger.debug("  "+container.getPosition().getX()+"+"+width+">"+Block.WIDTH);
-				//Logger.debug("  "+(container.getPosition().getX()+width>Block.WIDTH));
 				if(container.getPosition().getX()+width>Block.WIDTH)
 				{
 					boolean pairFound=false;
 					for(EntityContainer pair:block2.getEntities())
 					{
-						//Logger.debug("--pair--");
-						//Logger.debug(pair.getEntity().getName());
 						try
 						{
 							pair.getEntity().accept(this);
 							if(pair.getPosition().getX()<0)
 							{
-								//Logger.debug("if:");
-								//Logger.debug("  "+(Math.abs(container.getPosition().getY()-pair.getPosition().getY())<0.001));
-								//Logger.debug("  "+(Math.abs(container.getPosition().getY()+height1-pair.getPosition().getY()-height)<0.001));
-								//Logger.debug("    Y:"+container.getPosition().getY());
-								//Logger.debug("    pY:"+pair.getPosition().getY());
 								if( Math.abs(container.getPosition().getY()-pair.getPosition().getY())<0.001 &&
 									Math.abs(container.getPosition().getY()+height1-pair.getPosition().getY()-height)<0.001)
 								{
@@ -162,11 +149,9 @@ public class BlockMatcher
 					}
 					if(!pairFound)
 					{
-						//Logger.debug("pairnotfound");
 						return false;
 					}
 				}
-				//Logger.debug("---!matchesEast---");
 			}
 			catch(Exception e)
 			{
