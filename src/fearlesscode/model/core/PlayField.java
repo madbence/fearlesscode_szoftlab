@@ -48,7 +48,7 @@ public class PlayField
 
 	private int height;
 
-	private long tick=0;
+	private long tick;
 
 	/**
 	 * Példányosít egy PlayField objektumot.
@@ -61,6 +61,7 @@ public class PlayField
 		this.game=game;
 		blocks=new ArrayList<BlockContainer>();
 		players=new ArrayList<PlayerSpawnPoint>();
+		tick=0;
 	}
 	
 	/**
