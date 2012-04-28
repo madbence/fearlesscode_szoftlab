@@ -44,6 +44,8 @@ public class Player implements Info, Collideable
 	 */
 	private int ID;
 
+	private boolean processed;
+
 	/**
 	* A Player konstruktora.
 	* 
@@ -57,6 +59,14 @@ public class Player implements Info, Collideable
 		speed = new Speed(0, 0);
 	}
 
+	public void setProcessed(boolean bool)
+	{
+		processed=bool;
+	}
+	public boolean isProcessed()
+	{
+		return processed;
+	}
 
 	/**
 	 * A sebesség gettere.
@@ -105,8 +115,11 @@ public class Player implements Info, Collideable
 	 */
 	public void enterBlock(Block block, EntityPosition pos)
 	{
-		activeBlocks.add(block);
-		block.addPlayer(this, pos);
+		if(!activeBlocks.contains(block))
+		{
+			activeBlocks.add(block);
+			block.addPlayer(this, pos);
+		}
 	}
 
 	/**
