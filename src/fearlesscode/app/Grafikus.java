@@ -114,12 +114,14 @@ public class Grafikus
 
 		//@TODO: az üres blokkot kéne mozgatni...
 		BlockInputHandler b1=new BlockInputHandler();
-		b1.setController(new BlockController(game.getPlayField().getBlocks().get(1).getBlock(), game.getPlayField()));
+		int emptyBlockIndex=game.getPlayField().getEmptyBlockIndex();
+		System.out.println(emptyBlockIndex);
+		b1.setController(new BlockController(game.getPlayField().getBlocks().get(emptyBlockIndex).getBlock(), game.getPlayField()));
 		b1.setConfig(new BlockKeyConfiguration(KeyEvent.VK_W, KeyEvent.VK_D, KeyEvent.VK_S, KeyEvent.VK_A));
 		dispatcher.attach(b1);
 
 		BlockInputHandler b2=new BlockInputHandler();
-		b2.setController(new BlockController(game.getPlayField().getBlocks().get(1).getBlock(), game.getPlayField()));
+		b2.setController(new BlockController(game.getPlayField().getBlocks().get(emptyBlockIndex).getBlock(), game.getPlayField()));
 		b2.setConfig(new BlockKeyConfiguration(KeyEvent.VK_UP, KeyEvent.VK_RIGHT, KeyEvent.VK_DOWN, KeyEvent.VK_LEFT));
 		dispatcher.attach(b2);
 

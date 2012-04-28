@@ -20,6 +20,10 @@ import fearlesscode.model.exception.*;
 public class PlayField
 {
 	/**
+	 * Az EmptyBlock helye a Blockokat tároló listában.
+	 */
+	private int emptyBlockIndex;
+	/**
 	 * A gravitáció mértéke.
 	 */
 	public static final double GRAVITY=0.21;
@@ -368,5 +372,14 @@ public class PlayField
 	public long getTick()
 	{
 		return tick;
+	}
+	public void setEmptyBlockIndex(int index)
+	{
+		this.emptyBlockIndex=index;
+	}
+	
+	public int getEmptyBlockIndex()
+	{
+		return this.emptyBlockIndex;
 	}
 }

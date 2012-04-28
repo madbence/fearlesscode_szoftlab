@@ -27,6 +27,7 @@ public class PlayFieldBuilder
 	 */
 	public static PlayField createPlayField(Game game, String file) throws CommandException
 	{
+		int index=0;
 		PlayField pf = new PlayField(game);
 		ArrayList<Block> blocks = new ArrayList<Block>();
 		MapFromJson mfj = new MapFromJson(file);
@@ -39,9 +40,11 @@ public class PlayFieldBuilder
 			}
 			else
 			{
+				index=i;
 				blocks.add(new EmptyBlock(pf));
 			}
 		}
+		pf.setEmptyBlockIndex(index);
 
 		pf.setWidth(mfj.getMapSizeX());
 		pf.setHeight(mfj.getMapSizeY());
@@ -102,8 +105,10 @@ public class PlayFieldBuilder
 		for(int i=0; i<mfj.getNumberOfBlocks();i++)
 		{
 			Position pos = new Position(mfj.getXPositionOfBlock(i),mfj.getYPositionOfBlock(i));
+			
 			pf.addBlock(pos, blocks.get(i));
 		}
+
 		
 		return pf;
 	}
