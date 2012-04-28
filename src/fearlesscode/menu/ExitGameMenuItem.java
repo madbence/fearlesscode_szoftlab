@@ -1,5 +1,7 @@
 package fearlesscode.menu;
 
+import fearlesscode.app.*;
+
 /**
  * A MenuItem leszármazottja, a viselkedése az activate() metódusban található.
  */
@@ -18,6 +20,6 @@ public class ExitGameMenuItem extends MenuItem
 	 */
 	public void activate()
 	{
-		System.exit(0);
+		Grafikus.getInstance().exit();
 	}
 }

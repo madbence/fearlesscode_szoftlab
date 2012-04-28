@@ -19,7 +19,7 @@ public class PlayGameMenuItem extends MenuItem
 	{
 		try
 		{
-			Grafikus.getInstance().play(1);
+			Grafikus.getInstance().play(0);
 		}
 		catch(Exception e)
 		{
