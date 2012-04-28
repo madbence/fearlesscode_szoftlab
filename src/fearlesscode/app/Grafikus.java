@@ -174,7 +174,9 @@ public class Grafikus
 				gameFrame.repaint();
 			}
 		},0,(long)(1000/30));
-		resize((int)Block.WIDTH*playField.getWidth()+30, (int)Block.HEIGHT*playField.getHeight()+50);
+		resize(
+			BlockContainerDrawer.WIDTH*playField.getWidth()+30,
+			BlockContainerDrawer.HEIGHT*playField.getHeight()+50);
 	}
 
 	/**

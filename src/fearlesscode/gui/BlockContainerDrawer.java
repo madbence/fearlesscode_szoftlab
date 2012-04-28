@@ -10,6 +10,8 @@ import java.awt.geom.*;
  */
 public class BlockContainerDrawer implements Drawer
 {
+	public static final int WIDTH=300;
+	public static final int HEIGHT=200;
 	/**
 	 * A kirajzolandó blokk konténer objektum.
 	 */
@@ -31,9 +33,13 @@ public class BlockContainerDrawer implements Drawer
 	public void draw(Graphics2D g)
 	{
 		AffineTransform t=g.getTransform();
-		g.translate((container.getPosition().getX()-1)*Block.WIDTH+20, (container.getPosition().getY()-1)*Block.HEIGHT+40);
+		double scaleX=(double)WIDTH/Block.WIDTH;
+		double scaleY=(double)HEIGHT/Block.HEIGHT;
+		g.translate(
+			(container.getPosition().getX()-1)*WIDTH+20,
+			(container.getPosition().getY()-1)*HEIGHT+40);
 		BlockDrawer drawer=container.getBlock().getBlockDrawer();
-		g.scale(0.95, 0.95);
+		g.scale(0.95*scaleX, 0.95*scaleY);
 		if(container.getPlayField().isBlockMode())
 		{
 			g.translate(20, 15);
