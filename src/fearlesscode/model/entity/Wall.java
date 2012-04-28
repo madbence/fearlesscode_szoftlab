@@ -156,6 +156,10 @@ public class Wall extends Entity
 
 	public EntityDrawer getEntityDrawer()
 	{
-		return new WallDrawer(this);
+		if(drawer == null)
+		{
+			drawer=new WallDrawer(this);
+		}
+		return drawer;
 	}
 }

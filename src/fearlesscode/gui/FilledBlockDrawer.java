@@ -29,12 +29,12 @@ public class FilledBlockDrawer extends BlockDrawer
 		g.clipRect(0,0,(int)Block.WIDTH,(int)Block.HEIGHT);
 		for(EntityContainer entity:block.getEntities())
 		{
-			EntityContainerDrawer drawer=new EntityContainerDrawer(entity);
+			EntityContainerDrawer drawer=entity.getContainerDrawer();
 			drawer.draw(g);
 		}
 		for(PlayerContainer player:block.getPlayers())
 		{
-			PlayerContainerDrawer drawer=new PlayerContainerDrawer(player);
+			PlayerContainerDrawer drawer=player.getContainerDrawer();
 			drawer.draw(g);
 		}
 		g.setClip(null);

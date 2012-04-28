@@ -16,6 +16,11 @@ import fearlesscode.gui.*;
 public class FilledBlock extends Block
 {
 	/**
+	 * A blokk kirajzolója.
+	 */
+	private BlockDrawer drawer;
+
+	/**
 	 * A FilledBlock konstruktora.
 	 * @param p A tartalmazó PlayField referenciája.
 	 */
@@ -290,6 +295,10 @@ public class FilledBlock extends Block
 
 	public BlockDrawer getBlockDrawer()
 	{
-		return new FilledBlockDrawer(this);
+		if(drawer == null)
+		{
+			drawer=new FilledBlockDrawer(this);
+		}
+		return drawer;
 	}
 }

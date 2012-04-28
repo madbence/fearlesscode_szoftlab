@@ -90,6 +90,10 @@ public class Door extends Entity
 
 	public EntityDrawer getEntityDrawer()
 	{
-		return new DoorDrawer(this);
+		if(drawer == null)
+		{
+			drawer=new DoorDrawer(this);
+		}
+		return drawer;
 	}
 }

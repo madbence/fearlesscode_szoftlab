@@ -33,7 +33,7 @@ public class PlayFieldDrawer implements Drawer
 		g.drawString("Memory usage: "+((double)mem/1000000)+" MB", 50, 38);
 		for(BlockContainer bc:playField.getBlocks())
 		{
-			BlockContainerDrawer drawer=new BlockContainerDrawer(bc);
+			BlockContainerDrawer drawer=bc.getContainerDrawer();
 			if(drawer != null)
 			{
 				drawer.draw(g);

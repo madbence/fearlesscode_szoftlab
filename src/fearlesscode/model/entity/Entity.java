@@ -41,6 +41,11 @@ public abstract class Entity implements Info, Collideable
 	protected EntityContainer container;
 
 	/**
+	 * Az entitás kirajzolója.
+	 */
+	protected EntityDrawer drawer;
+
+	/**
 	 * Entity konstruktor
 	 * @param playField A tartalmazó playField referenciája.
 	 */

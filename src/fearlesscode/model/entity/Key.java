@@ -87,7 +87,11 @@ public class Key extends Entity
 
 	public EntityDrawer getEntityDrawer()
 	{
-		return new KeyDrawer(this);
+		if(drawer == null)
+		{
+			drawer=new KeyDrawer(this);
+		}
+		return drawer;
 	}
 
 	public boolean isObtained()

@@ -2,6 +2,7 @@ package fearlesscode.model.container;
 
 import fearlesscode.model.misc.*;
 import fearlesscode.model.player.*;
+import fearlesscode.gui.*;
 
 /**
  * A Playert és a Player pozicióját tároló segédosztály.
@@ -19,6 +20,11 @@ public class PlayerContainer
 	 * A tárolt pozíció referenciája (a játékos pozíciója).
 	 */
 	private EntityPosition position;
+
+	/**
+	 * A konténer kirajzolója.
+	 */
+	private PlayerContainerDrawer drawer;
 
 	/**
 	 * A PlayerContainer konstruktora, beállítja a Player referenciáját,
@@ -57,5 +63,18 @@ public class PlayerContainer
 	public void setPosition(EntityPosition pos)
 	{
 		position=pos;
+	}
+
+	/**
+	 * Visszaadja a konténer rajzolóját (vagy létrehoz egyet, ha még nincs).
+	 * @return A konténer rajzolója.
+	 */
+	public PlayerContainerDrawer getContainerDrawer()
+	{
+		if(drawer == null)
+		{
+			drawer=new PlayerContainerDrawer(this);
+		}
+		return drawer;
 	}
 }

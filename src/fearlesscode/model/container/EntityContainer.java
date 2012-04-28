@@ -3,6 +3,7 @@ package fearlesscode.model.container;
 import fearlesscode.model.misc.*;
 import fearlesscode.model.entity.*;
 import fearlesscode.model.block.*;
+import fearlesscode.gui.*;
 
 /**
  * Az Entity-t és az Entity pozicióját tároló segédosztály.
@@ -25,6 +26,11 @@ public class EntityContainer
 	 * A konténer ezen az objektumon belül van.
 	 */
 	private Block block;
+
+	/**
+	 * A konténer kirajzolója.
+	 */
+	private EntityContainerDrawer drawer;
 
 	/**
 	 * Az EntityContainer konstruktora, beállítja az Entity referenciáját,
@@ -76,5 +82,18 @@ public class EntityContainer
 	public void setBlock(Block block)
 	{
 		this.block=block;
+	}
+
+	/**
+	 * Visszaadja a konténer rajzolóját (vagy létrehoz egyet, ha még nincs).
+	 * @return A konténer rajzolója.
+	 */
+	public EntityContainerDrawer getContainerDrawer()
+	{
+		if(drawer == null)
+		{
+			drawer=new EntityContainerDrawer(this);
+		}
+		return drawer;
 	}
 }
