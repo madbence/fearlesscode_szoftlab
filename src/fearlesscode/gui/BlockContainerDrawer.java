@@ -31,7 +31,7 @@ public class BlockContainerDrawer implements Drawer
 	public void draw(Graphics2D g)
 	{
 		AffineTransform t=g.getTransform();
-		g.translate((container.getPosition().getX()-1)*Block.WIDTH, (container.getPosition().getY()-1)*Block.HEIGHT);
+		g.translate((container.getPosition().getX()-1)*Block.WIDTH+20, (container.getPosition().getY()-1)*Block.HEIGHT+40);
 		BlockDrawer drawer=container.getBlock().getBlockDrawer();
 		g.scale(0.95, 0.95);
 		if(container.getPlayField().isBlockMode())

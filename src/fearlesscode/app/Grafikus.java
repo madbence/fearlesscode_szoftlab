@@ -142,7 +142,7 @@ public class Grafikus
 	 */
 	public void play(int n) throws Exception
 	{
-		PlayField playField=PlayFieldBuilder.createPlayField(game, "maps/level"+level+".json");
+		PlayField playField=PlayFieldBuilder.createPlayField(game, "maps/original/level"+level+".json");
 		game.start(playField);
 		gameFrame.clearKeyListeners();
 		InputDispatcher dispatcher=createInputDispatcher();
@@ -166,7 +166,7 @@ public class Grafikus
 				gameFrame.repaint();
 			}
 		},0,(long)(1000/30));
-		resize((int)Block.WIDTH*playField.getWidth(), (int)Block.HEIGHT*playField.getHeight());
+		resize((int)Block.WIDTH*playField.getWidth()+30, (int)Block.HEIGHT*playField.getHeight()+50);
 	}
 
 	/**
