@@ -49,7 +49,7 @@ public class Wall extends Entity
 	 */
 	public void meetPlayer(PlayerContainer player)
 	{
-		Logger.log(this, "collided with "+player.getPlayer().getName());
+		//Logger.log(this, "collided with "+player.getPlayer().getName());
 
 		EntityPosition w=container.getPosition();
 		EntityPosition p=player.getPosition();
