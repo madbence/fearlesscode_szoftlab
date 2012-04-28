@@ -191,7 +191,7 @@
 						"y": 105
 					},
 					"width": 80,
-					"height": 15
+					"height": 20
 				},
 				{
 					"type": "Wall",
@@ -201,7 +201,7 @@
 						"y": 90
 					},
 					"width": 40,
-					"height": 15
+					"height": 20
 				},
 				{
 					"type": "Wall",
@@ -211,7 +211,7 @@
 						"y": 75
 					},
 					"width": 20,
-					"height": 15
+					"height": 20
 				},
 				{
 					"type": "Door",
