@@ -14,10 +14,18 @@ import fearlesscode.model.misc.*;
  */
 public class Key extends Entity
 {
+
+	/**
+	 * A kulcs szélessége.
+	 */
 	public static final double WIDTH=10;
+	
+	/**
+	 * A kulcs magassága.
+	 */
 	public static final double HEIGHT=20;
 	/**
-	 * A kulcs állapotát leíró boolean. Ha true akkor a kulcs már fel lett véve. Ha false akkor még nem lett felvéve.
+	 * A kulcs állapotát leíró boolean. Ha true akkor, a kulcs már fel lett véve. Ha false, akkor még nem lett felvéve.
 	 */
 	private boolean isObtained;
 
@@ -85,6 +93,10 @@ public class Key extends Entity
 		return new Rectangle(WIDTH, HEIGHT);
 	}
 
+	/**
+	 * Visszaad egy kulcsot kirajzoló objektumot, melynek előbb átadja önmagát paraméterként.
+	 * @return Kulcsot kirajzoló objektum.
+	 */
 	public EntityDrawer getEntityDrawer()
 	{
 		if(drawer == null)
@@ -94,6 +106,10 @@ public class Key extends Entity
 		return drawer;
 	}
 
+	/**
+	 * A kulcs állapotát lekérdező (getter)metódus.
+	 * @return A kulcs állapotát leíró boolean. Ha true, akkor a kulcs már fel lett véve. Ha false, akkor még nem lett felvéve.
+	 */
 	public boolean isObtained()
 	{
 		return isObtained;

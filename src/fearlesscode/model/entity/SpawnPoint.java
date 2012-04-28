@@ -59,6 +59,9 @@ public class SpawnPoint extends Entity
 		return new Rectangle(0, 0);
 	}
 
+	/**
+	 * Származtatás miatt kötelezően megvalósítandó metódus. A SpawnPoint grafikusan nem jelenik meg a képernyőn, ezért null-al tér vissza.
+	 */
 	public EntityDrawer getEntityDrawer()
 	{
 		return null;

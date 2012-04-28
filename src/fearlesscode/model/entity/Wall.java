@@ -40,12 +40,12 @@ public class Wall extends Entity
 	}
 
 	/**
-	 * A fal játékossal való találkozás eseménykezelője.
+	 * A fal játékossal való találkozásának eseménykezelője.
 	 *
 	 * Ha a játékos és a fal találkozási felülete függőleges, úgy az X irányú mozgás
 	 * szűnik meg a játékos részéről, ha vízszintes, akkor pedig a függőleges (Y).
 	 *
-	 * @ param player A játékos, akivel a fal interakcióba került
+	 * @ param player A játékos, akivel a fal interakcióba került.
 	 */
 	public void meetPlayer(PlayerContainer player)
 	{
@@ -154,6 +154,10 @@ public class Wall extends Entity
 		matcher.setHeight(y);
 	}
 
+	/**
+	 * Visszaad egy falat kirajzoló objektumot, melynek előbb átadja önmagát paraméterként.
+	 * @return Falat kirajzoló objektum.
+	 */	
 	public EntityDrawer getEntityDrawer()
 	{
 		if(drawer == null)

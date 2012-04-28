@@ -17,8 +17,17 @@ import fearlesscode.model.misc.*;
  */
 public class Door extends Entity
 {
+
+	/**
+	 * Az ajtó szélessége.
+	 */
 	public static final double WIDTH=10;
+	
+	/**
+	 * Az ajtó magassága.
+	 */
 	public static final double HEIGHT=20;
+	
 	/**
 	 * Az ajtó kinyitásához szükséges kulcsok száma.
 	 */
@@ -88,6 +97,10 @@ public class Door extends Entity
 		return new Rectangle(WIDTH, HEIGHT);
 	}
 
+	/**
+	 * Visszaad egy ajtót kirajzoló objektumot, melynek előbb átadja önmagát paraméterként.
+	 * @return Ajtót kirajzoló objektum.
+	 */
 	public EntityDrawer getEntityDrawer()
 	{
 		if(drawer == null)
