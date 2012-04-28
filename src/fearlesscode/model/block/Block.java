@@ -201,6 +201,7 @@ public abstract class Block implements BlockInfo
 	 */
 	public void addPlayer(Player player, EntityPosition position)
 	{
+		removePlayer(player);
 		players.add(new PlayerContainer(player,position));
 	}
 
@@ -221,6 +222,7 @@ public abstract class Block implements BlockInfo
 		}
 		if(delete != null)
 		{
+			Logger.log(player.getName()+" deleted from "+getName()+"("+players.size()+")");
 			players.remove(delete);
 		}
 	}
