@@ -69,7 +69,9 @@ public class FilledBlock extends Block
 			if(nextPosition.getX()<=0 && currentPosition.getX()>0)
 			{
 				dir=3;
-				entryPosition=new EntityPosition(Block.WIDTH, currentPosition.getY()+player.getPlayer().getSpeed().getY());
+				entryPosition=new EntityPosition(
+					Block.WIDTH+player.getPlayer().getSpeed().getX(),
+					currentPosition.getY()+player.getPlayer().getSpeed().getY());
 			}
 			/**
 			 * Ha a játékos JOBB oldalvonala átlépte a blokk JOBB oldalvonalát, akkor kilépett 1-es irányban.
@@ -77,7 +79,9 @@ public class FilledBlock extends Block
 			else if(nextPosition.getX()+Player.WIDTH >= Block.WIDTH && currentPosition.getX()+Player.WIDTH < Block.WIDTH)
 			{
 				dir=1;
-				entryPosition=new EntityPosition(-Player.WIDTH, currentPosition.getY()+player.getPlayer().getSpeed().getY());
+				entryPosition=new EntityPosition(
+					-Player.WIDTH+player.getPlayer().getSpeed().getX(),
+					currentPosition.getY()+player.getPlayer().getSpeed().getY());
 			}
 			/**
 			 * Ha a játékos FELSŐ oldalvonala elhagyta a blokk FELSŐ oldalvonalát, akkor kilépett 0-ás irányban.
@@ -85,7 +89,9 @@ public class FilledBlock extends Block
 			else if(nextPosition.getY()<=0 && currentPosition.getY()>0)
 			{
 				dir=0;
-				entryPosition=new EntityPosition(currentPosition.getX()+player.getPlayer().getSpeed().getX(), Block.HEIGHT);
+				entryPosition=new EntityPosition(
+					currentPosition.getX()+player.getPlayer().getSpeed().getX(),
+					Block.HEIGHT+player.getPlayer().getSpeed().getY());
 			}
 			/**
 			 * Ha a játékos ALSÓ oldalvonala elhagyta a blokk ALSÓ oldalvonalát, 2-es irányban lépett ki.
@@ -93,7 +99,9 @@ public class FilledBlock extends Block
 			else if(nextPosition.getY()+Player.HEIGHT >= Block.HEIGHT && currentPosition.getY()+Player.HEIGHT < Block.HEIGHT)
 			{
 				dir=2;
-				entryPosition=new EntityPosition(currentPosition.getX()+player.getPlayer().getSpeed().getX(), -Player.HEIGHT);
+				entryPosition=new EntityPosition(
+					currentPosition.getX()+player.getPlayer().getSpeed().getX(),
+					-Player.HEIGHT+player.getPlayer().getSpeed().getY());
 			}
 
 			/**
