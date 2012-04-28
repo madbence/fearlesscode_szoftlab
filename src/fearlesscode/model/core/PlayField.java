@@ -215,6 +215,7 @@ public class PlayField
 		ArrayList<Block> active=new ArrayList<Block>();
 		for(PlayerSpawnPoint player:players)
 		{
+			player.getPlayer().setProcessed(false);
 			player.getPlayer().move(new Speed(0, GRAVITY));
 			for(Block block:player.getPlayer().getActiveBlocks())
 			{
