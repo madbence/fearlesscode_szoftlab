@@ -11,6 +11,13 @@ public class GameFrame extends Frame
 	public GameFrame()
 	{
 		super();
+		addWindowListener(new WindowAdapter()
+		{
+			public void windowClosing(WindowEvent e)
+			{
+				System.exit(0);
+			}
+		});
 		setResizable(false);
 	}
 
