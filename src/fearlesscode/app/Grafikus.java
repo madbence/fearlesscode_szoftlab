@@ -25,7 +25,7 @@ public class Grafikus
 		Grafikus app=Grafikus.getInstance();
 		//try{app.play(1);}catch(Exception e){}
 		app.loadMainMenu();
-		if(args[0] != null)
+		if(args.length > 0)
 		{
 			app.level=Integer.parseInt(args[0]);
 		}
