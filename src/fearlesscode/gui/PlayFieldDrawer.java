@@ -28,7 +28,9 @@ public class PlayFieldDrawer implements Drawer
 	 */
 	public void draw(Graphics2D g)
 	{
-		g.drawString(String.valueOf(playField.getTick()), 10, 50);
+		g.drawString(String.valueOf(playField.getTick()), 10, 38);
+		long mem=Runtime.getRuntime().totalMemory()-Runtime.getRuntime().freeMemory();
+		g.drawString("Memory usage: "+((double)mem/1000000)+" MB", 50, 38);
 		for(BlockContainer bc:playField.getBlocks())
 		{
 			BlockContainerDrawer drawer=new BlockContainerDrawer(bc);
