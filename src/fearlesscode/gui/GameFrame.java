@@ -1,6 +1,7 @@
 package fearlesscode.gui;
 
 import fearlesscode.model.core.*;
+import fearlesscode.app.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
@@ -15,7 +16,7 @@ public class GameFrame extends Frame
 		{
 			public void windowClosing(WindowEvent e)
 			{
-				System.exit(0);
+				Grafikus.getInstance().exit();
 			}
 		});
 		setResizable(false);

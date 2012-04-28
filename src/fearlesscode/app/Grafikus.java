@@ -49,7 +49,12 @@ public class Grafikus
 	/**
 	 * Az aktuális pálya száma.
 	 */
-	public int level;
+	private int level;
+
+	/**
+	 * A játék mentését végző objektum.
+	 */
+	private GameSaver gameSaver;
 
 	/**
 	 * A Grafikus példányának tárolására (sigleton pattern).
@@ -72,6 +77,8 @@ public class Grafikus
 	{
 		game=new Game();
 		gameFrame=new GameFrame();
+		gameSaver=new GameSaver();
+		level=gameSaver.getLevel();
 	}
 
 	/**
@@ -142,7 +149,8 @@ public class Grafikus
 	 */
 	public void play(int n) throws Exception
 	{
-		PlayField playField=PlayFieldBuilder.createPlayField(game, "maps/original/level"+level+".json");
+		PlayField playField=PlayFieldBuilder.createPlayField(game, "maps/original/level"+n+".json");
+		level=n;
 		game.start(playField);
 		gameFrame.clearKeyListeners();
 		InputDispatcher dispatcher=createInputDispatcher();
@@ -176,7 +184,7 @@ public class Grafikus
 	{
 		try
 		{
-			play(++level);
+			play(level+1);
 		}
 		catch(Exception e)
 		{
@@ -254,5 +262,11 @@ public class Grafikus
 	public void endGame()
 	{
 		
+	}
+
+	public void exit()
+	{
+		gameSaver.setLevel(level);
+		System.exit(0);
 	}
 }
