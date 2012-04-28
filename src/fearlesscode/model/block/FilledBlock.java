@@ -63,6 +63,10 @@ public class FilledBlock extends Block
 			 */
 			int dir=-1;
 
+			int speedScale=1;
+
+			boolean protect=false;
+
 			/**
 			 * Ha a játékos BAL oldalvonala elhagyta a blokk BAL oldalvonalát, kilépett a blokkból (3as irányban).
 			 */
@@ -70,8 +74,8 @@ public class FilledBlock extends Block
 			{
 				dir=3;
 				entryPosition=new EntityPosition(
-					Block.WIDTH+player.getPlayer().getSpeed().getX(),
-					currentPosition.getY()+player.getPlayer().getSpeed().getY());
+					Block.WIDTH+player.getPlayer().getSpeed().getX()*speedScale,
+					currentPosition.getY()+player.getPlayer().getSpeed().getY()*speedScale);
 			}
 			/**
 			 * Ha a játékos JOBB oldalvonala átlépte a blokk JOBB oldalvonalát, akkor kilépett 1-es irányban.
@@ -80,8 +84,8 @@ public class FilledBlock extends Block
 			{
 				dir=1;
 				entryPosition=new EntityPosition(
-					-Player.WIDTH+player.getPlayer().getSpeed().getX(),
-					currentPosition.getY()+player.getPlayer().getSpeed().getY());
+					-Player.WIDTH+player.getPlayer().getSpeed().getX()*speedScale,
+					currentPosition.getY()+player.getPlayer().getSpeed().getY()*speedScale);
 			}
 			/**
 			 * Ha a játékos FELSŐ oldalvonala elhagyta a blokk FELSŐ oldalvonalát, akkor kilépett 0-ás irányban.
@@ -90,8 +94,8 @@ public class FilledBlock extends Block
 			{
 				dir=0;
 				entryPosition=new EntityPosition(
-					currentPosition.getX()+player.getPlayer().getSpeed().getX(),
-					Block.HEIGHT+player.getPlayer().getSpeed().getY());
+					currentPosition.getX()+player.getPlayer().getSpeed().getX()*speedScale,
+					Block.HEIGHT+player.getPlayer().getSpeed().getY()*speedScale);
 			}
 			/**
 			 * Ha a játékos ALSÓ oldalvonala elhagyta a blokk ALSÓ oldalvonalát, 2-es irányban lépett ki.
@@ -100,8 +104,8 @@ public class FilledBlock extends Block
 			{
 				dir=2;
 				entryPosition=new EntityPosition(
-					currentPosition.getX()+player.getPlayer().getSpeed().getX(),
-					-Player.HEIGHT+player.getPlayer().getSpeed().getY());
+					currentPosition.getX()+player.getPlayer().getSpeed().getX()*speedScale,
+					-Player.HEIGHT+player.getPlayer().getSpeed().getY()*speedScale);
 			}
 
 			/**
@@ -124,6 +128,7 @@ public class FilledBlock extends Block
 					 * Akkor a játékos belép a blokkba a megadott pozíción.
 					 */
 					player.getPlayer().enterBlock(neighbour, entryPosition);
+					protect=true;
 				}
 				/**
 				 * Ha nincs szomszéd, vagy nem illeszkedik, viszont LEFELÉ hagytuk el a blokkot, akkor reset.
@@ -174,7 +179,19 @@ public class FilledBlock extends Block
 				/**
 				 * Egyébként minden normális, a játékos a következő pozícióra mozoghat.
 				 */
-				player.setPosition(player.getPlayer().getNextPosition(currentPosition));
+				if(protect)
+				{
+					player.setPosition(player.getPlayer().getNextPosition(currentPosition));
+					player.getPlayer().setProcessed(true);
+				}
+				else if(!player.getPlayer().isProcessed())
+				{
+					player.setPosition(player.getPlayer().getNextPosition(currentPosition));
+				}
+				else
+				{
+					player.getPlayer().setProcessed(false);
+				}
 			}
 		}
 		/**
