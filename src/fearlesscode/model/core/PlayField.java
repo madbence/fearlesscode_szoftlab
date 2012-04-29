@@ -20,7 +20,7 @@ import fearlesscode.model.exception.*;
 public class PlayField
 {
 	/**
-	 * Az EmptyBlock helye a Blockokat tároló listában.
+	 * Az üres blokk helye a Blockokat tároló listában.
 	 */
 	private int emptyBlockIndex;
 	/**
@@ -409,15 +409,15 @@ public class PlayField
 	}
 	
 	/**
-	 * Beállítja az üresblokk indexszámát.
+	 * Beállítja az üres blokk indexszámát.
 	 */
 	public void setEmptyBlockIndex(int index)
 	{
 		this.emptyBlockIndex=index;
 	}
 	/**
-	 * Visszaadja az üresblokk indexszámát.
-	 * @return Az üresblokk indexszáma.
+	 * Visszaadja az üres blokk indexszámát.
+	 * @return Az üres blokk indexszáma.
 	 */	
 	public int getEmptyBlockIndex()
 	{
