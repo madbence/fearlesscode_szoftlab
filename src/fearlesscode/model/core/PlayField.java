@@ -48,10 +48,20 @@ public class PlayField
 	 */
 	private ArrayList<BlockContainer> blocks;
 
+	/**
+	 * A PlayField szélessége.
+	 */
 	private int width;
 
+	/**
+	 * A PlayField magassága.
+	 */
 	private int height;
 
+	/**
+	 * Nyilvántartja, hogy a játék kezdete óta hály "üteme" volt a játéknak,
+	 * azaz hányszor futott le a játék eseméykezelője.
+	 */
 	private long tick;
 
 	/**
@@ -354,31 +364,61 @@ public class PlayField
 		return blockMode;
 	}
 
+	
+	/**
+	 * Beállítja a PlayField szélességét(setter).
+	 */
 	public void setWidth(int x)
 	{
 		width=x;
 	}
+	
+	/**
+	 * Visszaadja a PlayField szélességét.
+	 * @return A PlayField szélessége.
+	 */
 	public int getWidth()
 	{
 		return width;
 	}
+	
+	/**
+	 * Beállítja a PlayField magasságát(setter).
+	 */
 	public void setHeight(int y)
 	{
 		height=y;
 	}
+	
+	/**
+	 * Visszaadja a PlayField magasságát.
+	 * @return A PlayField magassága.
+	 */
 	public int getHeight()
 	{
 		return height;
 	}
+	
+	/**
+	 * Visszaadja a PlayField eseménykezelő-lefutásának a számát.
+	 * @return A PlayField eseménykezelő-lefutásának a száma.
+	 */
 	public long getTick()
 	{
 		return tick;
 	}
+	
+	/**
+	 * Beállítja az üresblokk indexszámát.
+	 */
 	public void setEmptyBlockIndex(int index)
 	{
 		this.emptyBlockIndex=index;
 	}
-	
+	/**
+	 * Visszaadja az üresblokk indexszámát.
+	 * @return Az üresblokk indexszáma.
+	 */	
 	public int getEmptyBlockIndex()
 	{
 		return this.emptyBlockIndex;
