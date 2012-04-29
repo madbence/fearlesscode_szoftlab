@@ -37,18 +37,22 @@ public class Menu
 		items.add(item);
 	}
 
-	/*/**
-	 * Elvesz egy
-	//public void removeItem(MenuItem item)
+	/**
+	 * Töröl egy menüpontot.
+	 * @param item A törlendő menüpont.
+	 */	
+	public void removeItem(MenuItem item)
 	{
 		items.remove(item);
-	}*/
+	}
 
-	/*
-	//public void clear()
+	/**
+	 * Törli az összes tárolt menüpontot.
+	 */
+	public void clear()
 	{
 		items.clear();
-	}*/
+	}
 
 	/**
 	 * Visszaadja a menüben tárolt menüpontokat.
