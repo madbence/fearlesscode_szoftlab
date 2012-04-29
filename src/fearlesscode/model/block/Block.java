@@ -236,6 +236,10 @@ public abstract class Block implements BlockInfo
 		return players;
 	}
 
+	/**
+	 * Visszaadja a PlayField referenciát.
+	 * @return A PlayField referencia.
+	 */
 	public PlayField getPlayField()
 	{
 		return playField;
@@ -249,5 +253,8 @@ public abstract class Block implements BlockInfo
 	 */
 	public abstract boolean matches(Block other, int dir, boolean callback);
 
+	/**
+	 * Absztrakt metódus, ami visszaad egy blokkot kirajzoló objektumot.
+	 */	
 	public abstract BlockDrawer getBlockDrawer();
 }

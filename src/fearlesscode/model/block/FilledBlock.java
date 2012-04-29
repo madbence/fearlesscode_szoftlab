@@ -63,8 +63,14 @@ public class FilledBlock extends Block
 			 */
 			int dir=-1;
 
+			/**
+			 * Blokk-elhagyás sebességét lehet vele korrigálni.
+			 */
 			int speedScale=1;
 
+			/**
+			 * Segédváltozó, mely nyilvántartja, hogy a pálcikaember átlépett-e egy másik blokkba.
+			 */
 			boolean protect=false;
 
 			/**
@@ -318,6 +324,10 @@ public class FilledBlock extends Block
 		return false;
 	}
 
+	/**
+	 * Visszaad egy blokkot kirajzoló objektumot, melynek előbb átadja önmagát paraméterként.
+	 * @return Blokkot kirajzoló objektum.
+	 */	
 	public BlockDrawer getBlockDrawer()
 	{
 		if(drawer == null)

@@ -86,6 +86,9 @@ public class EmptyBlock extends Block
 		return false;
 	}
 
+	/**
+	 * Származtatás miatt kötelezően megvalósítandó metódus. Az EmptyBlock nem rajzol ki semmit a képernyőre, ezért null-al tér vissza.
+	 */
 	public BlockDrawer getBlockDrawer()
 	{
 		return null;
