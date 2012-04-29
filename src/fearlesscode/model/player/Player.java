@@ -44,6 +44,9 @@ public class Player implements Info, Collideable
 	 */
 	private int ID;
 
+	/**
+	 * Megadja, hogy a pálcikaember mozgatása megtötént-e(egy adott tick alatt).
+	 */
 	private boolean processed;
 
 	/**
@@ -59,10 +62,21 @@ public class Player implements Info, Collideable
 		speed = new Speed(0, 0);
 	}
 
+	/**
+	 * Beállítja, hogy megtörtént-e a játékos mozgatása egy játékütem alatt.
+	 *
+	 * @param bool true esetén volt mozgatás, false estén pedig nem.
+	 */
 	public void setProcessed(boolean bool)
 	{
 		processed=bool;
 	}
+	
+	/**
+	 * Lekérdezhető, hogy volt-e mozgatás(getter metódus).
+	 *
+	 * @return boolean: megtörtént-e a mozgatás.
+	 */
 	public boolean isProcessed()
 	{
 		return processed;
@@ -112,6 +126,7 @@ public class Player implements Info, Collideable
 	 * A Block-ba történő beléptetést végző metódus.
 	 *
 	 * @param block Referencia, hogy melyik Block-ba történik a belépés.
+	 * @param pos Az a pozíció, melyre a játékos kerül a blokkban.
 	 */
 	public void enterBlock(Block block, EntityPosition pos)
 	{
@@ -211,6 +226,10 @@ public class Player implements Info, Collideable
 		return new EntityPosition(current.getX()+speed.getX(), current.getY()+speed.getY());
 	}
 
+	/**
+	 * Visszaad egy pálcikaembert kirajzoló objektumot, melynek előbb átadja önmagát paraméterként.
+	 * @return Pálcikaembert kirajzoló objektum.
+	 */	
 	public PlayerDrawer getPlayerDrawer()
 	{
 		return new PlayerDrawer(this);
