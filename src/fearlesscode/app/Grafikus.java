@@ -266,6 +266,9 @@ public class Grafikus
 		
 	}
 
+	/**
+	 * Elmenti az aktuális szintet, majd kilép a programból.
+	 */
 	public void exit()
 	{
 		gameSaver.setLevel(level);

@@ -6,9 +6,21 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
 
+/**
+ * Frame-ből származtatott osztály(ablak), melyen a játékot megjelenítjük.
+ */
 public class GameFrame extends Frame
 {
+
+	/**
+	 * Kirajzoló objektum a natív ablaknak.
+	 */
 	private Drawer drawer;
+	
+	/**
+	 * Az osztály konstruktora. Meghívja a Frame ősosztály konstruktorát és ezután létrehoz
+	 * egy WindowAdapter-t mely a játék ablakának bezárása esetén meghívja a játék exit(kilépő) metódusát.
+	 */
 	public GameFrame()
 	{
 		super();
@@ -24,6 +36,7 @@ public class GameFrame extends Frame
 
 	/**
 	 * A natív frame ezt a rajzolót fogja használni a rendereléshez.
+	 * @param d A kirajzoló objektum.
 	 */
 	public void setDrawer(Drawer d)
 	{
@@ -66,6 +79,9 @@ public class GameFrame extends Frame
 		g.drawImage(offscreen, box.x, box.y, this);
 	}
 
+	/**
+	 * Begyűjti az összes, ehhez az objektumhoz beregisztrált KeyListenert egy listába és törli őket.
+	 */
 	public void clearKeyListeners()
 	{
 		ArrayList<KeyListener> listeners=new ArrayList<KeyListener>();
