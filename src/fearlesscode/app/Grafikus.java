@@ -73,6 +73,10 @@ public class Grafikus
 		return instance;
 	}
 
+	/**
+	 * Az osztály konstruktora. Létrehoz egy Game objektumot a játék belső működésének elindítására, egy
+	 * GameFrame objektumot a grafikai megjelenítésre és egy GameSaver-t a mentésre.
+	 */
 	protected Grafikus()
 	{
 		game=new Game();
@@ -82,12 +86,22 @@ public class Grafikus
 	}
 
 	/**
-	 * Létrehozza a játékhoz szükséges InputHandlereket (részletesen a szekvenciadiargamokon).
+	 * Létrehozza a játékhoz szükséges InputHandlereket és hozzáadja őket egy InputDispatcher-hez.
+	 * @return A létrehozott és InputHandlerekkel csatolt InputDispatcher.
 	 */
 	public InputDispatcher createInputDispatcher()
 	{
+		/**
+		 * Létrehoz egy InputHandlereket tároló objektumot.
+		 */
 		InputDispatcher dispatcher=new InputDispatcher();
-
+		
+		/**
+		 * Létrehozza a módváltás InputHandler-ét és átadja neki a szintén itt létrehozott
+		 * billentyűbeállítást(szóköz billentyű paraméterrel) és PlayFieldContoller osztályt.
+		 * A PlayFieldController hívja meg a módváltás függvényt szóközlenyomás esetén.
+		 * Ezután ezt az InputHandler-t átadja az InputDispatcher-nek.
+		 */
 		PlayFieldController pfc=new PlayFieldController(game.getPlayField());
 		PlayFieldKeyConfiguration pfkc=new PlayFieldKeyConfiguration(KeyEvent.VK_SPACE);
 		PlayFieldInputHandler pfih=new PlayFieldInputHandler();
@@ -97,6 +111,12 @@ public class Grafikus
 
 		try
 		{
+			/**
+			 * Létrehozza a pálcikaember irányítás InputHandler-ét az első játékosnak és átadja neki a szintén  
+			 * itt létrehozott billentyűbeállítást(jobbra , balra és felfele nyíl paraméterekkel) és PlayerContoller 
+			 * osztályt. A PlayerController hívja meg a mozgatás függvényeket nyilak lenyomása esetén.
+			 * Ezután ezt az InputHandler-t átadja az InputDispatcher-nek.
+			 */
 			PlayerInputHandler p1=new PlayerInputHandler();
 			p1.setController(new PlayerController(game.getPlayField().getPlayers().get(0).getPlayer(), game.getPlayField()));
 			p1.setConfig(new PlayerKeyConfiguration(KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT, KeyEvent.VK_UP));
@@ -109,6 +129,9 @@ public class Grafikus
 
 		try
 		{
+			/**
+			 * Létrehoz egy újabb PlayerInputHandler-t a második játékosnak w,a és d billenyűkkel.
+			 */
 			PlayerInputHandler p2=new PlayerInputHandler();
 			p2.setController(new PlayerController(game.getPlayField().getPlayers().get(1).getPlayer(), game.getPlayField()));
 			p2.setConfig(new PlayerKeyConfiguration(KeyEvent.VK_A, KeyEvent.VK_D, KeyEvent.VK_W));
@@ -119,6 +142,12 @@ public class Grafikus
 			Logger.debug("Map has only 1 player");
 		}
 
+		/**
+		 * Létrehozza a blokk mozgatás InputHandler-ét és átadja neki a szintén itt létrehozott
+		 * billentyűbeállítást(w,a,s és d paraméterekkel) és BlockContoller osztályt.
+		 * A BlockController hívja meg a blokkmozgató függvényeket billenytűlenyomás esetén.
+		 * Ezután ezt az InputHandler-t átadja az InputDispatcher-nek.
+		 */
 		//@TODO: az üres blokkot kéne mozgatni...
 		BlockInputHandler b1=new BlockInputHandler();
 		int emptyBlockIndex=game.getPlayField().getEmptyBlockIndex();
@@ -127,6 +156,9 @@ public class Grafikus
 		b1.setConfig(new BlockKeyConfiguration(KeyEvent.VK_W, KeyEvent.VK_D, KeyEvent.VK_S, KeyEvent.VK_A));
 		dispatcher.attach(b1);
 
+		/**
+		 * Létrehoz egy újabb BlockInputHandler-t alternatív irányításra a nyilakkal.
+		 */
 		BlockInputHandler b2=new BlockInputHandler();
 		b2.setController(new BlockController(game.getPlayField().getBlocks().get(emptyBlockIndex).getBlock(), game.getPlayField()));
 		b2.setConfig(new BlockKeyConfiguration(KeyEvent.VK_UP, KeyEvent.VK_RIGHT, KeyEvent.VK_DOWN, KeyEvent.VK_LEFT));
@@ -135,7 +167,11 @@ public class Grafikus
 		return dispatcher;
 	}
 
-	
+	/**
+	 * A gameFrame újraméretezését végző függvény.
+	 * @param x A gameFrame szélessége.
+	 * @param y A gameFrame magassága.
+	 */
 	public void resize(int x, int y)
 	{
 		gameFrame.setVisible(false);
@@ -158,6 +194,9 @@ public class Grafikus
 		gameFrame.addKeyListener(dispatcher);
 		gameFrame.setDrawer(new PlayFieldDrawer(playField));
 
+		/**
+		 * Elindítja az órát és beállítja, hogy minden ütemben hívjon tick-et, ha nincs block módban.
+		 */
 		if(clock != null)
 		{
 			clock.cancel();
@@ -195,7 +234,9 @@ public class Grafikus
 	}
 
 	/**
-	 * Betölti a főmenüt.
+	 * Létrehozza a főmenüt és hozzáadja a menüpontokat( új játék, folytatás, kilépés).
+	 * Csinál egy kirajzoló objektumot is és átadja a GameFrame-nek. Ezután beállítja
+	 * egy KeyAdapter-ben, hogy a fel-le nyilakkal lehessen navigálni és az Enter-rel kiválasztani.
 	 */
 	public void loadMainMenu()
 	{
@@ -231,6 +272,11 @@ public class Grafikus
 			}
 		});
 	}
+	
+	/**
+	 * Menü megjelenítéséhez kell. Default méretűre szabja a GameFrame-et, megállítja az órát
+	 * és törli a beregisztrált KeyListener-eket.
+	 */
 	public void showStaticScreen()
 	{
 		resize(400, 300);
