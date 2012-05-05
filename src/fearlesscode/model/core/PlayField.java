@@ -253,6 +253,10 @@ public class PlayField
 	public void toggleMode()
 	{
 		blockMode=!blockMode;
+		for(PlayerSpawnPoint player:players)
+		{
+			player.getPlayer().move(new Speed(player.getPlayer().getSpeed().getX()*(-1), 0));
+		}
 		Logger.log("Game mode has been toggled.");
 	}
 
