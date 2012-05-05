@@ -20,6 +20,16 @@ public class PlayerController
 	private PlayField playField;
 
 	/**
+	 * Balra mozgás flagje.
+	 */
+	private boolean left;
+
+	/**
+	 * Jobbra mozgás flagje.
+	 */
+	private boolean right;
+
+	/**
 	 * Létrehoz egy kontrollert a megadott játékossal és játéktérrel.
 	 * @param player Az irányítandó játékos.
 	 * @param pf A játékos játéktere.
@@ -28,6 +38,8 @@ public class PlayerController
 	{
 		this.player=player;
 		playField=pf;
+		left=false;
+		right=false;
 	}
 
 	/**
@@ -37,6 +49,7 @@ public class PlayerController
 	{
 		if(!playField.isBlockMode())
 		{
+			left=true;
 			player.move(new Speed(-1.5-player.getSpeed().getX(), 0));
 		}
 	}
@@ -48,6 +61,7 @@ public class PlayerController
 	{
 		if(!playField.isBlockMode())
 		{
+			right=true;
 			player.move(new Speed(1.5-player.getSpeed().getX(), 0));
 		}
 	}
@@ -69,11 +83,22 @@ public class PlayerController
 	/**
 	 * Megállítja a játékost (vízszintes mozgásban csak), ha játékmódban vagyunk.
 	 */
-	public void stopMove()
+	public void stopMove(boolean dir)
 	{
 		if(!playField.isBlockMode())
 		{
-			player.move(new Speed(-player.getSpeed().getX(), 0));
+			if(dir)
+			{
+				left=false;
+			}
+			else
+			{
+				right=false;
+			}
+			if(!(left || right))
+			{
+				player.move(new Speed(-player.getSpeed().getX(), 0));
+			}
 		}
 	}
 }
