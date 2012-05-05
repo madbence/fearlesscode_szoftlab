@@ -219,7 +219,7 @@ public class PlayField
 	 * Minden egyes frissítésre lefuttatja az ütközésdetektálásokat, és a mozgást.
 	 * (blokkon belüli, és kívüli).
 	 */
-	public void tick()
+	public synchronized void tick()
 	{
 		tick++;
 		ArrayList<Block> active=new ArrayList<Block>();
