@@ -50,6 +50,11 @@ public class Player implements Info, Collideable
 	private boolean processed;
 
 	/**
+	 * A pálcikaember rajzolója.
+	 */
+	private PlayerDrawer drawer;
+
+	/**
 	* A Player konstruktora.
 	* 
 	* Egy új üres listát hoz létre az activeBlockoknak.
@@ -130,6 +135,7 @@ public class Player implements Info, Collideable
 	 */
 	public void enterBlock(Block block, EntityPosition pos)
 	{
+		Logger.log(this, "entered "+block.getName()+" at ("+pos.getX()+","+pos.getY()+").");
 		if(!activeBlocks.contains(block))
 		{
 			activeBlocks.add(block);
@@ -164,6 +170,7 @@ public class Player implements Info, Collideable
 	 */
 	public void leaveBlock(Block block)
 	{
+		Logger.log(this, "left "+block.getName()+".");
 		activeBlocks.remove(block);
 		block.removePlayer(this);
 	}
@@ -232,6 +239,10 @@ public class Player implements Info, Collideable
 	 */	
 	public PlayerDrawer getPlayerDrawer()
 	{
-		return new PlayerDrawer(this);
+		if(drawer == null)
+		{
+			drawer=new PlayerDrawer(this);
+		}
+		return drawer;
 	}
 }
