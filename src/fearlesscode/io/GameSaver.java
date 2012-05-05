@@ -47,6 +47,11 @@ public class GameSaver
 	{
 		try
 		{
+			File file=new File(fileName);
+			if(!file.exists())
+			{
+				file.createNewFile();
+			}
 			BufferedWriter wr=new BufferedWriter(new FileWriter(fileName));
 			wr.write(String.valueOf(savedLevel));
 			wr.close();
@@ -72,6 +77,7 @@ public class GameSaver
 		catch(Exception e)
 		{
 			System.err.println("Load failed ("+e.getMessage()+")");
+			savedLevel=1;
 		}
 	}
 }
