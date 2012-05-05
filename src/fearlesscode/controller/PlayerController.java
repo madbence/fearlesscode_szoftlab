@@ -50,7 +50,8 @@ public class PlayerController
 		if(!playField.isBlockMode())
 		{
 			left=true;
-			player.move(new Speed(-1.5-player.getSpeed().getX(), 0));
+			//player.move(new Speed(-1.5-player.getSpeed().getX(), 0));
+			player.setForcedSpeed(new Speed(-1.5, 0));
 		}
 	}
 
@@ -62,7 +63,8 @@ public class PlayerController
 		if(!playField.isBlockMode())
 		{
 			right=true;
-			player.move(new Speed(1.5-player.getSpeed().getX(), 0));
+			//player.move(new Speed(1.5-player.getSpeed().getX(), 0));
+			player.setForcedSpeed(new Speed(1.5, 0));
 		}
 	}
 
@@ -97,6 +99,7 @@ public class PlayerController
 			}
 			if(!(left || right))
 			{
+				player.setForcedSpeed(new Speed(0,0));
 				player.move(new Speed(-player.getSpeed().getX(), 0));
 			}
 		}

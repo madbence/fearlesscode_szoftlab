@@ -227,6 +227,22 @@ public class PlayField
 		{
 			player.getPlayer().setProcessed(false);
 			player.getPlayer().move(new Speed(0, GRAVITY));
+			if(player.getPlayer().getForcedSpeed().getX()<0)
+			{
+				player.getPlayer().move(
+					new Speed(
+						-player.getPlayer().getSpeed().getX()+Math.min(
+							player.getPlayer().getForcedSpeed().getX(),
+							player.getPlayer().getSpeed().getX()),0));
+			}
+			else
+			{
+				player.getPlayer().move(
+					new Speed(
+						-player.getPlayer().getSpeed().getX()+Math.max(
+							player.getPlayer().getForcedSpeed().getX(),
+							player.getPlayer().getSpeed().getX()),0));
+			}
 			for(Block block:player.getPlayer().getActiveBlocks())
 			{
 				if(!active.contains(block))

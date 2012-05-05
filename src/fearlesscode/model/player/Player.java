@@ -24,10 +24,16 @@ public class Player implements Info, Collideable
 	 * A játékos magassága.
 	 */
 	public static final double HEIGHT=20;
+
 	/**
 	 * A játékos jelenlegi sebessége, ebből számítható a következő poziciója.
 	 */
 	private Speed speed;
+
+	/**
+	 * A játékos kényszerített sebessége (az irányító által)
+	 */
+	private Speed forcedSpeed;
 	
 	/**
 	 * A megszerzett kulcsok száma.
@@ -65,6 +71,7 @@ public class Player implements Info, Collideable
 		ID=id;
 		obtainedKeys = 0;
 		speed = new Speed(0, 0);
+		forcedSpeed = new Speed(0, 0);
 	}
 
 	/**
@@ -98,6 +105,16 @@ public class Player implements Info, Collideable
 	}
 
 	/**
+	 * A kényszerített sebesség gettere.
+	 *
+	 * @return A sebesség.
+	 */
+	public Speed getForcedSpeed()
+	{
+		return forcedSpeed;
+	}
+
+	/**
 	 * A felvett kulcsok számának növelésére szolgáló metódus.
 	 */
 	public void addKey()
@@ -125,6 +142,7 @@ public class Player implements Info, Collideable
 		}
 		activeBlocks.clear();
 		speed=new Speed(0,0);
+		forcedSpeed = new Speed(0, 0);
 	}
 
 	/**
@@ -184,6 +202,16 @@ public class Player implements Info, Collideable
 	public void move(Speed newSpeed)
 	{
 		speed=new Speed(speed.getX()+newSpeed.getX(), speed.getY()+newSpeed.getY());
+	}
+
+	/**
+	 * Beállítja a játékos kényszerített sebességét.
+	 *
+	 * @param newSpeed Az új sebesség.
+	 */
+	public void setForcedSpeed(Speed newSpeed)
+	{
+		forcedSpeed=newSpeed;
 	}
 	
 	/**
