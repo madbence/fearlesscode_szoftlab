@@ -32,7 +32,7 @@ public class KeyDrawer extends EntityDrawer
         String imgPath = "images/key_default.png";
         if(k.isObtained()){
             imgPath = "images/key_obtained.png";
-            System.out.println("Key is obtained.");
+            //System.out.println("Key is obtained.");
         }
 
         try {
