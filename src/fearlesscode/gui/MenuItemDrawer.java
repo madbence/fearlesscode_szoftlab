@@ -1,8 +1,13 @@
 package fearlesscode.gui;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+
 import fearlesscode.menu.Menu;
 import fearlesscode.menu.MenuItem;
+
+import javax.imageio.ImageIO;
 
 /**
  * Egy menüpontot rajzol ki.
@@ -30,15 +35,23 @@ public class MenuItemDrawer implements Drawer
 	 */
 	public void draw(Graphics2D g)
 	{
-		if(item.isActive())
-		{
-			g.setPaint(Color.red);
-		}
-		else
-		{
-			g.setPaint(Color.black);
-		}
-		g.drawString(item.getTitle(),0,0);
-		//g.fillRect(30, 30, 30, 30);
+        BufferedImage texture = null;
+
+        String imgPath = "images/menus/" + item.getTitle();
+
+        if(item.isActive()){
+            imgPath = imgPath + "_active.png";
+
+        } else {
+            imgPath = imgPath + ".png";
+        }
+
+        try {
+            texture = ImageIO.read(getClass().getResourceAsStream(imgPath));
+        } catch (IOException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
+
+        g.drawImage(texture, null, 0, 0);
 	}
 }

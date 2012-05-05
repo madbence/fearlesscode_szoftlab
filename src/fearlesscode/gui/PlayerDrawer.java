@@ -14,6 +14,8 @@ public class PlayerDrawer implements Drawer
 {
 
     private BufferedImage texture;
+    private static long lastMilisec = 0;
+    private static Integer frame = 0;
 
 	/**
 	 * A kirajzolandó játékos.
@@ -35,27 +37,47 @@ public class PlayerDrawer implements Drawer
 	 */
 	public void draw(Graphics2D g)
 	{
-        if(texture == null){
-            String imgPath = "images/player_white_";
-            if(player.getSpeed().getY() != 0){
-                imgPath = imgPath + "fall_";
-            }
+        String color = "white";
+        String imgPath = "images/player_";
+        
+        if(player.getID() == 1){
+            color = "red";
+        }
 
-            if(player.getSpeed().getX() > 0){
-                imgPath = imgPath + "right.png";
+        imgPath = imgPath + color + "_";
 
+        String direction = "left";
+
+        if(lastMilisec == 0){
+            lastMilisec = System.currentTimeMillis();
+        }
+
+        if((System.currentTimeMillis() - lastMilisec) > 200){
+            lastMilisec = System.currentTimeMillis();
+            frame = (frame + 1)%4;
+        }
+
+        if(player.getSpeed().getX() > 0){
+            direction = "right";
+        }
+        
+        if(player.getSpeed().getY() != 0){
+            imgPath = imgPath + "fall_" + direction + ".png";
+        } else {
+            if(player.getSpeed().getX() == 0){
+                imgPath = imgPath + direction +".png";
             } else {
-                imgPath = imgPath + "left.png";
-            }
-
-            try {
-                texture = ImageIO.read(getClass().getResourceAsStream(imgPath));
-
-            } catch (IOException e) {
-                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                imgPath = imgPath + direction + "_move_" + frame.toString() + ".png";
             }
         }
 
-        g.drawImage(texture, null, 5, 0);
+        try {
+            texture = ImageIO.read(getClass().getResourceAsStream(imgPath));
+
+        } catch (IOException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
+
+        g.drawImage(texture, null, 0, 0);
 	}
 }

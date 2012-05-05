@@ -9,7 +9,7 @@ public class PlayGameMenuItem extends MenuItem
 {
 	public PlayGameMenuItem()
 	{
-		super("Play Game");
+		super("new");
 	}
 
 	/**

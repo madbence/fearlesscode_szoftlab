@@ -9,7 +9,7 @@ public class ContinueGameMenuItem extends MenuItem
 {
 	public ContinueGameMenuItem()
 	{
-		super("Continue Game");
+		super("cont");
 	}
 
 	/**

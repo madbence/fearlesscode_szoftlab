@@ -12,7 +12,7 @@ public class ExitGameMenuItem extends MenuItem
 	 */
 	public ExitGameMenuItem()
 	{
-		super("Exit");
+		super("exit");
 	}
 
 	/**

@@ -38,6 +38,6 @@ public class DoorDrawer extends EntityDrawer
             }
         }
 
-        g.drawImage(texture, null, 0, 0);
+        g.drawImage(texture, null, -5, 0);
 	}
 }

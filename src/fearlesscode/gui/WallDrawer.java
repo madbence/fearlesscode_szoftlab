@@ -13,7 +13,7 @@ import java.io.IOException;
  */
 public class WallDrawer extends EntityDrawer
 {
-    private BufferedImage texture;
+    private static BufferedImage texture;
 	/**
 	 * Létrehoz egy rajzolót a megadott falnak.
 	 * @param subject A kirajzolandó fal.

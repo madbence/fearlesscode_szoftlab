@@ -29,8 +29,8 @@ public class FilledBlockDrawer extends BlockDrawer
 	 */
 	public void draw(Graphics2D g)
 	{
-        g.setPaint(Color.red);
-        g.drawRect(0,0,200,150);
+    //    g.setPaint(Color.red);
+    //    g.drawRect(0,0,200,150);
         g.clipRect(0,0,200,150);
         if(texture == null){
             try {
