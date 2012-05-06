@@ -307,7 +307,9 @@ public class Grafikus
 		{
 			public void keyPressed(KeyEvent e)
 			{
-				playNext();
+                if(e.getKeyCode() == KeyEvent.VK_N){
+                    playNext();
+                }
 			}
 		});
 	}
