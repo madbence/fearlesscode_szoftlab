@@ -138,11 +138,6 @@ public class PlayerDrawer implements Drawer
             lastMilisec = System.currentTimeMillis();
         }
 
-        System.out.print(player.getID());
-        System.out.println(" : ");
-        System.out.print(System.currentTimeMillis() - prevMilisec);
-        System.out.println("\n");
-
         prevMilisec = System.currentTimeMillis();
 
         if((System.currentTimeMillis() - lastMilisec) > TIME){
