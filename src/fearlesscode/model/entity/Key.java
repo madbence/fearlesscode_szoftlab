@@ -50,17 +50,12 @@ public class Key extends Entity
 	 */
 	public void meetPlayer(PlayerContainer player)
 	{
-		if( !isObtained )
+		if(!isObtained)
 		{
 			player.getPlayer().addKey();
-			Logger.log(player.getPlayer().getName()+" now has "+player.getPlayer().getObtainedKeys());
+			Logger.log(player.getPlayer().getName()+" now has "+player.getPlayer().getObtainedKeys()+" keys.");
 			playField.setSpawnPosition(player.getPlayer(), this);
 			isObtained = true;
-			Logger.log(this,"been picked up.");
-		}
-		else
-		{
-			Logger.log(this,"already been picked up.");
 		}
 	}
 	

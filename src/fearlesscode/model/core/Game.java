@@ -33,7 +33,7 @@ public class Game
 	 */
 	public void loadNextLevel()
 	{
-		Grafikus.getInstance().playNext();
+		Grafikus.getInstance().loadNextLevel();
 	}
 
 	/**

@@ -13,6 +13,8 @@ import java.io.IOException;
  */
 public class FilledBlockDrawer extends BlockDrawer
 {
+	public static final int WIDTH=200;
+	public static final int HEIGHT=150;
     private BufferedImage texture;
 	/**
 	 * Létrehoz egy új rajzolót a megadott FilledBlocknak.
@@ -30,8 +32,8 @@ public class FilledBlockDrawer extends BlockDrawer
 	public void draw(Graphics2D g)
 	{
     //    g.setPaint(Color.red);
-    //    g.drawRect(0,0,200,150);
-        g.clipRect(0,0,200,150);
+    //    g.drawRect(0,0,WIDTH,HEIGHT);
+        g.clipRect(0,0,WIDTH,HEIGHT);
         if(texture == null){
             try {
                 String imgPath = "images/block_bg.png";

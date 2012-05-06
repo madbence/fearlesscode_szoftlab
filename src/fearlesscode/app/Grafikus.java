@@ -202,7 +202,7 @@ public class Grafikus
 			clock.cancel();
 		}
 		clock=new Timer();
-		clock.scheduleAtFixedRate(new TimerTask()
+		clock.schedule(new TimerTask()
 		{
 			public void run()
 			{
@@ -301,7 +301,15 @@ public class Grafikus
 	 */
 	public void loadNextLevel()
 	{
-
+		showStaticScreen();
+		gameFrame.setDrawer(new StaticScreen("images/foo.png"));
+		gameFrame.addKeyListener(new KeyAdapter()
+		{
+			public void keyPressed(KeyEvent e)
+			{
+				playNext();
+			}
+		});
 	}
 
 	/**

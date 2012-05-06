@@ -219,7 +219,7 @@ public class PlayField
 	 * Minden egyes frissítésre lefuttatja az ütközésdetektálásokat, és a mozgást.
 	 * (blokkon belüli, és kívüli).
 	 */
-	public void tick()
+	public synchronized void tick()
 	{
 		tick++;
 		ArrayList<Block> active=new ArrayList<Block>();
@@ -227,6 +227,22 @@ public class PlayField
 		{
 			player.getPlayer().setProcessed(false);
 			player.getPlayer().move(new Speed(0, GRAVITY));
+			if(player.getPlayer().getForcedSpeed().getX()<0)
+			{
+				player.getPlayer().move(
+					new Speed(
+						-player.getPlayer().getSpeed().getX()+Math.min(
+							player.getPlayer().getForcedSpeed().getX(),
+							player.getPlayer().getSpeed().getX()),0));
+			}
+			else
+			{
+				player.getPlayer().move(
+					new Speed(
+						-player.getPlayer().getSpeed().getX()+Math.max(
+							player.getPlayer().getForcedSpeed().getX(),
+							player.getPlayer().getSpeed().getX()),0));
+			}
 			for(Block block:player.getPlayer().getActiveBlocks())
 			{
 				if(!active.contains(block))
@@ -253,6 +269,10 @@ public class PlayField
 	public void toggleMode()
 	{
 		blockMode=!blockMode;
+		for(PlayerSpawnPoint player:players)
+		{
+			player.getPlayer().move(new Speed(player.getPlayer().getSpeed().getX()*(-1), 0));
+		}
 		Logger.log("Game mode has been toggled.");
 	}
 

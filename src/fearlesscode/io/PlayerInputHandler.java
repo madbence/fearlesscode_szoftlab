@@ -81,11 +81,11 @@ public class PlayerInputHandler extends InputHandler
 	{
 		if(k == config.getLeft())
 		{
-			controller.stopMove();
+			controller.stopMove(true);
 		}
 		else if(k == config.getRight())
 		{
-			controller.stopMove();
+			controller.stopMove(false);
 		}
 	}
 }

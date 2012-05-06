@@ -12,6 +12,7 @@ import java.io.IOException;
  */
 public class PlayerDrawer implements Drawer
 {
+	public static final int TIME=200;
 
     private BufferedImage texture;
     private static long lastMilisec = 0;
@@ -52,7 +53,7 @@ public class PlayerDrawer implements Drawer
             lastMilisec = System.currentTimeMillis();
         }
 
-        if((System.currentTimeMillis() - lastMilisec) > 200){
+        if((System.currentTimeMillis() - lastMilisec) > TIME){
             lastMilisec = System.currentTimeMillis();
             frame = (frame + 1)%4;
         }

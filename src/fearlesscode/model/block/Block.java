@@ -222,7 +222,6 @@ public abstract class Block implements BlockInfo
 		}
 		if(delete != null)
 		{
-			Logger.log(player.getName()+" deleted from "+getName()+"("+players.size()+")");
 			players.remove(delete);
 		}
 	}
