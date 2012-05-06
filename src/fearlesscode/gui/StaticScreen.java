@@ -13,7 +13,7 @@ public class StaticScreen implements Drawer
 	{
 		try
 		{
-			image=ImageIO.read(getClass().getResourceAsStream(img));
+			image=ImageIO.read(getClass().getResourceAsStream("images/" + img + ".png"));
 		}
 		catch(Exception e)
 		{

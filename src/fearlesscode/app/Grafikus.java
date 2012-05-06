@@ -302,7 +302,7 @@ public class Grafikus
 	public void loadNextLevel()
 	{
 		showStaticScreen();
-		gameFrame.setDrawer(new StaticScreen("images/foo.png"));
+		gameFrame.setDrawer(new StaticScreen("level_won"));
 		gameFrame.addKeyListener(new KeyAdapter()
 		{
 			public void keyPressed(KeyEvent e)
@@ -317,7 +317,15 @@ public class Grafikus
 	 */
 	public void endGame()
 	{
-		
+        showStaticScreen();
+        gameFrame.setDrawer(new StaticScreen("game_won"));
+        gameFrame.addKeyListener(new KeyAdapter()
+        {
+            public void keyPressed(KeyEvent e)
+            {
+                loadMainMenu();
+            }
+        });
 	}
 
 	/**
