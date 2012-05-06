@@ -43,11 +43,10 @@ public class PlayFieldDrawer implements Drawer
 	                e.printStackTrace();
 	            }
 	        }
-
-	        g.drawImage(texture, null, 0, 0);
-			g.drawString(String.valueOf(playField.getTick()), 10, 38);
-			long mem=Runtime.getRuntime().totalMemory()-Runtime.getRuntime().freeMemory();
-			g.drawString("Memory usage: "+((double)mem/1000000)+" MB", 50, 38);
+			g.drawImage(texture, null, 0, 0);
+			//g.drawString(String.valueOf(playField.getTick()), 10, 38);
+			//long mem=Runtime.getRuntime().totalMemory()-Runtime.getRuntime().freeMemory();
+			//g.drawString("Memory usage: "+((double)mem/1000000)+" MB", 50, 38);
 			for(BlockContainer bc:playField.getBlocks())
 			{
 				BlockContainerDrawer drawer=bc.getContainerDrawer();

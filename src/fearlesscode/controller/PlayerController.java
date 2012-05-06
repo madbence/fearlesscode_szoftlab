@@ -87,8 +87,8 @@ public class PlayerController
 	 */
 	public void stopMove(boolean dir)
 	{
-		if(!playField.isBlockMode())
-		{
+		//if(!playField.isBlockMode())
+		//{
 			if(dir)
 			{
 				left=false;
@@ -102,6 +102,6 @@ public class PlayerController
 				player.setForcedSpeed(new Speed(0,0));
 				player.move(new Speed(-player.getSpeed().getX(), 0));
 			}
-		}
+		//}
 	}
 }
