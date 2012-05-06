@@ -81,7 +81,7 @@ public class Menu
 	 */
 	public void setActive(int n)
 	{
-		if(n<0 || n>items.size())
+		if(n<0 || n>=items.size())
 		{
 			return;
 		}

@@ -39,8 +39,6 @@ public class MenuDrawer implements Drawer
         BufferedImage texture = null;
         String imgPath = "images/menu_bg.png";
 
-        System.out.println(imgPath);
-
         try {
             texture = ImageIO.read(getClass().getResourceAsStream(imgPath));
         } catch (IOException e) {

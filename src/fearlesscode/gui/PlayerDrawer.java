@@ -14,8 +14,11 @@ public class PlayerDrawer implements Drawer
 {
 	public static final int TIME=200;
 
-    private BufferedImage texture;
+    private static BufferedImage[] white = new BufferedImage[12];
+    private static BufferedImage[] red = new BufferedImage[12];
+
     private static long lastMilisec = 0;
+    private static long prevMilisec = 0;
     private static Integer frame = 0;
 
 	/**
@@ -38,20 +41,109 @@ public class PlayerDrawer implements Drawer
 	 */
 	public void draw(Graphics2D g)
 	{
+        String prefix = "images/player_";
+        String type = ".png";
         String color = "white";
-        String imgPath = "images/player_";
-        
-        if(player.getID() == 1){
-            color = "red";
+        Integer frameNumber = 0;
+        Integer imageNumber = 0;
+
+        if(white[0] == null){
+            try {
+                white[frameNumber] = ImageIO.read(getClass().getResourceAsStream(prefix + color + "_left_move_"+ imageNumber.toString() + type));
+                frameNumber++;
+                imageNumber++;
+                white[frameNumber] = ImageIO.read(getClass().getResourceAsStream(prefix + color + "_left_move_"+ imageNumber.toString() + type));
+                frameNumber++;
+                imageNumber++;
+                white[frameNumber] = ImageIO.read(getClass().getResourceAsStream(prefix + color + "_left_move_"+ imageNumber.toString() + type));
+                frameNumber++;
+                imageNumber++;
+                white[frameNumber] = ImageIO.read(getClass().getResourceAsStream(prefix + color + "_left_move_"+ imageNumber.toString() + type));
+                frameNumber++;
+                imageNumber = 0;
+                white[frameNumber] = ImageIO.read(getClass().getResourceAsStream(prefix + color + "_right_move_"+ imageNumber.toString() + type));
+                frameNumber++;
+                imageNumber++;
+                white[frameNumber] = ImageIO.read(getClass().getResourceAsStream(prefix + color + "_right_move_"+ imageNumber.toString() + type));
+                frameNumber++;
+                imageNumber++;
+                white[frameNumber] = ImageIO.read(getClass().getResourceAsStream(prefix + color + "_right_move_"+ imageNumber.toString() + type));
+                frameNumber++;
+                imageNumber++;
+                white[frameNumber] = ImageIO.read(getClass().getResourceAsStream(prefix + color + "_right_move_"+ imageNumber.toString() + type));
+                frameNumber++;
+                white[frameNumber] = ImageIO.read(getClass().getResourceAsStream(prefix + color + "_left" + type));
+                frameNumber++;
+                white[frameNumber] = ImageIO.read(getClass().getResourceAsStream(prefix + color + "_right" + type));
+                frameNumber++;
+                white[frameNumber] = ImageIO.read(getClass().getResourceAsStream(prefix + color + "_fall_left" + type));
+                frameNumber++;
+                white[frameNumber] = ImageIO.read(getClass().getResourceAsStream(prefix + color + "_fall_right" + type));
+                frameNumber++;
+
+            } catch (IOException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            }
         }
 
-        imgPath = imgPath + color + "_";
+        frameNumber = 0;
+        imageNumber = 0;
 
-        String direction = "left";
+        if(red[0] == null){
+            color = "red";
+            try {
+                red[frameNumber] = ImageIO.read(getClass().getResourceAsStream(prefix + color + "_left_move_"+ imageNumber.toString() + type));
+                frameNumber++;
+                imageNumber++;
+                red[frameNumber] = ImageIO.read(getClass().getResourceAsStream(prefix + color + "_left_move_"+ imageNumber.toString() + type));
+                frameNumber++;
+                imageNumber++;
+                red[frameNumber] = ImageIO.read(getClass().getResourceAsStream(prefix + color + "_left_move_"+ imageNumber.toString() + type));
+                frameNumber++;
+                imageNumber++;
+                red[frameNumber] = ImageIO.read(getClass().getResourceAsStream(prefix + color + "_left_move_"+ imageNumber.toString() + type));
+                frameNumber++;
+                imageNumber = 0;
+                red[frameNumber] = ImageIO.read(getClass().getResourceAsStream(prefix + color + "_right_move_"+ imageNumber.toString() + type));
+                frameNumber++;
+                imageNumber++;
+                red[frameNumber] = ImageIO.read(getClass().getResourceAsStream(prefix + color + "_right_move_"+ imageNumber.toString() + type));
+                frameNumber++;
+                imageNumber++;
+                red[frameNumber] = ImageIO.read(getClass().getResourceAsStream(prefix + color + "_right_move_"+ imageNumber.toString() + type));
+                frameNumber++;
+                imageNumber++;
+                red[frameNumber] = ImageIO.read(getClass().getResourceAsStream(prefix + color + "_right_move_"+ imageNumber.toString() + type));
+                frameNumber++;
+                red[frameNumber] = ImageIO.read(getClass().getResourceAsStream(prefix + color + "_left" + type));
+                frameNumber++;
+                red[frameNumber] = ImageIO.read(getClass().getResourceAsStream(prefix + color + "_right" + type));
+                frameNumber++;
+                red[frameNumber] = ImageIO.read(getClass().getResourceAsStream(prefix + color + "_fall_left" + type));
+                frameNumber++;
+                // 9
+                red[frameNumber] = ImageIO.read(getClass().getResourceAsStream(prefix + color + "_fall_right" + type));
+                frameNumber++;
+
+            } catch (IOException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            }
+        }
+
+        Integer direction = 0;
+
+        BufferedImage texture;
 
         if(lastMilisec == 0){
             lastMilisec = System.currentTimeMillis();
         }
+
+        System.out.print(player.getID());
+        System.out.println(" : ");
+        System.out.print(System.currentTimeMillis() - prevMilisec);
+        System.out.println("\n");
+
+        prevMilisec = System.currentTimeMillis();
 
         if((System.currentTimeMillis() - lastMilisec) > TIME){
             lastMilisec = System.currentTimeMillis();
@@ -59,24 +151,25 @@ public class PlayerDrawer implements Drawer
         }
 
         if(player.getSpeed().getX() > 0){
-            direction = "right";
+            direction = 1;
         }
         
         if(player.getSpeed().getY() != 0){
-            imgPath = imgPath + "fall_" + direction + ".png";
+            frameNumber = 10 + direction;
+
         } else {
             if(player.getSpeed().getX() == 0){
-                imgPath = imgPath + direction +".png";
+                frameNumber = 8 + direction;
             } else {
-                imgPath = imgPath + direction + "_move_" + frame.toString() + ".png";
+                frameNumber = frame + (4*direction);
             }
         }
 
-        try {
-            texture = ImageIO.read(getClass().getResourceAsStream(imgPath));
+        if(player.getID() == 1){
+            texture = red[frameNumber];
 
-        } catch (IOException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        } else {
+            texture = white[frameNumber];
         }
 
         g.drawImage(texture, null, 0, 0);

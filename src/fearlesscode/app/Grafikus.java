@@ -202,17 +202,14 @@ public class Grafikus
 			clock.cancel();
 		}
 		clock=new Timer();
-		clock.schedule(new TimerTask()
-		{
-			public void run()
-			{
-				if(!game.getPlayField().isBlockMode())
-				{
-					game.getPlayField().tick();
-				}
-				gameFrame.repaint();
-			}
-		},0,(long)(1000/30));
+		clock.schedule(new TimerTask() {
+            public void run() {
+                if (!game.getPlayField().isBlockMode()) {
+                    game.getPlayField().tick();
+                }
+                gameFrame.repaint();
+            }
+        }, 0, (long) (1000 / 30));
 		resize(
 			BlockContainerDrawer.WIDTH*playField.getWidth()+30,
 			BlockContainerDrawer.HEIGHT*playField.getHeight()+50);
@@ -301,17 +298,22 @@ public class Grafikus
 	 */
 	public void loadNextLevel()
 	{
-		showStaticScreen();
-		gameFrame.setDrawer(new StaticScreen("level_won"));
-		gameFrame.addKeyListener(new KeyAdapter()
-		{
-			public void keyPressed(KeyEvent e)
-			{
-                if(e.getKeyCode() == KeyEvent.VK_N){
-                    playNext();
+        if (level == 7){
+            endGame();
+
+        } else {
+            showStaticScreen();
+            gameFrame.setDrawer(new StaticScreen("level_won"));
+            gameFrame.addKeyListener(new KeyAdapter()
+            {
+                public void keyPressed(KeyEvent e)
+                {
+                    if(e.getKeyCode() == KeyEvent.VK_N){
+                        playNext();
+                    }
                 }
-			}
-		});
+            });
+        }
 	}
 
 	/**
@@ -325,7 +327,19 @@ public class Grafikus
         {
             public void keyPressed(KeyEvent e)
             {
-                loadMainMenu();
+                switch (e.getKeyCode()){
+                    case KeyEvent.VK_N:
+                        try {
+                            play(0);
+                        } catch (Exception e1) {
+                            e1.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                        }
+                        break;
+
+                    case  KeyEvent.VK_M:
+                        loadMainMenu();
+                        break;
+                }
             }
         });
 	}
